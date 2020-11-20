@@ -2,12 +2,12 @@
 title: "Progressive Web App 之我见"
 excerpt: "Slides: Progressive Web App, in my points of view"
 date: "2016-06-05T12:00:00.322Z"
-coverImage: "/assets/blog/preview/cover.jpg"
+coverImage: "/assets/blog/cover/2016-06-05-pwa-in-my-pov.jpg"
 author:
   name: Hux
-  picture: "/assets/blog/authors/jj.jpeg"
+  picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "/assets/blog/preview/cover.jpg"
+  url: "/assets/blog/cover/2016-06-05-pwa-in-my-pov.jpg"
 ---
 
 

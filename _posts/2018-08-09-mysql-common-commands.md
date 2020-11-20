@@ -2,12 +2,12 @@
 title: "MySQL 常用命令"
 excerpt: "MySQL common commands"
 date: "2018-08-09T12:00:00.322Z"
-coverImage: "/assets/blog/post-bg/2018-08-11-03.jpg"
+coverImage: "/assets/blog/cover/2018-08-09-mysql-common-commands.jpg"
 author:
   name: 淡烘糕
-  picture: "/assets/blog/authors/jj.jpeg"
+  picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/post-bg/2018-08-11-03.jpg"
+  url: "/assets/blog/cover/2018-08-09-mysql-common-commands.jpg"
 ---
 
 ### 一、基础命令

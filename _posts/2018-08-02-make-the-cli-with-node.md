@@ -2,12 +2,12 @@
 title: "如何用 Node 来制作 CLI"
 excerpt: "How to make CLI with Node"
 date: "2018-08-02T12:00:00.322Z"
-coverImage: "/assets/blog/in-post/make-the-cli-with-node/make-the-cli-with-node-bg.jpg"
+coverImage: "/assets/blog/cover/2018-08-02-make-the-cli-with-node.jpg"
 author:
   name: Hux
-  picture: "/assets/blog/authors/jj.jpeg"
+  picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/in-post/make-the-cli-with-node/make-the-cli-with-node-bg.jpg"
+  url: "/assets/blog/cover/2018-08-02-make-the-cli-with-node.jpg"
 ---
 
 ### CLI 是什么
@@ -58,7 +58,7 @@ console.log('Hello CLI');
 
 在 demo-cli 目录下依次执行 npm link 、 demo ，这个时候，你会发现控制台输出了 hello CLI。
 
-![](/assets/blog/in-post/make-the-cli-with-node/make-the-cli-with-node-01.jpg)
+![](/assets/blog/make-the-cli-with-node/make-the-cli-with-node-01.jpg)
 
 > 备注：
 > * #!/usr/bin/env node 告诉操作系统用 node 来运行此文件

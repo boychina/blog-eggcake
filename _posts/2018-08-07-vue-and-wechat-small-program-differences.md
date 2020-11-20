@@ -2,12 +2,12 @@
 title: "Vue 和微信小程序的区别、比较"
 excerpt: "Vue and WeChat small program differences"
 date: "2018-08-07T12:00:00.322Z"
-coverImage: "/assets/blog/post-bg/2018-08-11-02.jpg"
+coverImage: "/assets/blog/cover/2018-08-07-vue-and-wechat-small-program-differences.jpg"
 author:
   name: 淡烘糕
-  picture: "/assets/blog/authors/jj.jpeg"
+  picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/post-bg/2018-08-11-02.jpg"
+  url: "/assets/blog/cover/2018-08-07-vue-and-wechat-small-program-differences.jpg"
 ---
 
 写了vue项目和小程序，发现二者有许多相同之处，在此总结一下二者共同点和区别。
@@ -16,11 +16,11 @@ ogImage:
 
 #### Vue 生命周期
 
-![Vue生命周期](/assets/blog/in-post/vue-and-wechat-small-program-differences/vue-life-cycle.png)
+![Vue生命周期](/assets/blog/vue-and-wechat-small-program-differences/vue-life-cycle.png)
 
 #### 小程序生命周期
 
-![小程序生命周期](/assets/blog/in-post/vue-and-wechat-small-program-differences/wechat-small-program-life-cycle.png)
+![小程序生命周期](/assets/blog/vue-and-wechat-small-program-differences/wechat-small-program-life-cycle.png)
 
 相比之下，小程序的钩子函数要简单得多。
 

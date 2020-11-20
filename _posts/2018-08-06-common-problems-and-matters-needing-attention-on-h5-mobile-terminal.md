@@ -2,12 +2,12 @@
 title: "H5移动端常见问题及注意事项"
 excerpt: "Common problems and matters needing attention on h5 mobile terminal"
 date: "2018-08-06T12:00:00.322Z"
-coverImage: "/assets/blog/post-bg/2018-08-11-01.jpg"
+coverImage: "/assets/blog/cover/2018-08-06-common-problems-and-matters-needing-attention-on-h5-mobile-terminal.jpg"
 author:
   name: 淡烘糕
-  picture: "/assets/blog/post-bg/2018-08-11-01.jpg"
+  picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/post-bg/2018-08-11-01.jpg"
+  url: "/assets/blog/cover/2018-08-06-common-problems-and-matters-needing-attention-on-h5-mobile-terminal.jpg"
 ---
 ---
 layout:     post
@@ -15,7 +15,7 @@ title:      "H5移动端常见问题及注意事项"
 subtitle:   "Common problems and matters needing attention on h5 mobile terminal"
 date:       "2018-08-06T12:00:00.322Z"
 author:     "淡烘糕"
-header-img: "/assets/blog/post-bg/2018-08-11-01.jpg"
+header-img: "/assets/blog/cover/2018-08-11-01.jpg"
 header-mask: 0.3
 catalog:    true
 tags:

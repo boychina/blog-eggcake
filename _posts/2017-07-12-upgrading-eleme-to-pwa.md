@@ -2,12 +2,12 @@
 title: "饿了么的 PWA 升级实践"
 excerpt: "Upgrading Ele.me to Progressive Web App"
 date: "2017-07-12T12:00:00.322Z"
-coverImage: "/assets/blog/in-post/post-eleme-pwa/eleme-at-io.jpg"
+coverImage: "/assets/blog/cover/2017-07-12-upgrading-eleme-to-pwa.jpg"
 author:
   name: Hux
-  picture: "/assets/blog/authors/jj.jpeg"
+  picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "/assets/blog/in-post/post-eleme-pwa/eleme-at-io.jpg"
+  url: "/assets/blog/cover/2017-07-12-upgrading-eleme-to-pwa.jpg"
 ---
 
 
@@ -40,7 +40,7 @@ ogImage:
 
 在多页应用中，每一个路由本来就只会请求这个路由所需要的资源，并且通常依赖也都比较扁平。饿了么移动站的大部分脚本依赖都是普通的 `<script>` 元素，因此他们可以在文档解析早期就被浏览器的 preloader 扫描出来并且开始请求，其效果其实与显式的 `<link rel="preload">` 是一致的。
 
-![](/assets/blog/in-post/post-eleme-pwa/PUSH-link-rel-preload.jpg)
+![](/assets/blog/post-eleme-pwa/PUSH-link-rel-preload.jpg)
 
 我们还将所有关键的静态资源都伺服在同一域名下（不再做域名散列），以更好的利用 HTTP2 带来的多路复用（Multiplexing）。同时，我们也在进行着对 API 进行 Server Push 的[实验](https://zhuanlan.zhihu.com/p/26757514)。
 
@@ -55,7 +55,7 @@ ogImage:
 
 这一部分就需要 [Service Worker][9] 的参与了，Service Worker 是一个位于浏览器与网络之间的客户端代理，它以可拦截、处理、响应流经的 HTTP 请求，使得开发者得以从缓存中向 web 应用提供资源而闻名。不过，Service Worker 其实也可以主动发起 HTTP 请求，在“后台” 预请求与预缓存我们未来所需要的资源。
 
-![](/assets/blog/in-post/post-eleme-pwa/PRECACHE-future-routes.jpg)
+![](/assets/blog/post-eleme-pwa/PRECACHE-future-routes.jpg)
 
 
 我们已经使用 [Webpack][10] 在构建过程中进行 `.vue` 编译、文件名哈希等工作，于是我们编写了一个 webpack 插件来帮助我们收集需要缓存的依赖到一个“预缓存清单”中，并使用这个清单在每次构建时生成新的 Service Worker 文件。在新的 Service Worker 被激活时，清单里的资源就会被请求与缓存，这其实与 [SW-Precache 这个库的运行机制][11]非常接近。
@@ -73,13 +73,13 @@ ogImage:
 
 这四句话即是 PRPL 的全部了。有趣的是，我们发现多页应用在实现 PRPL 这件事甚至比单页还要容易一些。那么结果如何呢？
 
-![](/assets/blog/in-post/post-eleme-pwa/Lighthouse-before.png)
+![](/assets/blog/post-eleme-pwa/Lighthouse-before.png)
 
 根据 Google 推出的 Web 性能分析工具 Lighthouse（v1.6），在模拟的 3G 网络下，用户的初次访问（无任何缓存）大约在 2 秒左右达到“可交互”，可以说非常不错。而对于再次访问，由于所有资源都直接来自于 Service Worker 缓存，页面可以在 1 秒左右就达到可交互的状态了。
 
 但是，故事并不是这么简单得就结束了。在实际的体验中我们发现，**应用在页与页的切换时，仍然存在着非常明显的白屏空隙**，由于 PWA 是全屏运行的，白屏对用户体验所带来的负面影响甚至比以往在浏览器内更大。我们不是已经用 Service Worker 缓存了所有资源了吗，怎么还会这样呢？
 
-![](/assets/blog/in-post/post-eleme-pwa/before-skeleton.jpg)
+![](/assets/blog/post-eleme-pwa/before-skeleton.jpg)
 *从首页点击到发现页，跳转过程中的白屏*
 
 
@@ -91,7 +91,7 @@ ogImage:
 
 图中为我们的入口页（同时也是最重的页面）在 2 倍 CPU 节流模拟下的 profile 数据。即使我们可以将“可交互时间”控制在 1 秒左右，我们的用户仍然会觉得这对于“仅仅切换个标签”来说实在是太慢了。
 
-![](/assets/blog/in-post/post-eleme-pwa/msite-Before-Optim.png)
+![](/assets/blog/post-eleme-pwa/msite-Before-Optim.png)
 
 ### 巨大的 JavaScript 重启开销
 
@@ -118,7 +118,7 @@ Chrome 产品经理 Owen 写过一篇 [Reactive Web Design: The secret to buildi
 
 为了消除白屏时间，我们同样引入了尺寸稳定的骨架屏来帮助我们实现瞬间的加载与占位。即使是在硬件很弱的设备上，我们也可以在点击切换标签后立刻渲染出目标路由的骨架屏，以保证 UI 是稳定、连续、有响应的。我录了[两个](https://youtu.be/K5JBGnMYO1s)[视频](https://youtu.be/w1ZbNsHmRjs)放在 Youtube 上，不过如果你是国内读者，你可以直接访问饿了么移动网站来体验实地的效果 ;) 最终效果如下图所示。
 
-![](/assets/blog/in-post/post-eleme-pwa/after-skeleton.jpg)
+![](/assets/blog/post-eleme-pwa/after-skeleton.jpg)
 *在添加骨架屏后，从发现页点回首页的效果*
 
 这效果本该很轻松的就能实现，不过实际上我们还费了点功夫。
@@ -143,7 +143,7 @@ HTML 文件中有标签并不意味着这些标签就能立刻被绘制到屏幕
 
 **而更重要的是，一个不阻塞 HTML 解析的脚本仍然可能阻塞到绘制。**我做了一个简化的**“最小多页 PWA”**（Minimal Multi-page PWA，或 MMPWA）来测试这个问题，：我们在一个 `async`（且确实不阻塞 HTML 解析）脚本中，生成并渲染 1000 个列表项，然后测试骨架屏能否在脚本执行之前渲染出来。下面是通过 USB Debugging 在我的 Nexus 5 真机上录制的 profile：
 
-![](/assets/blog/in-post/post-eleme-pwa/thisTick-&-Load.png)
+![](/assets/blog/post-eleme-pwa/thisTick-&-Load.png)
 
 
 是的，出乎意料吗？首次渲染确实被阻塞到脚本执行结束后才发生。究其原因，**如果我们在浏览器还未完成上一次绘制工作之前就过快得进行了 DOM 操作，我们亲爱的浏览器就只好抛弃所有它已经完成的像素，且一直要等待到 DOM 操作引起的所有工作结束之后才能重新进行下一次渲染。**而这种情况更容易在拥有较慢 CPU/GPU 的移动设备上出现。
@@ -153,13 +153,13 @@ HTML 文件中有标签并不意味着这些标签就能立刻被绘制到屏幕
 
 不难发现，骨架屏的绘制与脚本执行实际是一个竞态。大概是 Vue 太快了，我们的骨架屏还是有非常大的概率绘制不出来。于是我们想着如何能让脚本执行慢点，或者说，“懒”点。于是我们想到了一个经典的 Hack： `setTimeout(callback, 0)`。我们试着把 MMPWA 中的 DOM 操作（渲染 1000 个列表）放进 `setTimeout(callback, 0)` 里……
 
-![](/assets/blog/in-post/post-eleme-pwa/nextTick-&-Load.png)
+![](/assets/blog/post-eleme-pwa/nextTick-&-Load.png)
 
 当当！首次渲染瞬间就被提前了。如果你熟悉浏览器的**事件循环模型（event loop）**的话，这招 Hack 其实是通过 setTimeout 的回调把 DOM 操作放到了事件循环的任务队列中以避免它在当前循环执行，这样浏览器就得以在主线程空闲时喘息一下（更新一下渲染）了。如果你想亲手试试 MMPWA 的话，你可以访问 [github.com/Huxpro/mmpwa](https://github.com/Huxpro/mmpwa) 或 [huangxuan.me/mmpwa/](https://huangxuan.me/mmpwa) 访问代码与 Demo。我把 UI 设计为了 A/B Test 的形式并改为渲染 5000 个列表项来让效果更夸张一些。
 
 回到饿了么 PWA 上，我们同样试着把 `new Vue()` 放到了 `setTimeout` 中。果然，黑魔法再次显灵，骨架屏在每次跳转后都能立刻被渲染。这时的 Profile 看起来是这样的：
 
-![](/assets/blog/in-post/post-eleme-pwa/msite-After-Optim.png)
+![](/assets/blog/post-eleme-pwa/msite-After-Optim.png)
 
 现在，我们在 400ms 时触发首次渲染（骨架屏），在 600ms 时完成真实 UI 的渲染并达到页面的可交互。你可以拉上去详细对比下优化前后 profile 的区别。
 
@@ -172,11 +172,11 @@ HTML 文件中有标签并不意味着这些标签就能立刻被绘制到屏幕
 
 最后，是优化后的 Lighthouse 跑分结果，同样可以看到明显的性能提升。需要说明的是，能影响 Lighthouse 跑分的因素有很多，所以我建议你以控制变量（跑分用的设备、跑分时的网络环境等）的方式来进行对照实验。
 
-![](/assets/blog/in-post/post-eleme-pwa/Lighthouse-after.png)
+![](/assets/blog/post-eleme-pwa/Lighthouse-after.png)
 
 最后附上一张图，这张图当时是做给 Addy Osmani 的 I/O 演讲用的，描述了饿了么 PWA 是如何结合 Vue 来实现多页应用的 PRPL 模式，可以作为一个架构的参考与示意图。
 
-![](/assets/blog/in-post/post-eleme-pwa/Architecture.png)
+![](/assets/blog/post-eleme-pwa/Architecture.png)
 
 
 ## 一些感想

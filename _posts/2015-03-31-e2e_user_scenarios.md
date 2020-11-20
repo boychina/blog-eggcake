@@ -2,12 +2,12 @@
 title: "Definition of End to End User Scenarios"
 excerpt: "Paper wrote on my birthday"
 date: "2015-03-31T12:00:00.322Z"
-coverImage: "/assets/blog/post-bg-e2e-ux.jpg"
+coverImage: "/assets/blog/cover/2015-03-31-e2e_user_scenarios.jpg"
 author:
   name: Hux
-  picture: "/assets/blog/authors/jj.jpeg"
+  picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "/assets/blog/post-bg-e2e-ux.jpg"
+  url: "/assets/blog/cover/2015-03-31-e2e_user_scenarios.jpg"
 ---
 
 

@@ -2,12 +2,12 @@
 title: "React vs Angular 2：冰与火之歌「译"
 excerpt: "React versus Angular 2: There Will Be Blood"
 date: "2016-02-01T12:00:00.322Z"
-coverImage: "/assets/blog/post-bg-re-vs-ng2.jpg"
+coverImage: "/assets/blog/cover/2016-02-01-react-vs-angular2.jpg"
 author:
   name: Hux
-  picture: "/assets/blog/authors/jj.jpeg"
+  picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "/assets/blog/post-bg-re-vs-ng2.jpg"
+  url: "/assets/blog/cover/2016-02-01-react-vs-angular2.jpg"
 ---
 
 > 这篇文章转载自[我在知乎专栏「前端外刊评论」上发表的文章](http://zhuanlan.zhihu.com/FrontendMagazine/20549104)。
@@ -20,7 +20,7 @@ ogImage:
 
 好了，我们开始吧，这场对决将会非常血腥。
 
-![](https://cdn-images-1.medium.com/max/800/1*MRPl_SNuRGJchb6eOAnkSA.jpeg)
+![](https://cdn-images-1.medium.com/max/800/1*MRPl_SNuRGJchb6eOAnkSA.jpg)
 
 图片来源：[@jwcarrol](https://twitter.com/jwcarroll)
 

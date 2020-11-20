@@ -2,12 +2,12 @@
 title: "JavaScript this 对象查找"
 excerpt: "JavaScript this pointer"
 date: "2019-09-22T12:00:00.322Z"
-coverImage: "/assets/blog/post-bg/2018-08-11-05.jpg"
+coverImage: "/assets/blog/cover/2019-09-22-javascript-this-pointer.jpg"
 author:
   name: 淡烘糕
-  picture: "/assets/blog/authors/jj.jpeg"
+  picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/post-bg/2018-08-11-05.jpg"
+  url: "/assets/blog/cover/2019-09-22-javascript-this-pointer.jpg"
 ---
 
 this的查找是很多人迷茫的一点，也似乎有很多人抱有this不稳定这样的看法，实在令人无语。this的查找可以说是3种对象查找中最为简单的，因为其实this对象的确定根本没有一个“查找”的过程。首先，this对象只会在一个函数中需要确定，如果是在全局域下，this永远为Global对象，在浏览器中通常就是window对象。

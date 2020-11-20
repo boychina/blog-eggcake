@@ -2,12 +2,12 @@
 title: "iOS 9，为前端世界都带来了些什么？「译」"
 excerpt: "iOS 9, Safari and the Web: 3D Touch, new Responsive Web Design, Native integration and HTML5 APIs"
 date: "2015-12-15T12:00:00.322Z"
-coverImage: "/assets/blog/post-bg-ios9-web.jpg"
+coverImage: "/assets/blog/cover/2015-12-15-ios9-safari-web.jpg"
 author:
   name: Hux
-  picture: "/assets/blog/authors/jj.jpeg"
+  picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "/assets/blog/post-bg-ios9-web.jpg"
+  url: "/assets/blog/cover/2015-12-15-ios9-safari-web.jpg"
 ---
 
 

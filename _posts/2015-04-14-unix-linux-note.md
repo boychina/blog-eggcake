@@ -2,12 +2,12 @@
 title: "Unix/Linux 扫盲笔记"
 excerpt: "不适合人类阅读，非常水的自我笔记"
 date: "2015-04-14T12:00:00.322Z"
-coverImage: "/assets/blog/post-bg-unix-linux.jpg"
+coverImage: "/assets/blog/cover/2015-04-14-unix-linux-note.jpg"
 author:
   name: Hux
-  picture: "/assets/blog/authors/jj.jpeg"
+  picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "/assets/blog/post-bg-unix-linux.jpg"
+  url: "/assets/blog/cover/2015-04-14-unix-linux-note.jpg"
 ---
 
 > This document is not completed and will be updated anytime.
@@ -141,7 +141,7 @@ Anyway, there eventually comes to the **GNU/Linux**
 * [Apache License](http://en.wikipedia.org/wiki/Apache_License)
 
 
-![Public License](/assets/blog/in-post/open-source-license.png)
+![Public License](/assets/blog/open-source-license.png)
 
 #### Android
 
