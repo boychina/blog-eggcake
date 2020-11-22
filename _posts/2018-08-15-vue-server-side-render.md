@@ -45,7 +45,7 @@ server.listen(8080);
 
 上面例子虽然简单，但在实际项目中往往需要考虑路由，数据，组件化等等，所以服务端渲染不是只用给一个 vue-server-renderer npm 包就能轻松搞定的，下面给出一张 Vue 官方的服务器渲染示意图：
 
-![](https://user-gold-cdn.xitu.io/2018/3/5/161f3e369a32ba11?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![img](/assets/blog/2018-08-15-vue-server-side-render/1606011471717.jpg)
 
 流程图大致意思是：将 Source（源码）通过 webpack 打包出两个 bundle，其中一个 Server Bundle 是给服务端用的，服务端通过渲染器 bundleRenderer 将 bundle 生成 html 给浏览器用；另一个 Client Bundle 是给浏览器用的，别忘了服务端只是生成前期首屏页面所需的 html，后期的交互和数据处理还是需要能支持浏览器脚本的 Client bundle 来完成。
 
