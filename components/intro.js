@@ -9,7 +9,7 @@ export default function Intro() {
         淡烘糕.
       </h1>
       <h4 className="text-center md:text-left text-sm mt-5 md:pl-8">
-        不写博客的工程师不是好的搬砖工人🧱
+        不写博客的工程师不是好的搬砖工🧱
       </h4>
     </section>
   )

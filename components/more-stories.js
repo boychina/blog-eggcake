@@ -3,7 +3,7 @@ import PostPreview from '../components/post-preview'
 export default function MoreStories({ posts }) {
   return (
     <section>
-      <h2 className="mb-8 text-6xl md:text-2xl font-bold tracking-tighter leading-tight">
+      <h2 className="mb-8 text-lg md:text-xl tracking-tighter leading-tight">
           更多内容
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 md:col-gap-8 lg:col-gap-12 row-gap-8 md:row-gap-12 mb-32">
