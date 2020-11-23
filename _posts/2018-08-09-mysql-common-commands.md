@@ -36,16 +36,18 @@ ogImage:
 
 ### 二、数据库操作
 
-1. 创建数据库
+1. 查看所有数据库
+    1. 格式：show databases;
+2. 创建数据库
     1. 格式：create database 数据库名 charset=utf8;
     2. 示例：create database mrlihai charset=utf8;
-2. 删除数据库
+3. 删除数据库
     1. 格式：drop database 数据库名;
     2. 示例：drop database mrlihai;
-3. 切换数据库
+4. 切换数据库
     1. 格式：use 数据库名;
     2. 示例：use mrlihai;
-4. 查看当前选择的数据库
+5. 查看当前选择的数据库
     1. select database();
 
 ### 三、表操作
