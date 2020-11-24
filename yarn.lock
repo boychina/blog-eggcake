@@ -5155,6 +5155,13 @@ regjsparser@^0.6.4:
   dependencies:
     jsesc "~0.5.0"
 
+remark-description-list@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/remark-description-list/-/remark-description-list-1.1.0.tgz#ce6a5394e3d19b5f3c99ae9c4702106d60fc82be"
+  integrity sha512-hk+Q+kWZuUqdtGaHoIPg/+nA8g/yz1n04rFuhbVmFJ6lTlTbVJW/b2tLW5e3xnp/fik9K6GSCEHvIhLGOVTPdQ==
+  dependencies:
+    remark "^11.0.1"
+
 remark-highlight.js@^6.0.0:
   version "6.0.0"
   resolved "https://registry.npm.taobao.org/remark-highlight.js/download/remark-highlight.js-6.0.0.tgz#cb05387ddddeb078f0b61ce6299f6323f05098fc"
@@ -5214,7 +5221,7 @@ remark-stringify@^7.0.0:
     unherit "^1.0.4"
     xtend "^4.0.1"
 
-remark@11.0.2:
+remark@11.0.2, remark@^11.0.1:
   version "11.0.2"
   resolved "https://registry.npm.taobao.org/remark/download/remark-11.0.2.tgz?cache=0&sync_timestamp=1602663771669&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fremark%2Fdownload%2Fremark-11.0.2.tgz#12b90ea100ac3362b1976fa87a6e4e0ab5968202"
   integrity sha1-ErkOoQCsM2Kxl2+oem5OCrWWggI=

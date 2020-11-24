@@ -24,7 +24,7 @@ export default function PostPreview({
       <div className="text-xs mb-2">
         <DateFormatter dateString={date} />
       </div>
-      <p className="text-md leading-relaxed mb-2">{excerpt}</p>
+      <p className="text-base leading-relaxed mb-2">{excerpt}</p>
       <Avatar name={author.name} picture={author.picture} />
     </div>
   )

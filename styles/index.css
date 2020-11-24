@@ -1,6 +1,9 @@
 @tailwind base;
 
 /* Write your own custom base styles here */
+html {
+	/*font-family: 'Chinese Quote', 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji';*/
+}
 
 /* Start purging... */
 @tailwind components;
