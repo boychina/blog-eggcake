@@ -2,12 +2,12 @@
 title: "ES6 的 Proxy 和 Reflect"
 excerpt: "Proxy and Reflect of ES6"
 date: "2018-08-04T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2018-08-04-proxy-and-reflect-of-ES6.jpg"
+coverImage: "/assets/blog/cover/2018-08-04-proxy-and-reflect-of-ES6.gif"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2018-08-04-proxy-and-reflect-of-ES6.jpg"
+  url: "/assets/blog/cover/2018-08-04-proxy-and-reflect-of-ES6.gif"
 ---
 
 ### Proxy
