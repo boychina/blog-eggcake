@@ -62,7 +62,7 @@ p { color: red;}
 <br>
 <br>对于书，我<b>非常不推荐</b>上来就去看各种厚厚的入门/指南书，没必要！这一个阶段应该快速上手，培养兴趣，培养成就感。先做出可以看的东西再说，掌握常用的 HTML/CSS 就够用了
 <br>
-<br>如果完成的好，这个阶段过后你大概就可以写出一些简单又好看的“静态网页”了，比如这个作品集/简历：<a href="//link.zhihu.com/?target=http%3A//huangxuan.me/portfolio/" class=" wrap external" target="_blank" rel="nofollow noreferrer">Portfolio - Mr.厉害的博客<i class="icon-external"></i></a> （好久没更新了…丢人现眼）
+<br>如果完成的好，这个阶段过后你大概就可以写出一些简单又好看的“静态网页”了，比如这个作品集/简历：<a href="//link.zhihu.com/?target=http%3A//huangxuan.me/portfolio/" class=" wrap external" target="_blank" rel="nofollow noreferrer">Portfolio - 黄轩的博客<i class="icon-external"></i></a> （好久没更新了…丢人现眼）
 <br>
 <br>
 <br>
