@@ -9,6 +9,12 @@
   @apply my-3;
 }
 
+.markdown ul,
+.markdown ol {
+  list-style: revert;
+  @apply pl-4;
+}
+
 .markdown h2 {
   @apply text-3xl mt-12 mb-4 leading-snug;
 }
