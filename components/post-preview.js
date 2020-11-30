@@ -1,7 +1,8 @@
-import Avatar from '../components/avatar'
-import DateFormatter from '../components/date-formatter'
-import CoverImage from './cover-image'
-import Link from 'next/link'
+import React, { useEffect } from 'react';
+import Avatar from './avatar';
+import DateFormatter from './date-formatter';
+import CoverImage from './cover-image';
+import Link from 'next/link';
 
 export default function PostPreview({
   title,
@@ -21,7 +22,7 @@ export default function PostPreview({
           <a className="hover:underline">{title}</a>
         </Link>
       </h3>
-      <div className="text-xs mb-2">
+      <div className="text-sm mb-2">
         <DateFormatter dateString={date} />
       </div>
       <p className="text-base leading-relaxed mb-2">{excerpt}</p>
