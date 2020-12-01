@@ -24,6 +24,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
+        <div className="text-sm text-center mb-2 text-gray-500"><a href="http://beian.miit.gov.cn" target="_blank">ICP备案号：蜀ICP备2020034346号-1</a></div>
       </Container>
     </footer>
   )

@@ -77,6 +77,13 @@ ogImage:
     1. 格式：alter table 表名 add|change|drop 列名 类型;
     2. 示例：alter table newcar add isDelete bit default 0;
 
+```sql
+# 添加表字段
+
+alter table Persons add education varchar(10) not Null;
+alter table Persons add PersonId int unsigned not Null auto_increment primary key;
+```
+
 ### 四、数据操作
 
 1. 增

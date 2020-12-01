@@ -11,8 +11,13 @@
 
 .markdown ul,
 .markdown ol {
-  list-style: revert;
   @apply pl-4;
+}
+.markdown ol {
+    list-style: decimal;
+}
+.markdown ul {
+  list-style: disc;
 }
 
 .markdown h2 {
