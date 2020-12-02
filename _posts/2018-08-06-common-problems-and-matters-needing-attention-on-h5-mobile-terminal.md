@@ -16,7 +16,10 @@ ogImage:
 
 ```js
 // 一、HTML页面结构
-<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+/>;
 // width            设置 viewpoint 宽度，为一个正整数，或字符串‘device-width’
 // height           设置 viewpoint 高度，一般设置了宽度，会自动解析出高度，可以不用设置
 // initial-scale    设置缩放比例，为一个数字，可以带小数
@@ -26,17 +29,27 @@ ogImage:
 
 // 二、JS动态判断
 var phoneWidth = parseInt(window.screen.width);
-var phoneScale = phoneWidth/640;
+var phoneScale = phoneWidth / 640;
 var ua = navigator.userAgent;
-if(/Android (\d+\.\d+)/.test(ua)){
+if (/Android (\d+\.\d+)/.test(ua)) {
   var version = parseFloat(RegExp.$1);
-  if(version > 2.3) {
-    document.write('<meta name="viewport" content="width=640,minimum-scale='+phoneScale+',maximum-scale='+phoneScale+',target-densitydpi=device-dpi" />');
+  if (version > 2.3) {
+    document.write(
+      '<meta name="viewport" content="width=640,minimum-scale=' +
+        phoneScale +
+        ",maximum-scale=" +
+        phoneScale +
+        ',target-densitydpi=device-dpi" />'
+    );
   } else {
-    document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+    document.write(
+      '<meta name="viewport" content="width=640, target-densitydpi=device-dpi">'
+    );
   }
 } else {
-  document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+  document.write(
+    '<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">'
+  );
 }
 ```
 
@@ -44,40 +57,43 @@ if(/Android (\d+\.\d+)/.test(ua)){
 
 ```html
 <!-- 设置缩放 -->
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"
+/>
 <!-- 可隐藏地址栏，仅针对IOS的Safari（注：IOS7.0版本以后，safari上已看不到效果） -->
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <!-- 仅针对IOS的Safari顶端状态条的样式（可选default/black/black-translucent ） -->
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <!-- IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别 -->
-<meta name="format-detection"content="telephone=no, email=no" />
+<meta name="format-detection" content="telephone=no, email=no" />
 ```
 
 ### 其他 meta 标签
 
 ```html
 <!-- 启用360浏览器的极速模式(webkit) -->
-<meta name="renderer" content="webkit">
+<meta name="renderer" content="webkit" />
 <!-- 避免IE使用兼容模式 -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
-<meta name="HandheldFriendly" content="true">
+<meta name="HandheldFriendly" content="true" />
 <!-- 微软的老式浏览器 -->
-<meta name="MobileOptimized" content="320">
+<meta name="MobileOptimized" content="320" />
 <!-- uc强制竖屏 -->
-<meta name="screen-orientation" content="portrait">
+<meta name="screen-orientation" content="portrait" />
 <!-- QQ强制竖屏 -->
-<meta name="x5-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait" />
 <!-- UC强制全屏 -->
-<meta name="full-screen" content="yes">
+<meta name="full-screen" content="yes" />
 <!-- QQ强制全屏 -->
-<meta name="x5-fullscreen" content="true">
+<meta name="x5-fullscreen" content="true" />
 <!-- UC应用模式 -->
-<meta name="browsermode" content="application">
+<meta name="browsermode" content="application" />
 <!-- QQ应用模式 -->
-<meta name="x5-page-mode" content="app">
+<meta name="x5-page-mode" content="app" />
 <!-- windows phone 点击无高光 -->
-<meta name="msapplication-tap-highlight" content="no">
+<meta name="msapplication-tap-highlight" content="no" />
 ```
 
 ## 常见问题
@@ -97,7 +113,7 @@ if(/Android (\d+\.\d+)/.test(ua)){
 @ 仿宋     FangSong
 @ 楷体     KaiTi
 @ 仿宋_GB2312  FangSong_GB2312
-@ 楷体_GB2312  KaiTi_GB2312  
+@ 楷体_GB2312  KaiTi_GB2312
 @
 @ 说明：中文字体多数使用宋体、雅黑，英文用Helvetica
 
@@ -189,23 +205,24 @@ zepto的touch模块，tap事件也是为了解决在click的延迟问题
 那么，前端的应对方案是：设计稿切出来的图片长宽保证为偶数，并使用backgroud-size把图片缩小为原来的1/2
 
 //例如图片宽高为：200px*200px，那么写法如下
-.css{
-  width:100px;
-  height:100px;
-  background-size:100px 100px;
+.css {
+  width: 100px;
+  height: 100px;
+  background-size: 100px 100px;
 }
 //其它元素的取值为原来的1/2，例如视觉稿40px的字体，使用样式的写法为20px
-.css{
-  font-size:20px;
+.css {
+  font-size: 20px;
 }
 
 //image-set设计Rentina背景图
-image-set,webkit私有属性，也是CSS4的属性，为解决Rentina屏幕下的图像而生。
-.css {
+image-set,
+webkit私有属性，也是CSS4的属性，为解决Rentina屏幕下的图像而生。 .css {
   background: url(images/bg.jpg) no-repeat center;
   background: -webkit-image-set(
-    url(images/bg.jpg) 1x,     //支持image-set普通屏
-    url(images/bg-2x.jpg) 2x); //支持image-set的Rentinan
+    url(images/bg.jpg) 1x,
+    // 支持image-set普通屏 url(images/bg-2x.jpg) 2x
+  ); //支持image-set的Rentinan
 }
 ```
 
@@ -232,27 +249,29 @@ a,button,input,textarea {
 
 ```css
 //一、使用appearance改变webkit浏览器的默认外观
-input,select {
-  -webkit-appearance:none; appearance: none;
+input,
+select {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 //二、winphone下，使用伪元素改变表单元素默认外观
 //1.禁用select默认箭头，::-ms-expand修改表单控件下拉箭头，设置隐藏并使用背景图片来修饰
 select::-ms-expand {
-  display:none;
+  display: none;
 }
 
 //2.禁用radio和checkbox默认样式，::-ms-check修改表单复选框或单选框默认图标，设置隐藏并使用背景图片来修饰
-input[type=radio]::-ms-check,
-input[type=checkbox]::-ms-check {
-  display:none;
+input[type="radio"]::-ms-check,
+input[type="checkbox"]::-ms-check {
+  display: none;
 }
 
 //3.禁用pc端表单输入框默认清除按钮，::-ms-clear修改清除按钮，设置隐藏并使用背景图片来修饰
-input[type=text]::-ms-clear,
-input[type=tel]::-ms-clear,
-input[type=number]::-ms-clear {
-  display:none;
+input[type="text"]::-ms-clear,
+input[type="tel"]::-ms-clear,
+input[type="number"]::-ms-clear {
+  display: none;
 }
 ```
 
@@ -260,12 +279,17 @@ input[type=number]::-ms-clear {
 
 ```css
 // 如需适配多种移动设备，建议使用rem。以下为参考值：
-html { font-size: 62.5%; }   //10*16 = 62.5%
+html {
+  font-size: 62.5%;
+} //10*16 = 62.5%
 //设置12px字体   这里注意在rem前要加上对应的px值，解决不支持rem的浏览器的兼容问题，做到优雅降级
-body { font-size:12px; font-size:1.2rem; }
+body {
+  font-size: 12px;
+  font-size: 1.2rem;
+}
 ```
 
-### 超实用的CSS样式
+### 超实用的 CSS 样式
 
 ```css
 //去掉webkit的滚动条——display: none;
@@ -279,28 +303,48 @@ body { font-size:12px; font-size:1.2rem; }
 ::-webkit-resizer            //两个滚动条的交汇处上用于通过拖动调整元素大小的小控件
 
 // 禁止长按链接与图片弹出菜单
-a,img { -webkit-touch-callout: none }
+a,img {
+  -webkit-touch-callout: none;
+}
 
 // 禁止ios和android用户选中文字
-html,body {-webkit-user-select:none; user-select: none; }
+html,
+body {
+  -webkit-user-select: none;
+  user-select: none;
+}
 
 // 改变输入框placeholder的颜色值
-::-webkit-input-placeholder { /* WebKit browsers */
-color: #999; }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-color: #999; }
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-color: #999; }
-:-ms-input-placeholder { /* Internet Explorer 10+ */
-color: #999; }
-input:focus::-webkit-input-placeholder{ color:#999; }
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #999;
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #999;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #999;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #999;
+}
+input:focus::-webkit-input-placeholder {
+  color: #999;
+}
 
 // android上去掉语音输入按钮
-input::-webkit-input-speech-button {display: none}
+input::-webkit-input-speech-button {
+  display: none;
+}
 
 // 阻止windows Phone的默认触摸事件
 /*说明：winphone下默认触摸事件事件使用e.preventDefault是无效的，可通过样式来禁用，如：*/
-html { -ms-touch-action:none; } //禁止winphone默认触摸事件
+html {
+  -ms-touch-action: none;
+} //禁止winphone默认触摸事件
 ```
 
 ## 取消 input 在 ios 下，输入的时候英文首字母默认大写
@@ -370,27 +414,31 @@ document.addEventListener("WeixinJSBridgeReady", function () {
 
 ```js
 // 运用HTML5的deviceMotion，调用重力感应事件
-if(window.DeviceMotionEvent){
-    document.addEventListener('devicemotion', deviceMotionHandler, false)
+if (window.DeviceMotionEvent) {
+  document.addEventListener("devicemotion", deviceMotionHandler, false);
 }
 
 var speed = 30;
-var x = y = z = lastX = lastY = lastZ = 0;
-function deviceMotionHandler(eventData){
+var x = (y = z = lastX = lastY = lastZ = 0);
+function deviceMotionHandler(eventData) {
   var acceleration = event.accelerationIncludingGravity;
   x = acceleration.x;
   y = acceleration.y;
   z = acceleration.z;
-  if(Math.abs(x-lastX)>speed || Math.abs(y-lastY)>speed || Math.abs(z-lastZ)>speed ){
-      //这里是摇动后要执行的方法
-      yaoAfter();
+  if (
+    Math.abs(x - lastX) > speed ||
+    Math.abs(y - lastY) > speed ||
+    Math.abs(z - lastZ) > speed
+  ) {
+    //这里是摇动后要执行的方法
+    yaoAfter();
   }
   lastX = x;
   lastY = y;
   lastZ = z;
 }
 
-function yaoAfter(){
+function yaoAfter() {
   //do something
 }
 
@@ -409,7 +457,7 @@ if (typeof(WeixinJSBridge) == "undefined") {
       })
     }, 0)
   });
-}else{  
+}else{
   setTimeout(function(){
     WeixinJSBridge.invoke('setFontSizeCallback', { 'fontSize':0}, function(res){
       alert(JSON.stringify(res));
@@ -469,35 +517,48 @@ x-webkit-airplay="true"
 3.播放视频不全屏
 webkit-playsinline="true"
 -->
-<video x-webkit-airplay="true" webkit-playsinline="true" preload="auto" autoplay src="http://"></video>
+<video
+  x-webkit-airplay="true"
+  webkit-playsinline="true"
+  preload="auto"
+  autoplay
+  src="http://"
+></video>
 ```
 
-### JS判断设备
+### JS 判断设备
 
 ```js
-function deviceType(){
+function deviceType() {
   var ua = navigator.userAgent;
-  var agent = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
-  for(var i=0; i<len,len = agent.length; i++){
-    if(ua.indexOf(agent[i])>0){
+  var agent = [
+    "Android",
+    "iPhone",
+    "SymbianOS",
+    "Windows Phone",
+    "iPad",
+    "iPod"
+  ];
+  for (var i = 0; i < len, (len = agent.length); i++) {
+    if (ua.indexOf(agent[i]) > 0) {
       break;
     }
   }
 }
 deviceType();
-window.addEventListener('resize', function(){
+window.addEventListener("resize", function() {
   deviceType();
-})
+});
 ```
 
-### JS判断微信浏览器
+### JS 判断微信浏览器
 
 ```js
-function isWeixin(){
+function isWeixin() {
   var ua = navigator.userAgent.toLowerCase();
-  if(ua.match(/MicroMessenger/i)=='micromessenger'){
+  if (ua.match(/MicroMessenger/i) == "micromessenger") {
     return true;
-  }else{
+  } else {
     return false;
   }
 }
@@ -537,9 +598,9 @@ function isWeixin(){
 ```css
 //目前，像Chrome/Filefox/Safari/IE9+以及最新版本Opera都支持硬件加速，当检测到某个DOM元素应用了某些CSS规则时就会自动开启，从而解决页面闪白，保证动画流畅。
 .css {
-  -webkit-transform: translate3d(0,0,0);
-  -moz-transform: translate3d(0,0,0);
-  -ms-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 ```

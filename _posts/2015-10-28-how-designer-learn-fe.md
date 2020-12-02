@@ -12,7 +12,6 @@ ogImage:
 
 > 这篇文章转载自[我在知乎上的回答](https://www.zhihu.com/question/21921588/answer/69680480)，也被刊登于[优秀网页设计](http://www.uisdc.com/head-first-front-end)等多个网站上 ;)
 
-
 笔者的经历在知乎就可以看到，大学专业是数字媒体艺术，大一实习过动效设计师，大二拿到了人生第一个大公司 offer 是阿里的交互设计，后来转岗到淘宝旅行的前端团队，现在在微信电影票做前端研发。
 <br>
 <br>也是走过了不少野路子，不过还好有小右哥 <a data-hash="cfdec6226ece879d2571fbc274372e9f" href="//www.zhihu.com/people/cfdec6226ece879d2571fbc274372e9f" class="member_mention" data-editable="true" data-title="@尤雨溪" data-tip="p$b$cfdec6226ece879d2571fbc274372e9f">@尤雨溪</a> 这样艺术/设计转前端的大神在前面做典范，也证明这条路是玩的通的 ;)
@@ -35,21 +34,22 @@ ogImage:
 <br>对于设计师来说，最有成就感的一定是“可以看到的东西”，而 HTML/CSS 正是用来干这个的，HTML 就是一堆非常简单的标签，而 CSS 无非就是把你画画的流程用<b>英语</b>按一定的格式写出来而已：
 <br>
 
-
 ```html
-<p> p is paragraph! </p>
+<p>p is paragraph!</p>
 
 <style>
-p { color: red;}
+  p {
+    color: red;
+  }
 </style>
 ```
-
 
 是不是非常容易，就跟读英语一样！
 <br>接下来，你就需要开始自学啦，比如常用 HTML 标签的意思，各种 CSS 的属性，还有 CSS 的盒模型、优先级、选择器……放心，它们都很容易；能玩得转 PS/AI/Flash/Axure/AE/Sketch 的设计师们，学这个洒洒水啦
 <br>
 <br>推荐几个资源：
 <br>
+
 <ul>
     <li><a href="//link.zhihu.com/?target=http%3A//www.w3school.com.cn/" class=" wrap external" target="_blank" rel="nofollow noreferrer">w3school 在线教程<i class="icon-external"></i></a> (中文，一个很 Low 但是又很好的入门学习网站）
         <br>
@@ -74,7 +74,7 @@ p { color: red;}
 <br>
 
 ```js
-alert("Hello World!")
+alert("Hello World!");
 ```
 
 就这一行，就可以在浏览器里弹出 Hello World 啦！
@@ -83,16 +83,16 @@ alert("Hello World!")
 <br>
 
 ```js
-$('.className').click(function(){
-  alert("Hello jQuery")
-})
+$(".className").click(function() {
+  alert("Hello jQuery");
+});
 ```
 
 通过 jQuery，我们可以继续使用在 CSS 中学到的“选择器”
 <br>
 <br>对于没有编程基础的人来说，想要完全掌握它们两并不容易。作为设计师，很多时候我们可以先不必深究它们的原理，而是尝试直接应用它！这样成就感会来得很快，并且你可以通过实际应用更加理解 JavaScript 是用来做什么的。
 <br>
-<br>我仍然推荐你使用 <a href="http://www.w3school.com.cn/" target="_blank" rel="nofollow noreferrer">w3school 在线教程</a> 与 <a href="//www.codecademy.com/" target="_blank" >http://www.codecademy.com/</a> 进行学习。另外，你可以看一看诸如《<a href="//link.zhihu.com/?target=http%3A//book.douban.com/subject/10792216/" class=" wrap external" target="_blank" rel="nofollow noreferrer">锋利的jQuery (豆瓣)<i class="icon-external"></i></a>》 这一类非常实用的书籍，可以让你很快上手做出一些简单的效果来！
+<br>我仍然推荐你使用 <a href="http://www.w3school.com.cn/" target="_blank" rel="nofollow noreferrer">w3school 在线教程</a> 与 <a href="//www.codecademy.com/" target="_blank" >http://www.codecademy.com/</a> 进行学习。另外，你可以看一看诸如《<a href="//link.zhihu.com/?target=http%3A//book.douban.com/subject/10792216/" class=" wrap external" target="_blank" rel="nofollow noreferrer">锋利的 jQuery (豆瓣)<i class="icon-external"></i></a>》 这一类非常实用的书籍，可以让你很快上手做出一些简单的效果来！
 <br>
 <br>如果学习得顺利，你还可以尝试使用各种丰富的 jQuery 插件，你会发现写出支持用户交互的网站也没有那么困难～很多看上去很复杂的功能（比如轮播图、灯箱、下拉菜单），搜一搜然后看看文档（教程）、改改示例代码就好了。
 <br>
@@ -108,11 +108,11 @@ $('.className').click(function(){
 <br>
 <br><b>到了这个阶段，你不但要知道怎么写页面，还要知道它们都是为什么，并且知道怎么做更好。这对你理解 Web 世界非常有帮助，并且能帮助你做出更“系统化”的设计。</b>
 <br>
-<br>CSS 的学问很多，你需要开始理解文档流、浮动流等各种定位的方式与原理，理解 CSS 的继承复用思想、理解浏览器的差异、兼容、优雅降级……这里强烈推荐一本书：《<a href="//link.zhihu.com/?target=http%3A//book.douban.com/subject/4736167/" class=" wrap external" target="_blank" rel="nofollow noreferrer">精通CSS（第2版） (豆瓣)<i class="icon-external"></i></a>》，虽然前端技术突飞猛进，但这本书的思想永远不会过时。
+<br>CSS 的学问很多，你需要开始理解文档流、浮动流等各种定位的方式与原理，理解 CSS 的继承复用思想、理解浏览器的差异、兼容、优雅降级……这里强烈推荐一本书：《<a href="//link.zhihu.com/?target=http%3A//book.douban.com/subject/4736167/" class=" wrap external" target="_blank" rel="nofollow noreferrer">精通 CSS（第 2 版） (豆瓣)<i class="icon-external"></i></a>》，虽然前端技术突飞猛进，但这本书的思想永远不会过时。
 <br>
-<br>HTML 方面，要开始注重语义化、可访问性与结构的合理，你要开始学习“结构与样式的分离”，这里有一本神书将这种分离做到了极致：《<a href="//link.zhihu.com/?target=http%3A//book.douban.com/subject/2052176/" class=" wrap external" target="_blank" rel="nofollow noreferrer">CSS禅意花园 (豆瓣)<i class="icon-external"></i></a>》
+<br>HTML 方面，要开始注重语义化、可访问性与结构的合理，你要开始学习“结构与样式的分离”，这里有一本神书将这种分离做到了极致：《<a href="//link.zhihu.com/?target=http%3A//book.douban.com/subject/2052176/" class=" wrap external" target="_blank" rel="nofollow noreferrer">CSS 禅意花园 (豆瓣)<i class="icon-external"></i></a>》
 <br>
-<br>另外，各种炫酷屌的 CSS 3 属性你一定会喜欢：你可以用媒体查询做响应式网页设计，你可以用 transiton 和 animation 做补间动画与关键帧动画，用 transform 做缩放、旋转、3D变换，还有圆角、渐变、阴影、弹性盒！样样都是设计师的神器！
+<br>另外，各种炫酷屌的 CSS 3 属性你一定会喜欢：你可以用媒体查询做响应式网页设计，你可以用 transiton 和 animation 做补间动画与关键帧动画，用 transform 做缩放、旋转、3D 变换，还有圆角、渐变、阴影、弹性盒！样样都是设计师的神器！
 <br>
 <br>如果你还掌握了 <b>入门篇（JavaScript/jQuery）</b>的知识，那么<b>恭喜你！你已经可以做出很多有趣的网页了！</b>很多 minisite 或者微信上的“H5” 小广告，这个程度的你已经可以轻松完成了！
 <br>
@@ -132,6 +132,7 @@ $('.className').click(function(){
 <br>
 <br>同时，你可能需要看一些书本来帮助你学习 JavaScript ：
 <br>
+
 <ul>
     <li> 《<a href="//link.zhihu.com/?target=http%3A//book.douban.com/subject/10546125/" class=" wrap external" target="_blank" rel="nofollow noreferrer">JavaScript高级程序设计（第3版） (豆瓣)<i class="icon-external"></i></a> 》或 《<a href="//link.zhihu.com/?target=http%3A//book.douban.com/subject/2228378/" class=" wrap external" target="_blank" rel="nofollow noreferrer">JavaScript权威指南 (豆瓣)<i class="icon-external"></i></a>》，大而全的书只需要一本就够了</li>
     <li>如果上面这本你觉得太难，你可以先看 《<a href="//link.zhihu.com/?target=http%3A//book.douban.com/subject/6038371/" class=" wrap external" target="_blank" rel="nofollow noreferrer">JavaScript DOM编程艺术 （第2版） (豆瓣)<i class="icon-external"></i></a>》来过渡一下，这本书比较容易，它会教给你 “优雅降级、渐进增强”的优秀思想</li>

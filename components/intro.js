@@ -12,5 +12,5 @@ export default function Intro() {
         不写博客的工程师不是好的搬砖工🧱
       </h4>
     </section>
-  )
+  );
 }

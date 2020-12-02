@@ -1,13 +1,13 @@
 ---
-title: 'Learn How to Pre-render Pages Using Static Generation with Next.js'
-excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.'
-coverImage: '/assets/blog/cover/2002-01-01-hello-world.jpg'
-date: '2002-03-16T05:35:07.322Z'
+title: "Learn How to Pre-render Pages Using Static Generation with Next.js"
+excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus."
+coverImage: "/assets/blog/cover/2002-01-01-hello-world.jpg"
+date: "2002-03-16T05:35:07.322Z"
 author:
   name: Tim Neutkens
-  picture: '/assets/blog/authors/tim.jpg'
+  picture: "/assets/blog/authors/tim.jpg"
 ogImage:
-  url: '/assets/blog/cover/2002-01-01-hello-world.jpg'
+  url: "/assets/blog/cover/2002-01-01-hello-world.jpg"
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.

@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import Avatar from './avatar';
-import DateFormatter from './date-formatter';
-import CoverImage from './cover-image';
-import Link from 'next/link';
+import React, { useEffect } from "react";
+import Avatar from "./avatar";
+import DateFormatter from "./date-formatter";
+import CoverImage from "./cover-image";
+import Link from "next/link";
 
 export default function PostPreview({
   title,
@@ -10,7 +10,7 @@ export default function PostPreview({
   date,
   excerpt,
   author,
-  slug,
+  slug
 }) {
   return (
     <div>
@@ -28,5 +28,5 @@ export default function PostPreview({
       <p className="text-base leading-relaxed mb-2">{excerpt}</p>
       <Avatar name={author.name} picture={author.picture} />
     </div>
-  )
+  );
 }

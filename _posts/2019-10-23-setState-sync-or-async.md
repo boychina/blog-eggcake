@@ -12,67 +12,67 @@ ogImage:
 
 #### 写在前面的话
 
-setState是React很重要的模块, 社区中也有很多分析文章，大多强调setState是异步更新，但有些文章分析又说某些情况下是同步更新，那到底是同步还是异步呢，这篇文章还是[基于15.x]()进行的分析，16.x的分析等后面用机会再分享。
+setState 是 React 很重要的模块, 社区中也有很多分析文章，大多强调 setState 是异步更新，但有些文章分析又说某些情况下是同步更新，那到底是同步还是异步呢，这篇文章还是[基于 15.x]()进行的分析，16.x 的分析等后面用机会再分享。
 
-我们看一下React官网(React.Component – React)对setState的说明：
+我们看一下 React 官网(React.Component – React)对 setState 的说明：
 
 ![](/assets/blog/2019-10-23-setState-sync-or-async/v2-51dcd43726a3fd6f0ae85013d5175fbf_r.jpg)
 
-官网也没说setState到底是同步还是异步，只是说React不保证setState之后能够立即拿到改变后的结果。
+官网也没说 setState 到底是同步还是异步，只是说 React 不保证 setState 之后能够立即拿到改变后的结果。
 
 我们先看一个经典例子:
 
 ```js
 // demo.js
 class Demo extends PureComponent {
-  state={
-    count: 0,
-  }
+  state = {
+    count: 0
+  };
   componentDidMount() {
-    console.log('pre state', this.state.count);
+    console.log("pre state", this.state.count);
     this.setState({
       count: this.state.count + 1
     });
-    console.log('next state', this.state.count);
+    console.log("next state", this.state.count);
 
     //测试setTimeout
     setTimeout(() => {
-      console.log('setTimeout pre state', this.state.count);
+      console.log("setTimeout pre state", this.state.count);
       this.setState({
         count: this.state.count + 1
       });
-      console.log('setTimeout next state', this.state.count);
+      console.log("setTimeout next state", this.state.count);
     }, 0);
   }
 
-  onClick = (event) => {
+  onClick = event => {
     // 测试合成函数中setState
     console.log(`${event.type} pre state`, this.state.count);
     this.setState({
       count: this.state.count + 1
     });
     console.log(`${event.type} next state`, this.state.count);
-  }
+  };
 
   render() {
-    return <button onClick={this.onClick}>count+1</button>
+    return <button onClick={this.onClick}>count+1</button>;
   }
 }
 ```
 
-这里有三种方法调用setState：
+这里有三种方法调用 setState：
 
-* 在componentDidMount中直接调用setState；
-* 在componentDidMount的setTimeout方法里调用setState；
-* 在dom中绑定onClick(React的合成函数：抹平不同浏览器和端的差异)直接调用setState；
+- 在 componentDidMount 中直接调用 setState；
+- 在 componentDidMount 的 setTimeout 方法里调用 setState；
+- 在 dom 中绑定 onClick(React 的合成函数：抹平不同浏览器和端的差异)直接调用 setState；
 
 ![](/assets/blog/2019-10-23-setState-sync-or-async/v2-9887436d097ae8a97324619bb67f78a3_r.jpg)
 
-从控制台打印出来的结果看，方法1和3直接调用setState是异步的，而方法2中setTimeout调用setState证明了同步，到底为什么呢？这两种调用方式有什么区别嘛？接下来我们从源码进行分析。
+从控制台打印出来的结果看，方法 1 和 3 直接调用 setState 是异步的，而方法 2 中 setTimeout 调用 setState 证明了同步，到底为什么呢？这两种调用方式有什么区别嘛？接下来我们从源码进行分析。
 
 #### 源码分析
 
-##### 1、setState入口函数
+##### 1、setState 入口函数
 
 ```js
 //ReactComponent.js
@@ -117,11 +117,11 @@ function enqueueUpdate(internalInstance) {
 }
 ```
 
-在setState函数中调用enqueueSetState, 拿到内部组件实例, 然后把要更新的partial state存到其_pendingStateQueue中，至此，setState调用方法执行结束，接下来是setState调用之后的动作。
+在 setState 函数中调用 enqueueSetState, 拿到内部组件实例, 然后把要更新的 partial state 存到其\_pendingStateQueue 中，至此，setState 调用方法执行结束，接下来是 setState 调用之后的动作。
 
 ##### 2、调用 setState 后发生了什么？
 
-setState调用之后执行方法enqueueUpdate
+setState 调用之后执行方法 enqueueUpdate
 
 ```js
 //ReactUpdates.js
@@ -139,18 +139,18 @@ function enqueueUpdate(component) {
 }
 ```
 
-上面demo对setState三次调用结果之所以不同，应该是这里的判断逻辑导致的：
+上面 demo 对 setState 三次调用结果之所以不同，应该是这里的判断逻辑导致的：
 
-* 1和3的调用走的是isBatchingUpdates === true分支，没有执行更新操作；
-* 2的setTimeout走的是isBatchingUpdates === false分支，执行更新；
+- 1 和 3 的调用走的是 isBatchingUpdates === true 分支，没有执行更新操作；
+- 2 的 setTimeout 走的是 isBatchingUpdates === false 分支，执行更新；
 
-isBatchingUpdates是事务batchingStrategy的一个标记，如果为true,把当前调用setState的组件放入dirtyComponents数组中，做存储处理，不会立即更新,如果为false，将enqueueUpdate作为参数传入batchedUpdates方法中，在batchedUpdates中执行更新操作。
+isBatchingUpdates 是事务 batchingStrategy 的一个标记，如果为 true,把当前调用 setState 的组件放入 dirtyComponents 数组中，做存储处理，不会立即更新,如果为 false，将 enqueueUpdate 作为参数传入 batchedUpdates 方法中，在 batchedUpdates 中执行更新操作。
 
-可是事务batchingStrategy到底是做什么的呢？batchedUpdates又做了什么处理？我们看一下它的源码：
+可是事务 batchingStrategy 到底是做什么的呢？batchedUpdates 又做了什么处理？我们看一下它的源码：
 
 ```js
 //ReactDefaultBatchingStrategy.js
-var transaction = new ReactDefaultBatchingStrategyTransaction();// 实例化事务
+var transaction = new ReactDefaultBatchingStrategyTransaction(); // 实例化事务
 
 var ReactDefaultBatchingStrategy = {
   isBatchingUpdates: false,
@@ -166,7 +166,7 @@ var ReactDefaultBatchingStrategy = {
       // 启动事务, 将callback放进事务里执行
       transaction.perform(callback, null, a, b, c, d, e);
     }
-  },
+  }
 };
 //说明：这里使用到了事务transaction，简单来说，transaction就是将需要执行的方法使用 wrapper 封装起来，
 //再通过事务提供的 perform 方法执行。而在 perform 之前，先执行所有 wrapper 中的 initialize 方法，
@@ -175,9 +175,9 @@ var ReactDefaultBatchingStrategy = {
 //如果当前事务中引入了另一个事务B，则会在事务B完成之后再回到当前事务中执行close方法。
 ```
 
-ReactDefaultBatchingStrategy就是一个批量更新策略事务, isBatchingUpdates默认是false，而batchedUpdates方法被调用时才会将属性isBatchingUpdates设置为true，表明目前处于批量更新流中；可是上面demo中1和3执行到判断逻辑之前源码分析中没见到有batchedUpdates方法调用，那batchedUpdates什么时候被调用的呢？
+ReactDefaultBatchingStrategy 就是一个批量更新策略事务, isBatchingUpdates 默认是 false，而 batchedUpdates 方法被调用时才会将属性 isBatchingUpdates 设置为 true，表明目前处于批量更新流中；可是上面 demo 中 1 和 3 执行到判断逻辑之前源码分析中没见到有 batchedUpdates 方法调用，那 batchedUpdates 什么时候被调用的呢？
 
-全局搜索React中调用batchedUpdates的地方很多，分析后发现与更新流程相关的只有两个地方：
+全局搜索 React 中调用 batchedUpdates 的地方很多，分析后发现与更新流程相关的只有两个地方：
 
 ```js
 // ReactMount.js
@@ -206,25 +206,26 @@ dispatchEvent: function (topLevelType, nativeEvent) {
   }
 }
 ```
-* 第一种情况，是在首次渲染组件时调用batchedUpdates，开启一次batch。因为组件在渲染的过程中, 会依顺序调用各种生命周期函数, 开发者很可能在生命周期函数中(如componentWillMount或者componentDidMount)调用setState. 因此, 开启一次batch就是要存储更新(放入dirtyComponents), 然后在事务结束时批量更新. 这样以来, 在初始渲染流程中, 任何setState都会生效, 用户看到的始终是最新的状态
 
-* 第二种情况，如果在组件上绑定了事件，在绑定事件中很有可能触发setState，所以为了存储更新(dirtyComponents)，需要开启批量更新策略。在回调函数被调用之前, React事件系统中的dispatchEvent函数负责事件的分发, 在dispatchEvent中启动了事务, 开启了一次batch, 随后调用了回调函数. 这样一来, 在事件的监听函数中调用的setState就会生效.
+- 第一种情况，是在首次渲染组件时调用 batchedUpdates，开启一次 batch。因为组件在渲染的过程中, 会依顺序调用各种生命周期函数, 开发者很可能在生命周期函数中(如 componentWillMount 或者 componentDidMount)调用 setState. 因此, 开启一次 batch 就是要存储更新(放入 dirtyComponents), 然后在事务结束时批量更新. 这样以来, 在初始渲染流程中, 任何 setState 都会生效, 用户看到的始终是最新的状态
 
-这里借用《深入REACT技术栈》文章里的一个在componentDidMount中setState的调用栈图例:
+- 第二种情况，如果在组件上绑定了事件，在绑定事件中很有可能触发 setState，所以为了存储更新(dirtyComponents)，需要开启批量更新策略。在回调函数被调用之前, React 事件系统中的 dispatchEvent 函数负责事件的分发, 在 dispatchEvent 中启动了事务, 开启了一次 batch, 随后调用了回调函数. 这样一来, 在事件的监听函数中调用的 setState 就会生效.
+
+这里借用《深入 REACT 技术栈》文章里的一个在 componentDidMount 中 setState 的调用栈图例:
 
 ![](/assets/blog/2019-10-23-setState-sync-or-async/v2-751425d9a3602a3118fe85bb5d238c1a_r.jpg)
 
-图例中表明，ReactDefaultBatchingStrategy.batchedUpdates在ReactMount._renderNewRootComponent中被调用，依次倒推，最后发现在组件首次渲染时就会通过injectBatchingStrategy()方法注入ReactDefaultBatchingStrategy（这部分有兴趣可以看一下ReactDefaultInjection.js源码），并且在ReactMount.render中触发_renderNewRootComponent函数，调用batchedUpdates将isBatchingUpdates设置为了true，所以componentDidMount的执行都是在一个大的事务ReactDefaultBatchingStrategyTransaction中。
+图例中表明，ReactDefaultBatchingStrategy.batchedUpdates 在 ReactMount.\_renderNewRootComponent 中被调用，依次倒推，最后发现在组件首次渲染时就会通过 injectBatchingStrategy()方法注入 ReactDefaultBatchingStrategy（这部分有兴趣可以看一下 ReactDefaultInjection.js 源码），并且在 ReactMount.render 中触发\_renderNewRootComponent 函数，调用 batchedUpdates 将 isBatchingUpdates 设置为了 true，所以 componentDidMount 的执行都是在一个大的事务 ReactDefaultBatchingStrategyTransaction 中。
 
-这就解释了在componentDidMount中调用setState并不会立即更新state，因为正处于一个这个大的事务中，isBatchingUpdates此时为true，所以只会放入dirtyComponents中等待稍后更新。
+这就解释了在 componentDidMount 中调用 setState 并不会立即更新 state，因为正处于一个这个大的事务中，isBatchingUpdates 此时为 true，所以只会放入 dirtyComponents 中等待稍后更新。
 
-##### 3、state什么时候批量更新呢？
+##### 3、state 什么时候批量更新呢？
 
-追踪代码后我画了一个组件初次渲染和setState后简单的事务启动和执行的顺序：
+追踪代码后我画了一个组件初次渲染和 setState 后简单的事务启动和执行的顺序：
 
 ![](/assets/blog/2019-10-23-setState-sync-or-async/v2-a43c89ca4292123a3655f8b282315b39_hd.jpg)
 
-从上面的图中可以看到，ReactDefaultBatchingStrategy就是一个批量更新策略事务，控制了批量策略的生命周期。看一下ReactDefaultBatchingStrategy源码分析一下事务中执行了什么：
+从上面的图中可以看到，ReactDefaultBatchingStrategy 就是一个批量更新策略事务，控制了批量策略的生命周期。看一下 ReactDefaultBatchingStrategy 源码分析一下事务中执行了什么：
 
 ```js
 // ReactDefaultBatchingStrategy.js
@@ -232,23 +233,23 @@ var RESET_BATCHED_UPDATES = {
   initialize: emptyFunction,
   close: function() {
     ReactDefaultBatchingStrategy.isBatchingUpdates = false;
-  },
+  }
 };
 
 var FLUSH_BATCHED_UPDATES = {
   initialize: emptyFunction,
-  close: ReactUpdates.flushBatchedUpdates.bind(ReactUpdates),
+  close: ReactUpdates.flushBatchedUpdates.bind(ReactUpdates)
 };
 
 var TRANSACTION_WRAPPERS = [FLUSH_BATCHED_UPDATES, RESET_BATCHED_UPDATES];
 ```
 
-* 在事务的close阶段执行了flushBatchedUpdates函数，flushBatchedUpdates执行完之后再将ReactDefaultBatchingStrategy.isBatchingUpdates重置为false，表示这次batch更新结束。
-* flushBatchedUpdates函数启动ReactUpdatesFlushTransaction事务，这个事务开启了批量更新，执行runBatchedUpdates对dirtyComponents循环处理。
+- 在事务的 close 阶段执行了 flushBatchedUpdates 函数，flushBatchedUpdates 执行完之后再将 ReactDefaultBatchingStrategy.isBatchingUpdates 重置为 false，表示这次 batch 更新结束。
+- flushBatchedUpdates 函数启动 ReactUpdatesFlushTransaction 事务，这个事务开启了批量更新，执行 runBatchedUpdates 对 dirtyComponents 循环处理。
 
 ##### 4、怎么批量更新的呢？
 
-批量更新flushBatchedUpdates中，看一下源码:
+批量更新 flushBatchedUpdates 中，看一下源码:
 
 ```js
 // ReactUpdates.js
@@ -272,7 +273,7 @@ var flushBatchedUpdates = function() {
 };
 ```
 
-flushBatchedUpdates开启事务ReactUpdatesFlushTransaction， 执行runBatchedUpdates，
+flushBatchedUpdates 开启事务 ReactUpdatesFlushTransaction， 执行 runBatchedUpdates，
 
 ```js
 // ReactUpdates.js
@@ -303,7 +304,7 @@ function runBatchedUpdates(transaction) {
 }
 ```
 
-接下来就是ReactReconciler调用组件实例的performUpdateIfNecessary方法，这里[只分析ReacrCompositeComponent实例]()，如果接收了props，就会调用receiveComponent方法，在该方法里调用updateComponent方法；如果有新的要更新的状态(_pendingStateQueue不为空)也会直接调用updateComponent来更新:
+接下来就是 ReactReconciler 调用组件实例的 performUpdateIfNecessary 方法，这里[只分析 ReacrCompositeComponent 实例]()，如果接收了 props，就会调用 receiveComponent 方法，在该方法里调用 updateComponent 方法；如果有新的要更新的状态(\_pendingStateQueue 不为空)也会直接调用 updateComponent 来更新:
 
 ```js
 // ReactCompositeComponent.js
@@ -329,9 +330,9 @@ performUpdateIfNecessary: function(transaction) {
 },
 ```
 
-调用组件实例中的updateComponent，这块代码是组件更新机制的核心，负责管理生命周期中的componentWillReceiveProps、shouldComponentUpdate、componentWillUpdate、render 和 componentDidUpdate；
+调用组件实例中的 updateComponent，这块代码是组件更新机制的核心，负责管理生命周期中的 componentWillReceiveProps、shouldComponentUpdate、componentWillUpdate、render 和 componentDidUpdate；
 
-这段代码比较多，集中在ReactCompositeComponent.js文件中，
+这段代码比较多，集中在 ReactCompositeComponent.js 文件中，
 
 如果不想看源码可以直接看后面的代码流程图:
 
@@ -365,7 +366,7 @@ updateComponent: function(
     }
     // 合并props
     var nextState = this._processPendingState(nextProps, nextContext);
-    // 执行shouldComponentUpdate判断是否需要更新  
+    // 执行shouldComponentUpdate判断是否需要更新
     var shouldUpdate =
       this._pendingForceUpdate ||
       !inst.shouldComponentUpdate ||
@@ -468,33 +469,33 @@ _updateRenderedComponent: function(transaction, context) {
   },
 ```
 
-##### 5、updateComponent流程图
+##### 5、updateComponent 流程图
 
 ![](/assets/blog/2019-10-23-setState-sync-or-async/v2-5b04f3b3f49031ee1ac77b536ebd0988_hd.jpg)
 
-##### 6、demo扩展
+##### 6、demo 扩展
 
-上面分析了一个很经典的demo，下面看一下原生事件和async事件中setState调用后的表现。
+上面分析了一个很经典的 demo，下面看一下原生事件和 async 事件中 setState 调用后的表现。
 
-###### (1) 绑定原生事件，调用setState
+###### (1) 绑定原生事件，调用 setState
 
 ```js
 class Button extends PureComponent {
-  state={
+  state = {
     count: 0,
     val: 0
-  }
+  };
   componentDidMount() {
     // 测试原生方法：手动绑定mousedown事件
-    console.log('mousedown pre state', this.state.count);
+    console.log("mousedown pre state", this.state.count);
     ReactDOM.findDOMNode(this).addEventListener(
       "mousedown",
       this.onClick.bind(this)
     );
-    console.log('mousedown pre state', this.state.count);
+    console.log("mousedown pre state", this.state.count);
   }
 
- onClick(event) {
+  onClick(event) {
     console.log(`${event.type} pre state`, this.state.count);
     this.setState({
       count: this.state.count + 1
@@ -503,7 +504,7 @@ class Button extends PureComponent {
   }
 
   render() {
-    return <button onClick={this.onClick.bind(this)}>count+1</button>
+    return <button onClick={this.onClick.bind(this)}>count+1</button>;
   }
 }
 ```
@@ -512,23 +513,23 @@ class Button extends PureComponent {
 
 ![](/assets/blog/2019-10-23-setState-sync-or-async/v2-cf07dc6e575104f9f0a6518373297c5b_hd.jpg)
 
-###### (2) async函数和sleep函数
+###### (2) async 函数和 sleep 函数
 
 ```js
 class Button extends PureComponent {
-  state={
+  state = {
     count: 0,
     val: 0
-  }
+  };
   async componentDidMount() {
     // 测试async函数中setState
-    for(let i = 0; i < 1; i++){
-      console.log('sleep pre state', this.state.count);
+    for (let i = 0; i < 1; i++) {
+      console.log("sleep pre state", this.state.count);
       await sleep(0);
       this.setState({
         count: this.state.count + 1
       });
-      console.log('sleep next state', this.state.count);
+      console.log("sleep next state", this.state.count);
     }
   }
 
@@ -536,7 +537,7 @@ class Button extends PureComponent {
     this.setState({
       count: this.state.count + 1
     });
-  }
+  };
 
   async onClick(event) {
     const type = event.type;
@@ -546,7 +547,7 @@ class Button extends PureComponent {
   }
 
   render() {
-    return <button onClick={this.onClick.bind(this)}>count+1</button>
+    return <button onClick={this.onClick.bind(this)}>count+1</button>;
   }
 }
 ```
@@ -556,28 +557,29 @@ class Button extends PureComponent {
 ![](/assets/blog/2019-10-23-setState-sync-or-async/v2-ba2e48d695d8c60154bcbd4bf20da2dd_r.jpg)
 
 ##### 7、结论
-* setState在生命周期函数和合成函数中都是异步更新。
-* setState在steTimeout、原生事件和async函数中都是同步更新。每次更新不代表都会触发render，如果render内容与newState有关联，则会触发，否则即便setState多次也不会render
-* 如果newState内容与render有依赖关系，就不建议同步更新，因为每次render都会完整的执行一次批量更新流程(只是dirtyComponets长度为1，stateQueue也只有该组件的newState)，调用一次diff算法，这样会影响React性能。
-* 如果没有必须同步渲染的理由，不建议使用同步，会影响react渲染性能
+
+- setState 在生命周期函数和合成函数中都是异步更新。
+- setState 在 steTimeout、原生事件和 async 函数中都是同步更新。每次更新不代表都会触发 render，如果 render 内容与 newState 有关联，则会触发，否则即便 setState 多次也不会 render
+- 如果 newState 内容与 render 有依赖关系，就不建议同步更新，因为每次 render 都会完整的执行一次批量更新流程(只是 dirtyComponets 长度为 1，stateQueue 也只有该组件的 newState)，调用一次 diff 算法，这样会影响 React 性能。
+- 如果没有必须同步渲染的理由，不建议使用同步，会影响 react 渲染性能
 
 ##### 8、总结
 
-React整个更新机制处处包含着事务，总的来说，组件的更新机制依靠事务进行批量更新;
+React 整个更新机制处处包含着事务，总的来说，组件的更新机制依靠事务进行批量更新;
 
-* 一次batch(批量)的生命周期就是从ReactDefaultBatchingStrategy事务perform之前(调用ReactUpdates.batchUpdates)到这个事务的最后一个close方法调用后结束;
-* 事务启动后, 遇到 setState 则将 partial state 存到组件实例的_pendingStateQueue上, 然后将这个组件存到dirtyComponents 数组中, 等到 ReactDefaultBatchingStrategy事务结束时调用runBatchedUpdates批量更新所有组件;
-* 组件的更新是递归的, 三种不同类型的组件都有自己的updateComponent方法来决定自己的组件如何更新, 其中 ReactDOMComponent 会采用diff算法对比子元素中最小的变化, 再批量处理.
-* 生命周期函数和合成函数中调用setState表现异步更新，是因为组件初始化和调用合成函数时都会触发ReactDefaultBatchingStrategy事务的batchUpdates方法，将批量更新标记设置为true，所以后面的setState都会存储到dirtyComponents中，执行批量更新之后再将标志设置为false；
-* setTimeout、原生事件和async函数中调用setState表现同步更新，是因为遇到这些函数时不会触发ReactDefaultBatchingStrategy事务的batchUpdates方法，所以批量更新标记依旧时false，所以表现为同步。
+- 一次 batch(批量)的生命周期就是从 ReactDefaultBatchingStrategy 事务 perform 之前(调用 ReactUpdates.batchUpdates)到这个事务的最后一个 close 方法调用后结束;
+- 事务启动后, 遇到 setState 则将 partial state 存到组件实例的\_pendingStateQueue 上, 然后将这个组件存到 dirtyComponents 数组中, 等到 ReactDefaultBatchingStrategy 事务结束时调用 runBatchedUpdates 批量更新所有组件;
+- 组件的更新是递归的, 三种不同类型的组件都有自己的 updateComponent 方法来决定自己的组件如何更新, 其中 ReactDOMComponent 会采用 diff 算法对比子元素中最小的变化, 再批量处理.
+- 生命周期函数和合成函数中调用 setState 表现异步更新，是因为组件初始化和调用合成函数时都会触发 ReactDefaultBatchingStrategy 事务的 batchUpdates 方法，将批量更新标记设置为 true，所以后面的 setState 都会存储到 dirtyComponents 中，执行批量更新之后再将标志设置为 false；
+- setTimeout、原生事件和 async 函数中调用 setState 表现同步更新，是因为遇到这些函数时不会触发 ReactDefaultBatchingStrategy 事务的 batchUpdates 方法，所以批量更新标记依旧时 false，所以表现为同步。
 
-#### 补充：transaction事务介绍
+#### 补充：transaction 事务介绍
 
-React 的事务机制比较简单，包括三个阶段，initialize、perform和close，并且事务之间支持叠加。
+React 的事务机制比较简单，包括三个阶段，initialize、perform 和 close，并且事务之间支持叠加。
 
 事务提供了一个 mixin 方法供其他模块实现自己需要的事务。而要使用事务的模块，除了需要把 mixin 混入自己的事务实现中外，还要额外实现一个抽象的 getTransactionWrappers 接口。这个接口用来获取所有需要封装的前置方法(initialize)和收尾方法(close)，因此它需要返回一个数组的对象，每个对象分别有 key 为 initialize 和 close 的方法。
 
-这里看一个《深入React技术栈》文章中的例子就比较好理解了
+这里看一个《深入 React 技术栈》文章中的例子就比较好理解了
 
 ```js
 var Transaction = require('./Transaction');

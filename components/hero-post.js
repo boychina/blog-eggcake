@@ -1,7 +1,7 @@
-import Avatar from './avatar'
-import DateFormatter from './date-formatter'
-import CoverImage from './cover-image'
-import Link from 'next/link'
+import Avatar from "./avatar";
+import DateFormatter from "./date-formatter";
+import CoverImage from "./cover-image";
+import Link from "next/link";
 
 export default function HeroPost({
   title,
@@ -9,7 +9,7 @@ export default function HeroPost({
   date,
   excerpt,
   author,
-  slug,
+  slug
 }) {
   return (
     <section>
@@ -33,5 +33,5 @@ export default function HeroPost({
         </div>
       </div>
     </section>
-  )
+  );
 }

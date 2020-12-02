@@ -2,10 +2,10 @@
 title: "你们觉得响应式好呢，还是手机和PC端分开来写？"
 excerpt: "你们觉得响应式好呢，还是手机和PC端分开来写？"
 date: "2014-11-20T12:00:00.322Z"
-coverImage: '/assets/blog/cover/2014-11-20-responsive-web-design.jpg'
+coverImage: "/assets/blog/cover/2014-11-20-responsive-web-design.jpg"
 author:
   name: Hux
-  picture: '/assets/blog/authors/hux.jpg'
+  picture: "/assets/blog/authors/hux.jpg"
 ogImage:
   url: "/assets/blog/cover/2014-11-20-responsive-web-design.jpg"
 ---

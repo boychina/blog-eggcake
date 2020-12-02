@@ -118,18 +118,21 @@ server.listen(8080);
 ```html
 <!DOCTYPE html>
 <html lang="zh_CN">
-<head>
+  <head>
     <title>{{ title }}</title>
-    <meta charset="utf-8"/>
-    <meta name="mobile-web-app-capable" content="yes"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
-    <meta name="renderer" content="webkit"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
-    <meta name="theme-color" content="#f60"/>
-</head>
-<body>
-<!--vue-ssr-outlet-->
-</body>
+    <meta charset="utf-8" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+    <meta name="theme-color" content="#f60" />
+  </head>
+  <body>
+    <!--vue-ssr-outlet-->
+  </body>
 </html>
 ```
 
@@ -502,7 +505,7 @@ function render(ctx, next) {
 
 // app.use(serve("/dist", "./dist", true));
 // app.use(serve("/public", "./public", true));
-app.use(serve(__dirname + '/dist'))
+app.use(serve(__dirname + "/dist"));
 
 router.get("*", render);
 app.use(router.routes()).use(router.allowedMethods());
@@ -518,39 +521,53 @@ app.listen(port, "0.0.0.0", () => {
 ```html
 <!DOCTYPE html>
 <html lang="zh_CN">
-<head>
-  <title>Vue Ssr 2.3</title>
-  <meta charset="utf-8"/>
-  <meta name="mobile-web-app-capable" content="yes"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
-  <meta name="renderer" content="webkit"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
-  <meta name="theme-color" content="#f60"/>
-  <link rel="preload" href="/dist/manifest-56dda86c1b6ac68c0279.js" as="script"><link rel="preload" href="/dist/vendor-3504d51340141c3804a1.js" as="script"><link rel="preload" href="/dist/app-ae1871b21fa142b507e8.js" as="script">
-  <style data-vue-ssr-id="41a1d6f9:0">
-    .link {
-      margin: 10px;
-    }
-  </style>
-  <style data-vue-ssr-id="7add03b4:0"></style></head>
-<body>
+  <head>
+    <title>Vue Ssr 2.3</title>
+    <meta charset="utf-8" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+    <meta name="theme-color" content="#f60" />
+    <link
+      rel="preload"
+      href="/dist/manifest-56dda86c1b6ac68c0279.js"
+      as="script"
+    />
+    <link
+      rel="preload"
+      href="/dist/vendor-3504d51340141c3804a1.js"
+      as="script"
+    />
+    <link rel="preload" href="/dist/app-ae1871b21fa142b507e8.js" as="script" />
+    <style data-vue-ssr-id="41a1d6f9:0">
+      .link {
+        margin: 10px;
+      }
+    </style>
+    <style data-vue-ssr-id="7add03b4:0"></style>
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true">
+      <h1>vue-ssr</h1>
+      <a href="/comp1" class="link router-link-exact-active router-link-active"
+        >to comp1</a
+      >
+      <a href="/comp2" class="link">to comp2</a>
+      <section class="view">组件 1</section>
+    </div>
 
-<div id="app" data-server-rendered="true">
-<h1>vue-ssr</h1>
-  <a href="/comp1" class="link router-link-exact-active router-link-active">to comp1</a>
-  <a href="/comp2" class="link">to comp2</a>
-  <section class="view">组件 1</section>
-</div>
-
-<script src="/dist/manifest-56dda86c1b6ac68c0279.js" defer>
-</script>
-<script src="/dit/vendor-3504d51340141c3804a1.js" defer></script>
-<script src="/dist/app-ae1871b21fa142b507e8.js" defer></script>
-</body>
+    <script src="/dist/manifest-56dda86c1b6ac68c0279.js" defer></script>
+    <script src="/dit/vendor-3504d51340141c3804a1.js" defer></script>
+    <script src="/dist/app-ae1871b21fa142b507e8.js" defer></script>
+  </body>
 </html>
 ```
 
-可以看到服务端把路由下的 组件1 也给渲染出来了，而不是让客户端去动态加载，其次是 html 也被注入了一些 script 标签去加载对应的客户端资源。这里再多说一下，有的同学可能不理解，服务端渲染不就是最后输出html让浏览器渲染吗，怎么 html 还带 js 脚本，注意，服务端渲染出的 html 只是首次展示给用户的页面而已，用户后期操作页面处理数据还是需要 js 脚本去跑的，也就是 webpack 为什么要打包出一套服务端代码（用于渲染首次html用），一套客户端代码（用于后期交互和数据处理用）
+可以看到服务端把路由下的 组件 1 也给渲染出来了，而不是让客户端去动态加载，其次是 html 也被注入了一些 script 标签去加载对应的客户端资源。这里再多说一下，有的同学可能不理解，服务端渲染不就是最后输出 html 让浏览器渲染吗，怎么 html 还带 js 脚本，注意，服务端渲染出的 html 只是首次展示给用户的页面而已，用户后期操作页面处理数据还是需要 js 脚本去跑的，也就是 webpack 为什么要打包出一套服务端代码（用于渲染首次 html 用），一套客户端代码（用于后期交互和数据处理用）
 
 ### 四、小结
 

@@ -10,7 +10,7 @@ ogImage:
   url: "/assets/blog/cover/2018-08-07-vue-and-wechat-small-program-differences.jpg"
 ---
 
-写了vue项目和小程序，发现二者有许多相同之处，在此总结一下二者共同点和区别。
+写了 vue 项目和小程序，发现二者有许多相同之处，在此总结一下二者共同点和区别。
 
 ### 一、生命周期
 
@@ -48,7 +48,7 @@ vue 的钩子函数在跳转新页面时，钩子函数都会触发，但是小�
 
 当 redirectTo 或 navigationBack 的时候调用。
 
-***数据请求***
+**_数据请求_**
 
 在页面加载请求数据时，两者钩子的使用有些类似，vue 一般会在 created 或者 mounted 中请求数据，而在小程序中，会在 onLoad 或者 onShow 中请求数据。
 
@@ -139,14 +139,14 @@ vue：使用 v-on:event 绑定事件，或者使用 @event 绑定事件，例如
 ```js
 <div id="app">
   <input v-model="reason" placeholder="填写理由" class="reason" />
-</div>
+</div>;
 
 new Vue({
-  el: '#app',
+  el: "#app",
   data: {
-    reason: ''
+    reason: ""
   }
-})
+});
 ```
 
 但是在小程序中，却没有这个功能。那怎么办呢？
@@ -156,18 +156,24 @@ new Vue({
 下面是代码，可以感受一下：
 
 ```js
-<input bindinput="bindReason" placeholder="填写理由" class="reason" value="{ { reason } }" name="reason" />
+<input
+  bindinput="bindReason"
+  placeholder="填写理由"
+  class="reason"
+  value="{ { reason } }"
+  name="reason"
+/>;
 
 Page({
   data: {
-    reason: ''
+    reason: ""
   },
   bindReason(e) {
     this.setData({
       reason: e.detail.value
-    })
+    });
   }
-})
+});
 ```
 
 当页面表单元素很多的时候，更改值就是一件体力活了。和小程序一比较，vue 的 v-model 简直爽的不要不要的。
@@ -195,19 +201,19 @@ new Vue({
 })
 ```
 
-在小程序中，不能直接在绑定事件的方法中传入参数，需要将参数作为属性值，绑定到元素的 data- 属性上，然后在方法中，通过 e.currentTarget.dataset.* 的方法获取，从而完成参数的传递，很麻烦有没有...
+在小程序中，不能直接在绑定事件的方法中传入参数，需要将参数作为属性值，绑定到元素的 data- 属性上，然后在方法中，通过 e.currentTarget.dataset.\* 的方法获取，从而完成参数的传递，很麻烦有没有...
 
 ```js
-<view class="tr" bindtap="toApprove" data-id="{ { item.id } }"></view>
+<view class="tr" bindtap="toApprove" data-id="{ { item.id } }"></view>;
 
 Page({
   data: {
-    reason: ''
+    reason: ""
   },
   toApprove(e) {
     let id = e.currentTarget.dataset.id;
   }
-})
+});
 ```
 
 ### 八、父子组件通信
@@ -365,11 +371,11 @@ export default{
 </script>
 ```
 
-子组件和父组件通信可以通过 this.$emit 将方法和数据传递给父组件。
+子组件和父组件通信可以通过 this.\$emit 将方法和数据传递给父组件。
 
 **在小程序中**
 
-父组件向子组件通信和vue类似，但是小程序没有通过 v-bind ，而是直接将值赋值给一个变量，如下：
+父组件向子组件通信和 vue 类似，但是小程序没有通过 v-bind ，而是直接将值赋值给一个变量，如下：
 
 ```js
 <tab-bar currentpage="index"></tab-bar>
@@ -413,25 +419,25 @@ toggleToast(e) {
 
 #### 3. 如果父组件想调用子组件的方法
 
-vue 会给子组件添加一个 ref 属性，通过 this.$refs.ref 的值便可以获取到该子组件，然后便可以调用子组件中的任意方法，例如：
+vue 会给子组件添加一个 ref 属性，通过 this.\$refs.ref 的值便可以获取到该子组件，然后便可以调用子组件中的任意方法，例如：
 
 ```js
 // 子组件
-<bar ref="bar"></bar>
+<bar ref="bar"></bar>;
 
 // 父组件
-this.$ref.bar.子组件的方法
+this.$ref.bar.子组件的方法;
 ```
 
 小程序是给子组件添加 id 或者 class ，然后通过 this.selectComponent 找到子组件，然后再调用子组件的方法，示例：
 
 ```js
 // 子组件
-<bar id="bar"></bar>
+<bar id="bar"></bar>;
 
 // 父组件
-this.selectComponent('#id').syaHello()
-````
+this.selectComponent("#id").syaHello();
+```
 
 小程序和 vue 在这点上太相似了，有木有...
 

@@ -12,9 +12,7 @@ ogImage:
 
 > 这篇文章转载自[我在知乎专栏「前端外刊评论」上发表的文章](http://zhuanlan.zhihu.com/FrontendMagazine/20549104)。
 
-
 [Angular 2](https://angular.io/) 已经发布 Beta 版，而且似乎很有信心在 2016 年成为热门框架。是时候进行一场巅峰对决了，我们来看看它如何与 [React](https://facebook.github.io/react/) 这个 2015 年的新宠抗衡。
-
 
 **免责声明：**我之前很喜欢使用 Angular 1，不过在 2015 年转到了 React。最近我也在 Pluralsight 上发布了一门关于 [React 和 Flux 的课程](https://www.pluralsight.com/courses/react-flux-building-applications)（[免费试学](http://app.pluralsight.com/signup)）。所以，**是的，我本人是有偏见的，但我不会偏袒任何一方。**
 
@@ -76,7 +74,6 @@ JSX 是一种类似 HTML 的语法，但它实际上会被编译成 JavaScript�
 
 如果你不喜欢 Angular 的字符串模版，你可以把模版移到一个单独的文件里去。不过这样你就回到了我认为的“老样子”：你需要在自己脑袋里记住这两个文件的关联，不但没有代码自动补全，也没有任何编译时检查来协助你。这听起来可能并不算什么……除非你已经爱上了与 React 相伴的日子。在同一个文件中组合组件还能享受编译时的检查，大概是 JSX 最与众不同的地方之一了。
 
-
 ![](http://p5.qhimg.com/d/inn/8a99f370/2.jpg)
 
 对比 Angular 2 与 React 在标签忘记闭合时是如何表现的。
@@ -115,12 +112,15 @@ ngModel="myVar"  //双向数据绑定
 在 React 中，数据绑定语法不取决于数据流的单双向（数据绑定的单双向是在其他地方处理的，不得不说我觉得理应如此）。不管是单向还是双向数据流，绑定语法都是这样的：
 
 ```js
-{myVar}
+{
+  myVar;
+}
 ```
 
 Angular 2 的内联母版（inline master templates）使用了这样的语法：
 
 {% raw %}
+
 ```hbs
 <ul>
   <li *ngFor="#hero of heroes">
@@ -128,13 +128,14 @@ Angular 2 的内联母版（inline master templates）使用了这样的语法�
   </li>
 </ul>
 ```
+
 {% endraw %}
 
 上面这个代码片段遍历了一组 hero，而我比较关心的几点是：
 
 - 通过星号来声明一个“母版”实在是太晦涩了
 - `hero` 前的英镑符号（`#`）用于声明一个局部模版变量。这个概念感觉非常鸡肋（如果你偏好不使用 `#`，你也可以使用 `var-` 前缀写法）
--  为 HTML 加入了循环语义的HTML 特性（attribute）`ngFor` 是 Angular 特有的东西
+- 为 HTML 加入了循环语义的 HTML 特性（attribute）`ngFor` 是 Angular 特有的东西
 
 相比上面 Angular 2 的语法，React 的语法可是纯净的 JavaScript （不过我得承认下面的属性 `key` 是个 React 的私货）
 
@@ -169,7 +170,7 @@ React     : 直接用 JS 就好啦 :)
 Angular 2 中的奇怪语法还有点击事件的绑定：
 
 ```javascript
-(click)="onSelect(hero)"
+click = "onSelect(hero)";
 ```
 
 相反，React 再一次使用了普通的 JavaScript：
@@ -201,7 +202,6 @@ JSX 具备的代码自动补全、编译时检查与丰富的错误提示已经�
 
 为了做一个更真实的对比，我将 Angular 2 [官方教程](https://angular.io/docs/ts/latest/tutorial/)中的 Tour of Heroes 应用用 Angular 2 和 React（还用上了新的 [React Slingshot](https://github.com/coryhouse/react-slingshot) 入门套件）都实现了一遍，结果如何呢？
 
-
 - [**Angular 2**](https://github.com/coryhouse/angular-2-tour-of-heroes/tree/master)**:** 764k 压缩后
 - [**React + Redux**](https://github.com/coryhouse/react-tour-of-heroes)**:** 151k 压缩后
 
@@ -209,9 +209,9 @@ JSX 具备的代码自动补全、编译时检查与丰富的错误提示已经�
 
 不过，我承认关于框架大小的担忧可能被夸大了：
 
-> 大型应用往往至少有几百 KB 的代码，经常还更多，不管它们是不是使用了框架。开发者需要做很多的抽象来构建一个复杂的软件。无论这些抽象是来自框架的还是自己手写的，它都会对应用的加载性能造成负面影响。  
+> 大型应用往往至少有几百 KB 的代码，经常还更多，不管它们是不是使用了框架。开发者需要做很多的抽象来构建一个复杂的软件。无论这些抽象是来自框架的还是自己手写的，它都会对应用的加载性能造成负面影响。
 >
->  就算你完全杜绝框架的使用，许多应用仍然是几百 KB 的 JavaScript 在那。 — Tom Dale [JavaScript Frameworks and Mobile Performance](http://tomdale.net/2015/11/javascript-frameworks-and-mobile-performance/)
+> 就算你完全杜绝框架的使用，许多应用仍然是几百 KB 的 JavaScript 在那。 — Tom Dale [JavaScript Frameworks and Mobile Performance](http://tomdale.net/2015/11/javascript-frameworks-and-mobile-performance/)
 
 Tom 的观点是对的。像 Angular、Ember 这样的框架之所以更大是因为它们自带了更多的功能。
 

@@ -18,22 +18,22 @@ React 的生命周期 API 一直以来十分稳定，但是当 React 团队在�
 
 在 React 16.3 中，为下面三个生命周期钩子加上了 UNSAFE 标记：
 
-* UNSAFE_componentWillMount
-* UNSAFE_componentWillReceiveProps
-* UNSAFE_componentWillUpdate
+- UNSAFE_componentWillMount
+- UNSAFE_componentWillReceiveProps
+- UNSAFE_componentWillUpdate
 
 新增下面两个生命周期方法
 
-* static getDerivedStateFromProps // 从道具中获得派生状态
-* getSnapshotBeforeUpdate         // 获取快照更新之前
+- static getDerivedStateFromProps // 从道具中获得派生状态
+- getSnapshotBeforeUpdate // 获取快照更新之前
 
-在目前 16.X（X > 3）的 React 中，使用 componentWillMount, componentWillReceiveProps, componentWillUpdate 这三个方法会收到警告。**React 团队计划在 17.0 中彻底废弃掉这几个API**。
+在目前 16.X（X > 3）的 React 中，使用 componentWillMount, componentWillReceiveProps, componentWillUpdate 这三个方法会收到警告。**React 团队计划在 17.0 中彻底废弃掉这几个 API**。
 
 ### 新的生命周期钩子：static getDerivedStateFromProps
 
 ```jsx
 class Example extends React.Component {
-  static getDerivedStateFromProps(props, state){
+  static getDerivedStateFromProps(props, state) {
     // ...
   }
 }
@@ -61,15 +61,15 @@ getSnapshotBeforeUpdate 配合 componentDidUpdate 可以取代 componentWillUpda
 
 因为在 React 未来的版本中，异步渲染机制可能会导致单个组件实例可以多次调用该方法。很多开发者目前会将时间绑定、异步请求等写在 componentWillMount 中，一旦异步渲染 componentWillMount 被多次调用，将导致：
 
-* 进行重复的时间监听，无法正常取消重复的 Listener ，更有可能 **导致内存泄漏**
-* 发出重复的异步网络请求， **导致 IO 资源被浪费**
-* 在服务端渲染时，componentWillMount 会被调用，但是会因忽略异步获取的数据而浪费 IO 资源
+- 进行重复的时间监听，无法正常取消重复的 Listener ，更有可能 **导致内存泄漏**
+- 发出重复的异步网络请求， **导致 IO 资源被浪费**
+- 在服务端渲染时，componentWillMount 会被调用，但是会因忽略异步获取的数据而浪费 IO 资源
 
 现在，React 推荐将原本在 componentWillMount 中的网络请求移到 componentDidMount 中。至于这样会不会导致请求被延迟发出影响用户体验，React 团队是这么解释的：
 
 > There is a common misconception that fetching in componentWillMount lets you avoid the first empty rendering state. In practice this was never true because React has always executed render immediately after componentWillMount. If the data is not available by the time componentWillMount fires, the first render will still show a loading state regardless of where you initiate the fetch. This is why moving the fetch to componentDidMount has no perceptible effect in the vast majority of cases.
 
-> 有一种常见的误解，认为在componentWillMount中请求可以避免第一个空呈现状态。在实践中，这从来都不是正确的，因为在组件挂起之后，React 总是立即执行。如果数据在组件挂起的时候没有可用，那么第一个渲染将仍然显示加载状态，而不管您发起请求的位置。这就是为什么在绝大多数情况下移动fetch到componentDidMount并没有明显的效果。
+> 有一种常见的误解，认为在 componentWillMount 中请求可以避免第一个空呈现状态。在实践中，这从来都不是正确的，因为在组件挂起之后，React 总是立即执行。如果数据在组件挂起的时候没有可用，那么第一个渲染将仍然显示加载状态，而不管您发起请求的位置。这就是为什么在绝大多数情况下移动 fetch 到 componentDidMount 并没有明显的效果。
 
 componentWillMount、render 和 componentDidMount 方法虽然存在调用先后顺序，但在大多数情况下，几乎都是在很短的时间内先后执行完毕，几乎不会对用户体验产生影响。
 

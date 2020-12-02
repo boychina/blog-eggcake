@@ -19,7 +19,6 @@ ogImage:
 想想发布那时（2010.6.8），博主应该还是一个高一小屁孩，等着暑假快点到来。虽然父上大人用着 iPhone 3GS ，不过那时我对 Apple 可没啥感觉，还用着后来被 Apple 干翻的 Nokia （5320），抱着算是被 Apple 干翻的 IBM ，偶尔玩玩后来被 Apple 干翻的 Adobe Flash……  
 虽然不是含着着金 iPhone 出生的一代，但好歹也算是摸着电脑长大的一代人，估摸着也算是 **Digital native** 了。你说这词是什么意思？别急，我们慢慢说。
 
-
 ---
 
 ## 正文
@@ -27,9 +26,9 @@ ogImage:
 今年暑假回了两个老家，也看望了不少长辈。  
 长辈们的手机果然都进行了可以想见的升级，除了爷爷奶奶辈外，清一色的 iPhone 或者 Android 4.2+ ，呃，没有 WP。
 
-智能手机啊智能手机，Smart Phone —— 聪明又能干的手机。可是每每我看到年龄稍微大点的长辈们顶着一附花镜，瞪大了眼睛，一只手托着，另一只手则伸出一根手指小心翼翼得戳着硕大的屏幕时，我就瞬间觉得这哪里是 Smart ，分明是 Stupid Phone 。于是我就看着父辈们不厌其烦得教着老人家如何解锁，如何打电话，回短信。却又常常要像子女们请教微信里的图片存到了哪（这基本都是 Android 的毛病），朋友圈的文章如何分享转发，视频和小视频为什么不一样，视频通话怎么玩这一类“高级问题”。  
+智能手机啊智能手机，Smart Phone —— 聪明又能干的手机。可是每每我看到年龄稍微大点的长辈们顶着一附花镜，瞪大了眼睛，一只手托着，另一只手则伸出一根手指小心翼翼得戳着硕大的屏幕时，我就瞬间觉得这哪里是 Smart ，分明是 Stupid Phone 。于是我就看着父辈们不厌其烦得教着老人家如何解锁，如何打电话，回短信。却又常常要像子女们请教微信里的图片存到了哪（这基本都是 Android 的毛病），朋友圈的文章如何分享转发，视频和小视频为什么不一样，视频通话怎么玩这一类“高级问题”。
 
-这现象既尴尬又有趣，至少我 10+ 岁时还觉得自己什么都得请教父母。可是这一代孩子，居然能天天被父母请教手机问题然后理直气壮得回一句：“你怎么连这都不会？”  
+这现象既尴尬又有趣，至少我 10+ 岁时还觉得自己什么都得请教父母。可是这一代孩子，居然能天天被父母请教手机问题然后理直气壮得回一句：“你怎么连这都不会？”
 
 <br>
 **最让我惊讶的还是我两岁的小侄女阿布。**  
@@ -37,10 +36,9 @@ ogImage:
 
 第一次感受阿布的神奇，是跟阿布和阿布爸（姐夫）在车的后座上坐着，阿布突然就向姐夫喊起了“手机，要手机…”。“就玩一会儿哦” 于是姐夫从口袋里掏出了 iPhone ，放到了比手机小好几号的小手上。我第一反应只是觉得好玩，大概小孩子觉得这个黑漆漆但是又能被点亮的“玩具”很好玩吧，姐夫和姐姐又无时不在教小孩子认东西，小孩子记得这个“玩具”叫作手机也很正常。
 
-**紧接着阿布就用她的行为狠狠得打了我的脸：Home 键 → 滑动解锁 → 照片 App → 点开一张照片然后开始左翻右看；一串 Combo 动作娴熟一气呵成。**  
+**紧接着阿布就用她的行为狠狠得打了我的脸：Home 键 → 滑动解锁 → 照片 App → 点开一张照片然后开始左翻右看；一串 Combo 动作娴熟一气呵成。**
 
 大家脑补一下柯南那个“脑海中‘唰’的一道亮光”！对对我当时就是这样，**然后就犯了职业病，连续几天都开始观察阿布是如何玩手机的。**（小孩子玩手机不好，是要控制时间的）
-
 
 #### I. 超强的学习能力
 
@@ -68,7 +66,6 @@ ogImage:
 
 而且其实在“单张照片”这个环节是有个“坑”的：**如果点一下照片，所有导航会消失（切换到照片全屏观看模式），要再点一下照片导航才会回来。** 我不能清楚的知道阿布是否了解了这个规律，但是一旦阿布看到 Back 键回来时就会懂得依靠按它来返回。
 
-
 #### II. 完美理解隐喻
 
 小孩子的思维是直白的。它们不会试图掩盖什么想法，它们想到什么就会去做什么。
@@ -92,8 +89,7 @@ Kant 给你发了一个红包
 
 **隐喻啊！从上面掉下来的东西，不 想 要 的 话 就可以划回去好吗。** 小孩子对数字世界交互隐喻的理解，真是完爆了不知道多少 Digital immigrant (下文会解释) 。
 
-
-####  III. 世界观的树立
+#### III. 世界观的树立
 
 这是为什么？为什么小孩子可以具备对数字世界如此的领悟能力？
 
@@ -110,8 +106,8 @@ Kant 给你发了一个红包
 什么是 Digital native ？还有与之对应的 Digital immigrant ?
 
 > **Digital native，数字原住民**： 指代从出生开始就习惯有互联网、无线技术的一代人 （logically there's a whole generation of individuals for whom concepts such as the Internet and wireless technology are just humdrum, because they've never lived in a world where they didn't exist. These are the so-called digital natives）
->    
->  **Digital immigrant，数字移民**：指代更早的一代人，已经情愿或者不情愿地适应了这个数字世界，并且将各类数字工具运用到生活当中。（Digital immigrants are their antithesis, being the folks born earlier who, either reluctantly or enthusiastically, have adapted to the digital world and incorporated its tools into their lives.）
+>
+> **Digital immigrant，数字移民**：指代更早的一代人，已经情愿或者不情愿地适应了这个数字世界，并且将各类数字工具运用到生活当中。（Digital immigrants are their antithesis, being the folks born earlier who, either reluctantly or enthusiastically, have adapted to the digital world and incorporated its tools into their lives.）
 
 定义如此，但其实边界模糊。而真正重要的是：**或许在这个飞速发展的世界里，只有保持小孩般的好奇与初心，才能不被时代轻易的抛弃。**
 
