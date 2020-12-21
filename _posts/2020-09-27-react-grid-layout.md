@@ -2,14 +2,13 @@
 title: "React-grid-layout 一个支持推拽的栅格布局库"
 excerpt: "React-grid-layout 一个可以支持推拽、改变大小的栅格布局库，完美支持React"
 date: "2020-09-27T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2020-09-20-ECMAScript2020.jpg"
+coverImage: "/assets/blog/cover/2020-09-27-react-grid-layout.gif"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2020-09-20-ECMAScript2020.jpg"
+  url: "/assets/blog/cover/2020-09-27-react-grid-layout.gif"
 ---
-
 
 ## 演示版
 
@@ -20,8 +19,8 @@ ogImage:
 1. [在子组件上定义的布局](https://strml.github.io/react-grid-layout/examples/4-grid-property.html)
 1. [静态元素](https://strml.github.io/react-grid-layout/examples/5-static-elements.html)
 1. [添加/删除元素](https://strml.github.io/react-grid-layout/examples/6-dynamic-add-remove.html)
-1. [将布局保存到LocalStorage](https://strml.github.io/react-grid-layout/examples/7-localstorage.html)
-1. [将响应式布局保存到LocalStorage](https://strml.github.io/react-grid-layout/examples/8-localstorage-responsive.html)
+1. [将布局保存到 LocalStorage](https://strml.github.io/react-grid-layout/examples/7-localstorage.html)
+1. [将响应式布局保存到 LocalStorage](https://strml.github.io/react-grid-layout/examples/8-localstorage-responsive.html)
 1. [最小和最大宽度/高度](https://strml.github.io/react-grid-layout/examples/9-min-max-wh.html)
 1. [动态最小和最大宽度/高度](https://strml.github.io/react-grid-layout/examples/10-dynamic-min-max-wh.html)
 1. [没有垂直压实（自由运动）](https://strml.github.io/react-grid-layout/examples/11-no-vertical-compact.html)
@@ -34,7 +33,7 @@ ogImage:
 
 ## 特征
 
-- 100％React-没有jQuery
+- 100％React-没有 jQuery
 - 与服务器渲染的应用程序兼容
 - 可拖动的小部件
 - 可调整大小的小部件
@@ -45,102 +44,136 @@ ogImage:
 - 布局可以序列化和还原
 - 响应断点
 - 每个响应断点单独的布局
-- 使用CSS变换放置的网格项目
-   - CSS转换的性能：[开](http://i.imgur.com/FTogpLp.jpg)/[关](http://i.imgur.com/gOveMm8.jpg)，注意油漆（绿色）占时间的百分比
-| 版 | 兼容性 |
-| --- | --- |
-| > = 0.17.0 | React0.16 |
-| > = 0.11.3 | React0.14＆v15 |
-| > = 0.10.0 | React0.14 |
-| 0.8。-0.9.2 | React0.13 |
-| <0.8 | React0.12 |
+- 使用 CSS 变换放置的网格项目
+  - CSS 转换的性能：[开](http://i.imgur.com/FTogpLp.jpg)/[关](http://i.imgur.com/gOveMm8.jpg)，注意油漆（绿色）占时间的百分比
+    | 版 | 兼容性 |
+    | --- | --- |
+    | > = 0.17.0 | React0.16 |
+    | > = 0.11.3 | React0.14＆v15 |
+    | > = 0.10.0 | React0.14 |
+    | 0.8。-0.9.2 | React0.13 |
+    | <0.8 | React0.12 |
 
 ## 安装
-使用[npm](https://www.npmjs.com/)安装React-Grid-Layout[软件包](https://www.npmjs.org/package/react-grid-layout)：
+
+使用[npm](https://www.npmjs.com/)安装 React-Grid-Layout[软件包](https://www.npmjs.org/package/react-grid-layout)：
+
 ```shell
 npm install react-grid-layout
 ```
 
 在您的应用程序中添加以下样式表：
+
 ```javascript
-/node_modules/react-grid-layout/css/styles.css
-/node_modules/react-resizable/css/styles.css
+/node_modules/acert -
+  grid -
+  layout / css / styles.css / node_modules / react -
+  resizable / css / styles.css;
 ```
+
 ## 使用
+
 像使用任何其他组件一样使用 ReactGridLayout。下面的示例将生成一个包含以下三个项目的网格：：
 
 - 用户将无法拖动或调整项目的大小`a`
 - 项将限制为 2 个网格块的最小宽度和 4 个网格块的最大宽度`b`
 - 用户将能够自由拖动和调整项目的大小`c`
+
 ```javascript
-import GridLayout from 'react-grid-layout';
+import GridLayout from "react-grid-layout";
 
 class MyFirstGrid extends React.Component {
   render() {
     // layout is an array of objects, see the demo for more complete usage
     const layout = [
-      {i: 'a', x: 0, y: 0, w: 1, h: 2, static: true},
-      {i: 'b', x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4},
-      {i: 'c', x: 4, y: 0, w: 1, h: 2}
+      { i: "a", x: 0, y: 0, w: 1, h: 2, static: true },
+      { i: "b", x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4 },
+      { i: "c", x: 4, y: 0, w: 1, h: 2 }
     ];
     return (
-      <GridLayout className="layout" layout={layout} cols={12} rowHeight={30} width={1200}>
+      <GridLayout
+        className="layout"
+        layout={layout}
+        cols={12}
+        rowHeight={30}
+        width={1200}
+      >
         <div key="a">a</div>
         <div key="b">b</div>
         <div key="c">c</div>
       </GridLayout>
-    )
+    );
   }
 }
 ```
+
 您还可以选择直接在子项上设置布局属性：
+
 ```javascript
-import GridLayout from 'react-grid-layout';
+import GridLayout from "react-grid-layout";
 
 class MyFirstGrid extends React.Component {
   render() {
     return (
       <GridLayout className="layout" cols={12} rowHeight={30} width={1200}>
-        <div key="a" data-grid={{x: 0, y: 0, w: 1, h: 2, static: true}}>a</div>
-        <div key="b" data-grid={{x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4}}>b</div>
-        <div key="c" data-grid={{x: 4, y: 0, w: 1, h: 2}}>c</div>
+        <div key="a" data-grid={{ x: 0, y: 0, w: 1, h: 2, static: true }}>
+          a
+        </div>
+        <div key="b" data-grid={{ x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4 }}>
+          b
+        </div>
+        <div key="c" data-grid={{ x: 4, y: 0, w: 1, h: 2 }}>
+          c
+        </div>
       </GridLayout>
-    )
+    );
   }
 }
 ```
-### 在没有Browserify / Webpack的情况下使用
-在一个模块可用`<script>`标签包含[在这里](https://github.com/STRML/react-grid-layout/blob/master/dist/react-grid-layout.min.js)。它使用UMD填充程序并排除`React`，因此必须通过RequireJS或在<script>中使用`React``window.React`。
+
+### 在没有 Browserify / Webpack 的情况下使用
+
+在一个模块可用`<script>`标签包含[在这里](https://github.com/STRML/react-grid-layout/blob/master/dist/react-grid-layout.min.js)。它使用 UMD 填充程序并排除`React`，因此必须通过 RequireJS 或在`<script>`中使用`React`、`window.React`。
+
 ### 响应式用法
-要使RGL响应，请使用`<ResponsiveReactGridLayout>`元素：
+
+要使 RGL 响应，请使用`<ResponsiveReactGridLayout>`元素：
+
 ```javascript
-import { Responsive as ResponsiveGridLayout } from 'react-grid-layout';
+import { Responsive as ResponsiveGridLayout } from "react-grid-layout";
 
 class MyResponsiveGrid extends React.Component {
   render() {
     // {lg: layout1, md: layout2, ...}
     const layouts = getLayoutsFromSomewhere();
     return (
-      <ResponsiveGridLayout className="layout" layouts={layouts}
-        breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
-        cols={{lg: 12, md: 10, sm: 6, xs: 4, xxs: 2}}>
+      <ResponsiveGridLayout
+        className="layout"
+        layouts={layouts}
+        breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
+        cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
+      >
         <div key="1">1</div>
         <div key="2">2</div>
         <div key="3">3</div>
       </ResponsiveGridLayout>
-    )
+    );
   }
 }
 ```
+
 在响应模式下，您应该通过`layouts`属性提供至少一个断点。
-使用时`layouts`，最好提供尽可能多的断点，尤其是最大的断点。如果提供了最大的值，RGL将尝试对其余的值进行插值。
-您还需要提供`width`，`<ResponsiveReactGridLayout>`建议您`WidthProvider`按照以下说明使用HOC 。
+使用时`layouts`，最好提供尽可能多的断点，尤其是最大的断点。如果提供了最大的值，RGL 将尝试对其余的值进行插值。
+您还需要提供`width`，`<ResponsiveReactGridLayout>`建议您`WidthProvider`按照以下说明使用 HOC 。
 可以通过`data-grid`属性在各个项目上提供默认映射，以便在布局插值中将它们考虑在内。
+
 ### 提供网格宽度
+
 双方`<ResponsiveReactGridLayout>`并`<ReactGridLayout>`采取`width`来计算拖动事件位置。在简单的情况下，HOC`WidthProvider`可用于在初始化和窗口调整大小事件时自动确定宽度。
-`<ResponsiveReactGridLayout>``<ReactGridLayout>``width``WidthProvider`;
+` <ResponsiveReactGridLayout>``<ReactGridLayout>``width``WidthProvider `;
+
 ```javascript
-import { Responsive, WidthProvider } from 'react-grid-layout';
+import { Responsive, WidthProvider } from "react-grid-layout";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
@@ -149,22 +182,29 @@ class MyResponsiveGrid extends React.Component {
     // {lg: layout1, md: layout2, ...}
     var layouts = getLayoutsFromSomewhere();
     return (
-      <ResponsiveGridLayout className="layout" layouts={layouts}
-        breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
-        cols={{lg: 12, md: 10, sm: 6, xs: 4, xxs: 2}}>
+      <ResponsiveGridLayout
+        className="layout"
+        layouts={layouts}
+        breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
+        cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
+      >
         <div key="1">1</div>
         <div key="2">2</div>
         <div key="3">3</div>
       </ResponsiveGridLayout>
-    )
+    );
   }
 }
 ```
-`WidthProvider`如果需要更复杂的逻辑，这使您可以轻松地替换为自己的提供方HOC。
+
+`WidthProvider`如果需要更复杂的逻辑，这使您可以轻松地替换为自己的提供方 HOC。
 `WidthProvider`接受一个道具，`measureBeforeMount`。如果为`true`，`WidthProvider`将在安装儿童之前测量容器的宽度。如果您想完全消除应用程序/组件安装上的任何调整大小的动画，请使用此选项。
-有更复杂的布局吗？`WidthProvider` [非常简单](https://github.com/STRML/react-grid-layout/blob/master/lib/components/WidthProvider.jsx)，仅侦听窗口`'resize'`事件。如果您需要更多功能和灵活性，请尝试使用 [SizeMe React HOC](https://github.com/ctrlplusb/react-sizeme)作为WidthProvider的替代方法。
+有更复杂的布局吗？`WidthProvider` [非常简单](https://github.com/STRML/react-grid-layout/blob/master/lib/components/WidthProvider.jsx)，仅侦听窗口`'resize'`事件。如果您需要更多功能和灵活性，请尝试使用 [SizeMe React HOC](https://github.com/ctrlplusb/react-sizeme)作为 WidthProvider 的替代方法。
+
 ### 网格布局道具
-RGL支持以下属性（请参阅源代码中的最后一个字）：
+
+RGL 支持以下属性（请参阅源代码中的最后一个字）：
+
 ```javascript
 //
 // Basic props
@@ -348,9 +388,10 @@ onDrop: (layout: Layout, item: ?LayoutItem, e: Event) => void
 innerRef: ?React.Ref<"div">
 ```
 
-
 ### 响应式网格布局道具
+
 可以使用响应式网格布局。它支持上述所有道具，除了`layout`。新的属性和更改是：
+
 ```javascript
 // {name: pxVal}, e.g. {lg: 1200, md: 996, sm: 768, xs: 480}
 // Breakpoint names are arbitrary but must match in the cols and layouts objects.
@@ -359,7 +400,7 @@ innerRef: ?React.Ref<"div">
 breakpoints: ?Object = {lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0},
 
 // # of cols. This is a breakpoint -> cols map, e.g. {lg: 12, md: 10, ...}
-// 列数。这是一个断点- >的cols映射，例如{LG：12，MD：10，...}  
+// 列数。这是一个断点- >的cols映射，例如{LG：12，MD：10，...}
 cols: ?Object = {lg: 12, md: 10, sm: 6, xs: 4, xxs: 2},
 
 
@@ -398,13 +439,14 @@ onLayoutChange: (currentLayout: Layout, allLayouts: {[key: $Keys<breakpoints>]: 
 onWidthChange: (containerWidth: number, margin: [number, number], cols: number, containerPadding: [number, number]) => void;
 ```
 
-
 ### 网格项目道具
-RGL在网格项目或布局项目上支持以下属性。初始化网格时，构建一个布局数组（如上述第一个示例中所示），或将此对象作为`data-grid`属性附加到每个子元素中（如第二个示例中所示）。
+
+RGL 在网格项目或布局项目上支持以下属性。初始化网格时，构建一个布局数组（如上述第一个示例中所示），或将此对象作为`data-grid`属性附加到每个子元素中（如第二个示例中所示）。
 请注意，如果提供的网格项目不完整（缺少之一`x, y, w, or h`），则会引发错误，因此您可以更正布局。
 如果没有为网格项目提供属性，则将生成一个宽度和高度为的属性`1`。
 您可以为每个尺寸设置最小值和最大值。这是为了调整大小；如果禁用了调整大小，那么它当然不会起作用。如果最小和最大重叠不正确，或者初始尺寸超出范围，则会引发错误。
-`<GridItem>`直接定义的任何属性都将优先于全局设置的选项。例如，如果布局具有属性`isDraggable: false`，但是网格项目具有prop `isDraggable: true`，则即使标记了项目，该项目也可以拖动`static: true`。
+`<GridItem>`直接定义的任何属性都将优先于全局设置的选项。例如，如果布局具有属性`isDraggable: false`，但是网格项目具有 prop `isDraggable: true`，则即使标记了项目，该项目也可以拖动`static: true`。
+
 ```javascript
 {
 
@@ -442,9 +484,13 @@ RGL在网格项目或布局项目上支持以下属性。初始化网格时，�
   isBounded: ?boolean = false
 }
 ```
+
 ###
+
 ### 性能
+
 `<ReactGridLayout>`具有[优化的`shouldComponentUpdate`实现](https://github.com/STRML/react-grid-layout/blob/master/lib/ReactGridLayout.jsx)，但是它依赖于用户保存`children`数组：
+
 ```javascript
 // lib/ReactGridLayout.jsx
 // ...
@@ -463,13 +509,13 @@ shouldComponentUpdate(nextProps: Props, nextState: State) {
 // ...
 ```
 
+如果在子组件中使用 memoize，则可以利用它，获得更好的执行效果。例如：
 
-如果在子组件中使用memoize，则可以利用它，获得更好的执行效果。例如：
 ```javascript
 function MyGrid(props) {
   const children = React.useMemo(() => {
     return new Array(props.count).fill(undefined).map((val, idx) => {
-      return <div key={idx} data-grid={{x: idx, y: 1, w: 1, h: 1}} />;
+      return <div key={idx} data-grid={{ x: idx, y: 1, w: 1, h: 1 }} />;
     });
   }, [props.count]);
   return <ReactGridLayout cols={12}>{children}</ReactGridLayout>;
