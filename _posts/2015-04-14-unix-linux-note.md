@@ -120,7 +120,7 @@ Anyway, there eventually comes to the **GNU/Linux**
 - [BSD Public License](http://en.wikipedia.org/wiki/BSD_licenses) \* GPL 强制后续版本必须是自由软件，而 BSD 的后续可以选择继续开源或者封闭
 - [Apache License](http://en.wikipedia.org/wiki/Apache_License)
 
-![Public License](/assets/blog/open-source-license.png)
+![Public License](/assets/blog/context/2015-04-14-unix-linux-note.jpg/open-source-license.png)
 
 #### Android
 

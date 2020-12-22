@@ -62,7 +62,7 @@ console.log(typeof fn3); // function
 
 先保留这个疑问。接下来，对这一节的内容做个总结：
 
-![](/assets/blog/2019-10-24-JavaScript-prototype/v2-97bfacdf216ab34c22c8709aa86542d6_r.jpg)
+![](/assets/blog/context/2019-10-24-JavaScript-prototype/v2-97bfacdf216ab34c22c8709aa86542d6_r.jpg)
 
 从图中可以看出，对象本身的实现还是要依靠构造函数。那 原型链 到底是用来干嘛的呢？
 
@@ -290,7 +290,7 @@ console.log(chl.getName(), chl.getAge()); /* 6 */
 
 我们来画一个原型链图，或者说，将其整个原型链图画出来？请看下图：
 
-![](/assets/blog/2019-10-24-JavaScript-prototype/v2-95c1267691d904d50a0ef009f8f887ae_r.jpg)
+![](/assets/blog/context/2019-10-24-JavaScript-prototype/v2-95c1267691d904d50a0ef009f8f887ae_r.jpg)
 
 画完这张图，基本上所有之前的疑问都可以解答了。
 
@@ -311,7 +311,7 @@ console.log(Person.prototype.constructor.prototype.constructor === Person); //tr
 
 通过前文的论述，结合相应的代码验证，整理出以下原型链图：
 
-![](/assets/blog/2019-10-24-JavaScript-prototype/v2-c4d424b90439092aacca97a634305bdd_r.jpg)
+![](/assets/blog/context/2019-10-24-JavaScript-prototype/v2-c4d424b90439092aacca97a634305bdd_r.jpg)
 
 由此可见，我们更加强化了这两个观点：
 

@@ -39,7 +39,7 @@ O2O 领域已经有了非常多成功的案例：从最早的千团大战，到�
 在行业术语里，旅行社被称为 **TA：Travel Agency —— 旅游代理**。
 旅行社为你提供旅游信息，代理你办航班，定酒店，买门票，办签证，找导游。通过代理你的旅游消费行为，TA 从中获利。
 
-![img](/assets/blog/post-alitrip-pd/post-alitrip-pd.013.jpg)
+![img](/assets/blog/context/2015-06-15-alitrip-strategy/post-alitrip-pd.013.jpg)
 
 ### 第一轮革命：兴起的电商与 OTA
 
@@ -49,7 +49,7 @@ O2O 领域已经有了非常多成功的案例：从最早的千团大战，到�
 
 携程、艺龙利用互联网的体验优势，迅速占领了 TA 的市场，它们被称作 **OTA：Online Travel Agency**
 
-![img](/assets/blog/post-alitrip-pd/post-alitrip-pd.014.jpg)
+![img](/assets/blog/context/2015-06-15-alitrip-strategy/post-alitrip-pd.014.jpg)
 
 在他们诞生之初，其实都叫 XX 旅行网。那为什么不说他们是做网站的，而说他们是做 TA 的呢？
 
@@ -62,7 +62,7 @@ Agency，即**代理模式**。通过代理用户的消费行为，代理商就�
 
 **佣金，说白了，就是中介费。**
 
-![img](/assets/blog/post-alitrip-pd/post-alitrip-pd.016.jpg)
+![img](/assets/blog/context/2015-06-15-alitrip-strategy/post-alitrip-pd.016.jpg)
 
 了解了 Agency 模式，我们再回过来看携程、艺龙：
 虽然渠道改成了互联网，但其商业模式还是 TA 的那套玩法，它们其实是在和传统 TA 分同一块蛋糕。
@@ -74,13 +74,13 @@ Agency，即**代理模式**。通过代理用户的消费行为，代理商就�
 
 就在这样的格局下，**去哪儿** 横空出世，一下占据了半壁江山：
 
-![img](/assets/blog/post-alitrip-pd/post-alitrip-pd.021.jpg)
+![img](/assets/blog/context/2015-06-15-alitrip-strategy/post-alitrip-pd.021.jpg)
 
 去哪儿做了一件什么事呢，它把这些 OTA 的数据全都爬过来，做了一个**比价平台**。这样，用户就可以在去哪儿的网站上看看哪家 OTA 更便宜，然后用户就去消费哪家的服务。
 
 所谓“比价平台”，本质上说，就是 **Search Engine —— 搜索引擎**。
 
-![img](/assets/blog/post-alitrip-pd/post-alitrip-pd.018.jpg)
+![img](/assets/blog/context/2015-06-15-alitrip-strategy/post-alitrip-pd.018.jpg)
 
 这个这个玩法一下就厉害了：
 **去哪儿挡在了用户和所有 OTA 之间，OTA 还是做原来的事情，而去哪儿则拿下了用户找 OTA 的过程**。同是搜索引擎的百度也是如此：百度自己并不生产内容，而是拿下了用户找内容的过程。
@@ -92,14 +92,14 @@ Let's why search engine awesome：因为用户在互联网的信息海洋上找�
 Channel，即**渠道模式**。通过优化用户的体验路径，在用户和 B 方之前挡了一道，主要对 B 盈利。
 最常见的对 B 盈利方式就是广告：**Pay for Performance**
 
-![img](/assets/blog/post-alitrip-pd/post-alitrip-pd.019.jpg)
+![img](/assets/blog/context/2015-06-15-alitrip-strategy/post-alitrip-pd.019.jpg)
 
 简单看一眼携程和去哪儿的收入占比就可以发现：
 
 - 携程主要靠来自酒店、机票的佣金盈利
 - 去哪儿则主要靠 PFP 广告盈利
 
-![img](/assets/blog/post-alitrip-pd/post-alitrip-pd.020.jpg)
+![img](/assets/blog/context/2015-06-15-alitrip-strategy/post-alitrip-pd.020.jpg)
 
 通过去哪儿的比价平台，小 OTA 开始有机会通过价格战和大 OTA 周旋。去哪儿在给予了小 OTA 机会的同时也造就了自己，这和 2003 年淘宝 C2C 的崛起，颇有异曲同工之意。
 
@@ -127,7 +127,7 @@ Channel，即**渠道模式**。通过优化用户的体验路径，在用户和
 
 淘宝旅行想怎么玩呢，它实际上就是想用淘宝/天猫的思路去做在线旅行，其实背后还是淘宝卖家和天猫卖家，只不过这次的商户换成 OTA 入驻了，然后大家开开心心像卖衣服一样去卖旅行产品。
 
-![img](/assets/blog/post-alitrip-pd/post-alitrip-pd.023.jpg)
+![img](/assets/blog/context/2015-06-15-alitrip-strategy/post-alitrip-pd.023.jpg)
 
 听上去很美，不但利用了阿里系的大量资源，还直接复刻了淘宝/天猫的牛逼模式 —— 平台模式
 
@@ -135,7 +135,7 @@ Channel，即**渠道模式**。通过优化用户的体验路径，在用户和
 
 Platform，即**平台模式**，可以说是当今最叼的商业模式了，它相当于构建了一个完整的生态、市场环境，在这里整合买卖双方的资源。通过维护市场秩序、制定市场规则，让市场活跃，从而赚取场子费。
 
-![img](/assets/blog/post-alitrip-pd/post-alitrip-pd.026.jpg)
+![img](/assets/blog/context/2015-06-15-alitrip-strategy/post-alitrip-pd.026.jpg)
 
 想想看，每一笔交易都在你的地盘上发生，只要市场一直活跃，你就可以在其中**双边、多边盈利**。什么竞价排名、广告平台、VIP 特权，盈利模式太丰富了
 
@@ -148,7 +148,7 @@ Platform，即**平台模式**，可以说是当今最叼的商业模式了，�
 OK，经过这么一番折腾，第三次变革就来了。
 BAT 纷纷介入，行业进入了传说中的 BATX 格局：
 
-![img](/assets/blog/post-alitrip-pd/post-alitrip-pd.028.jpg)
+![img](/assets/blog/context/2015-06-15-alitrip-strategy/post-alitrip-pd.028.jpg)
 
 阿里最近动作频频，力推去啊不说，更是收购线下酒店软件石基，配合蚂蚁金服期下芝麻信用开展“酒店信用住”等业务
 百度早早投资去哪儿，两个搜索引擎起家的公司风格一脉相承。同时，百度也悄悄发布了百度旅行这样的试水产品
@@ -160,7 +160,7 @@ Update：不过，就在 2015.5 左右，携程宣布收购艺龙，非常戏剧
 一是互联网结合传统行业的大潮到来，大家都发现旅游行业是一个金矿，市场其实特别大……
 二是这个领域确实还有很多可以突破的商业模式存在，很多细分领域都开始有创业公司起来，整个行业的生态也越来越丰富：
 
-![img](/assets/blog/post-alitrip-pd/post-alitrip-pd.029.jpg)
+![img](/assets/blog/context/2015-06-15-alitrip-strategy/post-alitrip-pd.029.jpg)
 
 这种时候，BAT 这样的土豪公司就想进来收网了 —— 砸钱也得砸出个平台来！
 所以，这一轮游戏一定能看到一次大洗牌（艺龙第一个就阵亡了）
@@ -172,14 +172,14 @@ Update：不过，就在 2015.5 左右，携程宣布收购艺龙，非常戏剧
 - 都做 OTA，拿下各种牛逼直营，最典型的就是航班
 - 都做平台，尤其是质量相对比较高的 B2C 平台。然后尝试可能的 C2C 产品形态 （去啊的客栈是一个很好的尝试）
 
-![img](/assets/blog/post-alitrip-pd/post-alitrip-pd.030.jpg)
+![img](/assets/blog/context/2015-06-15-alitrip-strategy/post-alitrip-pd.030.jpg)
 
 **二是思路进化**
 
 - 从单一的购买/渠道业务转向服务平台。融合周边服务，拉上细分领域，外围行业一起玩
 - 强调用户体验与用户留存，强调**一站式服务**、**个性化服务** 等更极致的产品形态
 
-![img](/assets/blog/post-alitrip-pd/post-alitrip-pd.031.jpg)
+![img](/assets/blog/context/2015-06-15-alitrip-strategy/post-alitrip-pd.031.jpg)
 
 而这些演变，正是 **阿里旅行 · 去啊** 致力去做到的。从大版本 5.0 开始，淘宝旅行将 **洗心革面**，去追求一个更极致，更垂直，体验更优秀的产品形态。
 

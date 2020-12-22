@@ -57,7 +57,7 @@ console.log("Hello CLI");
 
 在 demo-cli 目录下依次执行 npm link 、 demo ，这个时候，你会发现控制台输出了 hello CLI。
 
-![img](/assets/blog/2018-08-02-make-the-cli-with-node/make-the-cli-with-node-01.png)
+![img](/assets/blog/context/2018-08-02-make-the-cli-with-node/make-the-cli-with-node-01.png)
 
 > 备注：
 >
