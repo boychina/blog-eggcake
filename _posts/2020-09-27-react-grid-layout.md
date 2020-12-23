@@ -65,10 +65,8 @@ npm install react-grid-layout
 在您的应用程序中添加以下样式表：
 
 ```javascript
-/node_modules/acert -
-  grid -
-  layout / css / styles.css / node_modules / react -
-  resizable / css / styles.css;
+/node_modules/react-grid-layout/css/styles.css
+/node_modules/react-resizable/css/styles.css
 ```
 
 ## 使用
