@@ -12,7 +12,7 @@ export default function HeroPost({
   return (
     <section className="md:flex bg-gray-100 md:rounded-xl p-8 md:p-0 mb-4">
       <img
-        className="w-64 h-64 md:h-auto rounded-xl md:rounded-l-xl md:rounded-r-none mx-auto"
+        className="w-64 h-auto md:h-auto rounded-xl md:rounded-l-xl md:rounded-r-none mx-auto"
         src={coverImage}
         alt={title}
         width="384"
