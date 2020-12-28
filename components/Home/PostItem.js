@@ -14,7 +14,7 @@ export default function HeroPost({
 }) {
   return (
     <section class="md:flex bg-gray-100 md:rounded-xl p-8 md:p-0 mb-4">
-      <img class="w-64 h-64 md:w-94 md:h-auto rounded-xl md:rounded-l-xl md:rounded-r-none mx-auto" src={coverImage} alt={title} width="384" height="512" />
+      <img class="w-64 h-64 md:h-auto rounded-xl md:rounded-l-xl md:rounded-r-none mx-auto" src={coverImage} alt={title} width="384" height="512" />
       <div class="pt-6 md:p-8 text-center md:text-left space-y-4 flex-auto">
         <blockquote>
           <p class="text-lg font-semibold">
