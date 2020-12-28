@@ -1,17 +1,19 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import Container from "../../components/Layout/Container";
-import PostBody from "../../components/post-body";
-import Header from "../../components/Layout/Header";
-import PostHeader from "../../components/post-header";
 import Layout from "../../components/Layout";
+import Container from "../../components/Layout/Container";
+import Header from "../../components/Layout/Header";
+import Wrapper from "../../components/Layout/Wrapper";
+import Widget from "../../components/Layout/Widget";
+import PostHeader from "../../components/Post/PostHeader";
+import PostBody from "../../components/Post/PostBody";
+import PostTitle from "../../components/Post/PostTitle";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
-import PostTitle from "../../components/post-title";
 import Head from "next/head";
 import { CMS_NAME } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 
-export default function Post({ post, morePosts, preview }) {
+export default function Post({ post, allPosts, preview }) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -19,33 +21,44 @@ export default function Post({ post, morePosts, preview }) {
   return (
     <Layout preview={preview}>
       <Container>
-        <Header />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
-            <article className="mb-32">
+          <>
+            <Wrapper>
               <Head>
                 <title>
                   {post.title} | Next.js Blog Example with {CMS_NAME}
                 </title>
                 <meta property="og:image" content={post.ogImage.url} />
               </Head>
+              <Header />
               <PostHeader
                 title={post.title}
                 coverImage={post.coverImage}
                 date={post.date}
                 author={post.author}
-                />
+              />
               <PostBody content={post.content} />
-            </article>
-          )}
+            </Wrapper>
+            <Widget allPosts={allPosts} />
+          </>
+        )}
       </Container>
     </Layout>
   );
 }
 
 export async function getStaticProps({ params }) {
-  if (!params.slug.includes('.DS_Store')) {
+  if (!params.slug.includes(".DS_Store")) {
+    const allPosts = getAllPosts([
+      "title",
+      "date",
+      "slug",
+      "author",
+      "coverImage",
+      "excerpt",
+    ]);
     const post = getPostBySlug(params.slug, [
       "title",
       "date",
@@ -53,16 +66,17 @@ export async function getStaticProps({ params }) {
       "author",
       "content",
       "ogImage",
-      "coverImage"
+      "coverImage",
     ]);
     const content = await markdownToHtml(post.content || "");
     return {
       props: {
+        allPosts,
         post: {
           ...post,
-          content
-        }
-      }
+          content,
+        },
+      },
     };
   }
 }
@@ -71,13 +85,13 @@ export async function getStaticPaths() {
   const posts = getAllPosts(["slug"]);
 
   return {
-    paths: posts.map(post => {
+    paths: posts.map((post) => {
       return {
         params: {
-          slug: post.slug
-        }
+          slug: post.slug,
+        },
       };
     }),
-    fallback: false
+    fallback: false,
   };
 }
