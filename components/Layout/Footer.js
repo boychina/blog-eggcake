@@ -1,10 +1,9 @@
-import Container from "./container";
-import { EXAMPLE_PATH } from "../lib/constants";
+import { EXAMPLE_PATH } from "../../lib/constants";
 
 export default function Footer() {
   return (
     <footer className="bg-accent-1 border-t border-accent-2">
-      <Container>
+      <div className="container mx-auto px-5">
         <div className="py-10 flex flex-col lg:flex-row items-center">
           <h3 className="text-base lg:text-2xl font-bold tracking-tighter leading-tight text-center lg:text-left mb-4Z lg:mb-0 lg:pr-4 lg:w-1/2">
             Statically Generated with Next.js.
@@ -29,7 +28,7 @@ export default function Footer() {
             ICP备案号：蜀ICP备2020034346号-1
           </a>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }

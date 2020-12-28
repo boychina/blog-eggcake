@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import Container from "../../components/container";
+import Container from "../../components/Layout/Container";
 import PostBody from "../../components/post-body";
-import Header from "../../components/header";
+import Header from "../../components/Layout/Header";
 import PostHeader from "../../components/post-header";
-import Layout from "../../components/layout";
+import Layout from "../../components/Layout";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
 import PostTitle from "../../components/post-title";
 import Head from "next/head";
@@ -23,7 +23,6 @@ export default function Post({ post, morePosts, preview }) {
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
-          <>
             <article className="mb-32">
               <Head>
                 <title>
@@ -36,11 +35,10 @@ export default function Post({ post, morePosts, preview }) {
                 coverImage={post.coverImage}
                 date={post.date}
                 author={post.author}
-              />
+                />
               <PostBody content={post.content} />
             </article>
-          </>
-        )}
+          )}
       </Container>
     </Layout>
   );

@@ -1,14 +1,11 @@
-import PostPreview from "./post-preview";
+import PostItem from "./PostItem";
 
 export default function MoreStories({ posts }) {
   return (
     <section>
-      <h2 className="hidden md:block my-2 text-base md:text-lg text-gray-500 tracking-tighter leading-tight">
-        更多内容 &gt;&gt;
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 md:col-gap-8 lg:col-gap-12 row-gap-8 md:row-gap-12 mb-32">
+      <div className="mb-32">
         {posts.map(post => (
-          <PostPreview
+          <PostItem
             key={post.slug}
             title={post.title}
             coverImage={post.coverImage}
@@ -16,7 +13,7 @@ export default function MoreStories({ posts }) {
             author={post.author}
             slug={post.slug}
             excerpt={post.excerpt}
-          />
+            />
         ))}
       </div>
     </section>

@@ -7,9 +7,7 @@ export default function CoverImage({ title, src, slug }) {
     <img
       src={src}
       alt={`Cover Image for ${title}`}
-      className={classNames("shadow-small mx-auto", {
-        "hover:shadow-medium transition-shadow duration-200": slug
-      })}
+      className="h-64 rounded-xl mx-auto"
     />
   );
   return (

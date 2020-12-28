@@ -1,4 +1,5 @@
 import "../styles/index.css";
+import "antd/dist/antd.css";
 // 代码高亮主题参考 https://highlightjs.org/static/demo/
 // import 'highlight.js/styles/atom-one-dark.css';
 import "highlight.js/styles/night-owl.css";
