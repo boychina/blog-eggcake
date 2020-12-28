@@ -3,7 +3,7 @@ import Wrapper from "../components/Layout/Wrapper";
 import Widget from "../components/Layout/Widget";
 import PostItem from "../components/Home/PostItem";
 import MoreStories from "../components/Home/MoreStories";
-import Intro from "../components/Intro";
+import Intro from "../components/Common/Intro";
 import Layout from "../components/Layout";
 import { getAllPosts } from "../lib/api";
 import Head from "next/head";
