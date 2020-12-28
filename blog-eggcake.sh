@@ -16,4 +16,4 @@ yarn build
 pm2 reload blog3000
 
 # 删除node_modules依赖包
-rm -rf ./node_modules
+rm -rf /usr/local/src/blog-eggcake/node_modules
