@@ -1,10 +1,13 @@
 #!/bin/bash
- 
+
 # 找到项目目录
 cd /usr/local/src/blog-eggcake
 
 # 更新&合并master分支代码
 git pull origin master
+
+# 更新node_mudules依赖包
+yarn
 
 # 执行打包命令
 yarn build
