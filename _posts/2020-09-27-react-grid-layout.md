@@ -45,14 +45,6 @@ ogImage:
 - 响应断点
 - 每个响应断点单独的布局
 - 使用 CSS 变换放置的网格项目
-  - CSS 转换的性能：[开](http://i.imgur.com/FTogpLp.jpg)/[关](http://i.imgur.com/gOveMm8.jpg)，注意油漆（绿色）占时间的百分比
-    | 版 | 兼容性 |
-    | --- | --- |
-    | > = 0.17.0 | React0.16 |
-    | > = 0.11.3 | React0.14＆v15 |
-    | > = 0.10.0 | React0.14 |
-    | 0.8。-0.9.2 | React0.13 |
-    | <0.8 | React0.12 |
 
 ## 安装
 
@@ -196,10 +188,10 @@ class MyResponsiveGrid extends React.Component {
 ```
 
 `WidthProvider`如果需要更复杂的逻辑，这使您可以轻松地替换为自己的提供方 HOC。
-`WidthProvider`接受一个道具，`measureBeforeMount`。如果为`true`，`WidthProvider`将在安装儿童之前测量容器的宽度。如果您想完全消除应用程序/组件安装上的任何调整大小的动画，请使用此选项。
+`WidthProvider`接受一个属性：`measureBeforeMount`。如果为`true`，`WidthProvider`将在安装儿童之前测量容器的宽度。如果您想完全消除应用程序/组件安装上的任何调整大小的动画，请使用此选项。
 有更复杂的布局吗？`WidthProvider` [非常简单](https://github.com/STRML/react-grid-layout/blob/master/lib/components/WidthProvider.jsx)，仅侦听窗口`'resize'`事件。如果您需要更多功能和灵活性，请尝试使用 [SizeMe React HOC](https://github.com/ctrlplusb/react-sizeme)作为 WidthProvider 的替代方法。
 
-### 网格布局道具
+### 网格布局属性
 
 RGL 支持以下属性（请参阅源代码中的最后一个字）：
 
@@ -257,7 +249,7 @@ compactType: ?('vertical' | 'horizontal') = 'vertical';
 // 布局索引必须与每个项目组件上使用的键匹配。
 // 如果选择使用自定义键，则可以在布局
 // 数组对象中指定该键，例如：// {i：字符串，x：数字，y：数字，w：数字，h：数字}
-// 如果未提供，则在子级上使用数据网格道具
+// 如果未提供，则在子级上使用数据网格属性
 layout: ?array = null, // If not provided, use data-grid props on children
 
 // Margin between items [x, y] in px.
@@ -386,9 +378,9 @@ onDrop: (layout: Layout, item: ?LayoutItem, e: Event) => void
 innerRef: ?React.Ref<"div">
 ```
 
-### 响应式网格布局道具
+### 响应式网格布局属性
 
-可以使用响应式网格布局。它支持上述所有道具，除了`layout`。新的属性和更改是：
+可以使用响应式网格布局。它支持上述所有属性，除了`layout`。新的属性和更改是：
 
 ```javascript
 // {name: pxVal}, e.g. {lg: 1200, md: 996, sm: 768, xs: 480}
@@ -437,7 +429,7 @@ onLayoutChange: (currentLayout: Layout, allLayouts: {[key: $Keys<breakpoints>]: 
 onWidthChange: (containerWidth: number, margin: [number, number], cols: number, containerPadding: [number, number]) => void;
 ```
 
-### 网格项目道具
+### 网格项目属性
 
 RGL 在网格项目或布局项目上支持以下属性。初始化网格时，构建一个布局数组（如上述第一个示例中所示），或将此对象作为`data-grid`属性附加到每个子元素中（如第二个示例中所示）。
 请注意，如果提供的网格项目不完整（缺少之一`x, y, w, or h`），则会引发错误，因此您可以更正布局。
