@@ -15,33 +15,33 @@ import markdownToHtml from "../../lib/markdownToHtml";
 
 export default function Post({ post, allPosts, preview }) {
   const router = useRouter();
-  if (!router.isFallback && !post?.slug) {
+  if (!router.isFallback && !post ?.slug) {
     return <ErrorPage statusCode={404} />;
   }
   return (
     <Layout preview={preview}>
+      <Head>
+        <title>
+          {post.title} | Next.js Blog Example with {CMS_NAME}
+        </title>
+        <meta property="og:image" content={post.ogImage.url} />
+      </Head>
       <Container>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
             <Wrapper>
-              <Head>
-                <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
-                </title>
-                <meta property="og:image" content={post.ogImage.url} />
-              </Head>
               <Header />
               <PostHeader
                 title={post.title}
                 coverImage={post.coverImage}
                 date={post.date}
                 author={post.author}
-              />
+                />
               <PostBody content={post.content} />
             </Wrapper>
-            <Widget allPosts={allPosts} />
+            <div className="pt-40"><Widget allPosts={allPosts} /></div>
           </>
         )}
       </Container>
