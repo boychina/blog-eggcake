@@ -33,8 +33,21 @@ export async function getStaticProps() {
     "coverImage",
     "excerpt",
   ]);
-
   return {
     props: { allPosts },
   };
 }
+
+// export async function getStaticPaths() {
+//   // const posts = getAllPosts(["current"]);
+//   // return {
+//   //   paths: posts.map((post) => {
+//   //     return {
+//   //       params: {
+//   //         current: post.current,
+//   //       },
+//   //     };
+//   //   }),
+//   //   fallback: false,
+//   // };
+// }

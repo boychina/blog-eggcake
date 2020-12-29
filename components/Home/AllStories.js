@@ -1,6 +1,6 @@
 import PostItem from "./PostItem";
 
-export default function MoreStories({ posts }) {
+export default function AllStories({ posts }) {
   return (
     <section>
       <div className="mb-32">
