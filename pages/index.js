@@ -1,13 +1,13 @@
 import Container from "@/components/Layout/Container";
 import Wrapper from "@/components/Layout/Wrapper";
 import Widget from "@/components/Layout/Widget";
-import AllStories from "@/components/Home/AllStories";
+import Stories from "@/components/Home/Stories";
 import Intro from "@/components/Common/Intro";
 import Layout from "@/components/Layout";
-import { getAllPosts } from "@/lib/api";
+import { getAllPosts, getPageIndexes, getPostsByPageIndex } from "@/lib/api";
 import Head from "next/head";
 
-export default function Index({ allPosts }) {
+export default function Index({ allPosts, postsByPageIndex, totalPage }) {
   return (
     <Layout>
       <Head>
@@ -16,7 +16,7 @@ export default function Index({ allPosts }) {
       <Intro />
       <Container>
         <Wrapper>
-          <AllStories posts={allPosts} />
+          <Stories posts={postsByPageIndex} current={1} totalPage={totalPage} />
         </Wrapper>
         <Widget allPosts={allPosts} />
       </Container>
@@ -33,8 +33,16 @@ export async function getStaticProps() {
     "coverImage",
     "excerpt",
   ]);
-
+  const pageIndexes = getPageIndexes();
+  const postsByPageIndex = getPostsByPageIndex(1, [
+    "title",
+    "date",
+    "slug",
+    "author",
+    "coverImage",
+    "excerpt",
+  ]);
   return {
-    props: { allPosts },
+    props: { allPosts, postsByPageIndex, totalPage: pageIndexes.length },
   };
 }

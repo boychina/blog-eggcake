@@ -1,9 +1,10 @@
 import PostItem from "./PostItem";
+import PageTurn from "./PageTurn";
 
-export default function AllStories({ posts }) {
+export default function Stories({ posts, current, totalPage }) {
   return (
     <section>
-      <div className="mb-32">
+      <div className="mb-8">
         {posts.map(post => (
           <PostItem
             key={post.slug}
@@ -16,6 +17,7 @@ export default function AllStories({ posts }) {
             />
         ))}
       </div>
+      <PageTurn current={current} totalPage={totalPage}/>
     </section>
   );
 }
