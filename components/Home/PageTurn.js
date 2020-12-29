@@ -8,7 +8,7 @@ export default function PageTurn({ current, totalPage }) {
       <div>
         {current > 1 && 
           <Link as={`/paging/${Number(current) - 1}`} href="/paging/[current]">
-            <div className="cursor-pointer leading-none text-sm bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-2 px-12 duration-200 transition-colors">
+            <div className="cursor-pointer flex items-center text-sm bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-2 px-10 duration-200 transition-colors">
               <ArrowLeftOutlined />
             </div>
           </Link>}
@@ -16,7 +16,7 @@ export default function PageTurn({ current, totalPage }) {
       <div>
         {current < totalPage && 
           <Link as={`/paging/${Number(current) + 1}`} href="/paging/[current]">
-            <div className="cursor-pointer leading-none text-sm bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-2 px-12 duration-200 transition-colors">
+            <div className="cursor-pointer flex items-center text-sm bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-2 px-10 duration-200 transition-colors">
               <ArrowRightOutlined />
             </div>
           </Link>}
