@@ -12,24 +12,24 @@ ogImage:
 
 ## 演示版
 
-1. [展示柜](https://strml.github.io/react-grid-layout/examples/0-showcase.html)
-1. [基本的](https://strml.github.io/react-grid-layout/examples/1-basic.html)
-1. [无拖动/调整大小（仅布局）](https://strml.github.io/react-grid-layout/examples/2-no-dragging.html)
-1. [凌乱的布局自动更正](https://strml.github.io/react-grid-layout/examples/3-messy.html)
-1. [在子组件上定义的布局](https://strml.github.io/react-grid-layout/examples/4-grid-property.html)
-1. [静态元素](https://strml.github.io/react-grid-layout/examples/5-static-elements.html)
-1. [添加/删除元素](https://strml.github.io/react-grid-layout/examples/6-dynamic-add-remove.html)
-1. [将布局保存到 LocalStorage](https://strml.github.io/react-grid-layout/examples/7-localstorage.html)
-1. [将响应式布局保存到 LocalStorage](https://strml.github.io/react-grid-layout/examples/8-localstorage-responsive.html)
-1. [最小和最大宽度/高度](https://strml.github.io/react-grid-layout/examples/9-min-max-wh.html)
-1. [动态最小和最大宽度/高度](https://strml.github.io/react-grid-layout/examples/10-dynamic-min-max-wh.html)
-1. [没有垂直压实（自由运动）](https://strml.github.io/react-grid-layout/examples/11-no-vertical-compact.html)
-1. [防止碰撞](https://strml.github.io/react-grid-layout/examples/12-prevent-collision.html)
-1. [错误案例](https://strml.github.io/react-grid-layout/examples/13-error-case.html)
-1. [工具箱](https://strml.github.io/react-grid-layout/examples/14-toolbox.html)
-1. [从外面拖](https://strml.github.io/react-grid-layout/examples/15-drag-from-outside.html)
-1. [有界布局](https://strml.github.io/react-grid-layout/examples/16-bounded.html)
-1. [可调整大小的句柄](https://strml.github.io/react-grid-layout/examples/17-resizable-handles.html)
+1. [Showcase](https://strml.github.io/react-grid-layout/examples/0-showcase.html)
+1. [Basic](https://strml.github.io/react-grid-layout/examples/1-basic.html)
+1. [No Dragging/Resizing (Layout Only)](https://strml.github.io/react-grid-layout/examples/2-no-dragging.html)
+1. [Messy Layout Autocorrect](https://strml.github.io/react-grid-layout/examples/3-messy.html)
+1. [Layout Defined on Children](https://strml.github.io/react-grid-layout/examples/4-grid-property.html)
+1. [Static Elements](https://strml.github.io/react-grid-layout/examples/5-static-elements.html)
+1. [Adding/Removing Elements](https://strml.github.io/react-grid-layout/examples/6-dynamic-add-remove.html)
+1. [Saving Layout to LocalStorage](https://strml.github.io/react-grid-layout/examples/7-localstorage.html)
+1. [Saving a Responsive Layout to LocalStorage](https://strml.github.io/react-grid-layout/examples/8-localstorage-responsive.html)
+1. [Minimum and Maximum Width/Height](https://strml.github.io/react-grid-layout/examples/9-min-max-wh.html)
+1. [Dynamic Minimum and Maximum Width/Height](https://strml.github.io/react-grid-layout/examples/10-dynamic-min-max-wh.html)
+1. [No Vertical Compacting (Free Movement)](https://strml.github.io/react-grid-layout/examples/11-no-vertical-compact.html)
+1. [Prevent Collision](https://strml.github.io/react-grid-layout/examples/12-prevent-collision.html)
+1. [Error Case](https://strml.github.io/react-grid-layout/examples/13-error-case.html)
+1. [Toolbox](https://strml.github.io/react-grid-layout/examples/14-toolbox.html)
+1. [Drag From Outside](https://strml.github.io/react-grid-layout/examples/15-drag-from-outside.html)
+1. [Bounded Layout](https://strml.github.io/react-grid-layout/examples/16-bounded.html)
+1. [Resizable Handles](https://strml.github.io/react-grid-layout/examples/17-resizable-handles.html)
 
 ## 特征
 
@@ -45,14 +45,6 @@ ogImage:
 - 响应断点
 - 每个响应断点单独的布局
 - 使用 CSS 变换放置的网格项目
-  - CSS 转换的性能：[开](http://i.imgur.com/FTogpLp.jpg)/[关](http://i.imgur.com/gOveMm8.jpg)，注意油漆（绿色）占时间的百分比
-    | 版 | 兼容性 |
-    | --- | --- |
-    | > = 0.17.0 | React0.16 |
-    | > = 0.11.3 | React0.14＆v15 |
-    | > = 0.10.0 | React0.14 |
-    | 0.8。-0.9.2 | React0.13 |
-    | <0.8 | React0.12 |
 
 ## 安装
 
@@ -196,10 +188,10 @@ class MyResponsiveGrid extends React.Component {
 ```
 
 `WidthProvider`如果需要更复杂的逻辑，这使您可以轻松地替换为自己的提供方 HOC。
-`WidthProvider`接受一个道具，`measureBeforeMount`。如果为`true`，`WidthProvider`将在安装儿童之前测量容器的宽度。如果您想完全消除应用程序/组件安装上的任何调整大小的动画，请使用此选项。
+`WidthProvider`接受一个属性：`measureBeforeMount`。如果为`true`，`WidthProvider`将在安装儿童之前测量容器的宽度。如果您想完全消除应用程序/组件安装上的任何调整大小的动画，请使用此选项。
 有更复杂的布局吗？`WidthProvider` [非常简单](https://github.com/STRML/react-grid-layout/blob/master/lib/components/WidthProvider.jsx)，仅侦听窗口`'resize'`事件。如果您需要更多功能和灵活性，请尝试使用 [SizeMe React HOC](https://github.com/ctrlplusb/react-sizeme)作为 WidthProvider 的替代方法。
 
-### 网格布局道具
+### 网格布局属性
 
 RGL 支持以下属性（请参阅源代码中的最后一个字）：
 
@@ -257,7 +249,7 @@ compactType: ?('vertical' | 'horizontal') = 'vertical';
 // 布局索引必须与每个项目组件上使用的键匹配。
 // 如果选择使用自定义键，则可以在布局
 // 数组对象中指定该键，例如：// {i：字符串，x：数字，y：数字，w：数字，h：数字}
-// 如果未提供，则在子级上使用数据网格道具
+// 如果未提供，则在子级上使用数据网格属性
 layout: ?array = null, // If not provided, use data-grid props on children
 
 // Margin between items [x, y] in px.
@@ -386,9 +378,9 @@ onDrop: (layout: Layout, item: ?LayoutItem, e: Event) => void
 innerRef: ?React.Ref<"div">
 ```
 
-### 响应式网格布局道具
+### 响应式网格布局属性
 
-可以使用响应式网格布局。它支持上述所有道具，除了`layout`。新的属性和更改是：
+可以使用响应式网格布局。它支持上述所有属性，除了`layout`。新的属性和更改是：
 
 ```javascript
 // {name: pxVal}, e.g. {lg: 1200, md: 996, sm: 768, xs: 480}
@@ -437,7 +429,7 @@ onLayoutChange: (currentLayout: Layout, allLayouts: {[key: $Keys<breakpoints>]: 
 onWidthChange: (containerWidth: number, margin: [number, number], cols: number, containerPadding: [number, number]) => void;
 ```
 
-### 网格项目道具
+### 网格项目属性
 
 RGL 在网格项目或布局项目上支持以下属性。初始化网格时，构建一个布局数组（如上述第一个示例中所示），或将此对象作为`data-grid`属性附加到每个子元素中（如第二个示例中所示）。
 请注意，如果提供的网格项目不完整（缺少之一`x, y, w, or h`），则会引发错误，因此您可以更正布局。

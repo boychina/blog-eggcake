@@ -6,16 +6,17 @@ import Header from "@/components/Layout/Header";
 import Wrapper from "@/components/Layout/Wrapper";
 import Widget from "@/components/Layout/Widget";
 import PostHeader from "@/components/Post/PostHeader";
-import PostBody from "@/components/Post/PostBody";
 import PostTitle from "@/components/Post/PostTitle";
-import { getPostBySlug, getAllPosts } from "@/lib/api";
+import PostBody from "@/components/Post/PostBody";
+import PrevNextBtns from '@/components/Post/PrevNextBtns';
+import { getPostBySlug, getAllPosts, getPrevNextPost } from "@/lib/api";
 import { CMS_NAME } from "@/lib/constants";
 import markdownToHtml from "@/lib/markdownToHtml";
 import Head from "next/head";
 
-export default function Post({ post, allPosts, preview }) {
+export default function Post({ post, allPosts, prevNextPost, preview }) {
   const router = useRouter();
-  if (!router.isFallback && !post ?.slug) {
+  if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
   return (
@@ -38,10 +39,13 @@ export default function Post({ post, allPosts, preview }) {
                 coverImage={post.coverImage}
                 date={post.date}
                 author={post.author}
-                />
+              />
               <PostBody content={post.content} />
+              <PrevNextBtns prevNextPost={prevNextPost} />
             </Wrapper>
-            <div className="pt-40"><Widget allPosts={allPosts} /></div>
+            <div className="pt-40">
+              <Widget allPosts={allPosts} />
+            </div>
           </>
         )}
       </Container>
@@ -50,35 +54,35 @@ export default function Post({ post, allPosts, preview }) {
 }
 
 export async function getStaticProps({ params }) {
-  if (!params.slug.includes(".DS_Store")) {
-    const allPosts = getAllPosts([
-      "title",
-      "date",
-      "slug",
-      "author",
-      "coverImage",
-      "excerpt",
-    ]);
-    const post = getPostBySlug(params.slug, [
-      "title",
-      "date",
-      "slug",
-      "author",
-      "content",
-      "ogImage",
-      "coverImage",
-    ]);
-    const content = await markdownToHtml(post.content || "");
-    return {
-      props: {
-        allPosts,
-        post: {
-          ...post,
-          content,
-        },
+  const allPosts = getAllPosts([
+    "title",
+    "date",
+    "slug",
+    "author",
+    "coverImage",
+    "excerpt",
+  ]);
+  const prevNextPost = getPrevNextPost(params.slug, ["title", "slug"]);
+  const post = getPostBySlug(params.slug, [
+    "title",
+    "date",
+    "slug",
+    "author",
+    "content",
+    "ogImage",
+    "coverImage",
+  ]);
+  const content = await markdownToHtml(post.content || "");
+  return {
+    props: {
+      allPosts,
+      prevNextPost,
+      post: {
+        ...post,
+        content,
       },
-    };
-  }
+    },
+  };
 }
 
 export async function getStaticPaths() {
