@@ -1,5 +1,1 @@
-import * as constant from './constant';
-
-export default {
-  ...constant,
-}
+export * from './constant';
