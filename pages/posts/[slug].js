@@ -43,7 +43,7 @@ export default function Post({ post, allPosts, prevNextPost, preview }) {
               <PostBody content={post.content} />
               <PrevNextBtns prevNextPost={prevNextPost} />
             </Wrapper>
-            <div className="pt-40">
+            <div className="w-full">
               <Widget allPosts={allPosts} />
             </div>
           </>

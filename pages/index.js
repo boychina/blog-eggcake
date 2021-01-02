@@ -18,7 +18,7 @@ export default function Index({ allPosts, postsByPageIndex, totalPage }) {
         <Wrapper>
           <Stories posts={postsByPageIndex} current={1} totalPage={totalPage} />
         </Wrapper>
-        <Widget allPosts={allPosts} />
+        <div className="w-full"><Widget allPosts={allPosts} /></div>
       </Container>
     </Layout>
   );

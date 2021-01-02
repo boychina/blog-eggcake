@@ -19,7 +19,7 @@ export default function Paging({ allPosts, postsByPageIndex, current, totalPage 
         <Wrapper>
           <Stories posts={postsByPageIndex} current={current} totalPage={totalPage} />
         </Wrapper>
-        <Widget allPosts={allPosts} />
+        <div className="w-full"><Widget allPosts={allPosts} /></div>
       </Container>
     </Layout>
   );
