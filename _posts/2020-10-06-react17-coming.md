@@ -48,7 +48,7 @@ document.addEventListener();
 rootNode.addEventListener();
 ```
 在React16或更早版本中，React会对大多数事件执行`document.addEventListener()`。React17将会在底层调用 `rootNode.addEventListener()`。
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/86585/1609317612195-a56f16b0-552e-4d41-879e-e881273b9df7.png)
+![image.png](/assets/blog/context/2020-10-06-react17-coming/1609317612195-a56f16b0-552e-4d41-879e-e881273b9df7.png)
 由于此更改，现在可以更加安全地进行新旧版本React树的嵌套。请注意，要使其正常工作，两个版本都必须是17或更高版本。所以，从某种意义上将，React17是一个“垫脚石”版本，是逐步升级成为可能。
 并且，此更改还是得将React嵌入使用其他技术构建的应用程序更加容易。例如，如果应用程序的“外壳”是用JQuery编写的，但其中交心的代码是用React编写的，则React代码中的`e.stopPropagation()`会阻止它影响JQuery的代码——这符合预期。换个角度说，如果你不再喜欢React并想重写应用程序（比如，用JQuery），则可以从外壳开始讲React转换为JQuery，而不会破坏事件冒泡。
 
