@@ -1,8 +1,9 @@
 import styles from "./PostBody.module.css";
+import "github-markdown-css";
 
 export default function PostBody({ content }) {
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="mx-auto" className="markdown-body">
       <div
         className={styles.markdown}
         dangerouslySetInnerHTML={{ __html: content }}
