@@ -1,0 +1,5 @@
+
+.widgetItem ul {
+  max-height: 360px;
+  overflow: auto;
+}

@@ -11,6 +11,7 @@ export default function Content({
   postsByPageIndex,
   current,
   totalPage,
+  keywords,
 }) {
   return (
     <Layout>
@@ -26,7 +27,7 @@ export default function Content({
             totalPage={totalPage}
           />
         </Wrapper>
-        <Widget allPosts={allPosts} />
+        <Widget allPosts={allPosts} keywords={keywords}/>
       </Container>
     </Layout>
   );
