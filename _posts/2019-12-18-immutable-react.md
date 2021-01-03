@@ -1,6 +1,8 @@
 ---
 title: "Immutable 详解及 React 中实践"
-excerpt: "认识Immutable对象，了解其在React中的使用，以及相关实践"
+excerpt: "有人说 Immutable 可以给 React 应用带来数十倍的提升，也有人说 Immutable 的引入是近期 JavaScript 中伟大的发明，因为同期 React 太火，它的光芒被掩盖了。"
+description: "认识Immutable对象，了解其在React中的使用，以及相关实践"
+keyword: "Immutable,React"
 date: "2019-12-18T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2019-12-18-immutable-react.gif"
 author:

@@ -1,6 +1,8 @@
 ---
 title: "MySQL 常用命令"
-excerpt: "MySQL common commands"
+excerpt: "MySQL 常用命令"
+description: "MySQL 常用命令"
+keyword: "MySQL,命令"
 date: "2018-08-09T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2018-08-09-mysql-common-commands.jpg"
 author:

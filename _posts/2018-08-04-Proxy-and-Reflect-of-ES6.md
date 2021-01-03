@@ -1,6 +1,8 @@
 ---
 title: "ES6 的 Proxy 和 Reflect"
-excerpt: "Proxy and Reflect of ES6"
+excerpt: "ES6 的 Proxy 和 Reflect"
+description: "ES6 的 Proxy 和 Reflect"
+keyword: "ES6,Proxy,Reflect"
 date: "2018-08-04T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2018-08-04-proxy-and-reflect-of-ES6.gif"
 author:

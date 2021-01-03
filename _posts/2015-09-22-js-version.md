@@ -1,6 +1,8 @@
 ---
 title: "ES5, ES6, ES2016, ES.Next: JavaScript 的版本是怎么回事？「译」"
-excerpt: "ES5, ES6, ES2016, ES.Next: What's going on with JavaScript versioning?"
+excerpt: "JavaScript 有着很奇怪的命名史。"
+description: "ES5, ES6, ES2016, ES.Next: JavaScript 的版本名称"
+keyword: "ES5,ES6,ES2016,ES.Next"
 date: "2015-09-22T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2015-09-22-js-version.jpg"
 author:

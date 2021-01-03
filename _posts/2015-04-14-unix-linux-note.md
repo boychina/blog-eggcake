@@ -1,6 +1,8 @@
 ---
 title: "Unix/Linux 扫盲笔记"
 excerpt: "不适合人类阅读，非常水的自我笔记"
+description: "Unix/Linux 扫盲笔记"
+keyword: "Unix,Linux"
 date: "2015-04-14T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2015-04-14-unix-linux-note.jpg"
 author:

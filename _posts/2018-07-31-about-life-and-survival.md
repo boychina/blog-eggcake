@@ -1,8 +1,10 @@
 ---
 title: "关于生活与生存"
-excerpt: "About lift and survival"
-coverImage: "/assets/blog/cover/2018-07-31-about-life-and-survival.jpg"
+excerpt: "关于生活与生存"
+description: "关于生活与生存"
+keyword: "生活,生存"
 date: "2018-07-31T05:35:07.322Z"
+coverImage: "/assets/blog/cover/2018-07-31-about-life-and-survival.jpg"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
