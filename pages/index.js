@@ -1,13 +1,14 @@
-import { getAllPosts, getPageIndexes, getPostsByPageIndex } from "@/lib/api";
+import { getAllPosts, getPageIndexes, getPostsByPageIndex, getKeywords } from "@/lib/api";
 import Content from "@/components/Home/Content";
 
-export default function Index({ allPosts, postsByPageIndex, totalPage }) {
+export default function Index({ allPosts, postsByPageIndex, totalPage, keywords }) {
   return (
     <Content
       allPosts={allPosts}
       postsByPageIndex={postsByPageIndex}
       current={1}
       totalPage={totalPage}
+      keywords={keywords}
     />
   );
 }
@@ -28,7 +29,8 @@ export async function getStaticProps() {
     "coverImage",
     "excerpt",
   ]);
+  const keywords = getKeywords();
   return {
-    props: { allPosts, postsByPageIndex, totalPage: pageIndexes.length },
+    props: { allPosts, postsByPageIndex, totalPage: pageIndexes.length, keywords },
   };
 }
