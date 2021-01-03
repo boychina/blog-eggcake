@@ -17,6 +17,7 @@ export async function getStaticProps() {
     "title",
     "date",
     "slug",
+    "author",
   ]);
   const pageIndexes = getPageIndexes();
   const postsByPageIndex = getPostsByPageIndex(1, [
