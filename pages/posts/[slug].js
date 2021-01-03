@@ -10,7 +10,6 @@ import PostTitle from "@/components/Post/PostTitle";
 import PostBody from "@/components/Post/PostBody";
 import PrevNextBtns from '@/components/Post/PrevNextBtns';
 import { getPostBySlug, getAllPosts, getPrevNextPost } from "@/lib/api";
-import { CMS_NAME } from "@/lib/constants";
 import markdownToHtml from "@/lib/markdownToHtml";
 import Head from "next/head";
 
@@ -23,9 +22,11 @@ export default function Post({ post, allPosts, prevNextPost, preview }) {
     <Layout preview={preview}>
       <Head>
         <title>
-          {post.title} | Next.js Blog Example with {CMS_NAME}
+          {post.title} | 淡烘糕
         </title>
         <meta property="og:image" content={post.ogImage.url} />
+        <meta name="description" itemprop="description" content={post.description} />
+        <meta name="keywords" itemprop="keywords" content={post.keyword}></meta>
       </Head>
       <Container>
         {router.isFallback ? (
@@ -56,13 +57,12 @@ export async function getStaticProps({ params }) {
     "title",
     "date",
     "slug",
-    "author",
-    "coverImage",
-    "excerpt",
   ]);
   const prevNextPost = getPrevNextPost(params.slug, ["title", "slug"]);
   const post = getPostBySlug(params.slug, [
     "title",
+    "description",
+    "keyword",
     "date",
     "slug",
     "author",
