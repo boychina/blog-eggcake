@@ -1,6 +1,8 @@
 ---
 title: "聊聊「阿里旅行 · 去啊」—— 行业与战略"
-excerpt: "聊聊在线旅行行业与老东家的产品思路"
+excerpt: "近几年，互联网产品从线上斗到了线下，互联网行业和传统行业的跨界融合屡见不鲜，“渗透传统行业”几乎成为了全行业下一轮创新的标配，新词“互联网+”也应运而生"
+description: "阿里旅行-飞猪,行业与战略"
+keyword: "飞猪,行业与战略"
 date: "2015-06-15T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2015-06-15-alitrip-strategy.jpg"
 author:

@@ -1,6 +1,8 @@
 ---
 title: "React vs Angular 2：冰与火之歌「译」"
-excerpt: "React versus Angular 2: There Will Be Blood"
+excerpt: "Angular 是框架，React 是类库。所以有人觉得比较这两者没有逻辑性可言。大错特错！"
+description: "React vs Angular 2：冰与火之歌"
+keyword: "React,Angular 2.x"
 date: "2016-02-01T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2016-02-01-react-vs-angular2.jpg"
 author:

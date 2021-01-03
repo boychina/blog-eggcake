@@ -1,6 +1,8 @@
 ---
 title: "H5移动端常见问题及注意事项"
-excerpt: "Common problems and matters needing attention on h5 mobile terminal"
+excerpt: "H5移动端常见问题及注意事项"
+description: "H5移动端常见问题及注意事项"
+keyword: "H5,移动端"
 date: "2018-08-06T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2018-08-06-common-problems-and-matters-needing-attention-on-h5-mobile-terminal.jpg"
 author:

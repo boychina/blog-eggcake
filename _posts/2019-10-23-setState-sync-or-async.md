@@ -1,6 +1,8 @@
 ---
 title: "setState 是同步还是异步的呢？"
-excerpt: "Is setState synchronous or asynchronous?"
+excerpt: "setState 是 React 很重要的模块, 社区中也有很多分析文章，大多强调 setState 是异步更新，但有些文章分析又说某些情况下是同步更新"
+description: "setState 是同步还是异步的呢？"
+keyword: "React,setState,同步,异步"
 date: "2019-10-23T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2019-10-23-setState-sync-or-async.jpg"
 author:
