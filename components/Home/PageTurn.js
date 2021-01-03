@@ -4,7 +4,7 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 export default function PageTurn({ current, totalPage }) {
 
   return (
-    <section className="flex justify-between my-8">
+    <section className="flex justify-between flex-wrap my-8">
       <div>
         {current > 1 && 
           <Link as={`/paging/${Number(current) - 1}`} href="/paging/[current]">
