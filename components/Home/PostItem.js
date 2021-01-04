@@ -10,14 +10,14 @@ export default function HeroPost({
   slug,
 }) {
   return (
-    <section className="md:flex bg-gray-100 md:rounded-xl p-8 md:p-0 mb-4">
+    <section className="md:flex md:rounded-xl p-8 md:p-0 mb-4" style={{ background: '#fafafa' }}>
       <img
         className="w-64 h-auto md:h-auto rounded-xl md:rounded-l-xl md:rounded-r-none mx-auto"
         src={coverImage}
         alt={title}
         width="384"
         height="512"
-      />
+        />
       <div className="pt-6 md:p-8 text-center md:text-left space-y-4 flex-auto">
         <blockquote>
           <p className="text-lg font-semibold">
@@ -32,13 +32,13 @@ export default function HeroPost({
               src={author.picture}
               className="w-8 h-8 rounded-full mr-2"
               alt={author.name}
-            />
+              />
             <div className="text-gray-800">{author.name}</div>
-            <span className="ml-1 text-gray-500">
+            <span className="ml-1" style={{ color: '#bfbfbf' }}>
               <DateFormatter dateString={date} />
             </span>
           </div>
-          <div className="text-gray-500">{excerpt}</div>
+          <div style={{ color: '#8c8c8c' }}>{excerpt}</div>
         </figcaption>
       </div>
     </section>
