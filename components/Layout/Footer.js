@@ -21,7 +21,7 @@ export default function Footer() {
             ICP备案号：蜀ICP备2020034346号-1
           </a>
           <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51010802001016" className="ml-2 flex" >
-            <img src="/assets/备案图标.png" />
+            <img src="/assets/备案图标.png" className="w-4 h-4" />
             川公网安备 51010802001016号
           </a>
         </div>
