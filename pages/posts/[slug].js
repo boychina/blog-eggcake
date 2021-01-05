@@ -15,7 +15,7 @@ import Head from "next/head";
 
 export default function Post({ post, allPosts, prevNextPost, preview }) {
   const router = useRouter();
-  if (!router.isFallback && !post?.slug) {
+  if (!router.isFallback && !post ?.slug) {
     return <ErrorPage statusCode={404} />;
   }
   return (
@@ -25,8 +25,8 @@ export default function Post({ post, allPosts, prevNextPost, preview }) {
           {post.title} | 淡烘糕
         </title>
         <meta property="og:image" content={post.ogImage.url} />
-        <meta name="description" itemprop="description" content={post.description} />
-        <meta name="keywords" itemprop="keywords" content={post.keyword}></meta>
+        <meta name="description" itemProp="description" content={post.description} />
+        <meta name="keywords" itemProp="keywords" content={post.keyword}></meta>
       </Head>
       <Container>
         {router.isFallback ? (
@@ -40,7 +40,7 @@ export default function Post({ post, allPosts, prevNextPost, preview }) {
                 coverImage={post.coverImage}
                 date={post.date}
                 author={post.author}
-              />
+                />
               <PostBody content={post.content} />
               <PrevNextBtns prevNextPost={prevNextPost} />
             </Wrapper>
