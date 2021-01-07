@@ -3,6 +3,7 @@ title: "JavsScript 原型"
 excerpt: "ES6 带来了太多的语法糖，其中箭头函数掩盖了 this 的神妙，而 class 也掩盖了本文要长篇谈论的 原型。"
 description: "JavaScript 原型"
 keyword: "JavaScript,原型"
+tag: "JavaScript"
 date: "2019-10-24T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2019-10-24-javascript-prototype.jpg"
 author:

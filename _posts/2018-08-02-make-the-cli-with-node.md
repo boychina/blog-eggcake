@@ -3,6 +3,7 @@ title: "如何用 Node 来制作 CLI"
 excerpt: "如何用 Node 来制作 CLI"
 description: "如何用 Node 来制作 CLI"
 keyword: "Node,Cli"
+tag: "Node"
 date: "2018-08-02T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2018-08-02-make-the-cli-with-node.jpg"
 author:

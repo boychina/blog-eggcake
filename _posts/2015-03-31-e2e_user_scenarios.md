@@ -3,6 +3,7 @@ title: "端到端用户场景的定义"
 excerpt: "端到端用户场景的定义"
 description: "端到端用户场景的定义"
 keyword: "端到端"
+tag: "端到端"
 date: "2015-03-31T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2015-03-31-e2e_user_scenarios.jpg"
 author:

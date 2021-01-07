@@ -3,6 +3,7 @@ title: "Progressive Web App 之我见"
 excerpt: "Progressive Web App 之我见"
 description: "Progressive Web App 之我见"
 keyword: "PWA"
+tag: "PWA"
 date: "2016-06-05T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2016-06-05-pwa-in-my-pov.jpg"
 author:

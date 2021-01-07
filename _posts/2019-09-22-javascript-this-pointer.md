@@ -3,6 +3,7 @@ title: "JavaScript this 对象查找"
 excerpt: "this 的查找是很多人迷茫的一点，也似乎有很多人抱有 this 不稳定这样的看法，实在令人无语。"
 description: "JavaScript this 对象查找"
 keyword: "JavaScript,this,对象"
+tag: "JavaScript"
 date: "2019-09-22T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2019-09-22-javascript-this-pointer.jpg"
 author:

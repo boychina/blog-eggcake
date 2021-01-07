@@ -3,6 +3,7 @@ title: "iOS 9，为前端世界都带来了些什么？「译」"
 excerpt: "2015 年 9 月，Apple 重磅发布了全新的 iPhone 6s/6s Plus、iPad Pro 与全新的操作系统 watchOS 2 与 tvOS 9（是的，这货居然是第 9 版）"
 description: "iOS 9，为前端世界都带来了些什么"
 keyword: "前端开发,JavaScript,iOS,译文"
+tag: "前端,JavaScript"
 date: "2015-12-15T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2015-12-15-ios9-safari-web.jpg"
 author:
