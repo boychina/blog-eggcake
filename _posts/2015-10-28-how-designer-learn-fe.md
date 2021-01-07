@@ -3,6 +3,7 @@ title: "设计师如何学习前端？"
 excerpt: "笔者的经历在知乎就可以看到，大学专业是数字媒体艺术，大一实习过动效设计师，大二拿到了人生第一个大公司 offer 是阿里的交互设计，后来转岗到淘宝旅行的前端团队，现在在微信电影票做前端研发。"
 description: "设计师如何学习前端"
 keyword: "设计师,前端"
+tag: "前端"
 date: "2015-10-28T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2015-10-28-how-designer-learn-fe.jpg"
 author:

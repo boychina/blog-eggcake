@@ -1,4 +1,4 @@
-import { getAllPosts, getPageIndexes, getPostsByPageIndex } from "@/lib/api";
+import { getAllPosts, getPageIndexes, getPostsByPageIndex, getTags } from "@/lib/api";
 import Content from "@/components/Home/Content";
 
 export default function Paging({
@@ -6,6 +6,7 @@ export default function Paging({
   postsByPageIndex,
   current,
   totalPage,
+  tags,
 }) {
   return (
     <Content
@@ -13,7 +14,8 @@ export default function Paging({
       postsByPageIndex={postsByPageIndex}
       current={current}
       totalPage={totalPage}
-    />
+      tags={tags}
+      />
   );
 }
 
@@ -33,12 +35,14 @@ export async function getStaticProps({ params }) {
     "coverImage",
     "excerpt",
   ]);
+  const tags = getTags();
   return {
     props: {
       allPosts,
       postsByPageIndex,
       current: params.current,
       totalPage: pageIndexes.length,
+      tags,
     },
   };
 }

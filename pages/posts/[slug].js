@@ -9,11 +9,11 @@ import PostHeader from "@/components/Post/PostHeader";
 import PostTitle from "@/components/Post/PostTitle";
 import PostBody from "@/components/Post/PostBody";
 import PrevNextBtns from '@/components/Post/PrevNextBtns';
-import { getPostBySlug, getAllPosts, getPrevNextPost } from "@/lib/api";
+import { getPostBySlug, getAllPosts, getPrevNextPost, getTags } from "@/lib/api";
 import markdownToHtml from "@/lib/markdownToHtml";
 import Head from "next/head";
 
-export default function Post({ post, allPosts, prevNextPost, preview }) {
+export default function Post({ post, allPosts, prevNextPost, preview, tags }) {
   const router = useRouter();
   if (!router.isFallback && !post ?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -44,7 +44,7 @@ export default function Post({ post, allPosts, prevNextPost, preview }) {
               <PostBody content={post.content} />
               <PrevNextBtns prevNextPost={prevNextPost} />
             </Wrapper>
-            <Widget allPosts={allPosts} />
+            <Widget allPosts={allPosts} tags={tags} />
           </>
         )}
       </Container>
@@ -72,6 +72,7 @@ export async function getStaticProps({ params }) {
     "coverImage",
   ]);
   const content = await markdownToHtml(post.content || "");
+  const tags = getTags();
   return {
     props: {
       allPosts,
@@ -80,6 +81,7 @@ export async function getStaticProps({ params }) {
         ...post,
         content,
       },
+      tags,
     },
   };
 }

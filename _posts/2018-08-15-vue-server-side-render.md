@@ -3,6 +3,7 @@ title: "Vue 服务端渲染"
 excerpt: "什么是服务端渲染，简单理解就是将组件或页面通过服务器生成 html 字符串，在发送到浏览器，最后将讲台标记“混合”为客户端上完全交互的应用程序。"
 description: "Vue 服务端渲染"
 keyword: "Vue,SSR,服务器渲染"
+tag: "Vue,SSR"
 date: "2018-08-15T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2018-08-15-vue-server-side-render.jpg"
 author:

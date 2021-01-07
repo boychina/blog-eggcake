@@ -3,6 +3,7 @@ title: "JavaScript 模块化七日谈"
 excerpt: "Slides: JavaScript Modularization Journey"
 description: "JavaScript模块化之旅"
 keyword: "JavaScript,模块化"
+tag: "JavaScript,模块化"
 date: "2015-07-09T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2015-07-09-js-module-7day.jpg"
 author:

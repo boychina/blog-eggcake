@@ -3,6 +3,7 @@ title: "JavaScript模块化加载"
 excerpt: "随着网站逐渐变成「互联网应用程序」，嵌入网页的 JavaScript 代码越来越庞大，越来越复杂。"
 description: "CommonJS，RequireJS，SeaJS 归纳笔记"
 keyword: "JavaScript,模块化,CommonJS,RequireJS,SeaJS"
+tag: "JavaScript,模块化"
 date: "2015-05-25T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2015-05-25-js-module-loader.jpg"
 author:

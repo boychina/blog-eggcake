@@ -3,6 +3,7 @@ title: "你们觉得响应式好呢，还是手机和PC端分开来写？"
 excerpt: "你们觉得响应式好呢，还是手机和PC端分开来写？"
 description: "根据你的产品特点，进行两种不同的设计，根据你的设计需求，选择合适的技术方案"
 keyword: "响应式,自适应,PC端,移动端"
+tag: "响应式,自适应"
 date: "2014-11-20T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2014-11-20-responsive-web-design.jpg"
 author:

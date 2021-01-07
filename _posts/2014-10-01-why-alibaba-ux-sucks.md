@@ -3,6 +3,7 @@ title: "为什么阿里系软件体验都不好？"
 excerpt: "或许这就是所谓的企业 DNA"
 description: "一言以蔽之，优先级。"
 keyword: "阿里,alibaba,软件,体验"
+tag: "alibaba,体验"
 date: "2014-10-01T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2014-10-01-why-alibaba-ux-sucks.jpg"
 author:

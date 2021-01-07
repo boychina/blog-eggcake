@@ -7,10 +7,10 @@ cd /usr/local/src/blog-eggcake
 git pull origin master
 
 # 更新node_mudules依赖包
-yarn
+cnpm install
 
 # 执行打包命令
-yarn build
+cnpm run build
 
 # 重启pm2blog服务
 pm2 reload blog3000
