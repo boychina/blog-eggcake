@@ -15,7 +15,7 @@ import Head from "next/head";
 
 export default function Post({ post, allPosts, prevNextPost, preview, tags }) {
   const router = useRouter();
-  if (!router.isFallback && !post ?.slug) {
+  if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
   return (
