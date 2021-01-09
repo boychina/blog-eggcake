@@ -5,7 +5,8 @@
     "dev": "next",
     "test": "jest",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "site": "node scripts/site.js"
   },
   "dependencies": {
     "antd": "^4.9.4",

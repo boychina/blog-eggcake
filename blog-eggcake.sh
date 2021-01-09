@@ -12,5 +12,8 @@ cnpm install
 # 执行打包命令
 cnpm run build
 
+# 生成site.txt
+cnpm run site
+
 # 重启pm2blog服务
 pm2 reload blog3000
