@@ -4,7 +4,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="zh-CN">
-        <Head />
+        <Head>
+          <meta name="baidu-site-verification" content="code-SQ8pinCY3n" />
+        </Head>
         <body>
           <Main />
           <NextScript />
