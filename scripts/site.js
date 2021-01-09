@@ -39,7 +39,7 @@ const getSites = () => {
 
 const sites = getSites();
 console.log(sites);
-fs.writeFileSync("site.txt", sites, {
+fs.writeFileSync("public/site.txt", sites, {
   encoding: "utf8",
   mode: 0o666,
   flags: "w",
