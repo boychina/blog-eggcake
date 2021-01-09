@@ -50,7 +50,7 @@ export default function ReactWordcloud({ title, tags }) {
           {words.map((word) => (
             <text
               key={word.name}
-              text-anchor="middle"
+              textAnchor="middle"
               fill={COLORS[random(10)]}
               transform={`translate(${word.x}, ${word.y})rotate(${word.rotate})`}
               style={{ fontSize: word.size }}
