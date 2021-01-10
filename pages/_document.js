@@ -5,6 +5,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="zh-CN">
         <Head>
+          <meta name="google-site-verification" content="ysl9po9N59vjLGroL70RxvgSCwmCa4y0Vf-bQ0dnnYg" />
           <meta name="baidu-site-verification" content="code-SQ8pinCY3n" />
           <meta name="sogou_site_verification" content="IbqK7EsWs0"/>
         </Head>
