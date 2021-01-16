@@ -15,19 +15,19 @@ export default function Paging({
       current={current}
       totalPage={totalPage}
       tags={tags}
-      />
+    />
   );
 }
 
 export async function getStaticProps({ params }) {
-  const postsByPageIndex = getPostsByPageIndex(params.current, [
+  const allPosts = getAllPosts([
     "title",
     "date",
     "slug",
     "author",
   ]);
   const pageIndexes = getPageIndexes();
-  const allPosts = getAllPosts([
+  const postsByPageIndex = getPostsByPageIndex(params.current, [
     "title",
     "date",
     "slug",
