@@ -39,3 +39,7 @@ package-lock.json
 
 # site
 site.txt
+
+# ide
+.idea
+.vscode
