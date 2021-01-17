@@ -9,7 +9,7 @@
     "site": "node scripts/site.js"
   },
   "dependencies": {
-    "antd": "^4.9.4",
+    "antd": "^4.10.2",
     "canvas": "^2.6.1",
     "classnames": "2.2.6",
     "d3-cloud": "^1.2.5",

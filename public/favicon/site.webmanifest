@@ -1,15 +1,15 @@
 {
-  "name": "Next.js",
-  "short_name": "Next.js",
+  "name": "eggcake.cn",
+  "short_name": "eggcake.cn",
   "icons": [
     {
-      "src": "/favicons/android-chrome-192x192.png",
-      "sizes": "192x192",
+      "src": "/favicons/android-chrome-32x32.png",
+      "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "/favicons/android-chrome-512x512.png",
-      "sizes": "512x512",
+      "src": "/favicons/android-chrome-64x64.png",
+      "sizes": "64x64",
       "type": "image/png"
     }
   ],

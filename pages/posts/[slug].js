@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Layout from "@/components/Layout";
 import Container from "@/components/Layout/Container";
-import Header from "@/components/Layout/Header";
 import Wrapper from "@/components/Layout/Wrapper";
 import Widget from "@/components/Layout/Widget";
 import PostHeader from "@/components/Post/PostHeader";
@@ -34,7 +33,6 @@ export default function Post({ post, allPosts, prevNextPost, preview, tags }) {
         ) : (
           <>
             <Wrapper>
-              <Header />
               <PostHeader
                 title={post.title}
                 coverImage={post.coverImage}

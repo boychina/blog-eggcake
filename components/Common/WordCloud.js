@@ -12,7 +12,7 @@ const layout = cloud()
   .rotate(() => ~~(Math.random() * 2) * 90)
   .fontSize((d) => d.size);
 
-export default function ReactWordcloud({ title, tags }) {
+export default function WordCloud({ title, tags }) {
   if (!tags || !Object.keys(tags).length) return null;
 
   let maxSize = 1;
@@ -41,7 +41,7 @@ export default function ReactWordcloud({ title, tags }) {
 
   return (
     <div>
-      <div className="flex items-center">
+      <div className="flex items-center" style={{ padding: "12px 0" }}>
         <SendOutlined />
         <span className="ml-1">{title}</span>
       </div>

@@ -1,4 +1,6 @@
+import { BackTop } from 'antd';
 import Alert from "./Alert";
+import Header from "./Header";
 import Footer from "./Footer";
 import Meta from "./Meta";
 
@@ -8,7 +10,9 @@ export default function Layout({ preview, children }) {
       <Meta />
       <div className="min-h-screen">
         {/* <Alert preview={preview} /> */}
-        <main>{children}</main>
+        <Header />
+        <main className="md:pt-20">{children}</main>
+        <BackTop />
       </div>
       <Footer />
     </>

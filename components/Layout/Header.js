@@ -1,12 +1,19 @@
+/**
+ * @author boychina
+ */
 import Link from "next/link";
 
 export default function Header() {
   return (
-    <h2 className="text-base md:text-lg tracking-tight md:tracking-tighter leading-tight mb-4 mt-2">
+    <section className="w-screen bg-white flex-col md:flex-row flex items-center md:justify-between pt-3 mb-6 md:mb-4 px-10 shadow-md md:fixed z-50">
       <Link href="/">
-        <a className="hover:underline">淡烘糕</a>
+        <a className="text-2xl md:text-xl font-bold tracking-tighter leading-tight md:pr-8">
+          淡烘糕.
+        </a>
       </Link>
-      .
-    </h2>
+      <h4 className="text-center md:text-left text-sm mt-4 md:pl-8">
+        不写博客的工程师不是好的搬砖工🧱
+      </h4>
+    </section>
   );
 }
