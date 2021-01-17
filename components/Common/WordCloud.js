@@ -6,8 +6,8 @@ import { SendOutlined } from "@ant-design/icons";
 import { COLORS } from "@/config/constant";
 
 const layout = cloud()
-  .size([400, 300])
-  .canvas(() => createCanvas(400, 300))
+  .size([360, 300])
+  .canvas(() => createCanvas(360, 300))
   .padding(2)
   .rotate(() => ~~(Math.random() * 2) * 90)
   .fontSize((d) => d.size);
@@ -45,8 +45,8 @@ export default function WordCloud({ title, tags }) {
         <SendOutlined />
         <span className="ml-1">{title}</span>
       </div>
-      <svg width="400" height="300">
-        <g transform="translate(190, 150)">
+      <svg width="360" height="300">
+        <g transform="translate(180, 150)">
           {words.map((word) => (
             <text
               key={word.name}
