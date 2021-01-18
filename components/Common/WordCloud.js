@@ -1,6 +1,7 @@
+import { useMemo, useState } from "react";
 import { createCanvas } from "canvas";
 import cloud from "d3-cloud";
-import { random } from "lodash";
+import { random, sortBy } from "lodash";
 import Link from "next/link";
 import { SendOutlined } from "@ant-design/icons";
 import { COLORS } from "@/config/constant";
@@ -15,6 +16,8 @@ const layout = cloud()
 export default function WordCloud({ title, tags }) {
   if (!tags || !Object.keys(tags).length) return null;
 
+  const [hoveringWord, setHoveringWord] = useState('');
+
   let maxSize = 1;
 
   Object.values(tags).forEach(({ value }) => {
@@ -23,21 +26,24 @@ export default function WordCloud({ title, tags }) {
     }
   });
 
-  //构建传入layout的words
-  let words = [];
-  Object.keys(tags).forEach((word) => {
-    const wordObj = tags[word];
-    words.push({
-      ...wordObj,
-      name: word,
-      size:
-        ((Math.log(wordObj.value) * 4) / (Math.log(maxSize) - Math.log(1))) *
-          4 +
-        20,
+  const words = useMemo(() => {
+    //构建传入layout的words
+    let result = [];
+    Object.keys(tags).forEach((word) => {
+     const wordObj = tags[word];
+     result.push({
+       ...wordObj,
+       text: word,
+       size:
+         ((Math.log(wordObj.value) * 4) / (Math.log(maxSize) - Math.log(1))) *
+           4 +
+         20,
+     });
     });
-  });
-  layout.words(words);
-  layout.start();
+    layout.words(result);
+    layout.start();
+    return result;
+  }, []);
 
   return (
     <div>
@@ -47,18 +53,20 @@ export default function WordCloud({ title, tags }) {
       </div>
       <svg width="360" height="300">
         <g transform="translate(180, 150)">
-          {words.map((word) => (
-            <text
-              key={word.name}
-              textAnchor="middle"
-              fill={COLORS[random(10)]}
-              transform={`translate(${word.x}, ${word.y})rotate(${word.rotate})`}
-              style={{ fontSize: word.size }}
-            >
-              <Link as={`/search/${word.name}`} href="/search/[tag]">
-                <a>{word.name}</a>
-              </Link>
-            </text>
+          {sortBy(words, ['value']).map((word, index) => (
+            <Link as={`/search/${word.text}`} href="/search/[tag]">
+              <text
+                key={word.text}
+                textAnchor="middle"
+                fill={hoveringWord === word.text ? '#1890ff' : COLORS[index % 11]}
+                transform={`translate(${word.x}, ${word.y})rotate(${word.rotate})`}
+                style={{ fontSize: word.size }}
+                onMouseOver={() => setHoveringWord(word.text)}
+                onMouseLeave={() => setHoveringWord('')}
+              >
+                <a>{word.text}</a>
+              </text>
+            </Link>
           ))}
         </g>
       </svg>
