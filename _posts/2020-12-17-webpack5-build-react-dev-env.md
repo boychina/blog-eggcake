@@ -17,8 +17,8 @@ ogImage:
 
 ## 1 当前主要依赖包版本
 ```
-webpack@
-webpack-cli@
+webpack@5.16.0
+webpack-cli@4.4.0
 webpack-dev-server@
 react@
 babel-core@
@@ -59,7 +59,10 @@ module.exports = {
 ```
 此时在src目录下创建一个index.js文件
 ```javascript
+// index.js
 const a = 123;
+
+console.log(a);
 ```
 
 ### 3.2 Output
@@ -87,6 +90,71 @@ yarn build
 ```
 
 可以在命令行中看到打包运行，并且在项目目录下生成了一个dist文件夹，并且生成一个app.bundle.js文件，说明打包成功。
+打开app.bundle.js文件，可以看到内容为：
+```javascript
+// app.bundle.js
+console.log(123);
+```
 
 ## 4 Plugin
 插件让webpack具备可扩展性，可以让webpack运行过程中支持更多的功能。
+
+### 4.1 模板文件
+构建一个web应用，需要一个html入口文件，然后html引入对应的js和css文件。并且往往配置打包出来的bundle文件名称为了防止缓存问题是带有hash值的，如果每次手动修改会比较麻烦，所以最好的方法是自动将bundle文件打包到html中。
+此时我们用到 html-webpack-plugin 这个插件，这个插件的作用是从模板生成一个html文件。
+1. 安装
+```shell
+yarn add html-webpack-plugin -D
+```
+2. 创建index.html
+在项目根目录下创建一个 public/index.html 文件，内容如下：
+   
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>
+```
+其中title是读取html-webpack-plugin插件的配置，具体配置如下：
+```javascript
+// webpack.config.js
+const path = require('path');
+const HtmlWebpackPlugin = 
+
+module.exports = {
+  /*...*/
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: '淡烘糕的学习笔记',
+      template: path.resolve(__dirname, './public/index.html'),
+      filename: 'index.html',
+    }),
+  ],
+};
+```
+现在再次运行`yarn build`，就可以看到dist目录下面多出了一个index.html文件，并且其中自动插入了标题和js代码引用。
+```html
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>淡烘糕的学习笔记</title>
+</head>
+
+<body>
+  <script src="app.bundle.js"></script>
+</body>
+
+</html>
+```
