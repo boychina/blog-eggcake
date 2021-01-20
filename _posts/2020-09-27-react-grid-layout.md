@@ -2,8 +2,8 @@
 title: "React-grid-layout 一个支持拖拽的栅格布局库"
 excerpt: "React-grid-layout 一个可以支持拖拽、改变大小的栅格布局库，完美支持React"
 description: "React-grid-layout 一个可以支持拖拽、改变大小的栅格布局库，完美支持React"
-tag: "React"
 keyword: "ReactGridLayout,react,栅格,拖拽"
+tag: "react"
 date: "2020-09-27T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2020-09-27-react-grid-layout.gif"
 author:
