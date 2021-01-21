@@ -5,12 +5,12 @@ description: "一文看懂Vue3.0的优化"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2020-12-19T14:00:00.322Z"
-coverImage: "/assets/blog/cover/2020-12-19-vue3-core-source-code.png"
+coverImage: "/assets/blog/cover/2020-12-19-vue3-core-source-code.jpg"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2020-12-19-vue3-core-source-code.png"
+  url: "/assets/blog/cover/2020-12-19-vue3-core-source-code.jpg"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行

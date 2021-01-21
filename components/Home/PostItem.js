@@ -13,7 +13,7 @@ export default function HeroPost({
     <Link as={`/posts/${slug}`} href="/posts/[slug]">
       <section className="md:flex md:rounded-xl p-8 md:p-0 mb-4 cursor-pointer hover:shadow" style={{ background: '#fafafa' }}>
         <img
-          className="w-64 h-auto md:h-auto rounded-xl md:rounded-l-xl md:rounded-r-none mx-auto"
+          className="w-64 h-auto max-h-48 rounded-xl md:rounded-l-xl md:rounded-r-none mx-auto"
           src={coverImage}
           alt={title}
           width="384"
