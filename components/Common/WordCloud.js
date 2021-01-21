@@ -52,7 +52,7 @@ export default function WordCloud({ title, tags }) {
         <span className="ml-1">{title}</span>
       </div>
       <svg width="360" height="300">
-        <g transform="translate(180, 150)">
+        <g transform="translate(165, 150)">
           {sortBy(words, ['value']).map((word, index) => (
             <Link as={`/search/${word.text}`} href="/search/[tag]">
               <text
