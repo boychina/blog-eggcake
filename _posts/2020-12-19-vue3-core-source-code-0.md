@@ -1,5 +1,5 @@
 ---
-title: "Vue3.0核心源码解读：一文看懂Vue3.0的优化"
+title: "Vue3.0核心源码解读| 一文看懂Vue3.0的优化"
 excerpt: "源码的优化主要体现在使用 monorepo 和 TypeScript 管理和开发源码，这样做的目标是提升自身代码可维护性。"
 description: "一文看懂Vue3.0的优化"
 keyword: "vue,vue3.0,源码"
@@ -13,7 +13,7 @@ ogImage:
   url: "/assets/blog/cover/2020-12-19-vue3-core-source-code.jpg"
 ---
 
-> 纸上得来终觉浅，绝知此事要躬行
+> 纸上得来终觉浅，绝知此事要躬行。
 
 Vue.js 从 1.x 到 2.0 版本，最大的升级就是引入了虚拟 DOM 的概念，它为后续做服务端渲染以及跨端框架 Weex 提供了基础。
 
