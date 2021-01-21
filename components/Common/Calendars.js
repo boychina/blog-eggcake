@@ -13,7 +13,7 @@ export default function Calendars({ title }) {
         <span className="ml-1">{title}</span>
       </div>
       <div
-        style={{ width: 360, border: "1px solid #f0f0f0", borderRadius: "2px" }}
+        style={{ width: 330, border: "1px solid #f0f0f0", borderRadius: "2px" }}
       >
         <Calendar fullscreen={false} onPanelChange={onPanelChange} />
       </div>

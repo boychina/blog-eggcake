@@ -2,8 +2,8 @@
 title: "React16.3+ 新的生命周期钩子"
 excerpt: "在 React 16.3 中，Facebook 的工程师们给 React 带了来一系列的新特性，如 suspense 和 time slicing 等，这些都为 React 接下来即将到来的异步渲染机制做准备"
 description: "React16.3+ 新的生命周期钩子"
-keyword: "React,生命周期"
-tag: "React"
+keyword: "react,生命周期"
+tag: "react"
 date: "2018-08-15T12:00:00.322Z"
 coverImage: "/assets/blog/cover/2018-08-15-react-new-life-cycle-hook.jpg"
 author:
