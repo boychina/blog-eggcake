@@ -1,0 +1,19 @@
+{
+  "name": "eggcake.cn",
+  "short_name": "eggcake.cn",
+  "icons": [
+    {
+      "src": "/favicons/android-chrome-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicons/android-chrome-64x64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "display": "standalone"
+}
