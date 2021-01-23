@@ -16,3 +16,7 @@ html {
 /* Stop purging. */
 
 /* Your own custom utilities */
+
+.maxWidth300 {
+  max-width: 360px;
+}

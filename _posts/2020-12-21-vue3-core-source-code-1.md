@@ -1,16 +1,16 @@
 ---
 title: "Vue3.0核心源码解读| 组件渲染：vnode 到真实 DOM 是如何转变的？"
-excerpt: "源码的优化主要体现在使用 monorepo 和 TypeScript 管理和开发源码，这样做的目标是提升自身代码可维护性。"
+excerpt: "在 Vue.js 中，组件是一个非常重要的概念，整个应用的页面都是通过组件渲染来实现的，但是你知道当我们编写这些组件的时候，它的内部是如何工作的吗？"
 description: "组件渲染：vnode 到真实 DOM 是如何转变的？"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2020-12-21T23:00:00.322Z"
-coverImage: "/assets/blog/cover/2020-12-19-vue3-core-source-code.jpg"
+coverImage: "/assets/blog/cover/2020-12-21-vue3-core-source-code-1.png"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2020-12-19-vue3-core-source-code.jpg"
+  url: "/assets/blog/cover/2020-12-21-vue3-core-source-code-1.png"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。
@@ -540,23 +540,18 @@ function insert(child, parent, anchor) {
 
 因为 insert 的执行是在处理子节点后，所以挂载的顺序是先子节点，后父节点，最终挂载到最外层的容器上。
 > **知识延伸：嵌套组件**
-> 细心的你可能会发现，在 mountChildren 的时候递归执行的是 patch 函数，而不是 mountElement 函数，这是因为子节点可能有其他类型的 vnode，比如组件 vnode。
+> 细心的你可能会发现，在 mountChildren 的时候递归执行的是 patch 函数，而不是 mountElement 函数，这是因为子节点可能有其他类型的 vnode，比如组件 vnode。  
 > 在真实开发场景中，嵌套组件场景是再正常不过的了，前面我们举的 App 和 Hello 组件的例子就是嵌套组件的场景。组件 vnode 主要维护着组件的定义对象，组件上的各种 props，而组件本身是一个抽象节点，它自身的渲染其实是通过执行组件定义的 render 函数渲染生成的子树 vnode 来完成，然后再 patch 。通过这种递归的方式，无论组件的嵌套层级多深，都可以完成整个组件树的渲染。
 
 ## 3 总结
 OK，本篇内容我们主要分析了组件的渲染流程，从入口开始，一层层分析组件渲染。你可能发现了，文中提到的很多技术点我会放在后面的章节具体讲，这样做是为了让我们不跑题，重点放在理解组件的渲染流程上。下篇文章我将会带你具体分析一下组件的更新过程。这里，我用一张图来带你更加直观地感受下整个组件渲染流程：
 ![img](/assets/blog/context/2020-12-21-vue3-core-source-code-1/CgqCHl8EPLKAF8u5AAJHdNl56bM640.png)
-> **本节课的相关代码在源代码中的位置如下：**
->
-> packages/runtime-dom/src/index.ts
-> 
-> packages/runtime-core/src/apiCreateApp.ts
-> 
-> packages/runtime-core/src/vnode.ts
-> 
-> packages/runtime-core/src/renderer.ts
-> 
-> packages/runtime-dom/src/nodeOps.ts
+> **本节课的相关代码在源代码中的位置如下：**  
+> packages/runtime-dom/src/index.ts  
+> packages/runtime-core/src/apiCreateApp.ts  
+> packages/runtime-core/src/vnode.ts  
+> packages/runtime-core/src/renderer.ts  
+> packages/runtime-dom/src/nodeOps.ts  
 
 > 思考：我们平时开发页面就是把页面拆成一个个组件，那么组件的拆分粒度是越细越好吗？为什么呢？
 

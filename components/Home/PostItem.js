@@ -13,19 +13,19 @@ export default function HeroPost({
     <Link as={`/posts/${slug}`} href="/posts/[slug]">
       <section className="md:flex md:rounded-xl p-8 md:p-0 mb-4 cursor-pointer hover:shadow" style={{ background: '#fafafa' }}>
         <img
-          className="w-64 h-auto max-h-48 rounded-xl md:rounded-l-xl md:rounded-r-none mx-auto"
+          className="w-64 h-auto rounded-xl md:rounded-l-xl md:rounded-r-none mx-auto"
           src={coverImage}
           alt={title}
           width="384"
           height="512"
           />
-        <div className="pt-6 md:p-8 text-center md:text-left space-y-4 flex-auto">
-          <blockquote>
-            <p className="text-lg font-semibold">
+        <div className="pt-6 md:p-4 text-center md:text-left space-y-4 flex-auto">
+          <blockquote className="mb-0">
+            <h3 className="text-lg font-semibold">
               <Link as={`/posts/${slug}`} href="/posts/[slug]">
                 {title}
               </Link>
-            </p>
+            </h3>
           </blockquote>
           <figcaption className="font-medium">
             <div className="flex items-center">
