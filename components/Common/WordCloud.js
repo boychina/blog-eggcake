@@ -7,9 +7,9 @@ import { SendOutlined } from "@ant-design/icons";
 import { COLORS } from "@/config/constant";
 
 const layout = cloud()
-  .size([360, 300])
-  .canvas(() => createCanvas(360, 300))
-  .padding(2)
+  .size([330, 300])
+  .canvas(() => createCanvas(330, 300))
+  .padding(0)
   .rotate(() => ~~(Math.random() * 2) * 90)
   .fontSize((d) => d.size);
 
@@ -51,8 +51,8 @@ export default function WordCloud({ title, tags }) {
         <SendOutlined />
         <span className="ml-1">{title}</span>
       </div>
-      <svg width="360" height="300">
-        <g transform="translate(165, 150)">
+      <svg width="330" height="300" className="mx-auto md:m-0">
+        <g transform="translate(160, 150)">
           {sortBy(words, ['value']).map((word, index) => (
             <Link as={`/search/${word.text}`} href="/search/[tag]">
               <text

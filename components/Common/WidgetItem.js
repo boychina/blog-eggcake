@@ -6,7 +6,7 @@ import styles from './WidgetItem.module.css';
 
 export default function WidgetItem({ title, data }) {
   return (
-    <div className={styles.widgetItem}>
+    <div className={`${styles.widgetItem} md:max-w-xs`}>
       <List
         size="small"
         header={
