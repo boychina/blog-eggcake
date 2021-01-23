@@ -21,11 +21,11 @@ export default function HeroPost({
           />
         <div className="pt-6 md:p-4 text-center md:text-left space-y-4 flex-auto">
           <blockquote className="mb-0">
-            <p className="text-lg font-semibold">
+            <h3 className="text-lg font-semibold">
               <Link as={`/posts/${slug}`} href="/posts/[slug]">
                 {title}
               </Link>
-            </p>
+            </h3>
           </blockquote>
           <figcaption className="font-medium">
             <div className="flex items-center">
