@@ -5,12 +5,12 @@ description: "饿了么的 PWA 升级实践"
 keyword: "饿了么,PWA"
 tag: "PWA"
 date: "2017-07-12T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2017-07-12-upgrading-eleme-to-pwa.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2017-07-12-upgrading-eleme-to-pwa.jpg"
 author:
   name: Hux
   picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "/assets/blog/cover/2017-07-12-upgrading-eleme-to-pwa.jpg"
+  url: "http://assets.eggcake.cn/cover/2017-07-12-upgrading-eleme-to-pwa.jpg"
 ---
 
 > 很荣幸在今年 2 月到 5 月的时间里，以顾问的身份加入饿了么，参与 PWA 的相关工作。这篇文章其实最初是在以英文写作发表在 medium 上的：[Upgrading Ele.me to Progressive Web Apps](https://medium.com/elemefe/upgrading-ele-me-to-progressive-web-app-2a446832e509)，获得了一定的关注。所以也决定改写为中文版本再次分享出来，希望能对你有所帮助 ;) <br><br>

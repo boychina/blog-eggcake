@@ -5,12 +5,12 @@ description: "认识Immutable对象，了解其在React中的使用，以及相�
 keyword: "immutable,react"
 tag: "react"
 date: "2019-12-18T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2019-12-18-immutable-react.gif"
+coverImage: "http://assets.eggcake.cn/cover/2019-12-18-immutable-react.gif"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2019-12-18-immutable-react.gif"
+  url: "http://assets.eggcake.cn/cover/2019-12-18-immutable-react.gif"
 ---
 
 > Shared mutable state is the root of all evil （共享的可变状态是万恶之源） -- Pete Hunt

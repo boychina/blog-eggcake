@@ -5,12 +5,12 @@ description: "VScode,代码注释,关键字"
 keyword: "VScode,代码注释,关键字"
 tag: "VScode"
 date: "2020-08-01T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2020-08-01-vscode-code-annotation-keyword-analysis.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2020-08-01-vscode-code-annotation-keyword-analysis.jpg"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2020-08-01-vscode-code-annotation-keyword-analysis.jpg"
+  url: "http://assets.eggcake.cn/cover/2020-08-01-vscode-code-annotation-keyword-analysis.jpg"
 ---
 
 ```typescript

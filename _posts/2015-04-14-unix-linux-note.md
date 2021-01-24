@@ -5,12 +5,12 @@ description: "Unix/Linux 扫盲笔记"
 keyword: "Unix,Linux"
 tag: "Unix,Linux"
 date: "2015-04-14T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2015-04-14-unix-linux-note.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2015-04-14-unix-linux-note.jpg"
 author:
   name: Hux
   picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "/assets/blog/cover/2015-04-14-unix-linux-note.jpg"
+  url: "http://assets.eggcake.cn/cover/2015-04-14-unix-linux-note.jpg"
 ---
 
 > This document is not completed and will be updated anytime.

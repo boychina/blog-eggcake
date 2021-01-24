@@ -5,12 +5,12 @@ description: "Vue 服务端渲染"
 keyword: "vue,ssr,服务器渲染"
 tag: "vue,ssr"
 date: "2018-08-15T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2018-08-15-vue-server-side-render.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2018-08-15-vue-server-side-render.jpg"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2018-08-15-vue-server-side-render.jpg"
+  url: "http://assets.eggcake.cn/cover/2018-08-15-vue-server-side-render.jpg"
 ---
 
 什么是服务端渲染，简单理解就是将组件或页面通过服务器生成 html 字符串，在发送到浏览器，最后将讲台标记“混合”为客户端上完全交互的应用程序。于传统的 SPA（单页应用）相比，服务端渲染能更好的的有利于 SEO，减少页面首屏加载时间，当然对开发来讲我们就不得不多学一些知识来支持服务端渲染。同事服务端渲染对服务器的压力也是相对比较大的，和服务器简单输出静态文件相比，通过 node 去渲染出页面再传递给客户端显然开销是比较大的，需要注意准备好相应的服务器负载。

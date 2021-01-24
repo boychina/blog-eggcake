@@ -5,12 +5,12 @@ description: "JavaScript 原型"
 keyword: "JavaScript,原型"
 tag: "JavaScript"
 date: "2019-10-24T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2019-10-24-javascript-prototype.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2019-10-24-javascript-prototype.jpg"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2019-10-24-javascript-prototype.jpg"
+  url: "http://assets.eggcake.cn/cover/2019-10-24-javascript-prototype.jpg"
 ---
 
 ##### 前言

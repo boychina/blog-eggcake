@@ -5,12 +5,12 @@ description: "Progressive Web App 之我见"
 keyword: "PWA"
 tag: "PWA"
 date: "2016-06-05T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2016-06-05-pwa-in-my-pov.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2016-06-05-pwa-in-my-pov.jpg"
 author:
   name: Hux
   picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "/assets/blog/cover/2016-06-05-pwa-in-my-pov.jpg"
+  url: "http://assets.eggcake.cn/cover/2016-06-05-pwa-in-my-pov.jpg"
 ---
 
 > 下滑这里查看更多内容

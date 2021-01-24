@@ -5,12 +5,12 @@ description: "CommonJS，RequireJS，SeaJS 归纳笔记"
 keyword: "JavaScript,模块化,CommonJS,RequireJS,SeaJS"
 tag: "JavaScript,模块化"
 date: "2015-05-25T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2015-05-25-js-module-loader.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2015-05-25-js-module-loader.jpg"
 author:
   name: Hux
   picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "/assets/blog/cover/2015-05-25-js-module-loader.jpg"
+  url: "http://assets.eggcake.cn/cover/2015-05-25-js-module-loader.jpg"
 ---
 
 ## Foreword

@@ -5,12 +5,12 @@ description: "组件渲染：vnode 到真实 DOM 是如何转变的？"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2020-12-24T13:00:00.322Z"
-coverImage: "/assets/blog/cover/2020-12-24-vue3-core-source-code-3.png"
+coverImage: "http://assets.eggcake.cn/cover/2020-12-24-vue3-core-source-code-3.png"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2020-12-24-vue3-core-source-code-3.png"
+  url: "http://assets.eggcake.cn/cover/2020-12-24-vue3-core-source-code-3.png"
 ---
 
 
@@ -44,7 +44,7 @@ ogImage:
 ```
 在插入操作的前后，它们对应渲染生成的 vnode 可以用一张图表示：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/CgqCHl8QHwmAHuQrAAB7807ZTzY864.png)
+![image.png](http://assets.eggcake.cn/CgqCHl8QHwmAHuQrAAB7807ZTzY864.png)
 
 从图中我们可以直观地感受到，差异主要在新子节点中的 b 节点后面多了一个 e 节点。
 
@@ -70,7 +70,7 @@ ogImage:
 ```
 在删除操作的前后，它们对应渲染生成的 vnode 可以用一张图表示：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/Ciqc1F8OxNCAbTueAABtqP8l5JI050.png)
+![image.png](http://assets.eggcake.cn/Ciqc1F8OxNCAbTueAABtqP8l5JI050.png)
 
 我们可以看到，这时差异主要在新子节点中的 b 节点后面少了一个 c 节点。
 
@@ -112,7 +112,7 @@ const patchKeyedChildren = (c1, c2, container, parentAnchor, parentComponent, pa
 
 我们拿第一个例子来说，通过下图看一下同步头部节点后的结果：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/Ciqc1F8OxN6AMzbfAACPna55Fmk255.png)
+![image.png](http://assets.eggcake.cn/Ciqc1F8OxN6AMzbfAACPna55Fmk255.png)
 
 可以看到，完成头部节点同步后：i 是 2，e1 是 3，e2 是 4。
 ## 2 同步尾部节点
@@ -152,7 +152,7 @@ const patchKeyedChildren = (c1, c2, container, parentAnchor, parentComponent, pa
 
 我们来通过下图看一下同步尾部节点后的结果：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/Ciqc1F8OxO2AffFhAACJ52ATnwQ480.png)
+![image.png](http://assets.eggcake.cn/Ciqc1F8OxO2AffFhAACJ52ATnwQ480.png)
 
 可以看到，完成尾部节点同步后：i 是 2，e1 是 1，e2 是 2。
 
@@ -205,7 +205,7 @@ const patchKeyedChildren = (c1, c2, container, parentAnchor, parentComponent, pa
 
 对我们的例子而言，同步完尾部节点后 i 是 2，e1 是 1，e2 是 2，此时满足条件需要添加新的节点，我们来通过下图看一下添加后的结果：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/CgqCHl8OxQKAd7fjAACNTHXEkuQ335.png)
+![image.png](http://assets.eggcake.cn/CgqCHl8OxQKAd7fjAACNTHXEkuQ335.png)
 
 添加完 e 节点后，旧子节点的 DOM 和新子节点对应的 vnode 映射一致，也就完成了更新。
 ## 4 删除多余节点
@@ -251,18 +251,18 @@ const patchKeyedChildren = (c1, c2, container, parentAnchor, parentComponent, pa
 
 首先从头部同步节点：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/Ciqc1F8OxQ-ADmRcAACCSIpni8Y429.png)
+![image.png](http://assets.eggcake.cn/Ciqc1F8OxQ-ADmRcAACCSIpni8Y429.png)
 
 此时的结果：i 是 2，e1 是 4，e2 是 3。
 
 
 接着从尾部同步节点：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/Ciqc1F8OxRqANXzyAACGFb9dacI061.png)
+![image.png](http://assets.eggcake.cn/Ciqc1F8OxRqANXzyAACGFb9dacI061.png)
 
 此时的结果：i 是 2，e1 是 2，e2 是 1，满足删除条件，因此删除子节点中的多余节点：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/CgqCHl8OxSeAMW8gAACCvYcKESo055.png)
+![image.png](http://assets.eggcake.cn/CgqCHl8OxSeAMW8gAACCvYcKESo055.png)
 
 删除完 c 节点后，旧子节点的 DOM 和新子节点对应的 vnode 映射一致，也就完成了更新。
 ## 5 处理未知子序列
@@ -297,21 +297,21 @@ const patchKeyedChildren = (c1, c2, container, parentAnchor, parentComponent, pa
 ```
 在操作前，它们对应渲染生成的 vnode 可以用一张图表示：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/Ciqc1F8OxT6AVycJAAClkNghf-k681.png)
+![image.png](http://assets.eggcake.cn/Ciqc1F8OxT6AVycJAAClkNghf-k681.png)
 
 我们还是从同步头部节点开始，用图的方式演示这一过程。
 
 
 首先从头部同步节点：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/CgqCHl8OxUyAaCXvAAC6Lv79hSs090.png)
+![image.png](http://assets.eggcake.cn/CgqCHl8OxUyAaCXvAAC6Lv79hSs090.png)
 
 同步头部节点后的结果：i 是 2，e1 是 7，e2 是 7。
 
 
 接着从尾部同步节点：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/Ciqc1F8OxVeAYV_ZAADCIt6XIHI609.png)
+![image.png](http://assets.eggcake.cn/Ciqc1F8OxVeAYV_ZAADCIt6XIHI609.png)
 
 同步尾部节点后的结果：i 是 2，e1 是 5，e2 是 5。可以看到它既不满足添加新节点的条件，也不满足删除旧节点的条件。那么对于这种情况，我们应该怎么处理呢？
 
@@ -337,11 +337,11 @@ var next = [1, 3, 2, 6, 4, 5]
 
 如果选择了 [1, 3, 6] 作为递增子序列，那么在倒序遍历的过程中，遇到 6、3、1 不动，遇到 5、4、2 移动即可，如下图所示：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/CgqCHl8OxWOAKRnGAAAzjDtkQJI201.png)
+![image.png](http://assets.eggcake.cn/CgqCHl8OxWOAKRnGAAAzjDtkQJI201.png)
 
 如果选择了 [1, 2, 4, 5] 作为递增子序列，那么在倒序遍历的过程中，遇到 5、4、2、1 不动，遇到 6、3 移动即可，如下图所示：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/CgqCHl8OxW6APB5gAAAshOjdgMY518.png)
+![image.png](http://assets.eggcake.cn/CgqCHl8OxW6APB5gAAAshOjdgMY518.png)
 
 可以看到第一种移动了三次，而第二种只移动了两次，递增子序列越长，所需要移动元素的次数越少，所以如何移动的问题就回到了求解最长递增子序列的问题。我们稍后会详细讲求解最长递增子序列的算法，所以先回到我们这里的问题，对未知子序列的处理。
 
@@ -394,7 +394,7 @@ const patchKeyedChildren = (c1, c2, container, parentAnchor, parentComponent, pa
 
 keyToNewIndexMap 存储的就是新子序列中每个节点在新子序列中的索引，我们来看一下示例处理后的结果，如下图所示：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/CgqCHl8OxciAQJ6GAADhf7zD47s944.png)
+![image.png](http://assets.eggcake.cn/CgqCHl8OxciAQJ6GAADhf7zD47s944.png)
 
 我们得到了一个值为 {e:2,c:3,d:4,i:5} 的新子序列索引图。
 ## 更新和移除旧节点
@@ -490,7 +490,7 @@ const patchKeyedChildren = (c1, c2, container, parentAnchor, parentComponent, pa
 
 我们来看一下示例处理后的结果，如下图所示：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/CgqCHl8OxdeAVdPEAAEh9JAOZ_E654.png)
+![image.png](http://assets.eggcake.cn/CgqCHl8OxdeAVdPEAAEh9JAOZ_E654.png)
 
 可以看到， c、d、e 节点被更新，f 节点被删除，newIndexToOldIndexMap 的值为 [5, 3, 4 ,0]，此时 moved 也为 true，也就是存在节点移动的情况。
 ## 7 移动和挂载新节点
@@ -563,7 +563,7 @@ const patchKeyedChildren = (c1, c2, container, parentAnchor, parentComponent, pa
 
 我们来看一下示例处理后的结果，如下图所示：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/Ciqc1F8OxeiAIp0WAAFBcsdATCI981.png)
+![image.png](http://assets.eggcake.cn/Ciqc1F8OxeiAIp0WAAFBcsdATCI981.png)
 
 可以看到新子序列中的新节点 i 被挂载，旧子序列中的节点 e 移动到了 c 节点前面，至此，我们就在已知旧子节点 DOM 结构和 vnode、新子节点 vnode 的情况下，求解出生成新子节点的 DOM 的更新、移动、删除、新增等系列操作，并且以一种较小成本的方式完成 DOM 更新。
 
@@ -581,7 +581,7 @@ const patchKeyedChildren = (c1, c2, container, parentAnchor, parentComponent, pa
 
 假设我们有这个样一个数组 arr：[2, 1, 5, 3, 6, 4, 8, 9, 7]，求解它最长递增子序列的步骤如下：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/600cf67a09683_600cf67b344c9.gif)
+![image.png](http://assets.eggcake.cn/600cf67a09683_600cf67b344c9.gif)
 
 最终求得最长递增子序列的值就是 [1, 3, 4, 8, 9]。
 
@@ -648,7 +648,7 @@ result.push(i)
 ```
 可以看到，result 添加的新值 i 是作为 p 存储 result 最后一个值 j 的 key。上述例子遍历后 p 的结果如图所示：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/Ciqc1F8OxgOALDcQAABERFRRNqo370.png)
+![image.png](http://assets.eggcake.cn/Ciqc1F8OxgOALDcQAABERFRRNqo370.png)
 
 从 result 最后一个元素 9 对应的索引 7 开始回溯，可以看到 p[7] = 6，p[6] = 5，p[5] = 3，p[3] = 1，所以通过对 p 的回溯，得到最终的 result 值是 [1, 3 ,5 ,6 ,7]，也就找到最长递增子序列的最终索引了。这里要注意，我们求解的是最长子序列索引值，它的每个元素其实对应的是数组的下标。对于我们的例子而言，[2, 1, 5, 3, 6, 4, 8, 9, 7] 的最长子序列是 [1, 3, 4, 8, 9]，而我们求解的 [1, 3 ,5 ,6 ,7] 就是最长子序列中元素在原数组中的下标所构成的新数组。
 ## 9 总结
@@ -663,7 +663,7 @@ result.push(i)
 
 下面，我们通过一张图来更加直观感受组件的更新流程：
 
-![image.png](/assets/blog/context/2020-12-24-vue3-core-source-code-3/Ciqc1F8OyzuASuJ7AAHSjr5SVlc999.png)
+![image.png](http://assets.eggcake.cn/Ciqc1F8OyzuASuJ7AAHSjr5SVlc999.png)
 
 > **本节课的相关代码在源代码中的位置如下：**  
 > packages/runtime-core/src/renderer.ts

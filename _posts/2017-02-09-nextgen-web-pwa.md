@@ -5,12 +5,12 @@ description: "下一代 Web 应用模型 —— Progressive Web App"
 keyword: "Web应用,PWA"
 tag: "PWA"
 date: "2017-02-09T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2017-02-09-nextgen-web-pwa.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2017-02-09-nextgen-web-pwa.jpg"
 author:
   name: Hux
   picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "/assets/blog/cover/2017-02-09-nextgen-web-pwa.jpg"
+  url: "http://assets.eggcake.cn/cover/2017-02-09-nextgen-web-pwa.jpg"
 ---
 
 > 今年 9 月份的时候，《程序员》杂志社就邀请我写一篇关于 PWA 的文章。后来花式拖稿，拖过了 10 月的 QCon，11 月的 GDG DevFest，终于在 12 月把这篇长文熬了出来。几次分享的不成熟，这次的结构算是比较满意了。「 可能是目前中文世界里对 PWA 最全面详细的长文了」，希望你能喜欢。<br><br>

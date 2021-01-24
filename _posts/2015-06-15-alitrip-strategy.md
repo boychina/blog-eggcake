@@ -5,12 +5,12 @@ description: "阿里旅行-飞猪,行业与战略"
 keyword: "飞猪,行业与战略"
 tag: "alibaba"
 date: "2015-06-15T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2015-06-15-alitrip-strategy.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2015-06-15-alitrip-strategy.jpg"
 author:
   name: Hux
   picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "/assets/blog/cover/2015-06-15-alitrip-strategy.jpg"
+  url: "http://assets.eggcake.cn/cover/2015-06-15-alitrip-strategy.jpg"
 ---
 
 > 本篇为该系列第一篇 —— 行业与战略，让我们聊聊行业、战略与格局。

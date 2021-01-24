@@ -5,12 +5,12 @@ description: "React 17 要来了，非常特别的一版"
 keyword: "react,react17,react多版本并存,react多版本混用,react微前端"
 tag: "react"
 date: "2020-10-06T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2020-10-06-react17-coming.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2020-10-06-react17-coming.jpg"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2020-10-06-react17-coming.jpg"
+  url: "http://assets.eggcake.cn/cover/2020-10-06-react17-coming.jpg"
 ---
 
 > React 17正式版已经发布，17版本不像16版本中有诸多内容更新。官方对17版本的描述也是没有新特性，主要定位为一版技术改造，为下一个大版本的更新减轻负担。

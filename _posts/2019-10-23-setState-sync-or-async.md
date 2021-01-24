@@ -5,12 +5,12 @@ description: "setState 是同步还是异步的呢？"
 keyword: "react,setState,同步,异步"
 tag: "react"
 date: "2019-10-23T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2019-10-23-setState-sync-or-async.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2019-10-23-setState-sync-or-async.jpg"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2019-10-23-setState-sync-or-async.jpg"
+  url: "http://assets.eggcake.cn/cover/2019-10-23-setState-sync-or-async.jpg"
 ---
 
 #### 写在前面的话
