@@ -28,7 +28,7 @@ cd /usr/local/src/boychina.github.io
 rm -rf ./docs
 
 # 复制blog-eggcake导出的docs文件到boychina.github.io目录下
-cp /usr/local/src/blog-eggcake/docs /usr/local/src/boychina.github.io/docs
+cp -r /usr/local/src/blog-eggcake/docs /usr/local/src/boychina.github.io/docs
 
 # 提交docs到gh-pages分支
 git add .
