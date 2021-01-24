@@ -5,12 +5,12 @@ description: "组件渲染：vnode 到真实 DOM 是如何转变的？"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2020-12-23T23:00:00.322Z"
-coverImage: "/assets/blog/cover/2020-12-23-vue3-core-source-code-2.png"
+coverImage: "http://assets.eggcake.cn/cover/2020-12-23-vue3-core-source-code-2.png"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2020-12-23-vue3-core-source-code-2.png"
+  url: "http://assets.eggcake.cn/cover/2020-12-23-vue3-core-source-code-2.png"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。
@@ -361,21 +361,21 @@ const patchChildren = (n1, n2, container, anchor, parentComponent, parentSuspens
 - 如果新子节点是空，那么删除旧子节点即可；
 - 如果新子节点是 vnode 数组，那么先把旧子节点的文本清空，再去旧子节点的父容器下添加多个新子节点。
 
-![image.png](/assets/blog/context/2020-12-23-vue3-core-source-code-2/Ciqc1F8MBDWAfUAXAADe59XvjHY701.png)
+![image.png](http://assets.eggcake.cn/Ciqc1F8MBDWAfUAXAADe59XvjHY701.png)
 接下来看一下旧子节点是空的情况：
 
 - 如果新子节点是纯文本，那么在旧子节点的父容器下添加新文本节点即可；
 - 如果新子节点也是空，那么什么都不需要做；
 - 如果新子节点是 vnode 数组，那么直接去旧子节点的父容器下添加多个新子节点即可。
 
-![image.png](/assets/blog/context/2020-12-23-vue3-core-source-code-2/CgqCHl8MBEOANnFmAADYr-_R5mM894.png)
+![image.png](http://assets.eggcake.cn/CgqCHl8MBEOANnFmAADYr-_R5mM894.png)
 最后来看一下旧子节点是 vnode 数组的情况：
 
 - 如果新子节点是纯文本，那么先删除旧子节点，再去旧子节点的父容器下添加新文本节点；
 - 如果新子节点是空，那么删除旧子节点即可；
 - 如果新子节点也是 vnode 数组，那么就需要做完整的 diff 新旧子节点了，这是最复杂的情况，内部运用了核心 diff 算法。
 
-![image.png](/assets/blog/context/2020-12-23-vue3-core-source-code-2/CgqCHl8MBCuAUZksAADplAU2718113.png)
+![image.png](http://assets.eggcake.cn/CgqCHl8MBCuAUZksAADplAU2718113.png)
 
 下一篇我们就来深入探究一下这个复杂的 diff 算法。
 

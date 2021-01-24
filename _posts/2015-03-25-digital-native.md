@@ -5,12 +5,12 @@ description: "那是一种与生俱来的天赋，就好像矮人天生擅长舞
 keyword: "数字原住民"
 tag: "数字"
 date: "2015-03-25T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2015-03-25-digital-native.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2015-03-25-digital-native.jpg"
 author:
   name: Hux
   picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "/assets/blog/cover/2015-03-25-digital-native.jpg"
+  url: "http://assets.eggcake.cn/cover/2015-03-25-digital-native.jpg"
 ---
 
 > 那是一种与生俱来的天赋，就好像矮人天生擅长舞锤，而精灵则拥有魔法庇护。那些数字时代的原住民们，天生具备着一种操纵数字世界的领悟。

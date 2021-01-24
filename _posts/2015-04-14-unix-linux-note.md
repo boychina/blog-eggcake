@@ -5,12 +5,12 @@ description: "Unix/Linux 扫盲笔记"
 keyword: "Unix,Linux"
 tag: "Unix,Linux"
 date: "2015-04-14T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2015-04-14-unix-linux-note.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2015-04-14-unix-linux-note.jpg"
 author:
   name: Hux
   picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "/assets/blog/cover/2015-04-14-unix-linux-note.jpg"
+  url: "http://assets.eggcake.cn/cover/2015-04-14-unix-linux-note.jpg"
 ---
 
 > This document is not completed and will be updated anytime.
@@ -123,7 +123,7 @@ Anyway, there eventually comes to the **GNU/Linux**
 - [BSD Public License](http://en.wikipedia.org/wiki/BSD_licenses) \* GPL 强制后续版本必须是自由软件，而 BSD 的后续可以选择继续开源或者封闭
 - [Apache License](http://en.wikipedia.org/wiki/Apache_License)
 
-![Public License](/assets/blog/context/2015-04-14-unix-linux-note/open-source-license.png)
+![Public License](http://assets.eggcake.cn/open-source-license.png)
 
 #### Android
 

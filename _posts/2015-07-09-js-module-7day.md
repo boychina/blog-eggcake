@@ -5,12 +5,12 @@ description: "JavaScript模块化之旅"
 keyword: "JavaScript,模块化"
 tag: "JavaScript,模块化"
 date: "2015-07-09T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2015-07-09-js-module-7day.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2015-07-09-js-module-7day.jpg"
 author:
   name: Hux
   picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "/assets/blog/cover/2015-07-09-js-module-7day.jpg"
+  url: "http://assets.eggcake.cn/cover/2015-07-09-js-module-7day.jpg"
 ---
 
 > 下滑这里查看更多内容

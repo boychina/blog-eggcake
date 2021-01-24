@@ -5,12 +5,12 @@ description: "React vs Angular 2：冰与火之歌"
 keyword: "react,angular"
 tag: "react,angular"
 date: "2016-02-01T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2016-02-01-react-vs-angular2.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2016-02-01-react-vs-angular2.jpg"
 author:
   name: Hux
   picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "/assets/blog/cover/2016-02-01-react-vs-angular2.jpg"
+  url: "http://assets.eggcake.cn/cover/2016-02-01-react-vs-angular2.jpg"
 ---
 
 > 这篇文章转载自[我在知乎专栏「前端外刊评论」上发表的文章](http://zhuanlan.zhihu.com/FrontendMagazine/20549104)。

@@ -5,12 +5,12 @@ description: "setState 是同步还是异步的呢？"
 keyword: "react,setState,同步,异步"
 tag: "react"
 date: "2019-10-23T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2019-10-23-setState-sync-or-async.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2019-10-23-setState-sync-or-async.jpg"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2019-10-23-setState-sync-or-async.jpg"
+  url: "http://assets.eggcake.cn/cover/2019-10-23-setState-sync-or-async.jpg"
 ---
 
 #### 写在前面的话
@@ -19,7 +19,7 @@ setState 是 React 很重要的模块, 社区中也有很多分析文章，大�
 
 我们看一下 React 官网(React.Component – React)对 setState 的说明：
 
-![](/assets/blog/context/2019-10-23-setState-sync-or-async/v2-51dcd43726a3fd6f0ae85013d5175fbf_r.jpg)
+![](http://assets.eggcake.cn/v2-51dcd43726a3fd6f0ae85013d5175fbf_r.jpg)
 
 官网也没说 setState 到底是同步还是异步，只是说 React 不保证 setState 之后能够立即拿到改变后的结果。
 
@@ -69,7 +69,7 @@ class Demo extends PureComponent {
 - 在 componentDidMount 的 setTimeout 方法里调用 setState；
 - 在 dom 中绑定 onClick(React 的合成函数：抹平不同浏览器和端的差异)直接调用 setState；
 
-![](/assets/blog/context/2019-10-23-setState-sync-or-async/v2-9887436d097ae8a97324619bb67f78a3_r.jpg)
+![](http://assets.eggcake.cn/v2-9887436d097ae8a97324619bb67f78a3_r.jpg)
 
 从控制台打印出来的结果看，方法 1 和 3 直接调用 setState 是异步的，而方法 2 中 setTimeout 调用 setState 证明了同步，到底为什么呢？这两种调用方式有什么区别嘛？接下来我们从源码进行分析。
 
@@ -216,7 +216,7 @@ dispatchEvent: function (topLevelType, nativeEvent) {
 
 这里借用《深入 REACT 技术栈》文章里的一个在 componentDidMount 中 setState 的调用栈图例:
 
-![](/assets/blog/context/2019-10-23-setState-sync-or-async/v2-751425d9a3602a3118fe85bb5d238c1a_r.jpg)
+![](http://assets.eggcake.cn/v2-751425d9a3602a3118fe85bb5d238c1a_r.jpg)
 
 图例中表明，ReactDefaultBatchingStrategy.batchedUpdates 在 ReactMount.\_renderNewRootComponent 中被调用，依次倒推，最后发现在组件首次渲染时就会通过 injectBatchingStrategy()方法注入 ReactDefaultBatchingStrategy（这部分有兴趣可以看一下 ReactDefaultInjection.js 源码），并且在 ReactMount.render 中触发\_renderNewRootComponent 函数，调用 batchedUpdates 将 isBatchingUpdates 设置为了 true，所以 componentDidMount 的执行都是在一个大的事务 ReactDefaultBatchingStrategyTransaction 中。
 
@@ -226,7 +226,7 @@ dispatchEvent: function (topLevelType, nativeEvent) {
 
 追踪代码后我画了一个组件初次渲染和 setState 后简单的事务启动和执行的顺序：
 
-![](/assets/blog/context/2019-10-23-setState-sync-or-async/v2-a43c89ca4292123a3655f8b282315b39_hd.jpg)
+![](http://assets.eggcake.cn/v2-a43c89ca4292123a3655f8b282315b39_hd.jpg)
 
 从上面的图中可以看到，ReactDefaultBatchingStrategy 就是一个批量更新策略事务，控制了批量策略的生命周期。看一下 ReactDefaultBatchingStrategy 源码分析一下事务中执行了什么：
 
@@ -474,7 +474,7 @@ _updateRenderedComponent: function(transaction, context) {
 
 ##### 5、updateComponent 流程图
 
-![](/assets/blog/context/2019-10-23-setState-sync-or-async/v2-5b04f3b3f49031ee1ac77b536ebd0988_hd.jpg)
+![](http://assets.eggcake.cn/v2-5b04f3b3f49031ee1ac77b536ebd0988_hd.jpg)
 
 ##### 6、demo 扩展
 
@@ -514,7 +514,7 @@ class Button extends PureComponent {
 
 控制台
 
-![](/assets/blog/context/2019-10-23-setState-sync-or-async/v2-cf07dc6e575104f9f0a6518373297c5b_hd.jpg)
+![](http://assets.eggcake.cn/v2-cf07dc6e575104f9f0a6518373297c5b_hd.jpg)
 
 ###### (2) async 函数和 sleep 函数
 
@@ -557,7 +557,7 @@ class Button extends PureComponent {
 
 控制台
 
-![](/assets/blog/context/2019-10-23-setState-sync-or-async/v2-ba2e48d695d8c60154bcbd4bf20da2dd_r.jpg)
+![](http://assets.eggcake.cn/v2-ba2e48d695d8c60154bcbd4bf20da2dd_r.jpg)
 
 ##### 7、结论
 

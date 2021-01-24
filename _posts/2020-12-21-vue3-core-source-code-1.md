@@ -5,12 +5,12 @@ description: "组件渲染：vnode 到真实 DOM 是如何转变的？"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2020-12-21T23:00:00.322Z"
-coverImage: "/assets/blog/cover/2020-12-21-vue3-core-source-code-1.png"
+coverImage: "http://assets.eggcake.cn/cover/2020-12-21-vue3-core-source-code-1.png"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2020-12-21-vue3-core-source-code-1.png"
+  url: "http://assets.eggcake.cn/cover/2020-12-21-vue3-core-source-code-1.png"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。
@@ -33,7 +33,7 @@ ogImage:
 
 所以，从表现上来看，组件的模板决定了组件生成的 DOM 标签，而在 Vue.js 内部，一个组件想要真正的渲染生成 DOM，还需要经历“创建 vnode - 渲染 vnode - 生成 DOM” 这几个步骤：
 
-![img](/assets/blog/context/2020-12-21-vue3-core-source-code-1/Ciqc1F8EO_OAOS86AABTGXEAHqA770.png)
+![img](http://assets.eggcake.cn/Ciqc1F8EO_OAOS86AABTGXEAHqA770.png)
 
 你可能会问，什么是 vnode，它和组件什么关系呢？先不要着急，我们在后面会详细说明。这里，你只需要记住它就是一个可以描述组件信息的 JavaScript 对象即可。
 
@@ -545,7 +545,7 @@ function insert(child, parent, anchor) {
 
 ## 3 总结
 OK，本篇内容我们主要分析了组件的渲染流程，从入口开始，一层层分析组件渲染。你可能发现了，文中提到的很多技术点我会放在后面的章节具体讲，这样做是为了让我们不跑题，重点放在理解组件的渲染流程上。下篇文章我将会带你具体分析一下组件的更新过程。这里，我用一张图来带你更加直观地感受下整个组件渲染流程：
-![img](/assets/blog/context/2020-12-21-vue3-core-source-code-1/CgqCHl8EPLKAF8u5AAJHdNl56bM640.png)
+![img](http://assets.eggcake.cn/CgqCHl8EPLKAF8u5AAJHdNl56bM640.png)
 > **本节课的相关代码在源代码中的位置如下：**  
 > packages/runtime-dom/src/index.ts  
 > packages/runtime-core/src/apiCreateApp.ts  

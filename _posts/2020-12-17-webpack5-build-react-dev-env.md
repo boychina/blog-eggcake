@@ -5,12 +5,12 @@ description: "Webpack5搭建React开发环境"
 keyword: "webpack,webpack5,react"
 tag: "webpack,react"
 date: "2020-12-17T18:00:00.322Z"
-coverImage: "/assets/blog/cover/2020-12-17-webpack5-build-react-dev-env.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2020-12-17-webpack5-build-react-dev-env.jpg"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2020-12-17-webpack5-build-react-dev-env.jpg"
+  url: "http://assets.eggcake.cn/cover/2020-12-17-webpack5-build-react-dev-env.jpg"
 ---
 
 > 平常业务开发过程中习惯使用脚手架来搭建开发环境，create-react-app、vue-cli等等，各个框架都提供了快速上手的脚手架。这样保证了快速开发的效率，不过阻碍了我们熟悉了解webpack、rollup这类构建工具的生态和原理。

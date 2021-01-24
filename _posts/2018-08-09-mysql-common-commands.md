@@ -5,12 +5,12 @@ description: "MySQL 常用命令"
 keyword: "MySQL,命令"
 tag: "MySQL"
 date: "2018-08-09T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2018-08-09-mysql-common-commands.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2018-08-09-mysql-common-commands.jpg"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2018-08-09-mysql-common-commands.jpg"
+  url: "http://assets.eggcake.cn/cover/2018-08-09-mysql-common-commands.jpg"
 ---
 
 ### 一、基础命令

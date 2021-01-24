@@ -5,12 +5,12 @@ description: "直接使用 get 请求方式进行下载,使用 form 表单 post 
 keyword: "前端,数据流,下载,文件下载"
 tag: "前端"
 date: "2018-12-12T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2018-12-12-downloading-frontend-data-stream-files.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2018-12-12-downloading-frontend-data-stream-files.jpg"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2018-12-12-downloading-frontend-data-stream-files.jpg"
+  url: "http://assets.eggcake.cn/cover/2018-12-12-downloading-frontend-data-stream-files.jpg"
 ---
 
 #### 1、直接使用 get 请求方式进行下载：

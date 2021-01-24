@@ -5,12 +5,12 @@ description: "一文看懂Vue3.0的优化"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2020-12-19T14:00:00.322Z"
-coverImage: "/assets/blog/cover/2020-12-19-vue3-core-source-code.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2020-12-19-vue3-core-source-code.jpg"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2020-12-19-vue3-core-source-code.jpg"
+  url: "http://assets.eggcake.cn/cover/2020-12-19-vue3-core-source-code.jpg"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。
@@ -33,11 +33,11 @@ Vue.js 2.x 发展了很久，现在周边的生态设施都已经非常完善了
 首先，源码的优化体现在代码管理方式上。Vue.js 2.x 的源码托管在 src 目录，然后依据功能拆分出了
 compiler（模板编译的相关代码）、core（与平台无关的通用运行时代码）、platforms（平台专有代码）、server（服务端渲染的相关代码）、sfc（.vue 单文件解析相关代码）、shared（共享工具代码） 等目录：
 
-![img](/assets/blog/context/2020-12-19-vue3-core-source-code-0/1611159481222.jpg)
+![img](http://assets.eggcake.cn/1611159481222.jpg)
 
 而到了 Vue.js 3.0 ，整个源码是通过 monorepo 的方式维护的，根据功能将不同的模块拆分到 packages 目录下面不同的子目录中：
 
-![img](/assets/blog/context/2020-12-19-vue3-core-source-code-0/1611159725833.jpg)
+![img](http://assets.eggcake.cn/1611159725833.jpg)
 
 可以看出相对于 Vue.js 2.x 的源码组织方式，monorepo 把这些模块拆分到不同的 package 中，每个 package 有各自的
 API、类型定义和测试。这样使得模块拆分更细化，职责划分更明确，模块之间的依赖关系也更加明确，开发人员也更容易阅读、理解和更改所有模块源码，提高代码的可维护性。
@@ -119,7 +119,7 @@ import { cube } from './math.js'
 
 在 Vue.js 内部，想实现这个功能是要付出一定代价的，那就是必须劫持数据的访问和更新。其实这点很好理解，当数据改变后，为了自动更新 DOM，那么就必须劫持数据的更新，也就是说当数据发生改变后能自动执行一些代码去更新 DOM，那么问题来了，Vue.js 怎么知道更新哪一片 DOM 呢？因为在渲染 DOM 的时候访问了数据，我们可以对它进行访问劫持，这样就在内部建立了依赖关系，也就知道数据对应的 DOM 是什么了。以上只是大体的思路，具体实现要比这更复杂，内部还依赖了一个 watcher 的数据结构做依赖管理，参考下图：
 
-![img](/assets/blog/context/2020-12-19-vue3-core-source-code-0/1611161832405.jpg)
+![img](http://assets.eggcake.cn/1611161832405.jpg)
 
 Vue.js 1.x 和 Vue.js 2.x 内部都是通过 Object.defineProperty 这个 API 去劫持数据的 getter 和 setter，具体是这样的：
 ```javascript
@@ -169,7 +169,7 @@ observed = new Proxy(data, {
 
 最后是编译优化，为了便于理解，我们先来看一张图：
 
-![img](/assets/blog/context/2020-12-19-vue3-core-source-code-0/1611162189157.jpg)
+![img](http://assets.eggcake.cn/1611162189157.jpg)
 
 这是 Vue.js 2.x 从 new Vue 开始渲染成 DOM 的流程，上面说过的响应式过程就发生在图中的 init 阶段，另外 template compile to render function 的流程是可以借助 vue-loader 在 webpack 编译阶段离线完成，并非一定要在运行时完成。
 
@@ -177,7 +177,7 @@ observed = new Proxy(data, {
 
 我们知道，通过数据劫持和依赖收集，Vue.js 2.x 的数据更新并触发重新渲染的粒度是组件级的：
 
-![img](/assets/blog/context/2020-12-19-vue3-core-source-code-0/1611162391613.jpg)
+![img](http://assets.eggcake.cn/1611162391613.jpg)
 
 虽然 Vue 能保证触发更新的组件最小化，但在单个组件内部依然需要遍历该组件的整个 vnode 树，举个例子，比如我们要更新这个组件：
 
@@ -194,7 +194,7 @@ observed = new Proxy(data, {
 ```
 整个 diff 过程如图所示：
 
-![img](/assets/blog/context/2020-12-19-vue3-core-source-code-0/1611162513346.jpg)
+![img](http://assets.eggcake.cn/1611162513346.jpg)
 
 可以看到，因为这段代码中只有一个动态节点，所以这里有很多 diff 和遍历其实都是不需要的，这就会导致 vnode 的性能跟模版大小正相关，跟动态节点的数量无关，当一些组件的整个模版内只有少量动态节点时，这些遍历都是性能的浪费。
 
@@ -227,13 +227,13 @@ Options API 的设计是按照 methods、computed、data、props 这些不同的
 
 如果我们按照逻辑关注点做颜色编码，就可以看到当使用 Options API 去编写组件时，这些逻辑关注点是非常分散的：
 
-![img](/assets/blog/context/2020-12-19-vue3-core-source-code-0/1611162884487.jpg)
+![img](http://assets.eggcake.cn/1611162884487.jpg)
 
 Vue.js 3.0 提供了一种新的 API：Composition API，它有一个很好的机制去解决这样的问题，就是将某个逻辑关注点相关的代码全都放在一个函数里，这样当需要修改一个功能时，就不再需要在文件中跳来跳去。
 
 通过下图，我们可以很直观地感受到 Composition API 在逻辑组织方面的优势：
 
-![img](/assets/blog/context/2020-12-19-vue3-core-source-code-0/1611162956180.jpg)
+![img](http://assets.eggcake.cn/1611162956180.jpg)
 
 ### 3.2 优化逻辑复用
 

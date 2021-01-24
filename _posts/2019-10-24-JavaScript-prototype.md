@@ -5,12 +5,12 @@ description: "JavaScript 原型"
 keyword: "JavaScript,原型"
 tag: "JavaScript"
 date: "2019-10-24T12:00:00.322Z"
-coverImage: "/assets/blog/cover/2019-10-24-javascript-prototype.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2019-10-24-javascript-prototype.jpg"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "/assets/blog/cover/2019-10-24-javascript-prototype.jpg"
+  url: "http://assets.eggcake.cn/cover/2019-10-24-javascript-prototype.jpg"
 ---
 
 ##### 前言
@@ -65,7 +65,7 @@ console.log(typeof fn3); // function
 
 先保留这个疑问。接下来，对这一节的内容做个总结：
 
-![](/assets/blog/context/2019-10-24-JavaScript-prototype/v2-97bfacdf216ab34c22c8709aa86542d6_r.jpg)
+![](http://assets.eggcake.cn/v2-97bfacdf216ab34c22c8709aa86542d6_r.jpg)
 
 从图中可以看出，对象本身的实现还是要依靠构造函数。那 原型链 到底是用来干嘛的呢？
 
@@ -293,7 +293,7 @@ console.log(chl.getName(), chl.getAge()); /* 6 */
 
 我们来画一个原型链图，或者说，将其整个原型链图画出来？请看下图：
 
-![](/assets/blog/context/2019-10-24-JavaScript-prototype/v2-95c1267691d904d50a0ef009f8f887ae_r.jpg)
+![](http://assets.eggcake.cn/v2-95c1267691d904d50a0ef009f8f887ae_r.jpg)
 
 画完这张图，基本上所有之前的疑问都可以解答了。
 
@@ -314,7 +314,7 @@ console.log(Person.prototype.constructor.prototype.constructor === Person); //tr
 
 通过前文的论述，结合相应的代码验证，整理出以下原型链图：
 
-![](/assets/blog/context/2019-10-24-JavaScript-prototype/v2-c4d424b90439092aacca97a634305bdd_r.jpg)
+![](http://assets.eggcake.cn/v2-c4d424b90439092aacca97a634305bdd_r.jpg)
 
 由此可见，我们更加强化了这两个观点：
 
