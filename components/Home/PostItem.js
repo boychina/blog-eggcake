@@ -1,5 +1,6 @@
 import DateFormatter from "../Common/DateFormatter";
 import Link from "next/link";
+import styles from "./PostItem.module.css";
 
 export default function HeroPost({
   title,
@@ -39,7 +40,7 @@ export default function HeroPost({
                 <DateFormatter dateString={date} />
               </span>
             </div>
-            <div style={{ color: '#8c8c8c' }}>{excerpt}</div>
+            <div className={styles.excerpt}>{excerpt}</div>
           </figcaption>
         </div>
       </section>
