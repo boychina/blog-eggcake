@@ -8,8 +8,9 @@ export default function Footer() {
         <div className="pt-10 flex flex-col items-center">
           <div className="flex flex-col lg:flex-row justify-center items-center">
             <a
-              href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
+              href="https://github.com/boychina/blog-eggcake"
               className="text-sm mx-3 hover:underline"
+              target="_blank"
               >
               <div className="flex items-center"><GithubOutlined className="mr-1" /> GitHub</div>
             </a>

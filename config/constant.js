@@ -1,5 +1,5 @@
 // 默认分页大小
-export const DEFAULT_PAGE_SIZE = 15;
+export const DEFAULT_PAGE_SIZE = 12;
 
 // 年月日格式化
 export const DATE_FORMAT = "yyyy-MM-dd";
