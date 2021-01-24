@@ -19,11 +19,11 @@ ogImage:
 
 #### Vue 生命周期
 
-![Vue生命周期](/assets/blog/context/2018-08-07-vue-and-wechat-small-program-differences/vue-life-cycle.png)
+![Vue生命周期](http://assets.eggcake.cn/vue-life-cycle.png)
 
 #### 小程序生命周期
 
-![小程序生命周期](/assets/blog/context/2018-08-07-vue-and-wechat-small-program-differences/wechat-small-program-life-cycle.png)
+![小程序生命周期](http://assets.eggcake.cn/wechat-small-program-life-cycle.png)
 
 相比之下，小程序的钩子函数要简单得多。
 
