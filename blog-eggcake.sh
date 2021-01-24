@@ -17,3 +17,20 @@ cnpm run site
 
 # 重启pm2blog服务
 pm2 reload blog3000
+
+# 导出静态资源
+cnpm run export
+
+# 切到boychina.github.io目录
+cd /usr/local/src/boychina.github.io
+
+# 删除docs目录
+rm -rf ./docs
+
+# 复制blog-eggcake导出的docs文件到boychina.github.io目录下
+cp /usr/local/src/blog-eggcake/docs /usr/local/src/boychina.github.io/docs
+
+# 提交docs到gh-pages分支
+git add .
+git commit -m "feat: modified docs"
+git push origin gh-pages
