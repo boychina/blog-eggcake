@@ -8,7 +8,7 @@ export default function Header() {
     <section className="w-screen bg-white flex-col md:flex-row flex items-center md:justify-between pt-3 pb-1 mb-6 md:mb-4 px-10 shadow-lg md:fixed z-50">
       <Link href="/">
         <a>
-          <div className="text-2xl md:text-xl font-bold tracking-tighter leading-tight md:pr-8 flex">
+          <div className="text-xl h-6 font-bold tracking-tighter leading-tight flex">
             <img src="/favicon/safari-pinned-tab.svg" className="w-6 mr-1"/>
             <span>淡烘糕.</span>
           </div>
