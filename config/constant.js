@@ -1,3 +1,6 @@
+// Meta 图片
+export const HOME_OG_IMAGE_URL = "http://www.eggcake.cn/favicon/safari-pinned-tab.svg";
+
 // 默认分页大小
 export const DEFAULT_PAGE_SIZE = 12;
 
