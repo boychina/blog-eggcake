@@ -1,5 +1,4 @@
 import { GithubOutlined } from '@ant-design/icons';
-import { EXAMPLE_PATH } from "@/lib/constants";
 
 export default function Footer() {
   return (
