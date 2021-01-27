@@ -127,7 +127,7 @@ yarn add html-webpack-plugin -D
 ```javascript
 // webpack.config.js
 const path = require('path');
-const HtmlWebpackPlugin = 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   /*...*/
@@ -158,3 +158,186 @@ module.exports = {
 
 </html>
 ```
+
+### 4.2 打包前清除dist
+
+clean-webpack-plugin 打包前移除、清理打包目录
+
+1. 安装
+```shell
+yarn  add yarn add clean-webpack-plugin -D
+```
+
+2. 配置
+```javascript
+const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+
+module.exports = {
+  /* ... */
+  
+  plugins: [
+    /* ... */
+    new CleanWebpackPlugin(),
+  ]
+}
+```
+
+### 4.3 命令行友好提示插件
+
+1. 安装
+```shell
+yarn add friendly-errors-webpack-plugin -D
+```
+
+2. 配置
+```javascript
+// webpack.config.js
+const friendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+ 
+module.exports = {
+ plugins: [
+  new friendlyErrorsWebpackPlugin(),
+ ]
+}
+```
+
+## 5 Loaders
+
+webpack使用 loaders 去解析模块，想要 webpack 如何理解 JavaScript、静态资源（图片、字体、CSS）、转义TypeScrip和Babel，都需要配置响应的loader规则。
+
+在项目中只有一个 HTML 和一些 JavaScript 是不能完成整个项目的，我们需要 webpack 能够帮我们完成更多的事：
+
+* 将最新的 JavaScript 特性编译成浏览器能理解的代码；
+* 模块化 CSS，将 SCSS、LESS、CSSNext编译成 CSS；
+* 导入图片、字体等静态资源
+* 识别自己喜欢的框架代码，如 React
+
+### 5.1 Babel
+
+Babel 是一个 JavaScript 编译器，能将 ES6+ 代码转为 ES5 代发，让我们使用最新的语言特性而不用担心兼容性问题，并且可以通过插件机制根据需求灵活扩展。
+
+1. 安装依赖
+```shell
+yarn add babel-loader @babel/core @babel/preset-env -D
+```
+* babel-loader 使用 Babel 和 Webpack 转义文件
+* @balel/core 转译 ES2015+ 的代码
+* @babel/preset-env Babel环境预设配置
+
+2. 配置
+```JavaScript
+// webpack.config.js
+module.exports = {
+ /* ... */
+ 
+ module: {
+  rules: [
+   // JavaScript
+   {
+    test: /\.m?js$/,
+    exclude: /node_modules/,
+    use: {
+     loader: 'babel-loader',
+     options: {
+      presets: ['@babel/preset-env'],
+     },
+    },
+   },
+  ],
+ },
+}
+```
+在 Babel 执行编译的过程中，会从项目根目录下的配置文件读取配置。在根目录下创建 Babel 的配置文件 .babelrc 
+
+```JSON
+{
+  "presets": ["@babel/preset-env"]
+}
+```
+
+### 5.2 图片和字体解析
+
+1. 解析图片的loader配置
+```JavaScript
+module.exports = {
+ /* ... */
+ module: {
+  rules: [
+   // Images
+   {
+    test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+    type: 'asset/resource',
+   },
+  ],
+ },
+}
+```
+
+2. 解析字体文件的loader配置
+```JS
+module.exports = {
+ /* ... */
+ module: {
+  rules: [
+   // Fonts and SVGs
+   {
+    test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+    type: 'asset/inline',
+   },
+  ],
+ },
+}
+```
+
+### 5.3 样式
+
+我们希望能够在 JavaScript 中导入 CSS，以及将 CSS 注入 DOM，另外还想使用 CSS 的高级特性，比如 cssnext，需要依赖一下库：
+
+* css-loader 解析 CSS 导入
+* style-loader 将 CSS 注入DOM
+* postcss PostCSS 是一个允许使用 JS 插件转换样式的工具。 这些插件可以检查（lint）你的 CSS，支持 CSS Variables 和 Mixins， 编译尚未被浏览器广泛支持的先进的 CSS 语法，内联图片，以及其它很多优秀的功能。
+* postcss-loader 用 PostCSS 处理 CSS
+  * postcss-preset-env PostCSS 的默认配置
+* postcss-next - PostCSS的插件，可以使用CSS最新的语法
+
+1. 安装
+```shell
+yarn add css-loader style-loader postcss-loader postcss-preset-env postcss postcss-cssnext -D
+```
+2. 配置
+```JS
+// webpack.config.js
+ 
+module.exports = {
+ /* ... */
+ module: {
+  rules: [
+   // CSS, PostCSS, and Sass
+   {
+    test: /\.(scss|css)$/,
+    use: ['style-loader', {
+      loader: 'css-loader',
+      options: {
+       importLoaders: 1,
+      },
+     }, 'postcss-loader'],
+   },
+  ],
+ },
+}
+```
+
+3. postcss 配置
+在项目根目录下新建 postcss.config.js 文件，内容如下：
+   
+```JS
+module.exports = {
+ plugins: {
+  'postcss-preset-env': {
+   browsers: 'last 2 versions',
+  },
+ },
+}
+```
+
