@@ -333,11 +333,263 @@ module.exports = {
    
 ```JS
 module.exports = {
- plugins: {
-  'postcss-preset-env': {
++ plugins: {
+-  'postcss-preset-env': {
    browsers: 'last 2 versions',
   },
  },
 }
 ```
 
+## 6 搭建开发环境
+
+现在我们来搭建开发模式的配置：
+```JS
+// webpack.config.js
+ 
+module.exports = {
+ mode: 'development',
+ // ...
+}
+```
+
+### 6.1 使用 source maps
+为了在报错的时候更好地追踪报错的代码位置，并且给出错误代码出现的地方提示，我们可以使用 source map，具体配置如下：
+
+```JS
+// webpack.config.js
+ 
+module.exports = {
+ devtool: 'inline-source-map'
+ // ...
+}
+```
+
+### 6.2 热模块替换 HMR（Hot Module Replacement）
+当我们代码改动的时候，我们希望能够重新编译，webpack 提供了三种不同的方式实现：
+* 监听模式
+* webpack-dev-server
+* webpack-dev-middleware
+
+大多数情况下，使用的是webpack-dev-server，当前我们也是用这个工具。顺带介绍一下其他两种方式。
+
+#### 6.2.1 监听模式
+```JS
+// package.json
+{
+ "watch": "webpack --watch"
+}
+```
+
+执行以下命令
+```shell
+yarn run watch
+```
+
+现在当我们保存代码的时候会自动编译代码，刷新浏览器后即可看到效果；但是我们想要自动刷新浏览器怎么办，这时候就需要用到 webpack-dev-server。
+
+#### 6.2.2 webpack-dev-server
+
+它为我们提供了一个服务器和 live reloading 的能力。
+
+```shell
+yarn add webpack-dev-server -D
+```
+
+然后配置如下：
+
+```JS
+// webpack.config.js
+module.exports = {
+ // ...
+ devServer: {
+  historyApiFallback: true,
+  contentBase: path.join(__dirname, './dist'),
+  open: false,
+  hot: true,
+  quiet: true,
+  port: 8080,
+ },
+}
+```
+```json
+// package.json
+{
+ "scripts": {
+  "start": "webpack serve"
+ }
+}
+```
+我们再8080端口监听了一个服务，监听的目录是dist，并且支持热重载，现在打开 http://localhost:8080，可以看到我们的页面，然后改动代码，浏览器会自动刷新到最新的效果。
+
+#### 6.2.3 webpack-dev-middleware
+
+这是一个 webpack 的中间件，可以让 webpack 把文件交给一个服务器处理，比如我们可以使用 nodejs 的服务器 express，这个了我们更多对于运行的服务器的控制权。
+
+1. 安装express和webpack-dev-middleware
+```shell
+yarn add express webpack-dev-middleware -D
+```
+更改配置 
+```JS
+module.exports = {
+ //...
+ output: {
+  //...
+  publicPath: '/'
+ }
+}
+```
+publicPath 可以定义 express 监听服务的路径，接下来就创建我们的 express 服务器
+
+新建一个 server.js
+
+```JS
+const express = require('express');
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+ 
+const app = express();
+const config = require('./webpack.config.js');
+const compiler = webpack(config);
+ 
+// Tell express to use the webpack-dev-middleware and use the webpack.config.js
+// configuration file as a base.
+app.use(
+ webpackDevMiddleware(compiler, {
+  publicPath: config.output.publicPath,
+ })
+);
+ 
+// Serve the files on port 3000.
+app.listen(3000, function () {
+ console.log('Example app listening on port 3000!\n');
+});
+```
+
+监听端口为3000，执行以下命令启动服务
+```shell
+node server.js
+```
+方便起见，可以将该命令加入package.json
+```json
+{
+  //...
+  "scripts": {
+    "server": "node server.js"
+  }
+}
+```
+
+## 7 使用TypeScript
+
+现在前端不会使用 TypeScript 貌似已经没有竞争力了。🤦‍
+
+安装依赖
+```shell
+yarn add typescript ts-loader -D
+```
+在根目录下创建typescript的配置文件 tsconfig.json，具体配置如下:
+
+```json
+{
+ "compilerOptions": {
+  "outDir": "./dist/",
+  // "rootDir": "./src",
+  "sourceMap": true, // 开启sourcemap
+  "module": "commonjs",
+  "target": "es5",
+  "jsx": "react",
+  "esModuleInterop": true,
+  "allowJs": true,
+  "strict": true
+ }
+}
+```
+添加对应代码解析loader
+
+```JS
+// webpack.config.js
+module.exports = {
+ //...
+ module: {
+  rules: [
+    {
+    test: /\.tsx?$/,
+    use: 'ts-loader',
+    exclude: /node_modules/,
+   },
+  ]
+ }
+}
+```
+
+## 8 配置 React
+
+在上面配置typescript配置中中，已经开启了支持react，现在只需安装react的依赖即可
+
+```shell
+yarn add react react-dom @types/react @types/react-dom
+```
+
+将入口 index.js 文件名称改为 index.tsx，内容如下：
+
+```JS
+import React from 'react';
+import ReactDOM from 'react-dom';
+ 
+import './index.css';
+ 
+const App = () => {
+ return <div>hello world2</div>;
+};
+ 
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+## 9 代码规范
+
+一个中大型项目肯定涉及到团队协作，规范的代码能够大幅提高团队合作的效率。我们需要在一开始搭建项目的时候就需要对于代码规范进行约定，这里我们需要用到两个工具。
+
+### 9.1 Prettier
+
+Prettier 是一个诞生于2016年就迅速流行起来的专注于代码格式化的工具。
+
+Prettier只关注格式化，并不具有lint检查语法等能力。它通过解析代码并匹配自己的一套规则，来强制执行一致的代码展示格式。
+
+它在美化代码方面有很大的优势，配合ESLint可以对ESLint格式化基础上做一个很好的补充。
+
+1. 使用 
+   以VSCode为例，安装Prettier插件即可使用，如果想自定义配置，可以cmd+,快捷键进入vscode配置，搜索Prettier找到对应的配置项进行配置。
+   
+### 9.2 ESlint
+
+ELint 是一个在 JavaScript 代码中通过规则模式匹配作代码识别和报告的插件化的检测工具，它的目的是保证代码规范的一致性和及时发现代码问题、提前避免错误发生。
+
+ESLint 的关注点是代码质量，检查代码风格并且会提示不符合风格规范的代码。除此之外 ESLint 也具有一部分代码格式化的功能。
+
+安装依赖，方便起见，直接使用已有的ESlint配置，这里使用的是fabric
+
+```shell
+yarn add @umijs/fabric -D
+```
+在项目根目录下创建 .eslintrc.js，配置如下
+
+```js
+module.exports = {
+ extends: [require.resolve('@umijs/fabric/dist/eslint')],
+ globals: {},
+ plugins: ['react-hooks'],
+ rules: {
+  'no-restricted-syntax': 0,
+  'no-param-reassign': 0,
+  'no-unused-expressions': 0,
+ },
+};
+```
+
+重新启动编辑器，即可看到 ESLint 已经可以检查代码的准确性了。
+
+## 10 总结
+
+到目前为止，我们已经搭建了一个简单的 react 脚手架，并且支持 TypeScript、CSSnext、HMR 等特性，对于一个小项目已经足够用了。后期对于用到的其他内容可以自己扩展上去。
