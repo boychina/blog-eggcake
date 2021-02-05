@@ -1,13 +1,13 @@
 import { useRouter } from "next/router";
-import { getAllPosts, getTags, getPostsByTag } from "@/lib/api";
+import { getAllPosts, getTagsMap, getDatesMap, getPostsByDate } from "@/lib/api";
 import Content from "@/components/Home/Content";
 
-export default function TagPost({ allPosts, postsByTag, tags }) {
+export default function TagPost({ allPosts, postsByDate, tags }) {
   const router = useRouter();
   return (
     <Content
       allPosts={allPosts}
-      postsByPageIndex={postsByTag}
+      postsByPageIndex={postsByDate}
       current={1}
       totalPage={1}
       tags={tags}
@@ -22,7 +22,7 @@ export async function getStaticProps({ params }) {
     "slug",
     "author",
   ]);
-  const postsByTag = getPostsByTag(decodeURIComponent(params.tag), [
+  const postsByDate = getPostsByDate(params.date, [
     "title",
     "date",
     "tag",
@@ -31,23 +31,23 @@ export async function getStaticProps({ params }) {
     "coverImage",
     "excerpt",
   ]);
-  const tags = getTags();
+  const tags = getTagsMap();
   return {
     props: {
       allPosts,
-      postsByTag,
+      postsByDate,
       tags,
     },
   };
 }
 
 export async function getStaticPaths() {
-  const tags = getTags();
+  const dates = getDatesMap();
   const result = {
-    paths: Object.keys(tags).map((tag) => {
+    paths: Object.keys(dates).map((date) => {
       return {
         params: {
-          tag: encodeURIComponent(tag),
+          date,
         },
       };
     }),

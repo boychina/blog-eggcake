@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { getAllPosts, getTags, getPostsByTag } from "@/lib/api";
+import { getAllPosts, getTagsMap, getPostsByTag } from "@/lib/api";
 import Content from "@/components/Home/Content";
 
 export default function TagPost({ allPosts, postsByTag, tags }) {
@@ -31,7 +31,7 @@ export async function getStaticProps({ params }) {
     "coverImage",
     "excerpt",
   ]);
-  const tags = getTags();
+  const tags = getTagsMap();
   return {
     props: {
       allPosts,
@@ -42,7 +42,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const tags = getTags();
+  const tags = getTagsMap();
   const result = {
     paths: Object.keys(tags).map((tag) => {
       return {

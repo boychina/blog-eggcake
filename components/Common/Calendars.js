@@ -1,8 +1,8 @@
-import Router from 'next/router'
+import Router from "next/router";
 import { Calendar } from "antd";
-import * as dayjs from 'dayjs'
+import * as dayjs from "dayjs";
 import { SendOutlined } from "@ant-design/icons";
-import { DATE_FORMAT } from '@/config';
+import { DATE_FORMAT } from "@/config";
 
 export default function Calendars({ title, allPosts }) {
   const onPanelChange = (value, mode) => {
@@ -21,8 +21,19 @@ export default function Calendars({ title, allPosts }) {
         <Calendar
           fullscreen={false}
           onPanelChange={onPanelChange}
-          disabledDate={(current) => !allPosts.find((post) => dayjs(post.date).isSame(current, 'days'))}
-          onSelect={(date) => Router.push({ pathname: '/search/[date]' }, `/search/${date.format(DATE_FORMAT)}`)}
+          disabledDate={(current) =>
+            !allPosts.find((post) => dayjs(post.date).isSame(current, "days"))
+          }
+          onSelect={(date) => {
+            if (
+              allPosts.find((post) => dayjs(post.date).isSame(date, "days"))
+            ) {
+              Router.push(
+                { pathname: "/date/[date]" },
+                `/date/${date.format(DATE_FORMAT)}`
+              );
+            }
+          }}
         />
       </div>
     </div>

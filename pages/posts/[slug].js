@@ -8,7 +8,7 @@ import PostHeader from "@/components/Post/PostHeader";
 import PostTitle from "@/components/Post/PostTitle";
 import PostBody from "@/components/Post/PostBody";
 import PrevNextBtns from '@/components/Post/PrevNextBtns';
-import { getPostBySlug, getAllPosts, getPrevNextPost, getTags } from "@/lib/api";
+import { getPostBySlug, getAllPosts, getPrevNextPost, getTagsMap } from "@/lib/api";
 import markdownToHtml from "@/lib/markdownToHtml";
 import Head from "next/head";
 
@@ -70,7 +70,7 @@ export async function getStaticProps({ params }) {
     "coverImage",
   ]);
   const content = await markdownToHtml(post.content || "");
-  const tags = getTags();
+  const tags = getTagsMap();
   return {
     props: {
       allPosts,
