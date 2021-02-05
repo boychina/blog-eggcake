@@ -5,7 +5,7 @@ export const HOME_OG_IMAGE_URL = "http://www.eggcake.cn/favicon/safari-pinned-ta
 export const DEFAULT_PAGE_SIZE = 12;
 
 // 年月日格式化
-export const DATE_FORMAT = "yyyy-MM-dd";
+export const DATE_FORMAT = "YYYY-MM-DD";
 
 // 时分秒格式化
 export const TIME_FORMAT = "HH:mm:ss";
