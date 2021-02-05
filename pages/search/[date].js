@@ -31,7 +31,6 @@ export async function getStaticProps({ params }) {
     "coverImage",
     "excerpt",
   ]);
-  console.log(postsByTag);
   const tags = getTags();
   return {
     props: {

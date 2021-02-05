@@ -5,9 +5,6 @@ import { SendOutlined } from "@ant-design/icons";
 import { DATE_FORMAT } from '@/config';
 
 export default function Calendars({ title, allPosts }) {
-
-  console.log("allPosts", allPosts)
-
   const onPanelChange = (value, mode) => {
     console.log(value, mode);
   };
