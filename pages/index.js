@@ -1,4 +1,4 @@
-import { getAllPosts, getPageIndexes, getPostsByPageIndex, getTags } from "@/lib/api";
+import { getAllPosts, getPageIndexes, getPostsByPageIndex, getTagsMap } from "@/lib/api";
 import Content from "@/components/Home/Content";
 
 export default function Index({ allPosts, postsByPageIndex, totalPage, tags }) {
@@ -29,7 +29,7 @@ export async function getStaticProps() {
     "coverImage",
     "excerpt",
   ]);
-  const tags = getTags();
+  const tags = getTagsMap();
   return {
     props: { allPosts, postsByPageIndex, totalPage: pageIndexes.length, tags },
   };

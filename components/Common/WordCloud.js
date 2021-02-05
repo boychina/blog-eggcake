@@ -54,7 +54,7 @@ export default function WordCloud({ title, tags }) {
       <svg width="330" height="300" className="mx-auto md:m-0">
         <g transform="translate(160, 150)">
           {sortBy(words, ['value']).map((word, index) => (
-            <Link as={`/search/${word.text}`} href="/search/[tag]" key={word.text}>
+            <Link as={`/tag/${word.text}`} href="/tag/[tag]" key={word.text}>
               <text
                 textAnchor="middle"
                 fill={hoveringWord === word.text ? '#1890ff' : COLORS[index % 11]}

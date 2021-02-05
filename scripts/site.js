@@ -41,6 +41,7 @@ const getSites = () => {
 
 const sites = getSites();
 console.log(sites);
+console.log('总共生成'+ sites?.length + '条site数据。');
 fs.writeFileSync("public/site.txt", sites, {
   encoding: "utf8",
   mode: 0o666,
