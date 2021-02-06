@@ -1,7 +1,7 @@
 import Router from "next/router";
-import { Calendar } from "antd";
+import { Calendar, Button, Row, Col } from "antd";
 import * as dayjs from "dayjs";
-import { SendOutlined } from "@ant-design/icons";
+import { SendOutlined, LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { DATE_FORMAT } from "@/config";
 
 export default function Calendars({ title, allPosts }) {
@@ -21,6 +21,45 @@ export default function Calendars({ title, allPosts }) {
         <Calendar
           fullscreen={false}
           onPanelChange={onPanelChange}
+          headerRender={({ value, onChange }) => {
+            return (
+              <div style={{ padding: 8 }}>
+                <Row gutter={8} justify="space-between" align="middle">
+                  <Col>
+                    <Button
+                      onClick={() => {
+                        const newValue = value.clone();
+                        newValue.month(value.get('month') - 1);
+                        onChange(newValue);
+                      }}
+                      type="link"
+                      size="small"
+                      icon={<LeftOutlined />}
+                      style={{ display: "flex" }}
+                      className="justify-center items-center"
+                    />
+                  </Col>
+                  <Col>
+                    <span>{dayjs(value).format("YYYY年MM月")}</span>
+                  </Col>
+                  <Col>
+                    <Button
+                      onClick={() => {
+                        const newValue = value.clone();
+                        newValue.month(value.get('month') + 1);
+                        onChange(newValue);
+                      }}
+                      type="link"
+                      size="small"
+                      icon={<RightOutlined />}
+                      style={{ display: "flex" }}
+                      className="justify-center items-center"
+                    />
+                  </Col>
+                </Row>
+              </div>
+            );
+          }}
           disabledDate={(current) =>
             !allPosts.find((post) => dayjs(post.date).isSame(current, "days"))
           }
