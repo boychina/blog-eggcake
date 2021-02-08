@@ -810,7 +810,7 @@ function applyOptions(instance, options, deferredData = [], deferredWatch = [], 
 > callWithErrorHandling 把 setup 包装了一层，实际上就是让setup支持可选的参数来进行执行，另外如果发生错误的情况下也可以进行及时捕获并处理错误  
 
 
-> **本节课的相关代码在源代码中的位置如下：**  
+> **本文的相关代码在源代码中的位置如下：**  
 > packages/runtime-core/src/renderer.ts  
 > packages/runtime-core/src/component.ts  
 > packages/runtime-core/src/componentProxy.ts  
