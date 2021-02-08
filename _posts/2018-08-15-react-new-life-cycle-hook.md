@@ -4,7 +4,7 @@ excerpt: "在 React 16.3 中，Facebook 的工程师们给 React 带了来一系
 description: "React16.3+ 新的生命周期钩子"
 keyword: "react,生命周期"
 tag: "react"
-date: "2018-08-15T12:00:00.322Z"
+date: "2018-08-15 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2018-08-15-react-new-life-cycle-hook.jpg"
 author:
   name: 淡烘糕

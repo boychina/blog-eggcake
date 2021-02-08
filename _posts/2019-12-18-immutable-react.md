@@ -4,7 +4,7 @@ excerpt: "有人说 Immutable 可以给 React 应用带来数十倍的提升，�
 description: "认识Immutable对象，了解其在React中的使用，以及相关实践"
 keyword: "immutable,react"
 tag: "react"
-date: "2019-12-18T12:00:00.322Z"
+date: "2019-12-18 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2019-12-18-immutable-react.gif"
 author:
   name: 淡烘糕

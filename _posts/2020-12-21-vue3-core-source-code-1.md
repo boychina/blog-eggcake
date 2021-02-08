@@ -4,7 +4,7 @@ excerpt: "在 Vue.js 中，组件是一个非常重要的概念，整个应用�
 description: "组件渲染：vnode 到真实 DOM 是如何转变的？"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
-date: "2020-12-21T23:00:00.322Z"
+date: "2020-12-21 23:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2020-12-21-vue3-core-source-code-1.png"
 author:
   name: 淡烘糕

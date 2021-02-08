@@ -4,7 +4,7 @@ excerpt: "一些常用的正则表达式"
 description: "由数字、26 个英文字母或者下划线组成的字符串"
 keyword: "正则"
 tag: "JavaScript"
-date: "2018-12-12T12:00:00.322Z"
+date: "2018-12-12 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2018-12-12-commonly-used-regular-expressionsm.jpg"
 author:
   name: 淡烘糕

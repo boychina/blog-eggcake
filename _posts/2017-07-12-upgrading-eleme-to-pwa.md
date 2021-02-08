@@ -4,7 +4,7 @@ excerpt: "很荣幸在今年 2 月到 5 月的时间里，以顾问的身份加�
 description: "饿了么的 PWA 升级实践"
 keyword: "饿了么,PWA"
 tag: "PWA"
-date: "2017-07-12T12:00:00.322Z"
+date: "2017-07-12 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2017-07-12-upgrading-eleme-to-pwa.jpg"
 author:
   name: Hux

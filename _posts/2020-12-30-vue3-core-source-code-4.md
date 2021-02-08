@@ -4,7 +4,7 @@ excerpt: "Vue.js 3.0 允许我们在编写组件的时候添加一个 setup 启�
 description: "Setup：组件渲染前的初始化过程是怎样的？"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
-date: "2020-12-30T18:00:00.322Z"
+date: "2020-12-30 18:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2020-12-30-vue3-core-source-code-4.png"
 author:
   name: 淡烘糕

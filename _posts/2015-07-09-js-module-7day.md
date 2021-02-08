@@ -4,7 +4,7 @@ excerpt: "Slides: JavaScript Modularization Journey"
 description: "JavaScript模块化之旅"
 keyword: "JavaScript,模块化"
 tag: "JavaScript,模块化"
-date: "2015-07-09T12:00:00.322Z"
+date: "2015-07-09 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2015-07-09-js-module-7day.jpg"
 author:
   name: Hux

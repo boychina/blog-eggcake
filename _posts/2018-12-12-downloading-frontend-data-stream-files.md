@@ -4,7 +4,7 @@ excerpt: "直接使用 get 请求方式进行下载,使用 form 表单 post 请�
 description: "直接使用 get 请求方式进行下载,使用 form 表单 post 请求进行下载,axios（ajax）前端根据返回数据流生成文件下载"
 keyword: "前端,数据流,下载,文件下载"
 tag: "前端"
-date: "2018-12-12T12:00:00.322Z"
+date: "2018-12-12 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2018-12-12-downloading-frontend-data-stream-files.jpg"
 author:
   name: 淡烘糕

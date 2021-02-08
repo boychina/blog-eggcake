@@ -4,7 +4,7 @@ excerpt: "什么是服务端渲染，简单理解就是将组件或页面通过�
 description: "Vue 服务端渲染"
 keyword: "vue,ssr,服务器渲染"
 tag: "vue,ssr"
-date: "2018-08-15T12:00:00.322Z"
+date: "2018-08-15 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2018-08-15-vue-server-side-render.jpg"
 author:
   name: 淡烘糕

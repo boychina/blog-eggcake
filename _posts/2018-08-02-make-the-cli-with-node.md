@@ -4,7 +4,7 @@ excerpt: "如何用 Node 来制作 CLI"
 description: "如何用 Node 来制作 CLI"
 keyword: "Node,Cli"
 tag: "Node"
-date: "2018-08-02T12:00:00.322Z"
+date: "2018-08-02 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2018-08-02-make-the-cli-with-node.jpg"
 author:
   name: Hux

@@ -4,7 +4,7 @@ excerpt: "ES6 的 Proxy 和 Reflect"
 description: "ES6 的 Proxy 和 Reflect"
 keyword: "JavaScript,ES6,Proxy,Reflect"
 tag: "JavaScript"
-date: "2018-08-04T12:00:00.322Z"
+date: "2018-08-04 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2018-08-04-proxy-and-reflect-of-ES6.gif"
 author:
   name: 淡烘糕

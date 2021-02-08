@@ -4,7 +4,7 @@ excerpt: "随着网站逐渐变成「互联网应用程序」，嵌入网页的 
 description: "CommonJS，RequireJS，SeaJS 归纳笔记"
 keyword: "JavaScript,模块化,CommonJS,RequireJS,SeaJS"
 tag: "JavaScript,模块化"
-date: "2015-05-25T12:00:00.322Z"
+date: "2015-05-25 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2015-05-25-js-module-loader.jpg"
 author:
   name: Hux

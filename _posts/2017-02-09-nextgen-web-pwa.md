@@ -4,7 +4,7 @@ excerpt: "下一代 Web 应用模型 —— Progressive Web App"
 description: "下一代 Web 应用模型 —— Progressive Web App"
 keyword: "Web应用,PWA"
 tag: "PWA"
-date: "2017-02-09T12:00:00.322Z"
+date: "2017-02-09 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2017-02-09-nextgen-web-pwa.jpg"
 author:
   name: Hux

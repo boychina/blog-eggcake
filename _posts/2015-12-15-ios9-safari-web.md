@@ -4,7 +4,7 @@ excerpt: "2015 年 9 月，Apple 重磅发布了全新的 iPhone 6s/6s Plus、iP
 description: "iOS 9，为前端世界都带来了些什么"
 keyword: "前端开发,JavaScript,iOS,译文"
 tag: "前端,JavaScript"
-date: "2015-12-15T12:00:00.322Z"
+date: "2015-12-15 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2015-12-15-ios9-safari-web.jpg"
 author:
   name: Hux

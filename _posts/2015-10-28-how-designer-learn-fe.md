@@ -4,7 +4,7 @@ excerpt: "笔者的经历在知乎就可以看到，大学专业是数字媒体�
 description: "设计师如何学习前端"
 keyword: "设计师,前端"
 tag: "前端"
-date: "2015-10-28T12:00:00.322Z"
+date: "2015-10-28 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2015-10-28-how-designer-learn-fe.jpg"
 author:
   name: Hux

@@ -4,7 +4,7 @@ excerpt: "MySQL 常用命令"
 description: "MySQL 常用命令"
 keyword: "MySQL,命令"
 tag: "MySQL"
-date: "2018-08-09T12:00:00.322Z"
+date: "2018-08-09 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2018-08-09-mysql-common-commands.jpg"
 author:
   name: 淡烘糕

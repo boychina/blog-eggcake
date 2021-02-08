@@ -4,7 +4,7 @@ excerpt: "或许这就是所谓的企业 DNA"
 description: "一言以蔽之，优先级。"
 keyword: "阿里,alibaba,软件,体验"
 tag: "alibaba,体验"
-date: "2014-10-01T12:00:00.322Z"
+date: "2014-10-01 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2014-10-01-why-alibaba-ux-sucks.jpg"
 author:
   name: Hux

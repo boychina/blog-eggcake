@@ -4,7 +4,7 @@ excerpt: "不适合人类阅读，非常水的自我笔记"
 description: "Unix/Linux 扫盲笔记"
 keyword: "Unix,Linux"
 tag: "Unix,Linux"
-date: "2015-04-14T12:00:00.322Z"
+date: "2015-04-14 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2015-04-14-unix-linux-note.jpg"
 author:
   name: Hux
