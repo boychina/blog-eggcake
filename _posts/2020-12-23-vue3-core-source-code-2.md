@@ -380,8 +380,8 @@ const patchChildren = (n1, n2, container, anchor, parentComponent, parentSuspens
 下一篇我们就来深入探究一下这个复杂的 diff 算法。
 
 
-> **本节课的相关代码在源代码中的位置如下：**  
-packages/runtime-core/src/renderer.ts  
-packages/runtime-core/src/componentRenderUtils.ts  
+> **本文的相关代码在源代码中的位置如下：**  
+> packages/runtime-core/src/renderer.ts  
+> packages/runtime-core/src/componentRenderUtils.ts  
 
 

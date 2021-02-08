@@ -665,7 +665,7 @@ result.push(i)
 
 ![image.png](http://assets.eggcake.cn/Ciqc1F8OyzuASuJ7AAHSjr5SVlc999.png)
 
-> **本节课的相关代码在源代码中的位置如下：**  
+> **本文的相关代码在源代码中的位置如下：**  
 > packages/runtime-core/src/renderer.ts
 
 > **最后，思考一个问题，我们使用 v-for 编写列表的时候 key 能用遍历索引 index 表示吗，为什么？**  

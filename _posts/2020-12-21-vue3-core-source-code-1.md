@@ -546,7 +546,7 @@ function insert(child, parent, anchor) {
 ## 3 总结
 OK，本篇内容我们主要分析了组件的渲染流程，从入口开始，一层层分析组件渲染。你可能发现了，文中提到的很多技术点我会放在后面的章节具体讲，这样做是为了让我们不跑题，重点放在理解组件的渲染流程上。下篇文章我将会带你具体分析一下组件的更新过程。这里，我用一张图来带你更加直观地感受下整个组件渲染流程：
 ![img](http://assets.eggcake.cn/CgqCHl8EPLKAF8u5AAJHdNl56bM640.png)
-> **本节课的相关代码在源代码中的位置如下：**  
+> **本文的相关代码在源代码中的位置如下：**  
 > packages/runtime-dom/src/index.ts  
 > packages/runtime-core/src/apiCreateApp.ts  
 > packages/runtime-core/src/vnode.ts  
