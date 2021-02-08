@@ -4,7 +4,7 @@ excerpt: "Angular 是框架，React 是类库。所以有人觉得比较这两�
 description: "React vs Angular 2：冰与火之歌"
 keyword: "react,angular"
 tag: "react,angular"
-date: "2016-02-01T12:00:00.322Z"
+date: "2016-02-01 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2016-02-01-react-vs-angular2.jpg"
 author:
   name: Hux

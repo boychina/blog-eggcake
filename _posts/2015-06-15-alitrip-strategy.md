@@ -4,7 +4,7 @@ excerpt: "近几年，互联网产品从线上斗到了线下，互联网行业�
 description: "阿里旅行-飞猪,行业与战略"
 keyword: "飞猪,行业与战略"
 tag: "alibaba"
-date: "2015-06-15T12:00:00.322Z"
+date: "2015-06-15 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2015-06-15-alitrip-strategy.jpg"
 author:
   name: Hux

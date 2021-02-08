@@ -4,7 +4,7 @@ excerpt: "除了组件化，Vue.js 另一个核心设计思想就是响应式。
 description: "响应式：响应式内部的实现原理是怎样的？（上）"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
-date: "2021-01-08T23:00:00.322Z"
+date: "2021-01-08 23:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2021-01-08-vue3-core-source-code-5.png"
 author:
   name: 淡烘糕

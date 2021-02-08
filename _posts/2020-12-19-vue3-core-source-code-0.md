@@ -4,7 +4,7 @@ excerpt: "源码的优化主要体现在使用 monorepo 和 TypeScript 管理和
 description: "一文看懂Vue3.0的优化"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
-date: "2020-12-19T14:00:00.322Z"
+date: "2020-12-19 14:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2020-12-19-vue3-core-source-code.jpg"
 author:
   name: 淡烘糕

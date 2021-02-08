@@ -4,7 +4,7 @@ excerpt: "写了 vue 项目和小程序，发现二者有许多相同之处，�
 description: "Vue 和微信小程序的区别、比较"
 keyword: "vue,小程序"
 tag: "vue,小程序"
-date: "2018-08-07T12:00:00.322Z"
+date: "2018-08-07 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2018-08-07-vue-and-wechat-small-program-differences.jpg"
 author:
   name: 淡烘糕

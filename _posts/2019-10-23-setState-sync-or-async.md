@@ -4,7 +4,7 @@ excerpt: "setState 是 React 很重要的模块, 社区中也有很多分析文�
 description: "setState 是同步还是异步的呢？"
 keyword: "react,setState,同步,异步"
 tag: "react"
-date: "2019-10-23T12:00:00.322Z"
+date: "2019-10-23 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2019-10-23-setState-sync-or-async.jpg"
 author:
   name: 淡烘糕

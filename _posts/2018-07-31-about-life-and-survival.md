@@ -4,7 +4,7 @@ excerpt: "关于生活与生存"
 description: "关于生活与生存"
 keyword: "生活,生存"
 tag: "生活"
-date: "2018-07-31T05:35:07.322Z"
+date: "2018-07-31 05:35:07"
 coverImage: "http://assets.eggcake.cn/cover/2018-07-31-about-life-and-survival.jpg"
 author:
   name: 淡烘糕

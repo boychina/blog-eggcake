@@ -4,7 +4,7 @@ excerpt: "平常业务开发过程中习惯使用脚手架来搭建开发环境�
 description: "Webpack5搭建React开发环境"
 keyword: "webpack,webpack5,react"
 tag: "webpack,react"
-date: "2020-12-17T18:00:00.322Z"
+date: "2020-12-17 18:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2020-12-17-webpack5-build-react-dev-env.jpg"
 author:
   name: 淡烘糕

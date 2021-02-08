@@ -4,7 +4,7 @@ excerpt: "JavaScript 有着很奇怪的命名史。"
 description: "ES5, ES6, ES2016, ES.Next: JavaScript 的版本名称"
 keyword: "ES5,ES6,ES2016,ES.Next"
 tag: "JavaScript"
-date: "2015-09-22T12:00:00.322Z"
+date: "2015-09-22 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2015-09-22-js-version.jpg"
 author:
   name: Hux

@@ -4,7 +4,7 @@ excerpt: "this 的查找是很多人迷茫的一点，也似乎有很多人抱�
 description: "JavaScript this 对象查找"
 keyword: "JavaScript,this,对象"
 tag: "JavaScript"
-date: "2019-09-22T12:00:00.322Z"
+date: "2019-09-22 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2019-09-22-javascript-this-pointer.jpg"
 author:
   name: 淡烘糕

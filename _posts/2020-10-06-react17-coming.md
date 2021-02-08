@@ -4,7 +4,7 @@ excerpt: "React 17正式版已经发布，17版本不像16版本中有诸多内�
 description: "React 17 要来了，非常特别的一版"
 keyword: "react,react17,react多版本并存,react多版本混用,react微前端"
 tag: "react"
-date: "2020-10-06T12:00:00.322Z"
+date: "2020-10-06 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2020-10-06-react17-coming.jpg"
 author:
   name: 淡烘糕

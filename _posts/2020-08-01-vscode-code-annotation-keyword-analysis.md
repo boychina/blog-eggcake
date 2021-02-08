@@ -4,7 +4,7 @@ excerpt: "VScode代码注释关键字解析"
 description: "VScode,代码注释,关键字"
 keyword: "VScode,代码注释,关键字"
 tag: "VScode"
-date: "2020-08-01T12:00:00.322Z"
+date: "2020-08-01 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2020-08-01-vscode-code-annotation-keyword-analysis.jpg"
 author:
   name: 淡烘糕
