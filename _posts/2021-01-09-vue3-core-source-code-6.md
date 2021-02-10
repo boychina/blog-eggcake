@@ -13,6 +13,7 @@ ogImage:
   url: "http://assets.eggcake.cn/cover/2021-01-09-vue3-core-source-code-6.png"
 ---
 
+> 纸上得来终觉浅，绝知此事要躬行。
 
 上篇文章，我们讨论了在 Vue.js 3.0 中引入 reactive API，它可以把对象数据变成响应式，所以我们着重分析 reactive API 的实现原理，并学习了收集依赖的 get 函数， 本篇我们继续来分析 reactive API 中需要关注的另一个内容——派发通知的过程。
 ## 1 reactive API
@@ -491,7 +492,7 @@ function createRef(rawValue) {
 最后我们通过一张图来看一下整个响应式 API 实现和组件更新的关系：
 
 
-![1611161832405.jpg](http://assets.eggcake.cn/1611161832405.jpg)
+![CgqCHl8iOeqAJJlaAAHAhGDRoDQ714.png](http://assets.eggcake.cn/CgqCHl8iOeqAJJlaAAHAhGDRoDQ714.png)
 
 
 这幅图是不是很眼熟？没错，它和前面 Vue.js 2.x 的响应式原理图很接近，其实 Vue.js 3.0 在响应式的实现思路和 Vue.js 2.x 差别并不大，主要就是 **劫持数据的方式改成用 Proxy 实现 ， 以及收集的依赖由 watcher 实例变成了组件副作用渲染函数 **。
@@ -500,7 +501,7 @@ function createRef(rawValue) {
 最后，给你留一道思考题目，为什么说 Vue.js 3 的响应式 API 实现和 Vue.js 2.x 相比性能要好，具体好在哪里呢？它又有哪些不足呢？欢迎你在留言区与我分享。
 
 
-> **本节课的相关代码在源代码中的位置如下：  **   
+> **本篇的相关代码在源代码中的位置如下：**     
 > packages/reactivity/src/baseHandlers.ts  
 > packages/reactivity/src/effect.ts  
 > packages/reactivity/src/reactive.ts  
