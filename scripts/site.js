@@ -26,10 +26,10 @@ const getSites = () => {
       }
       const stats = fs.statSync(subPath);
       if (stats.isDirectory()) {
-        siteCount++;
         const pageNames = fs.readdirSync(subPath, dirOption);
         pageNames.forEach((pageName) => {
           if (pageName.endsWith(".html")) {
+            siteCount++;
             result += `${protocol}${path.join(
               hostItem,
               file,
