@@ -26,35 +26,31 @@ export default function Calendars({ title, allPosts }) {
               <div style={{ padding: 8 }}>
                 <Row gutter={8} justify="space-between" align="middle">
                   <Col>
-                    <Button
+                    <a
                       onClick={() => {
                         const newValue = value.clone();
-                        newValue.month(value.get('month') - 1);
+                        newValue.month(value.get("month") - 1);
                         onChange(newValue);
                       }}
-                      type="link"
-                      size="small"
-                      icon={<LeftOutlined />}
-                      style={{ display: "flex" }}
-                      className="justify-center items-center"
-                    />
+                      className="flex justify-center items-center px-2"
+                    >
+                      <LeftOutlined />
+                    </a>
                   </Col>
                   <Col>
                     <span>{dayjs(value).format("YYYY年MM月")}</span>
                   </Col>
                   <Col>
-                    <Button
+                    <a
                       onClick={() => {
                         const newValue = value.clone();
-                        newValue.month(value.get('month') + 1);
+                        newValue.month(value.get("month") + 1);
                         onChange(newValue);
                       }}
-                      type="link"
-                      size="small"
-                      icon={<RightOutlined />}
-                      style={{ display: "flex" }}
-                      className="justify-center items-center"
-                    />
+                      className="flex justify-center items-center px-2"
+                    >
+                      <RightOutlined />
+                    </a>
                   </Col>
                 </Row>
               </div>
