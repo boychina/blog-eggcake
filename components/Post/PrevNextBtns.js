@@ -12,7 +12,7 @@ export default function PrevNextBtns({ prevNextPost }) {
           <Link as={`/posts/${prevPost.slug}`} href="/posts/[slug]">
             <div className="whitespace-nowrap cursor-pointer flex items-center h-full text-sm bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-2 px-4 duration-200 transition-colors">
               <ArrowLeftOutlined />
-              <span className="mr-2">{prevPost.title}</span>
+              <span className="ml-2">{prevPost.title}</span>
             </div>
           </Link>
         )}
@@ -21,7 +21,7 @@ export default function PrevNextBtns({ prevNextPost }) {
         {nextPost && (
           <Link as={`/posts/${nextPost.slug}`} href="/posts/[slug]">
             <div className="whitespace-nowrap cursor-pointer flex items-center h-full text-sm bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-2 px-4 duration-200 transition-colors justify-between">
-              <span className="ml-2">{nextPost.title}</span>
+              <span className="mr-2">{nextPost.title}</span>
               <ArrowRightOutlined />
             </div>
           </Link>
