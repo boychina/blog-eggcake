@@ -1,5 +1,5 @@
 ---
-title: "Vue3.0核心源码解读| Setup：组件渲染前的初始化过程是怎样的？"
+title: "Vue3.0核心源码解读 | Setup：组件渲染前的初始化过程是怎样的？"
 excerpt: "Vue.js 3.0 允许我们在编写组件的时候添加一个 setup 启动函数，它是 Composition API 逻辑组织的入口，今天我们就来分析一下这个函数。"
 description: "Setup：组件渲染前的初始化过程是怎样的？"
 keyword: "vue,vue3.0,源码"

@@ -1,5 +1,5 @@
 ---
-title: "Vue3.0核心源码解读| 一文看懂Vue3.0的优化"
+title: "Vue3.0核心源码解读 | 一文看懂Vue3.0的优化"
 excerpt: "源码的优化主要体现在使用 monorepo 和 TypeScript 管理和开发源码，这样做的目标是提升自身代码可维护性。"
 description: "一文看懂Vue3.0的优化"
 keyword: "vue,vue3.0,源码"

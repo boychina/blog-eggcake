@@ -1,5 +1,5 @@
 ---
-title: "Vue3.0核心源码解读| 组件更新：完整的Dom diff流程（下）"
+title: "Vue3.0核心源码解读 | 组件更新：完整的Dom diff流程（下）"
 excerpt: "新子节点数组相对于旧子节点数组的变化，无非是通过更新、删除、添加和移动节点来完成，而核心 diff 算法，就是在已知旧子节点的 DOM 结构、vnode 和新子节点的 vnode 情况下，以较低的成本完成子节点的更新为目的，求解生成新子节点 DOM 的系列操作。"
 description: "组件渲染：vnode 到真实 DOM 是如何转变的？"
 keyword: "vue,vue3.0,源码"

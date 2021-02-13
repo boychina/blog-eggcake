@@ -1,5 +1,5 @@
 ---
-title: "Vue3.0核心源码解读| 响应式：响应式内部的实现原理是怎样的？（下）"
+title: "Vue3.0核心源码解读 | 响应式：响应式内部的实现原理是怎样的？（下）"
 excerpt: "派发通知发生在数据更新的阶段，由于我们用 Proxy API 劫持了数据对象，所以当这个响应式对象属性更新的时候就会执行 set 函数。"
 description: "响应式：响应式内部的实现原理是怎样的？（下）"
 keyword: "vue,vue3.0,源码"
@@ -218,7 +218,7 @@ function createReactiveEffect(fn, options) {
 接着说，这个 reactiveEffect 函数就是响应式的副作用函数，当执行 trigger 过程派发通知的时候，执行的 effect 就是它。
 
 
-按我们之前的分析，这个 reactiveEffect 函数只需要做两件事情：** 把全局的 activeEffect 指向它 ， 然后执行被包装的原始函数 fn 即可 。**
+按我们之前的分析，这个 reactiveEffect 函数只需要做两件事情：**把全局的 activeEffect 指向它 ， 然后执行被包装的原始函数 fn 即可 。**
 
 
 但实际上它的实现要更复杂一些，首先它会判断 effect 的状态是否是 active，这其实是一种控制手段，允许在非 active 状态且非调度执行情况，则直接执行原始函数 fn 并返回，在后续学习完侦听器后你会对它的理解更加深刻。
@@ -266,7 +266,7 @@ num: 1
 因此针对嵌套 effect 的场景，我们不能简单地赋值 activeEffect，应该考虑到函数的执行本身就是一种入栈出栈操作，因此我们也可以设计一个 effectStack，这样每次进入 reactiveEffect 函数就先把它入栈，然后 activeEffect 指向这个 reactiveEffect 函数，接着在 fn 执行完毕后出栈，再把 activeEffect 指向 effectStack 最后一个元素，也就是外层 effect 函数对应的 reactiveEffect。
 
 
-这里我们还注意到一个细节，**在入栈前会执行 cleanup 函数清空 reactiveEffect 函数对应的依赖 **。在执行 track 函数的时候，除了收集当前激活的 effect 作为依赖，还通过 activeEffect.deps.push(dep) 把 dep 作为 activeEffect 的依赖，这样在 cleanup 的时候我们就可以找到 effect 对应的 dep 了，然后把 effect 从这些 dep 中删除。cleanup 函数的代码如下所示：
+这里我们还注意到一个细节，**在入栈前会执行 cleanup 函数清空 reactiveEffect 函数对应的依赖**。在执行 track 函数的时候，除了收集当前激活的 effect 作为依赖，还通过 activeEffect.deps.push(dep) 把 dep 作为 activeEffect 的依赖，这样在 cleanup 的时候我们就可以找到 effect 对应的 dep 了，然后把 effect 从这些 dep 中删除。cleanup 函数的代码如下所示：
 ```javascript
 function cleanup(effect) {
   const { deps } = effect
@@ -495,7 +495,7 @@ function createRef(rawValue) {
 ![CgqCHl8iOeqAJJlaAAHAhGDRoDQ714.png](http://assets.eggcake.cn/CgqCHl8iOeqAJJlaAAHAhGDRoDQ714.png)
 
 
-这幅图是不是很眼熟？没错，它和前面 Vue.js 2.x 的响应式原理图很接近，其实 Vue.js 3.0 在响应式的实现思路和 Vue.js 2.x 差别并不大，主要就是 **劫持数据的方式改成用 Proxy 实现 ， 以及收集的依赖由 watcher 实例变成了组件副作用渲染函数 **。
+这幅图是不是很眼熟？没错，它和前面 Vue.js 2.x 的响应式原理图很接近，其实 Vue.js 3.0 在响应式的实现思路和 Vue.js 2.x 差别并不大，主要就是 **劫持数据的方式改成用 Proxy 实现 ， 以及收集的依赖由 watcher 实例变成了组件副作用渲染函数**。
 
 
 最后，给你留一道思考题目，为什么说 Vue.js 3 的响应式 API 实现和 Vue.js 2.x 相比性能要好，具体好在哪里呢？它又有哪些不足呢？欢迎你在留言区与我分享。

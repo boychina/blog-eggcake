@@ -1,5 +1,5 @@
 ---
-title: "Vue3.0核心源码解读| 组件渲染：vnode 到真实 DOM 是如何转变的？"
+title: "Vue3.0核心源码解读 | 组件渲染：vnode 到真实 DOM 是如何转变的？"
 excerpt: "在 Vue.js 中，组件是一个非常重要的概念，整个应用的页面都是通过组件渲染来实现的，但是你知道当我们编写这些组件的时候，它的内部是如何工作的吗？"
 description: "组件渲染：vnode 到真实 DOM 是如何转变的？"
 keyword: "vue,vue3.0,源码"

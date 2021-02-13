@@ -1,5 +1,5 @@
 ---
-title: "Vue3.0核心源码解读| 组件更新：完整的Dom diff流程（上）"
+title: "Vue3.0核心源码解读 | 组件更新：完整的Dom diff流程（上）"
 excerpt: "上一篇文章我们梳理了组件选渲染的过程，本质上就是把各种类的 vnode 渲染成真实 DOM。我们也知道了组件就是由模板、组件描述对象和数据构成的，数据的变化会影响组件的变化。"
 description: "组件渲染：vnode 到真实 DOM 是如何转变的？"
 keyword: "vue,vue3.0,源码"
