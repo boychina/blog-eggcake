@@ -1,16 +1,16 @@
 ---
-title: "Vue3.0核心源码解读| 侦听器：侦听器的实现原理和使用场景是什么？（上）"
+title: "Vue3.0核心源码解读 | 侦听器：侦听器的实现原理和使用场景是什么？（上）"
 excerpt: "在平时的开发工作中，我们经常使用侦听器帮助我们去观察某个数据的变化然后去执行一段逻辑。"
 description: "侦听器：侦听器的实现原理和使用场景是什么？（上）"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2021-01-12 11:59:00"
-coverImage: "http://assets.eggcake.cn/cover/2020-12-19-vue3-core-source-code.jpg"
+coverImage: "http://assets.eggcake.cn/cover/2021-01-13-vue3-core-source-code-9.png"
 author:
   name: 淡烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2020-12-19-vue3-core-source-code.jpg"
+  url: "http://assets.eggcake.cn/cover/2021-01-13-vue3-core-source-code-9.png"
 ---
 
 
