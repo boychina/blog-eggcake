@@ -60,8 +60,10 @@ npm install react-grid-layout
 在您的应用程序中添加以下样式表：
 
 ```javascript
-/node_modules/react-grid-layout/css/styles.css
-/node_modules/react-resizable/css/styles.css
+/node_modules/acert -
+  grid -
+  layout / css / styles.css / node_modules / react -
+  resizable / css / styles.css;
 ```
 
 ## 使用
@@ -81,7 +83,7 @@ class MyFirstGrid extends React.Component {
     const layout = [
       { i: "a", x: 0, y: 0, w: 1, h: 2, static: true },
       { i: "b", x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4 },
-      { i: "c", x: 4, y: 0, w: 1, h: 2 }
+      { i: "c", x: 4, y: 0, w: 1, h: 2 },
     ];
     return (
       <GridLayout

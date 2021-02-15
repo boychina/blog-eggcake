@@ -56,12 +56,12 @@ Vue.js 2 .x 是做不到这一点的。
 对于一些复杂场景类型的检查，支持得并不好。记得在看 Vue.js 2.x 源码的时候，在某行代码的注释中看到了对 Flow 的吐槽，比如在组件更新 props 的地方出现了：
 
 ```javascript
-const propOptions: any = vm.$options.props // wtf flow?
+const propOptions: any = vm.$options.props; // wtf flow?
 ```
 
 什么意思呢？其实是由于这里 Flow 并没有正确推导出 vm.$options.props 的类型 ，开发人员不得不强制申明 propsOptions 的类型为 any，显得很不合理；另外他也在社区平台吐槽过 Flow 团队的烂尾。
 
-其次，Vue.js 3.0 抛弃 Flow 后，使用 TypeScript 重构了整个项目。 TypeScript提供了更好的类型检查，能支持复杂的类型推导；由于源码就使用 TypeScript 编写，也省去了单独维护 d.ts
+其次，Vue.js 3.0 抛弃 Flow 后，使用 TypeScript 重构了整个项目。 TypeScript 提供了更好的类型检查，能支持复杂的类型推导；由于源码就使用 TypeScript 编写，也省去了单独维护 d.ts
 文件的麻烦；就整个 TypeScript 的生态来看，TypeScript 团队也是越做越好，TypeScript 本身保持着一定频率的迭代和更新，支持的 feature 也越来越多。
 
 此外，小右和 TypeScript 团队也一直保持了良好的沟通，我们可以期待 TypeScript 对 Vue.js 的支持会越来越好。
@@ -76,26 +76,31 @@ const propOptions: any = vm.$options.props // wtf flow?
 
 那么，Vue.js 3.0 在源码体积的减少方面做了哪些工作呢？
 
-* 首先，移除一些冷门的 feature（比如 filter、inline-template 等）；
-* 其次，引入 tree-shaking 的技术，减少打包体积。
+- 首先，移除一些冷门的 feature（比如 filter、inline-template 等）；
+- 其次，引入 tree-shaking 的技术，减少打包体积。
 
 第一点很好理解，所以这里我们来看看 tree-shaking，它的原理很简单，tree-shaking 依赖 ES2015 模块语法的静态结构（即 import 和 export），通过编译阶段的静态分析，找到没有引入的模块并打上标记。
 
 举个例子，一个 math 模块定义了 2 个方法 square(x) 和 cube(x) ：
+
 ```javascript
 export function square(x) {
-  return x * x
+  return x * x;
 }
 export function cube(x) {
-  return x * x * x
+  return x * x * x;
 }
 ```
+
 我们在这个模块外面只引入了 cube 方法：
+
 ```JavaScript
 import { cube } from './math.js'
 // do something with cube
 ```
+
 最终 math 模块会被 webpack 打包生成如下代码：
+
 ```JavaScript
 /* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -110,11 +115,13 @@ import { cube } from './math.js'
   }
 });
 ```
+
 可以看到，未被引入的 square 模块被标记了， 然后压缩阶段会利用例如 uglify-js、terser 等压缩工具真正地删除这些没有用到的代码。
 
 也就是说，利用 tree-shaking 技术，如果你在项目中没有引入 Transition、KeepAlive 等组件，那么它们对应的代码就不会打包，这样也就间接达到了减少项目引入的 Vue.js 包体积的目的。
 
 ### 2.2 数据劫持优化
+
 其次是数据劫持优化。Vue.js 区别于 React 的一大特色是它的数据是响应式的，这个特性从 Vue.js 1.x 版本就一直伴随着，这也是 Vue.js 粉喜欢 Vue.js 的原因之一，DOM 是数据的一种映射，数据发生变化后可以自动更新 DOM，用户只需要专注于数据的修改，没有其余的心智负担。
 
 在 Vue.js 内部，想实现这个功能是要付出一定代价的，那就是必须劫持数据的访问和更新。其实这点很好理解，当数据改变后，为了自动更新 DOM，那么就必须劫持数据的更新，也就是说当数据发生改变后能自动执行一些代码去更新 DOM，那么问题来了，Vue.js 怎么知道更新哪一片 DOM 呢？因为在渲染 DOM 的时候访问了数据，我们可以对它进行访问劫持，这样就在内部建立了依赖关系，也就知道数据对应的 DOM 是什么了。以上只是大体的思路，具体实现要比这更复杂，内部还依赖了一个 watcher 的数据结构做依赖管理，参考下图：
@@ -122,19 +129,22 @@ import { cube } from './math.js'
 ![img](http://assets.eggcake.cn/1611161832405.jpg)
 
 Vue.js 1.x 和 Vue.js 2.x 内部都是通过 Object.defineProperty 这个 API 去劫持数据的 getter 和 setter，具体是这样的：
+
 ```javascript
-Object.defineProperty(data, 'a',{
-  get(){
+Object.defineProperty(data, "a", {
+  get() {
     // track
   },
-  set(){
+  set() {
     // trigger
-  }
-})
+  },
+});
 ```
+
 但这个 API 有一些缺陷，它必须预先知道要拦截的 key 是什么，所以它并不能检测对象属性的添加和删除。尽管 Vue.js 为了解决这个问题提供了 $set 和 $delete 实例方法，但是对于用户来说，还是增加了一定的心智负担。
 
 另外 Object.defineProperty 的方式还有一个问题，举个例子，比如这个嵌套层级比较深的对象：
+
 ```JavaScript
 export default {
   data: {
@@ -148,9 +158,11 @@ export default {
   }
 }
 ```
+
 由于 Vue.js 无法判断你在运行时到底会访问到哪个属性，所以对于这样一个嵌套层级较深的对象，如果要劫持它内部深层次的对象变化，就需要递归遍历这个对象，执行 Object.defineProperty 把每一层对象数据都变成响应式的。毫无疑问，如果我们定义的响应式数据过于复杂，这就会有相当大的性能负担。
 
 为了解决上述 2 个问题，Vue.js 3.0 使用了 Proxy API 做数据劫持，它的内部是这样的：
+
 ```javascript
 observed = new Proxy(data, {
   get() {
@@ -158,9 +170,10 @@ observed = new Proxy(data, {
   },
   set() {
     // trigger
-  }
-})
+  },
+});
 ```
+
 由于它劫持的是整个对象，那么自然对于对象的属性的增加和删除都能检测到。
 
 但要注意的是，Proxy API 并不能监听到内部深层次的对象变化，因此 Vue.js 3.0 的处理方式是在 getter 中去递归响应式，这样的好处是真正访问到的内部对象才会变成响应式，而不是无脑递归，这样无疑也在很大程度上提升了性能，我会在后面分析响应式章节详细介绍它的具体实现原理。
@@ -192,6 +205,7 @@ observed = new Proxy(data, {
   </div>
 </template>
 ```
+
 整个 diff 过程如图所示：
 
 ![img](http://assets.eggcake.cn/1611162513346.jpg)
@@ -216,16 +230,16 @@ Vue.js 3.0 做到了，它通过编译阶段对静态模板的分析，编译生
 
 Options API 的设计是按照 methods、computed、data、props 这些不同的选项分类，当组件小的时候，这种分类方式一目了然；但是在大型组件中，一个组件可能有多个逻辑关注点，当使用 Options API 的时候，每一个关注点都有自己的 Options，如果需要修改一个逻辑点关注点，就需要在单个文件中不断上下切换和寻找。
 
-举一个官方例子 Vue CLI UI file explorer，它是 vue-cli GUI 应用程序中的一个复杂的文件浏览器组件。这个组件需要处理许多不同的逻辑关注点：
+举一个官方例子  Vue CLI UI file explorer，它是  vue-cli GUI 应用程序中的一个复杂的文件浏览器组件。这个组件需要处理许多不同的逻辑关注点：
 
-* 跟踪当前文件夹状态并显示其内容
-* 处理文件夹导航（比如打开、关闭、刷新等）
-* 处理新文件夹的创建
-* 切换显示收藏夹
-* 切换显示隐藏文件夹
-* 处理当前工作目录的更改
+- 跟踪当前文件夹状态并显示其内容
+- 处理文件夹导航（比如打开、关闭、刷新等）
+- 处理新文件夹的创建
+- 切换显示收藏夹
+- 切换显示隐藏文件夹
+- 处理当前工作目录的更改
 
-如果我们按照逻辑关注点做颜色编码，就可以看到当使用 Options API 去编写组件时，这些逻辑关注点是非常分散的：
+如果我们按照逻辑关注点做颜色编码，就可以看到当使用  Options API  去编写组件时，这些逻辑关注点是非常分散的：
 
 ![img](http://assets.eggcake.cn/1611162884487.jpg)
 
@@ -240,6 +254,7 @@ Vue.js 3.0 提供了一种新的 API：Composition API，它有一个很好的�
 其次，是优化逻辑复用。
 
 当我们开发项目变得复杂的时候，免不了需要抽象出一些复用的逻辑。在 Vue.js 2.x 中，我们通常会用 mixins 去复用逻辑，举一个鼠标位置侦听的例子，我们会编写如下函数 mousePositionMixin：
+
 ```JavaScript
 const mousePositionMixin = {
   data() {
@@ -263,6 +278,7 @@ const mousePositionMixin = {
 }
 export default mousePositionMixin
 ```
+
 然后在组件中使用：
 
 ```JavaScript
@@ -281,7 +297,7 @@ export default {
 
 使用单个 mixin 似乎问题不大，但是当我们一个组件混入大量不同的 mixins 的时候，会存在两个非常明显的问题：命名冲突和数据来源不清晰。
 
-首先每个 mixin 都可以定义自己的 props、data，它们之间是无感的，所以很容易定义相同的变量，导致命名冲突。另外对组件而言，如果模板中使用不在当前组件中定义的变量，那么就会不太容易知道这些变量在哪里定义的，这就是数据来源不清晰。但是Vue.js 3.0 设计的 Composition API，就很好地帮助我们解决了 mixins 的这两个问题。
+首先每个 mixin 都可以定义自己的 props、data，它们之间是无感的，所以很容易定义相同的变量，导致命名冲突。另外对组件而言，如果模板中使用不在当前组件中定义的变量，那么就会不太容易知道这些变量在哪里定义的，这就是数据来源不清晰。但是 Vue.js 3.0 设计的 Composition API，就很好地帮助我们解决了 mixins 的这两个问题。
 
 我们来看一下在 Vue.js 3.0 中如何书写这个示例：
 
@@ -303,6 +319,7 @@ export default function useMousePosition() {
   return { x, y }
 }
 ```
+
 这里我们约定 useMousePosition 这个函数为 hook 函数，然后在组件中使用：
 
 ```JavaScript
@@ -321,6 +338,7 @@ export default function useMousePosition() {
   }
 </script>
 ```
+
 可以看到，整个数据来源清晰了，即使去编写更多的 hook 函数，也不会出现命名冲突的问题。
 
 Composition API 除了在逻辑复用方面有优势，也会有更好的类型支持，因为它们都是一些函数，在调用函数时，自然所有的类型就被推导出来了，不像 Options API 所有的东西使用 this。另外，Composition API 对 tree-shaking 友好，代码也更容易压缩。
@@ -354,7 +372,7 @@ Vue.js 3.0 使用 ES2015 的语法开发，有些 API 如 Proxy 是没有 polyfi
 不过，虽然 Vue.js 3.0 距离大规模应用还有相当长一段时间，但是越早开始学习你就越能在未来掌握主动权。这段时间里，你可以关注它的发展，去学习它的设计思想，也可以去为它的生态建设贡献代码，从而提升自己的技术能力。另外也可以尝试在一些小项目中应用 Vue.js 3.0，不仅可以享受 Vue.js 3.0 带来的性能方面的优势以及 Composition API 在逻辑复用方面便利，也为了将来某一天全面升级 Vue.js 3.0 做技术储备。
 
 ## 6 总结
- 
+
 本篇内容主要讲解了 Vue.js 3.0 升级做了几个方面的优化，以及为什么会需要这些优化。希望读完后我们也可以像小右一样去审视自己的工作，有哪些痛点，找到可以改进和努力的方向并实施，只有这样你才能够不断提升自己的能力，工作上也会有不错的产出。
 
 Vue.js 3.0 做了这么多改进，接下来的将用几篇文章对 Vue.js 的源码抽丝剥茧，一层层揭开 Vue.js 背后的实现原理和细节。

@@ -29,12 +29,12 @@ setState 是 React 很重要的模块, 社区中也有很多分析文章，大�
 // demo.js
 class Demo extends PureComponent {
   state = {
-    count: 0
+    count: 0,
   };
   componentDidMount() {
     console.log("pre state", this.state.count);
     this.setState({
-      count: this.state.count + 1
+      count: this.state.count + 1,
     });
     console.log("next state", this.state.count);
 
@@ -42,17 +42,17 @@ class Demo extends PureComponent {
     setTimeout(() => {
       console.log("setTimeout pre state", this.state.count);
       this.setState({
-        count: this.state.count + 1
+        count: this.state.count + 1,
       });
       console.log("setTimeout next state", this.state.count);
     }, 0);
   }
 
-  onClick = event => {
+  onClick = (event) => {
     // 测试合成函数中setState
     console.log(`${event.type} pre state`, this.state.count);
     this.setState({
-      count: this.state.count + 1
+      count: this.state.count + 1,
     });
     console.log(`${event.type} next state`, this.state.count);
   };
@@ -158,7 +158,7 @@ var transaction = new ReactDefaultBatchingStrategyTransaction(); // 实例化事
 var ReactDefaultBatchingStrategy = {
   isBatchingUpdates: false,
 
-  batchedUpdates: function(callback, a, b, c, d, e) {
+  batchedUpdates: function (callback, a, b, c, d, e) {
     var alreadyBatchingUpdates = ReactDefaultBatchingStrategy.isBatchingUpdates;
     // 开启一次batch
     ReactDefaultBatchingStrategy.isBatchingUpdates = true;
@@ -169,7 +169,7 @@ var ReactDefaultBatchingStrategy = {
       // 启动事务, 将callback放进事务里执行
       transaction.perform(callback, null, a, b, c, d, e);
     }
-  }
+  },
 };
 //说明：这里使用到了事务transaction，简单来说，transaction就是将需要执行的方法使用 wrapper 封装起来，
 //再通过事务提供的 perform 方法执行。而在 perform 之前，先执行所有 wrapper 中的 initialize 方法，
@@ -234,14 +234,14 @@ dispatchEvent: function (topLevelType, nativeEvent) {
 // ReactDefaultBatchingStrategy.js
 var RESET_BATCHED_UPDATES = {
   initialize: emptyFunction,
-  close: function() {
+  close: function () {
     ReactDefaultBatchingStrategy.isBatchingUpdates = false;
-  }
+  },
 };
 
 var FLUSH_BATCHED_UPDATES = {
   initialize: emptyFunction,
-  close: ReactUpdates.flushBatchedUpdates.bind(ReactUpdates)
+  close: ReactUpdates.flushBatchedUpdates.bind(ReactUpdates),
 };
 
 var TRANSACTION_WRAPPERS = [FLUSH_BATCHED_UPDATES, RESET_BATCHED_UPDATES];
@@ -256,7 +256,7 @@ var TRANSACTION_WRAPPERS = [FLUSH_BATCHED_UPDATES, RESET_BATCHED_UPDATES];
 
 ```js
 // ReactUpdates.js
-var flushBatchedUpdates = function() {
+var flushBatchedUpdates = function () {
   // 开启批量更新
   while (dirtyComponents.length || asapEnqueued) {
     if (dirtyComponents.length) {
@@ -486,7 +486,7 @@ _updateRenderedComponent: function(transaction, context) {
 class Button extends PureComponent {
   state = {
     count: 0,
-    val: 0
+    val: 0,
   };
   componentDidMount() {
     // 测试原生方法：手动绑定mousedown事件
@@ -501,7 +501,7 @@ class Button extends PureComponent {
   onClick(event) {
     console.log(`${event.type} pre state`, this.state.count);
     this.setState({
-      count: this.state.count + 1
+      count: this.state.count + 1,
     });
     console.log(`${event.type} next state`, this.state.count);
   }
@@ -522,7 +522,7 @@ class Button extends PureComponent {
 class Button extends PureComponent {
   state = {
     count: 0,
-    val: 0
+    val: 0,
   };
   async componentDidMount() {
     // 测试async函数中setState
@@ -530,7 +530,7 @@ class Button extends PureComponent {
       console.log("sleep pre state", this.state.count);
       await sleep(0);
       this.setState({
-        count: this.state.count + 1
+        count: this.state.count + 1,
       });
       console.log("sleep next state", this.state.count);
     }
@@ -538,7 +538,7 @@ class Button extends PureComponent {
 
   asyncClick = () => {
     this.setState({
-      count: this.state.count + 1
+      count: this.state.count + 1,
     });
   };
 

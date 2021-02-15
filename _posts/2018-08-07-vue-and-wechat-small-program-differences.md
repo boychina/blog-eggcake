@@ -147,8 +147,8 @@ vue：使用 v-on:event 绑定事件，或者使用 @event 绑定事件，例如
 new Vue({
   el: "#app",
   data: {
-    reason: ""
-  }
+    reason: "",
+  },
 });
 ```
 
@@ -169,13 +169,13 @@ new Vue({
 
 Page({
   data: {
-    reason: ""
+    reason: "",
   },
   bindReason(e) {
     this.setData({
-      reason: e.detail.value
+      reason: e.detail.value,
     });
-  }
+  },
 });
 ```
 
@@ -211,11 +211,11 @@ new Vue({
 
 Page({
   data: {
-    reason: ""
+    reason: "",
   },
   toApprove(e) {
     let id = e.currentTarget.dataset.id;
-  }
+  },
 });
 ```
 

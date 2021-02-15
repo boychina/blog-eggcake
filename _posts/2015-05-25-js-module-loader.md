@@ -38,7 +38,7 @@ CommonJS 本质上只是一套规范（API 定义），而 Node.js 采用并实�
 var a = require("./a"); // 加载模块（同步加载）
 a.doSomething(); // 等上一句执行完才会执行
 
-exports.b = function() {
+exports.b = function () {
   // 暴露 b 函数接口
   // do something
 };
@@ -105,7 +105,8 @@ Programmer.prototype = new Employee();
 ```js
 //AMD Wrapper
 
-define([types / Employee], function(Employee) { //依赖
+define([types / Employee], function (Employee) {
+  //依赖
   //这个回调会在所有依赖都被加载后才执行
 
   function Programmer() {
@@ -120,22 +121,22 @@ define([types / Employee], function(Employee) { //依赖
 当依赖模块非常多时，这种**依赖前置**的写法会显得有点奇怪，所以 AMD 给了一个语法糖， **simplified CommonJS wrapping**，借鉴了 CommonJS 的 require 就近风格，也更方便对 CommonJS 模块的兼容：
 
 ```js
-define(function(require) {
+define(function (require) {
   var dependency1 = require("dependency1"),
     dependency2 = require("dependency2");
 
-  return function() {};
+  return function () {};
 });
 ```
 
 The AMD loader will parse out the `require('')` calls by using `Function.prototype.toString()`, then internally convert the above define call into this:
 
 ```js
-define(["require", "dependency1", "dependency2"], function(require) {
+define(["require", "dependency1", "dependency2"], function (require) {
   var dependency1 = require("dependency1"),
     dependency2 = require("dependency2");
 
-  return function() {};
+  return function () {};
 });
 ```
 
@@ -170,7 +171,7 @@ AMD 里提前下载 a.js 是出于对浏览器环境的考虑，只能采取异�
 AMD 推荐的风格并不使用`require`，而是通过参数传入，破坏了**依赖就近**：
 
 ```js
-define(["a", "b", "c"], function(a, b, c) {
+define(["a", "b", "c"], function (a, b, c) {
   // 提前申明了并初始化了所有模块
 
   true || b.foo(); //即便根本没用到模块 b，但 b 还是提前执行了。
@@ -184,7 +185,7 @@ define(["a", "b", "c"], function(a, b, c) {
 ```js
 // 函数体内：
 if (status) {
-  async(["a"], function(a) {
+  async(["a"], function (a) {
     a.doSomething();
   });
 }
@@ -212,7 +213,7 @@ CMD 推荐的 Code Style 是使用 CommonJS 风格的 `require`：
 - 这个 require 实际上是一个全局函数，用于加载模块，这里实际就是传入而已
 
 ```js
-define(function(require, exports) {
+define(function (require, exports) {
   // 获取模块 a 的接口
   var a = require("./a");
   // 调用模块 a 的方法
@@ -221,20 +222,20 @@ define(function(require, exports) {
   // 对外提供 foo 属性
   exports.foo = "bar";
   // 对外提供 doSomething 方法
-  exports.doSomething = function() {};
+  exports.doSomething = function () {};
 });
 ```
 
 但是你也可以使用 AMD 风格，或者使用 return 来进行模块暴露
 
 ```js
-define("hello", ["jquery"], function(require, exports, module) {
+define("hello", ["jquery"], function (require, exports, module) {
   // 模块代码...
 
   // 直接通过 return 暴露接口
   return {
     foo: "bar",
-    doSomething: function() {}
+    doSomething: function () {},
   };
 });
 ```
@@ -254,7 +255,7 @@ Sea.js 借鉴了 RequireJS 的不少东西，比如将 FlyScript 中的 module.d
 ```js
 // AMD 默认推荐
 
-define(["./a", "./b"], function(a, b) {
+define(["./a", "./b"], function (a, b) {
   // 依赖前置，提前执行
 
   a.doSomething();
@@ -265,7 +266,7 @@ define(["./a", "./b"], function(a, b) {
 ```js
 // CMD
 
-define(function(require, exports, module) {
+define(function (require, exports, module) {
   var a = require("./a");
   a.doSomething();
 

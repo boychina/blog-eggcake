@@ -27,7 +27,7 @@ const postDownloadFile = (action, param) => {
   form.action = action;
   form.method = "post";
   form.target = "blank";
-  Object.keys(param).forEach(item => {
+  Object.keys(param).forEach((item) => {
     const input = document.createElement("input");
     input.type = "hidden";
     input.name = item;
@@ -47,14 +47,14 @@ postDownloadFile(url, param);
 ```js
 axios
   .post(url, param, {
-    responseType: "blob"
+    responseType: "blob",
   })
-  .then(res => {
+  .then((res) => {
     console.log("res", res);
     const blob = res.data;
     const reader = new FileReader();
     reader.readAsDataURL(blob);
-    reader.onload = e => {
+    reader.onload = (e) => {
       const a = document.createElement("a");
       a.download = `文件名称.zip`;
       // 后端设置的文件名称在res.headers的 "content-disposition": "form-data; name=\"attachment\"; filename=\"odps_ddl_20181211191944.zip\"",
@@ -64,7 +64,7 @@ axios
       document.body.removeChild(a);
     };
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err.message);
   });
 ```
