@@ -86,7 +86,7 @@ alert("Hello World!");
 <br>
 
 ```js
-$(".className").click(function() {
+$(".className").click(function () {
   alert("Hello jQuery");
 });
 ```

@@ -83,7 +83,7 @@ const program = require("commander");
 program
   .version("1.0.0", "-v, --version")
   .command("init <dir>", "generate a new project")
-  .action(function(dir, cmd) {
+  .action(function (dir, cmd) {
     console.log(dir, cmd);
   })
   .parse(process.argv);
@@ -129,17 +129,17 @@ const questions = [
     name: "name",
     message: "请输入项目名称",
     default: "demo-static",
-    validate: name => {
+    validate: (name) => {
       if (/^[a-z]+/.test(name)) {
         return true;
       } else {
         return "项目名称必须以小写字母开头";
       }
-    }
-  }
+    },
+  },
 ];
 
-inquirer.prompt(questions).then(auswers => {
+inquirer.prompt(questions).then((auswers) => {
   // 初始化模块文件
   dewnloadTemplate(auswers);
 });
@@ -152,14 +152,17 @@ function dewnloadTemplate(params) {
     return false;
   }
   // 开始下载模块文件
-  download("gitlab:git.gitlab.com/demo-static", dir, { clone: true }, function(
-    err
-  ) {
-    if (err) {
-      spinner.fail(err);
+  download(
+    "gitlab:git.gitlab.com/demo-static",
+    dir,
+    { clone: true },
+    function (err) {
+      if (err) {
+        spinner.fail(err);
+      }
+      updateTemplateFile(params);
     }
-    updateTemplateFile(params);
-  });
+  );
 }
 
 function updateTemplateFile(params) {

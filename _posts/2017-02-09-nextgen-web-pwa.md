@@ -80,30 +80,30 @@ _图片来源: [appleinsider.com][i1]_
   <link
     rel="apple-touch-icon-precomposed"
     sizes="144x144"
-    href="images/touch/apple-touch-icon-144x144-precomposed.png"/>
+    href="images/touch/apple-touch-icon-144x144-precomposed.png" />
   <link
     rel="apple-touch-icon-precomposed"
     sizes="114x114"
-    href="images/touch/apple-touch-icon-114x114-precomposed.png"/>
+    href="images/touch/apple-touch-icon-114x114-precomposed.png" />
   <link
     rel="apple-touch-icon-precomposed"
     sizes="72x72"
-    href="images/touch/apple-touch-icon-72x72-precomposed.png"/>
+    href="images/touch/apple-touch-icon-72x72-precomposed.png" />
   <link
     rel="apple-touch-icon-precomposed"
-    href="images/touch/apple-touch-icon-57x57-precomposed.png"/>
+    href="images/touch/apple-touch-icon-57x57-precomposed.png" />
 
   <!-- Icon for Android Chrome, recommended -->
   <link
     rel="shortcut icon"
     sizes="196x196"
-    href="images/touch/touch-icon-196x196.png"/>
+    href="images/touch/touch-icon-196x196.png" />
 
   <!-- Tile icon for Win8 (144x144 + tile color) -->
   <meta
     name="msapplication-TileImage"
-    content="images/touch/ms-touch-icon-144x144-precomposed.png"/>
-  <meta name="msapplication-TileColor" content="#3372DF"/>
+    content="images/touch/ms-touch-icon-144x144-precomposed.png" />
+  <meta name="msapplication-TileColor" content="#3372DF" />
 
   <!-- Generic Icon -->
   <link rel="shortcut icon" href="images/touch/touch-icon-57x57.png"
@@ -199,7 +199,7 @@ _Service Worker 就像一个运行在客户端的代理_
 
 ```javascript
 // sw.js
-self.onfetch = e => {
+self.onfetch = (e) => {
   e.respondWith(new Response("Hello World!"));
 };
 ```
@@ -229,11 +229,11 @@ self.oninstall = (e) => {
 
 ```javascript
 //sw.js
-self.onfetch = e => {
+self.onfetch = (e) => {
   const fetched = fetch(e.request);
   const cached = caches.match(e.request);
 
-  e.respondWith(fetched.catch(_ => cached));
+  e.respondWith(fetched.catch((_) => cached));
 };
 ```
 
@@ -258,19 +258,19 @@ PWA 推送通知中的「推送」与「通知」，其实使用的是两个不�
 
 ```javascript
 // sw.js
-self.addEventListener("push", event => {
+self.addEventListener("push", (event) => {
   event.waitUntil(
     // Process the event and display a notification.
     self.registration.showNotification("Hey!")
   );
 });
 
-self.addEventListener("notificationclick", event => {
+self.addEventListener("notificationclick", (event) => {
   // Do something with the event
   event.notification.close();
 });
 
-self.addEventListener("notificationclose", event => {
+self.addEventListener("notificationclose", (event) => {
   // Do something with the event
 });
 ```

@@ -540,7 +540,7 @@ function deviceType() {
     "SymbianOS",
     "Windows Phone",
     "iPad",
-    "iPod"
+    "iPod",
   ];
   for (var i = 0; i < len, (len = agent.length); i++) {
     if (ua.indexOf(agent[i]) > 0) {
@@ -549,7 +549,7 @@ function deviceType() {
   }
 }
 deviceType();
-window.addEventListener("resize", function() {
+window.addEventListener("resize", function () {
   deviceType();
 });
 ```

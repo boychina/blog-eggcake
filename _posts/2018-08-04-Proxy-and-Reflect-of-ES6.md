@@ -30,7 +30,7 @@ let obj = new Proxy(
     set: (target, key, value, receiver) => {
       console.log(`getting ${key}!`);
       return Reflect.set(target, key, value, receiver);
-    }
+    },
   }
 );
 ```
@@ -60,7 +60,7 @@ let proxy = new Proxy(
   {
     get: (target, property) => {
       return 35;
-    }
+    },
   }
 );
 
@@ -84,7 +84,7 @@ Proxy(target, {
       log("property " + name + " on " + target + " set to " + value);
     }
     return success;
-  }
+  },
 });
 ```
 

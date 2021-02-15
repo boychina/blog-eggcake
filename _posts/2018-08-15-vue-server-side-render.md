@@ -21,7 +21,7 @@ ogImage:
 // 第1步：穿件一个vue实例
 const Vue = require("vue");
 const app = new Vue({
-  template: `<div>Hello World</div>`
+  template: `<div>Hello World</div>`,
 });
 // 第2步：穿件一个renderer
 const renderer = require("vue-server-renderer").createRenderer();
@@ -154,14 +154,14 @@ export function createRouter() {
     routes: [
       {
         path: "/comp1",
-        component: comp1
+        component: comp1,
       },
       {
         path: "/comp2",
-        component: comp2
+        component: comp2,
       },
-      { path: "/", redirect: "/comp1" }
-    ]
+      { path: "/", redirect: "/comp1" },
+    ],
   });
 }
 ```
@@ -178,7 +178,7 @@ export function createApp(ssrContext) {
   const app = new Vue({
     router,
     ssrContext,
-    render: h => h(App)
+    render: (h) => h(App),
   });
   return { app, router };
 }
@@ -204,7 +204,7 @@ router.onReady(() => {
 ```js
 import { createApp } from "./app";
 
-export default context => {
+export default (context) => {
   // 因为这边 router.onReady 是异步的，所以我们返回一个 Promis
   // 确保路由或组件准备就绪
   return new Promise((resolve, reject) => {
@@ -239,14 +239,14 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "../dist"),
     publicPath: "/",
-    filename: "[name]-[chunkhash].js"
+    filename: "[name]-[chunkhash].js",
   },
   resolve: {
     alias: {
       public: path.resolve(__dirname, "../public"),
-      components: path.resolve(__dirname, "../src/components")
+      components: path.resolve(__dirname, "../src/components"),
     },
-    extensions: [".js", ".vue"]
+    extensions: [".js", ".vue"],
   },
   module: {
     noParse: /es6-promise\.js$/,
@@ -255,7 +255,7 @@ module.exports = {
         test: /\.(js|vue)/,
         use: "eslint-loader",
         enforce: "pre",
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.vue$/,
@@ -265,16 +265,16 @@ module.exports = {
             preserveWhitespace: false,
             postcss: [
               require("autoprefixer")({
-                browsers: ["last 3 versions"]
-              })
-            ]
-          }
-        }
+                browsers: ["last 3 versions"],
+              }),
+            ],
+          },
+        },
       },
       {
         test: /\.js$/,
         use: "babel-loader",
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -282,9 +282,9 @@ module.exports = {
           loader: "url-loader",
           options: {
             limit: 10000,
-            name: "img/[name].[hash:7].[ext]"
-          }
-        }
+            name: "img/[name].[hash:7].[ext]",
+          },
+        },
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
@@ -292,32 +292,32 @@ module.exports = {
           loader: "url-loader",
           options: {
             limit: 10000,
-            name: "fonts/[name].[hash:7].[ext]"
-          }
-        }
+            name: "fonts/[name].[hash:7].[ext]",
+          },
+        },
       },
       {
         test: /\.css$/,
-        use: ["vue-style-loader", "css-loader"]
+        use: ["vue-style-loader", "css-loader"],
       },
       {
         test: /\.json/,
-        use: "json-loader"
-      }
-    ]
+        use: "json-loader",
+      },
+    ],
   },
   performance: {
     maxEntrypointSize: 300000,
-    hints: "warning"
+    hints: "warning",
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
-      compress: { warning: false }
+      compress: { warning: false },
     }),
     new ExtractTextPlugin({
-      filename: "common.[chunkhash].css"
-    })
-  ]
+      filename: "common.[chunkhash].css",
+    }),
+  ],
 };
 ```
 
@@ -333,12 +333,12 @@ const VueSSRClientPlugin = require("vue-server-renderre/client-plugin");
 
 const config = mrege(base, {
   entry: {
-    app: "./src/client-entry.js"
+    app: "./src/client-entry.js",
   },
   resolve: {
     alias: {
-      "create-api": "./create-api-client.js"
-    }
+      "create-api": "./create-api-client.js",
+    },
   },
   plugins: [
     new webpack.DefinPlugin({
@@ -346,24 +346,24 @@ const config = mrege(base, {
         process.env.NODE_ENV || "development"
       ),
       "process.env.VUE_ENV": '"client"',
-      "process.env.DEBUG_API": '"true"'
+      "process.env.DEBUG_API": '"true"',
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: "vendor",
-      minChunks: function(module) {
+      minChunks: function (module) {
         return (
           /node_modules/.test(module.context) && !/\.css$/.test(module.require)
         );
-      }
+      },
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: "manifest"
+      name: "manifest",
     }),
     // 这是讲服务器的整个输出
     // 构建为单个 JSON 文件的插件。
     // 默认文件名为 `vue-ssr-server-bundle.json`
-    new VueSSRClientPlugin()
-  ]
+    new VueSSRClientPlugin(),
+  ],
 });
 module.exports = config;
 ```
@@ -384,25 +384,25 @@ module.exports = merge(base, {
   entry: "./src/server-entry.js",
   output: {
     filename: "server-bundle.js",
-    libraryTarget: "commonjs2"
+    libraryTarget: "commonjs2",
   },
   resolve: {
     alias: {
-      "create-api": "./create-api-server.js"
-    }
+      "create-api": "./create-api-server.js",
+    },
   },
   externals: nodeExternals({
-    whitelist: /\.css$/
+    whitelist: /\.css$/,
   }),
   plugins: [
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify(
         process.env.NODE_ENV || "development"
       ),
-      "process.env.VUE_ENV": '"server"'
+      "process.env.VUE_ENV": '"server"',
     }),
-    new VueSSRServerPlugin()
-  ]
+    new VueSSRServerPlugin(),
+  ],
 });
 ```
 
@@ -443,7 +443,7 @@ const serve = require("koa-static");
 const { createBundleRenderer } = require("vue-server-renderer");
 const LRU = require("lru-cache");
 
-const resolve = file => path.resolve(__dirname, file);
+const resolve = (file) => path.resolve(__dirname, file);
 const app = new Koa();
 const router = new KoaRuoter();
 const template = fs.readFileSync(resolve("./src/index.template.html"), "utf-8");
@@ -455,10 +455,10 @@ function createRenderer(bundle, options) {
       template,
       cache: LRU({
         max: 1000,
-        maxAge: 1000 * 60 * 15
+        maxAge: 1000 * 60 * 15,
       }),
       basedir: resolve("./dist"),
-      runInNewContext: false
+      runInNewContext: false,
     })
   );
 }
@@ -467,7 +467,7 @@ let renderer;
 const bundle = require("./dist/vue-ssr-server-bundle.json");
 const clientManifest = require("./dist/vue-ssr-client-manifest.json");
 renderer = createRenderer(bundle, {
-  clientManifest
+  clientManifest,
 });
 
 /**
@@ -478,8 +478,8 @@ renderer = createRenderer(bundle, {
  */
 function render(ctx, next) {
   ctx.set("Content-Type", "text/html");
-  return new Promise(function(resolve, reject) {
-    const handleError = err => {
+  return new Promise(function (resolve, reject) {
+    const handleError = (err) => {
       if (err && err.code === 404) {
         ctx.status = 404;
         ctx.body = "404 | Page Not Found";
@@ -493,7 +493,7 @@ function render(ctx, next) {
     };
     const context = {
       title: "Vue Ssr 2.3",
-      url: ctx.url
+      url: ctx.url,
     };
     renderer.renderToString(context, (err, html) => {
       if (err) {

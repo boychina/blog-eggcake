@@ -34,7 +34,7 @@ ES6 带来了太多的语法糖，其中箭头函数掩盖了 this 的神妙，�
 
 ```js
 function fn1() {}
-const fn2 = function() {};
+const fn2 = function () {};
 const fn3 = new Function("language", "console.log(language)");
 
 const ob1 = {};
@@ -136,7 +136,7 @@ function fn1() {}
 // Javascript 自动执行
 fn1.prototype = {
   constructor: fn1,
-  __proto__: Object.prototype
+  __proto__: Object.prototype,
 };
 fn1.__proto__ = Function.prototype;
 ```
@@ -156,16 +156,16 @@ fn1.__proto__ = Function.prototype;
 先上一段代码：
 
 ```js
-const Person = function(name, age) {
+const Person = function (name, age) {
   this.name = name;
   this.age = age;
 }; /* 1 */
 
-Person.prototype.getName = function() {
+Person.prototype.getName = function () {
   return this.name;
 }; /* 2 */
 
-Person.prototype.getAge = function() {
+Person.prototype.getAge = function () {
   return this.age;
 }; /* 3 */
 
@@ -272,16 +272,16 @@ chl.__proto__.__proto__.__proto__; // null !!!! 停止查找，返回 undefined
 最后，再回过头来看看上一节的那演示代码：
 
 ```js
-const Person = function(name, age) {
+const Person = function (name, age) {
   this.name = name;
   this.age = age;
 }; /* 1 */
 
-Person.prototype.getName = function() {
+Person.prototype.getName = function () {
   return this.name;
 }; /* 2 */
 
-Person.prototype.getAge = function() {
+Person.prototype.getAge = function () {
   return this.age;
 }; /* 3 */
 
