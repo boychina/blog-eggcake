@@ -699,6 +699,6 @@ parseText 最终返回的值就是一个描述文本节点的对象，其中 typ
 
 这部分内容比较多，所以本课时的内容就先到这。下节课中，我们接着分析元素节点，继续解析 template 生成 AST 的背后实现原理。
 
-> **本节课的相关代码在源代码中的位置如下**：  
+> **本篇的相关代码在源代码中的位置如下**：  
 > packages/compiler-core/src/compile.ts  
 > packages/compiler-core/src/parse.ts
