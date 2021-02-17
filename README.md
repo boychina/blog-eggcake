@@ -24,7 +24,7 @@
 - [x] Bug:翻页图片及内容显示不正常
 - [ ] 白天、夜晚主题
 - [ ] 关键字搜索
-- [ ] github.io部署
+- [x] github.io部署
 
 ### development
 
