@@ -1,10 +1,10 @@
 ---
 title: "Vue3.0核心源码解读 | 生成代码：AST 如何生成可运行的代码？（下）"
-excerpt: "上一篇我们分析了 AST 节点转换的过程，也知道了 AST 节点转换的作用是通过语法分析，创建了语义和信息更加丰富的代码生成节点 codegenNode，便于后续生成代码。"
+excerpt: "上一篇，我们已经知道了在 AST 转换后，会执行 generate 函数生成代码，而 generate 主要做五件事情：创建代码生成上下文，生成预设代码，生成渲染函数，生成资源声明代码，以及生成创建 VNode 树的表达式。本篇我们继续分析，来看生成创建 VNode 树的表达式的过程。"
 description: "生成代码：AST 如何生成可运行的代码？（下）"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
-date: "2021-01-16 23:30:00"
+date: "2021-01-17 22:00:00"
 coverImage: "http://assets.eggcake.cn/cover/eggcake-baidu-484x300.png"
 author:
   name: 淡烘糕
