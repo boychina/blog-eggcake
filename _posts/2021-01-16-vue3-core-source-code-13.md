@@ -315,6 +315,6 @@ createRoot 的实现非常简单，它就是返回一个 JavaScript 对象，作
 
 最后，思考一个问题，在 parseTag 的过程中，如果解析的属性有 v-pre 标签，为什么要回到之前的 context，重新解析一次？
 
-> **本节课的相关代码在源代码中的位置如下**：  
+> **本篇的相关代码在源代码中的位置如下**：  
 > packages/compiler-core/src/parse.ts  
 > packages/compiler-core/src/ast.ts
