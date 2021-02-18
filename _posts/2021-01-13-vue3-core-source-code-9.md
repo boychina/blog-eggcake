@@ -413,6 +413,6 @@ const onInvalidate = (fn) => {
 
 最后，思考一个问题，在组件中创建的自定义 watcher，在组件销毁的时候会被销毁吗？是如何做的呢？
 
-> **本节课的相关代码在源代码中的位置如下：**  
+> **本篇的相关代码在源代码中的位置如下：**  
 > packages/runtime-core/src/apiWatch.ts  
 > packages/runtime-core/src/scheduler.ts
