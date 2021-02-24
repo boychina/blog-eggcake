@@ -173,7 +173,7 @@ Transition 组件也允许在一个过渡组件中定义它过渡生命周期的
 1. **v-leave-active**：定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。
 1. **v-leave-to**：定义离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 v-leave-from 被删除)，在过渡动画完成之后移除。
 
-![CgqCHl9q7XSAZVLbAAIHrhK4PT8658.png](https://cdn.nlark.com/yuque/0/2021/png/86585/1614079872643-45c9ac10-3afd-4337-a7fd-f131f9e40b91.png#align=left&display=inline&height=634&margin=%5Bobject%20Object%5D&name=CgqCHl9q7XSAZVLbAAIHrhK4PT8658.png&originHeight=634&originWidth=1530&size=164554&status=done&style=none&width=1530)
+![CgqCHl9q7XSAZVLbAAIHrhK4PT8658.png](http://assets.eggcake.cn/CgqCHl9q7XSAZVLbAAIHrhK4PT8658.png)
 
 其实说白了 Transition 组件的核心思想就是，**Transition 包裹的元素插入删除时，在适当的时机插入这些 CSS 样式**，而这些 CSS 的实现则决定了元素的过渡动画。
 
