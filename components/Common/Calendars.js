@@ -1,15 +1,16 @@
 import Router from "next/router";
-import { Calendar, Button, Row, Col } from "antd";
+import { Calendar, Row, Col } from "antd";
 import * as dayjs from "dayjs";
 import { SendOutlined, LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { DATE_FORMAT } from "@/config";
+import styles from './Calendars.module.css';
 
 export default function Calendars({ title, allPosts }) {
   const onPanelChange = (value, mode) => {
     console.log(value, mode);
   };
   return (
-    <div>
+    <div className={styles.calendars}>
       <div className="flex items-center" style={{ padding: "12px 0" }}>
         <SendOutlined />
         <span className="ml-1">{title}</span>
