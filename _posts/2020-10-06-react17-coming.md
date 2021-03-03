@@ -38,9 +38,9 @@ v17 版本可以使得由一个 React 版本管理的代码树嵌入到另一个
 
 ## 3. 7 个 Breaking Change
 
-### 3.1 事件委托不再挂到 documen 上
+### 3.1 事件委托不再挂到 document 上
 
-之前多版本并存的主要为题在于 React 事件系统默认的委托机制，出于性能考虑，React 只会给`document`上挂载事件监听，DOM 事件触发后冒泡到`document`，React 找到对应的组件，造一个 React 事件（SyntheticEvent）出来，并按组件树模拟一遍事件冒泡（此时原生 DOM 事件已经冒出`document`了）:
+之前多版本并存的主要问题在于 React 事件系统默认的委托机制，出于性能考虑，React 只会给`document`上挂载事件监听，DOM 事件触发后冒泡到`document`，React 找到对应的组件，造一个 React 事件（SyntheticEvent）出来，并按组件树模拟一遍事件冒泡（此时原生 DOM 事件已经冒出`document`了）:
 
 因此，v17 之前不同版本的 React 组件嵌套使用时，e.stopPropagation()无法正常工作：如果嵌套树结构中阻止了事件冒泡，但外部树依然能接收到它。这会使不同版本 React 嵌套变得困难重重。这种担忧并不是没有根据的 —— 例如，四年前 Atom 编辑器就遇到了[相同的问题](https://github.com/facebook/react/pull/8117)。
 在 React 17 中，React 将不再向 document 附加事件处理器。而会将事件处理器附加到渲染 React 树的根 DOM 容器中：
@@ -70,7 +70,7 @@ rootNode.addEventListener();
 1. `onFocus/onBlur`直接采用原生`focusin/focusout`事件；
 1. 捕获阶段的事件监听直接采用原生 DOM 事件监听机制。
 
-> PS：`onFocus/onBlur`的下层实现方案切换并不英系那个冒泡，也就是说，React 的 `onFocus` 仍然会冒泡（并且不打算改，任务这个特性很有用）。
+> PS：`onFocus/onBlur`的下层实现方案切换并不影响冒泡，也就是说，React 的 `onFocus` 仍然会冒泡（并且不打算改，任务这个特性很有用）。
 
 ### 3.3 DOM 事件复用池被废弃
 

@@ -1,5 +1,5 @@
 .markdown {
-  @apply text-sm leading-relaxed;
+  @apply text-base leading-relaxed;
 }
 
 .markdown p,
@@ -14,7 +14,7 @@
   @apply pl-4;
 }
 .markdown ol {
-    list-style: decimal;
+  list-style: decimal;
 }
 .markdown ul {
   list-style: disc;
