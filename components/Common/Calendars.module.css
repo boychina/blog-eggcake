@@ -1,0 +1,3 @@
+.calendars :global(.ant-picker-cell-disabled::before) {
+  background-color: transparent;
+}
