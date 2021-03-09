@@ -7,7 +7,7 @@ tag: "react"
 date: "2019-12-18 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2019-12-18-immutable-react.gif"
 author:
-  name: 淡烘糕
+  name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
   url: "http://assets.eggcake.cn/cover/2019-12-18-immutable-react.gif"

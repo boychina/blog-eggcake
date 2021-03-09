@@ -15,7 +15,7 @@ export default function Content({
   return (
     <Layout>
       <Head>
-        <title>淡烘糕的学习笔记</title>
+        <title>蛋烘糕的学习笔记</title>
       </Head>
       <Container>
         <Wrapper>

@@ -21,7 +21,7 @@ export default function Post({ post, allPosts, prevNextPost, preview, tags }) {
     <Layout preview={preview}>
       <Head>
         <title>
-          {post.title} | 淡烘糕
+          {post.title} | 蛋烘糕
         </title>
         <meta property="og:image" content={post.ogImage.url} />
         <meta name="description" itemProp="description" content={post.description} />

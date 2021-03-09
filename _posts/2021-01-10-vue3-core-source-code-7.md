@@ -7,7 +7,7 @@ tag: "vue"
 date: "2021-01-10 23:25:00"
 coverImage: "http://assets.eggcake.cn/cover/2021-01-10-vue3-core-source-code-7.png"
 author:
-  name: 淡烘糕
+  name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
   url: "http://assets.eggcake.cn/cover/2021-01-10-vue3-core-source-code-7.png"

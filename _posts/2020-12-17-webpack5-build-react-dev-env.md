@@ -7,7 +7,7 @@ tag: "webpack,react"
 date: "2020-12-17 18:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2020-12-17-webpack5-build-react-dev-env.jpg"
 author:
-  name: 淡烘糕
+  name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
   url: "http://assets.eggcake.cn/cover/2020-12-17-webpack5-build-react-dev-env.jpg"
@@ -157,7 +157,7 @@ module.exports = {
   /*...*/
   plugins: [
     new HtmlWebpackPlugin({
-      title: "淡烘糕的学习笔记",
+      title: "蛋烘糕的学习笔记",
       template: path.resolve(__dirname, "./public/index.html"),
       filename: "index.html",
     }),
@@ -174,7 +174,7 @@ module.exports = {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>淡烘糕的学习笔记</title>
+    <title>蛋烘糕的学习笔记</title>
   </head>
 
   <body>
