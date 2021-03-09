@@ -7,7 +7,7 @@ tag: "生活"
 date: "2018-07-31 05:35:07"
 coverImage: "http://assets.eggcake.cn/cover/2018-07-31-about-life-and-survival.jpg"
 author:
-  name: 淡烘糕
+  name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
   url: "http://assets.eggcake.cn/cover/2018-07-31-about-life-and-survival.jpg"

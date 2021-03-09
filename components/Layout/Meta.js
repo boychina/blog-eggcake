@@ -28,7 +28,7 @@ export default function Meta() {
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <meta
         name="description"
-        content="淡烘糕的个人博客。不写博客的工程师不是好的搬砖工🧱。专注大前端相关技术，不断更新从HTML、CSS、JavaScript、TypeScrip、React、Vue等Web前端技术，到Flutter、ReactNative、uni-app等前端混合开发技术，以及交互设计、算法、设计模式等点滴积累。。。"
+        content="蛋烘糕的个人博客。不写博客的工程师不是好的搬砖工🧱。专注大前端相关技术，不断更新从HTML、CSS、JavaScript、TypeScrip、React、Vue等Web前端技术，到Flutter、ReactNative、uni-app等前端混合开发技术，以及交互设计、算法、设计模式等点滴积累。。。"
         />
       <meta property="og:image" content={HOME_OG_IMAGE_URL} />
     </Head>

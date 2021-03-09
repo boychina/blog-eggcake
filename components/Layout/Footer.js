@@ -13,7 +13,7 @@ export default function Footer() {
               >
               <div className="flex items-center"><GithubOutlined className="mr-1" /> GitHub</div>
             </a>
-            <span>&copy;2020-{new Date().getFullYear()} 淡烘糕</span>
+            <span>&copy;2020-{new Date().getFullYear()} 蛋烘糕</span>
           </div>
         </div>
         <div className="text-sm mt-2 pb-8 text-gray-500 flex justify-center">

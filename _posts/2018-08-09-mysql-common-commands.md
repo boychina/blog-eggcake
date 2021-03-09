@@ -7,7 +7,7 @@ tag: "MySQL"
 date: "2018-08-09 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2018-08-09-mysql-common-commands.jpg"
 author:
-  name: 淡烘糕
+  name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
   url: "http://assets.eggcake.cn/cover/2018-08-09-mysql-common-commands.jpg"

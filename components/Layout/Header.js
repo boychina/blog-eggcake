@@ -10,7 +10,7 @@ export default function Header() {
         <a>
           <div className="text-xl h-6 font-bold tracking-tighter leading-tight flex">
             <img src="/favicon/safari-pinned-tab.svg" className="w-6 mr-1"/>
-            <span>淡烘糕.</span>
+            <span>蛋烘糕.</span>
           </div>
         </a>
       </Link>

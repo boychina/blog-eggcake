@@ -7,7 +7,7 @@ tag: "vue"
 date: "2021-01-17 22:00:00"
 coverImage: "http://assets.eggcake.cn/cover/eggcake-baidu-484x300.png"
 author:
-  name: 淡烘糕
+  name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
   url: "http://assets.eggcake.cn/cover/eggcake-baidu-484x300.png"

@@ -7,7 +7,7 @@ tag: "前端"
 date: "2018-12-12 12:00:00"
 coverImage: "http://assets.eggcake.cn/cover/2018-12-12-downloading-frontend-data-stream-files.jpg"
 author:
-  name: 淡烘糕
+  name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
   url: "http://assets.eggcake.cn/cover/2018-12-12-downloading-frontend-data-stream-files.jpg"
