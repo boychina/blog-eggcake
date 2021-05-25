@@ -1,3 +1,18 @@
+---
+title: "Typescript实战 | 如何快速搭建 TypeScript 学习开发环境？"
+excerpt: "“工欲善其事，必先利其器。”因此，在正式讲解 TypeScript 之前，我们有必要先掌握 TypeScript 开发环境的搭建及相关注意事项。​"
+description: "如何快速搭建 TypeScript 学习开发环境？"
+keyword: "typescript"
+tag: "typescript"
+date: "2021-05-24 22:00:00"
+coverImage: "http://assets.eggcake.cn/cover/2021-01-31-react-diff.png"
+author:
+  name: 淡烘糕
+  picture: "/assets/blog/authors/zhaohuan.jpg"
+ogImage:
+  url: "http://assets.eggcake.cn/cover/2021-01-31-react-diff.png"
+---
+
 > 不积跬步，无以至千里；不积小流，无以成江海
 
 “工欲善其事，必先利其器。”因此，在正式讲解 TypeScript 之前，我们有必要先掌握 TypeScript 开发环境的搭建及相关注意事项。​
