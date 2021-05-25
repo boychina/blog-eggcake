@@ -1,6 +1,20 @@
+---
+title: "深入浅出React | JSX 代码是如何“摇身一变”成为 DOM 的？"
+excerpt: "时下虽然接入 JSX 语法的框架越来越多，但与之缘分最深的毫无疑问仍然是 React"
+description: "JSX 代码是如何“摇身一变”成为 DOM 的？"
+keyword: "react,jsx,dom"
+tag: "react"
+date: "2021-03-24 14:00:00"
+coverImage: "http://assets.eggcake.cn/cover/2020-10-06-react17-coming.jpg"
+author:
+  name: 淡烘糕
+  picture: "/assets/blog/authors/zhaohuan.jpg"
+ogImage:
+  url: "http://assets.eggcake.cn/cover/2020-10-06-react17-coming.jpg"
+---
+
+
 > 书山有路勤为径，学海无涯苦作舟。
-
-
 
 时下虽然接入 JSX 语法的框架越来越多，但与之缘分最深的毫无疑问仍然是 React。2013 年，当 React 带着 JSX 横空出世时，社区曾对 JSX 有过不少的争议，但如今，越来越多的人面对 JSX 都要说上一句“真香”！本课时我们就来一起认识下这个“真香”的 JSX，聊一聊“JSX 代码是如何‘摇身一变’成为 DOM 的”。
 
@@ -137,23 +151,23 @@ var place = "Flavortown";
  */
 export function createElement(type, config, children) {
   // propName 变量用于储存后面需要用到的元素属性
-  let propName; 
+  let propName;
   // props 变量用于储存元素属性的键值对集合
-  const props = {}; 
+  const props = {};
   // key、ref、self、source 均为 React 元素的属性，此处不必深究
   let key = null;
-  let ref = null; 
-  let self = null; 
-  let source = null; 
+  let ref = null;
+  let self = null;
+  let source = null;
   // config 对象中存储的是元素的属性
-  if (config != null) { 
+  if (config != null) {
     // 进来之后做的第一件事，是依次对 ref、key、self 和 source 属性赋值
     if (hasValidRef(config)) {
       ref = config.ref;
     }
     // 此处将 key 值字符串化
     if (hasValidKey(config)) {
-      key = '' + config.key; 
+      key = '' + config.key;
     }
     self = config.__self === undefined ? null : config.__self;
     source = config.__source === undefined ? null : config.__source;
@@ -162,33 +176,33 @@ export function createElement(type, config, children) {
       if (
         // 筛选出可以提进 props 对象里的属性
         hasOwnProperty.call(config, propName) &&
-        !RESERVED_PROPS.hasOwnProperty(propName) 
+        !RESERVED_PROPS.hasOwnProperty(propName)
       ) {
-        props[propName] = config[propName]; 
+        props[propName] = config[propName];
       }
     }
   }
   // childrenLength 指的是当前元素的子元素的个数，减去的 2 是 type 和 config 两个参数占用的长度
-  const childrenLength = arguments.length - 2; 
+  const childrenLength = arguments.length - 2;
   // 如果抛去type和config，就只剩下一个参数，一般意味着文本节点出现了
-  if (childrenLength === 1) { 
+  if (childrenLength === 1) {
     // 直接把这个参数的值赋给props.children
-    props.children = children; 
+    props.children = children;
     // 处理嵌套多个子元素的情况
-  } else if (childrenLength > 1) { 
+  } else if (childrenLength > 1) {
     // 声明一个子元素数组
-    const childArray = Array(childrenLength); 
+    const childArray = Array(childrenLength);
     // 把子元素推进数组里
-    for (let i = 0; i < childrenLength; i++) { 
+    for (let i = 0; i < childrenLength; i++) {
       childArray[i] = arguments[i + 2];
     }
     // 最后把这个数组赋值给props.children
-    props.children = childArray; 
-  } 
+    props.children = childArray;
+  }
   // 处理 defaultProps
   if (type && type.defaultProps) {
     const defaultProps = type.defaultProps;
-    for (propName in defaultProps) { 
+    for (propName in defaultProps) {
       if (props[propName] === undefined) {
         props[propName] = defaultProps[propName];
       }
@@ -295,7 +309,7 @@ const ReactElement = function(type, key, ref, self, source, owner, props) {
     // 记录创造该元素的组件
     _owner: owner,
   };
-  // 
+  //
   if (__DEV__) {
     // 这里是一些针对 __DEV__ 环境下的处理，对于大家理解主要逻辑意义不大，此处我直接省略掉，以免混淆视听
   }
@@ -340,7 +354,7 @@ console.log(AppJSX)
 ```javascript
 ReactDOM.render(
     // 需要渲染的元素（ReactElement）
-    element, 
+    element,
     // 元素挂载的目标容器（一个真实DOM）
     container,
     // 回调函数，可选参数，可以用来处理渲染结束后的逻辑
@@ -366,5 +380,3 @@ ReactDOM.render(<App />, rootElement);
     <div id="root"></div>
 </body>
 ```
-
-
