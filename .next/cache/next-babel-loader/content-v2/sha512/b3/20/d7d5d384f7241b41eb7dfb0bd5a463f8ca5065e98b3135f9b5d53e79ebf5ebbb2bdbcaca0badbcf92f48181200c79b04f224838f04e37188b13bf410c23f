@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nexport default function Wrapper({\n  children\n}) {\n  return __jsx(\"div\", {\n    className: \"mb-5 col-span-12 md:col-span-10 lg:col-span-9\"\n  }, children);\n}","map":null,"metadata":{},"sourceType":"module"}
