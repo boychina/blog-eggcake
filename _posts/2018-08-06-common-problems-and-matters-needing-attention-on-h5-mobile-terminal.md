@@ -5,12 +5,12 @@ description: "H5移动端常见问题及注意事项"
 keyword: "H5,移动端"
 tag: "H5"
 date: "2018-08-06 12:00:00"
-coverImage: "http://assets.eggcake.cn/cover/2018-08-06-common-problems-and-matters-needing-attention-on-h5-mobile-terminal.jpg"
+coverImage: "/assets/blog/cover/2018-08-06-common-problems-and-matters-needing-attention-on-h5-mobile-terminal.jpg"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2018-08-06-common-problems-and-matters-needing-attention-on-h5-mobile-terminal.jpg"
+  url: "/assets/blog/cover/2018-08-06-common-problems-and-matters-needing-attention-on-h5-mobile-terminal.jpg"
 ---
 
 ## Meta 基础知识

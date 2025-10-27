@@ -5,12 +5,12 @@ description: "如何用 Node 来制作 CLI"
 keyword: "Node,Cli"
 tag: "Node"
 date: "2018-08-02 12:00:00"
-coverImage: "http://assets.eggcake.cn/cover/2018-08-02-make-the-cli-with-node.jpg"
+coverImage: "/assets/blog/cover/2018-08-02-make-the-cli-with-node.jpg"
 author:
   name: Hux
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2018-08-02-make-the-cli-with-node.jpg"
+  url: "/assets/blog/cover/2018-08-02-make-the-cli-with-node.jpg"
 ---
 
 ### CLI 是什么
@@ -60,7 +60,7 @@ console.log("Hello CLI");
 
 在 demo-cli 目录下依次执行 npm link 、 demo ，这个时候，你会发现控制台输出了 hello CLI。
 
-![img](http://assets.eggcake.cn/make-the-cli-with-node-01.png)
+![img](/assets/blog/context/2018-08-02-make-the-cli-with-node/make-the-cli-with-node-01.png)
 
 > 备注：
 >

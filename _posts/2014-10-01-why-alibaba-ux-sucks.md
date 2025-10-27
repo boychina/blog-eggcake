@@ -5,12 +5,12 @@ description: "一言以蔽之，优先级。"
 keyword: "阿里,alibaba,软件,体验"
 tag: "alibaba,体验"
 date: "2014-10-01 12:00:00"
-coverImage: "http://assets.eggcake.cn/cover/2014-10-01-why-alibaba-ux-sucks.jpg"
+coverImage: "/assets/blog/cover/2014-10-01-why-alibaba-ux-sucks.jpg"
 author:
   name: Hux
   picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2014-10-01-why-alibaba-ux-sucks.jpg"
+  url: "/assets/blog/cover/2014-10-01-why-alibaba-ux-sucks.jpg"
 ---
 
 <div >

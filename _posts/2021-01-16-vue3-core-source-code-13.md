@@ -5,12 +5,12 @@ description: "模板解析：构造 AST 的完整流程是怎样的？（下）"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2021-01-16 11:30:00"
-coverImage: "http://assets.eggcake.cn/cover/2021-01-16-vue3-core-source-code-13.png"
+coverImage: "/assets/blog/cover/2021-01-16-vue3-core-source-code-13.png"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2021-01-16-vue3-core-source-code-13.png"
+  url: "/assets/blog/cover/2021-01-16-vue3-core-source-code-13.png"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。

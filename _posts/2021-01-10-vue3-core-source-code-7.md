@@ -5,12 +5,12 @@ description: "计算属性：计算属性比普通函数好在哪里？"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2021-01-10 23:25:00"
-coverImage: "http://assets.eggcake.cn/cover/2021-01-10-vue3-core-source-code-7.png"
+coverImage: "/assets/blog/cover/2021-01-10-vue3-core-source-code-7.png"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2021-01-10-vue3-core-source-code-7.png"
+  url: "/assets/blog/cover/2021-01-10-vue3-core-source-code-7.png"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。
@@ -224,7 +224,7 @@ scheduler: () => {
 在组件重新渲染的时候，会再次访问 plusOne，我们发现这个时候 dirty 为 true，然后会再次执行 computed getter，此时才会执行 count.value + 1 求得新值。这就是虽然组件没有直接访问 count，但是当我们修改 count 的值的时候，组件仍然会重新渲染的原因。
 
 为了更加直观的展示上述过程，我们来看一下这个流程：
-![Ciqc1F8nv6SAMiYhAAJ4vcrA7pg591.png](http://assets.eggcake.cn/Ciqc1F8nv6SAMiYhAAJ4vcrA7pg591.png)
+![Ciqc1F8nv6SAMiYhAAJ4vcrA7pg591.png](/assets/blog/context/2021-01-10-vue3-core-source-code-7/Ciqc1F8nv6SAMiYhAAJ4vcrA7pg591.png)
 通过以上分析，我们可以看出 computed 计算属性有两个特点：
 
 1. **延时计算**，只有当我们访问计算属性的时候，它才会真正运行 computed getter 函数计算；

@@ -5,12 +5,12 @@ description: "Setup：组件渲染前的初始化过程是怎样的？"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2020-12-30 18:00:00"
-coverImage: "http://assets.eggcake.cn/cover/2020-12-30-vue3-core-source-code-4.png"
+coverImage: "/assets/blog/cover/2020-12-30-vue3-core-source-code-4.png"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2020-12-30-vue3-core-source-code-4.png"
+  url: "/assets/blog/cover/2020-12-30-vue3-core-source-code-4.png"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。
@@ -59,7 +59,7 @@ export default {
 
 首先，我们来回顾一下组件的渲染流程：创建 vnode 、渲染 vnode 和生成 DOM。
 
-![Ciqc1F8EO_OAOS86AABTGXEAHqA770.png](http://assets.eggcake.cn/Ciqc1F8EO_OAOS86AABTGXEAHqA770.png)
+![Ciqc1F8EO_OAOS86AABTGXEAHqA770.png](/assets/blog/context/2020-12-30-vue3-core-source-code-4/Ciqc1F8EO_OAOS86AABTGXEAHqA770.png)
 
 其中渲染 vnode 的过程主要就是在挂载组件：
 
@@ -901,7 +901,7 @@ function applyOptions(
 
 我们通过一张图再直观感受一下 Vue.js 3.0 组件的初始化流程：
 
-![Ciqc1F8VZvaAYCgKAAHVSzimXjw614.png](http://assets.eggcake.cn/Ciqc1F8VZvaAYCgKAAHVSzimXjw614.png)
+![Ciqc1F8VZvaAYCgKAAHVSzimXjw614.png](/assets/blog/context/2020-12-30-vue3-core-source-code-4/Ciqc1F8VZvaAYCgKAAHVSzimXjw614.png)
 
 > 最后，我们来思考一下，在执行 setup 函数并获取结果的时候，我们使用 callWithErrorHandling 把 setup 包装了一层，它有哪些好处？  
 > callWithErrorHandling 把 setup 包装了一层，实际上就是让 setup 支持可选的参数来进行执行，另外如果发生错误的情况下也可以进行及时捕获并处理错误

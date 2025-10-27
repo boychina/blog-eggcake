@@ -5,12 +5,12 @@ description: "响应式：响应式内部的实现原理是怎样的？（上）
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2021-01-08 23:00:00"
-coverImage: "http://assets.eggcake.cn/cover/2021-01-08-vue3-core-source-code-5.png"
+coverImage: "/assets/blog/cover/2021-01-08-vue3-core-source-code-5.png"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2021-01-08-vue3-core-source-code-5.png"
+  url: "/assets/blog/cover/2021-01-08-vue3-core-source-code-5.png"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。
@@ -21,7 +21,7 @@ ogImage:
 
 在介绍 Vue.js 3.0 响应式实现之前，我们先来回顾一下 Vue.js 2.x 响应式实现的部分： 它在内部通过 Object.defineProperty API 劫持数据的变化，在数据被访问的时候收集依赖，然后在数据被修改的时候通知依赖更新。我们用一张图可以直观地看清这个流程。
 
-![1611161832405.jpg](http://assets.eggcake.cn/1611161832405.jpg)
+![1611161832405.jpg](/assets/blog/context/2021-01-08-vue3-core-source-code-5/1611161832405.jpg)
 
 在 Vue.js 2.x 中，Watcher 就是依赖，有专门针对组件渲染的 render watcher。注意这里有两个流程，首先是**依赖收集流程**，组件在 render 的时候会访问模板中的数据，触发 getter 把 render watcher 作为依赖收集，并和数据建立联系；然后是派发通知流程，当我对这些数据修改的时候，会触发 setter，通知 render watcher 更新，进而触发了组件的重新渲染。
 
@@ -373,7 +373,7 @@ function track(target, type, key) {
 
 再来看实现，我们把 target 作为原始的数据，key 作为访问的属性。我们创建了全局的 targetMap 作为原始数据对象的 Map，它的键是 target，值是 depsMap，作为依赖的 Map；这个 depsMap 的键是 target 的 key，值是 dep 集合，dep 集合中存储的是依赖的副作用函数。为了方便理解，可以通过下图表示它们之间的关系：
 
-![Ciqc1F8YAL6Afvr-AAEj_nQbDuE332.png](http://assets.eggcake.cn/Ciqc1F8YAL6Afvr-AAEj_nQbDuE332.png)
+![Ciqc1F8YAL6Afvr-AAEj_nQbDuE332.png](/assets/blog/context/2021-01-08-vue3-core-source-code-5/Ciqc1F8YAL6Afvr-AAEj_nQbDuE332.png)
 所以每次 track ，就是把当前激活的副作用函数 activeEffect 作为依赖，然后收集到 target 相关的 depsMap 对应 key 下的依赖集合 dep 中。
 了解完依赖收集的过程，下节课我们来分析派发通知的过程。
 

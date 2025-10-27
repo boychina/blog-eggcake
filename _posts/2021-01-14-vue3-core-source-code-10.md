@@ -5,12 +5,12 @@ description: "生命周期：各个生命周期的执行时机和应用场景是
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2021-01-14 23:30:00"
-coverImage: "http://assets.eggcake.cn/cover/2021-01-14-vue3-core-source-code-10.png"
+coverImage: "/assets/blog/cover/2021-01-14-vue3-core-source-code-10.png"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2021-01-14-vue3-core-source-code-10.png"
+  url: "/assets/blog/cover/2021-01-14-vue3-core-source-code-10.png"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。
@@ -539,7 +539,7 @@ function trigger(target, type, key, newValue) {
 
 最后，我们通过一张图再来直观地感受一下组件的各个生命周期：
 
-![Ciqc1F8zkvmAR_QpAAJxUtKU_4s942.png](http://assets.eggcake.cn/Ciqc1F8zkvmAR_QpAAJxUtKU_4s942.png)
+![Ciqc1F8zkvmAR_QpAAJxUtKU_4s942.png](/assets/blog/context/2021-01-14-vue3-core-source-code-10/Ciqc1F8zkvmAR_QpAAJxUtKU_4s942.png)
 Vue.js 3.0 还有 2 个生命周期 API，分别是 onActivated 和 onDeactivated，我们将会在介绍 KeepAlive 组件时详细分析。
 
 最后，思考一个问题，如果你想在路由组件切换的时候，取消组件正在发送的异步 Ajax 请求，那你应该在哪个生命周期写这个逻辑呢？

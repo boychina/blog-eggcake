@@ -5,12 +5,12 @@ description: "关于生活与生存"
 keyword: "生活,生存"
 tag: "生活"
 date: "2018-07-31 05:35:07"
-coverImage: "http://assets.eggcake.cn/cover/2018-07-31-about-life-and-survival.jpg"
+coverImage: "/assets/blog/cover/2018-07-31-about-life-and-survival.jpg"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2018-07-31-about-life-and-survival.jpg"
+  url: "/assets/blog/cover/2018-07-31-about-life-and-survival.jpg"
 ---
 
 开始写自己的博客，之前励志在自己的博客里能顾谈论各种高端的技术，努力耕耘让自己的博客成为自己职场工作的傍身宝剑，有朝一日宝剑出鞘，技惊四座。回想一下，只是一个没有什么技术情怀的码农的异想天开。之前博客园也好久没有写技术博客的内容，有时候想写点什么，往往觉得都是些陈词滥调，平常的工作大多也都是重复耕耘，写点什么的热情也慢慢下降。

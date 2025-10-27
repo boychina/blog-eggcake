@@ -5,12 +5,12 @@ description: "KeepAlive 组件：如何让组件在内存中缓存和调度？"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2021-01-23 00:30:00"
-coverImage: "http://assets.eggcake.cn/cover/eggcake-baidu-484x300.png"
+coverImage: "/assets/blog/cover/eggcake-baidu-484x300.png"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/eggcake-baidu-484x300.png"
+  url: "/assets/blog/cover/eggcake-baidu-484x300.png"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。

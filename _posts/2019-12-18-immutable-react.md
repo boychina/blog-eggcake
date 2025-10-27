@@ -5,12 +5,12 @@ description: "认识Immutable对象，了解其在React中的使用，以及相�
 keyword: "immutable,react"
 tag: "react"
 date: "2019-12-18 12:00:00"
-coverImage: "http://assets.eggcake.cn/cover/2019-12-18-immutable-react.gif"
+coverImage: "/assets/blog/cover/2019-12-18-immutable-react.gif"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2019-12-18-immutable-react.gif"
+  url: "/assets/blog/cover/2019-12-18-immutable-react.gif"
 ---
 
 > Shared mutable state is the root of all evil （共享的可变状态是万恶之源） -- Pete Hunt
@@ -22,7 +22,7 @@ Immutable 可以很好地解决这些问题。
 ## 1. 什么是 Immutable Data
 
 Immutable Data 就是一旦创建，就不能再被更改的数据。对 Immutable 对象的任何修改或添加删除操作都会返回一个新的 Immutable 对象。Immutable 实现的原理是 Persistent Data Structure （持久化数据结构），也就是使用旧数据创建新数据时，要保证旧数据同时可用且不变。同时为了避免 deepCopy 把所有节点都复制一遍带来的性能损耗，Immutable 使用了 Structural Sharing （结构共享），即如果对象书中一个节点发生变化，只修改这个节点和受影响的父节点，其他节点则进行共享。请看下面的动画：
-![image.gif](http://assets.eggcake.cn/TB1zzi_KXXXXXctXFXXbrb8OVXX-613-575.gif)
+![image.gif](/assets/blog/context/2019-12-18-immutable-react/TB1zzi_KXXXXXctXFXXbrb8OVXX-613-575.gif)
 目前流行的 Immutable 库有两个：
 
 ### 1.1 immutable.js
@@ -212,7 +212,7 @@ shouldComponentUpdate (nextProps = {}, nextState = {}) {
 ```
 
 使用 Immutable 后， 如下图，当红色节点的 state 变化后，不会再渲染树种的所有节点，而是只渲图中绿色的部分：
-![image.png](http://assets.eggcake.cn/005a24678dc39c202dbf3d1df96da13e_hd.jpg)
+![image.png](/assets/blog/context/2019-12-18-immutable-react/005a24678dc39c202dbf3d1df96da13e_hd.jpg)
 你也可以借助 `React.addons.PureRenderMixin`  或支持 class 语法的 pure-render-decorator 来实现。
 
 #### 5.1.1 setState 的一个技巧
