@@ -5,12 +5,12 @@ description: "指令：指令完整的生命周期是怎样的？"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2021-01-20 18:30:00"
-coverImage: "http://assets.eggcake.cn/cover/eggcake-baidu-484x300.png"
+coverImage: "/assets/blog/cover/eggcake-baidu-484x300.png"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/eggcake-baidu-484x300.png"
+  url: "/assets/blog/cover/eggcake-baidu-484x300.png"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。

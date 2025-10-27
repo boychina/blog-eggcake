@@ -5,12 +5,12 @@ description: "Transition 组件：过渡动画的实现原理是怎样的？（�
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2021-01-24 09:30:00"
-coverImage: "http://assets.eggcake.cn/cover/2021-01-24-vue3-core-source-code-24.png"
+coverImage: "/assets/blog/cover/2021-01-24-vue3-core-source-code-24.png"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2021-01-24-vue3-core-source-code-24.png"
+  url: "/assets/blog/cover/2021-01-24-vue3-core-source-code-24.png"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。
@@ -173,7 +173,7 @@ Transition 组件也允许在一个过渡组件中定义它过渡生命周期的
 1. **v-leave-active**：定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。
 1. **v-leave-to**：定义离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 v-leave-from 被删除)，在过渡动画完成之后移除。
 
-![CgqCHl9q7XSAZVLbAAIHrhK4PT8658.png](http://assets.eggcake.cn/CgqCHl9q7XSAZVLbAAIHrhK4PT8658.png)
+![CgqCHl9q7XSAZVLbAAIHrhK4PT8658.png](/assets/blog/context/2021-01-24-vue3-core-source-code-24/CgqCHl9q7XSAZVLbAAIHrhK4PT8658.png)
 
 其实说白了 Transition 组件的核心思想就是，**Transition 包裹的元素插入删除时，在适当的时机插入这些 CSS 样式**，而这些 CSS 的实现则决定了元素的过渡动画。
 

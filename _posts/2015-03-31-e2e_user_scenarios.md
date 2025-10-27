@@ -5,12 +5,12 @@ description: "端到端用户场景的定义"
 keyword: "端到端"
 tag: "端到端"
 date: "2015-03-31 12:00:00"
-coverImage: "http://assets.eggcake.cn/cover/2015-03-31-e2e_user_scenarios.jpg"
+coverImage: "/assets/blog/cover/2015-03-31-e2e_user_scenarios.jpg"
 author:
   name: Hux
   picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2015-03-31-e2e_user_scenarios.jpg"
+  url: "/assets/blog/cover/2015-03-31-e2e_user_scenarios.jpg"
 ---
 
 ### End to end?

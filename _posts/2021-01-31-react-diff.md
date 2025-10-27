@@ -5,12 +5,12 @@ description: "React diff 算法"
 keyword: "react,diff"
 tag: "react"
 date: "2021-01-31 19:00:00"
-coverImage: "http://assets.eggcake.cn/cover/2021-01-31-react-diff.png"
+coverImage: "/assets/blog/cover/2021-01-31-react-diff.png"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2021-01-31-react-diff.png"
+  url: "/assets/blog/cover/2021-01-31-react-diff.png"
 ---
 
 # 前言
@@ -57,19 +57,19 @@ Tree diff、Component diff、Element diff
 
 什么是 Tree diff？先上图：
 
-![reactdiff1-300x167.png](http://assets.eggcake.cn/reactdiff1-300x167.png)
+![reactdiff1-300x167.png](/assets/blog/context/2021-01-31-react-diff/reactdiff1-300x167.png)
 
 首先，进行同级比较，并非循环比较。这样比较次数就降为一层一次，时间复杂度直接降为 O(n)
 如果同级相同位置节点不一样，则直接删除替换，简单粗暴。
 而对于节点移动，同样道理，也是简单粗暴的删除重建。如下图所示（图中第四步应该是删除左侧的整棵 A 树）：
 
-![treediff2-300x145.png](http://assets.eggcake.cn/treediff2-300x145.png)
+![treediff2-300x145.png](/assets/blog/context/2021-01-31-react-diff/treediff2-300x145.png)
 
 ## Component diff
 
 不多说，先上图：
 
-![comdiff1-300x124.png](http://assets.eggcake.cn/comdiff1-300x124.png)
+![comdiff1-300x124.png](/assets/blog/context/2021-01-31-react-diff/comdiff1-300x124.png)
 
 其实 component diff 相当于是子树的 diff，基本方案和 tree diff 是一致的，如果如上图 D 变为 G，那么直接删除 D 这一整棵树，然后重新渲染 G 树。
 依旧是简单粗暴。
@@ -78,7 +78,7 @@ Tree diff、Component diff、Element diff
 
 对于同一节点的元素，diff 算法提供了三种操作：插入、移动、删除。还是先上图：
 
-![elediff-300x152.png](http://assets.eggcake.cn/elediff-300x152.png)
+![elediff-300x152.png](/assets/blog/context/2021-01-31-react-diff/elediff-300x152.png)
 
 此时的操作，是 B、D 不做任何操作，AC 移动到相应位置【前提是都有相同的 key】
 如果，此时的 key 不相同，全都发生了变化，那么节点全都是要删除重新构建，将会消耗大量性能。

@@ -5,12 +5,12 @@ description: "侦听器：侦听器的实现原理和使用场景是什么？（
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2021-01-13 22:30:00"
-coverImage: "http://assets.eggcake.cn/cover/2021-01-13-vue3-core-source-code-9.png"
+coverImage: "/assets/blog/cover/2021-01-13-vue3-core-source-code-9.png"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2021-01-13-vue3-core-source-code-9.png"
+  url: "/assets/blog/cover/2021-01-13-vue3-core-source-code-9.png"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。

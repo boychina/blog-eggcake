@@ -5,12 +5,12 @@ description: "React 17 要来了，非常特别的一版"
 keyword: "react,react17,react多版本并存,react多版本混用,react微前端"
 tag: "react"
 date: "2020-10-06 12:00:00"
-coverImage: "http://assets.eggcake.cn/cover/2020-10-06-react17-coming.jpg"
+coverImage: "/assets/blog/cover/2020-10-06-react17-coming.jpg"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2020-10-06-react17-coming.jpg"
+  url: "/assets/blog/cover/2020-10-06-react17-coming.jpg"
 ---
 
 > React 17 正式版已经发布，17 版本不像 16 版本中有诸多内容更新。官方对 17 版本的描述也是没有新特性，主要定位为一版技术改造，为下一个大版本的更新减轻负担。
@@ -58,7 +58,7 @@ rootNode.addEventListener();
 ```
 
 在 React16 或更早版本中，React 会对大多数事件执行`document.addEventListener()`。React17 将会在底层调用 `rootNode.addEventListener()`。
-![image.png](http://assets.eggcake.cn/1609317612195-a56f16b0-552e-4d41-879e-e881273b9df7.png)
+![image.png](/assets/blog/context/2020-10-06-react17-coming/1609317612195-a56f16b0-552e-4d41-879e-e881273b9df7.png)
 由于此更改，现在可以更加安全地进行新旧版本 React 树的嵌套。请注意，要使其正常工作，两个版本都必须是 17 或更高版本。所以，从某种意义上将，React17 是一个“垫脚石”版本，是逐步升级成为可能。
 并且，此更改还是得将 React 嵌入使用其他技术构建的应用程序更加容易。例如，如果应用程序的“外壳”是用 JQuery 编写的，但其中交心的代码是用 React 编写的，则 React 代码中的`e.stopPropagation()`会阻止它影响 JQuery 的代码——这符合预期。换个角度说，如果你不再喜欢 React 并想重写应用程序（比如，用 JQuery），则可以从外壳开始讲 React 转换为 JQuery，而不会破坏事件冒泡。
 

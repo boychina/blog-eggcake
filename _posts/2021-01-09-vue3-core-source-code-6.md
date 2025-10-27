@@ -5,12 +5,12 @@ description: "响应式：响应式内部的实现原理是怎样的？（下）
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2021-01-09 14:25:00"
-coverImage: "http://assets.eggcake.cn/cover/2021-01-09-vue3-core-source-code-6.png"
+coverImage: "/assets/blog/cover/2021-01-09-vue3-core-source-code-6.png"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2021-01-09-vue3-core-source-code-6.png"
+  url: "/assets/blog/cover/2021-01-09-vue3-core-source-code-6.png"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。
@@ -512,7 +512,7 @@ function createRef(rawValue) {
 
 最后我们通过一张图来看一下整个响应式 API 实现和组件更新的关系：
 
-![CgqCHl8iOeqAJJlaAAHAhGDRoDQ714.png](http://assets.eggcake.cn/CgqCHl8iOeqAJJlaAAHAhGDRoDQ714.png)
+![CgqCHl8iOeqAJJlaAAHAhGDRoDQ714.png](/assets/blog/context/2021-01-09-vue3-core-source-code-6/CgqCHl8iOeqAJJlaAAHAhGDRoDQ714.png)
 
 这幅图是不是很眼熟？没错，它和前面 Vue.js 2.x 的响应式原理图很接近，其实 Vue.js 3.0 在响应式的实现思路和 Vue.js 2.x 差别并不大，主要就是 **劫持数据的方式改成用 Proxy 实现 ， 以及收集的依赖由 watcher 实例变成了组件副作用渲染函数**。
 

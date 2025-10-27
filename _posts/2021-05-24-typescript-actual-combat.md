@@ -5,12 +5,12 @@ description: "如何快速搭建 TypeScript 学习开发环境？"
 keyword: "typescript"
 tag: "typescript"
 date: "2021-05-24 22:00:00"
-coverImage: "http://assets.eggcake.cn/cover/2021-01-31-react-diff.png"
+coverImage: "/assets/blog/cover/2021-01-31-react-diff.png"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2021-01-31-react-diff.png"
+  url: "/assets/blog/cover/2021-01-31-react-diff.png"
 ---
 
 > 不积跬步，无以至千里；不积小流，无以成江海

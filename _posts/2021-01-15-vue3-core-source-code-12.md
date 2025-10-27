@@ -5,12 +5,12 @@ description: "模板解析：构造 AST 的完整流程是怎样的？（上）"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2021-01-15 23:00:00"
-coverImage: "http://assets.eggcake.cn/cover/2021-01-15-vue3-core-source-code-12.png"
+coverImage: "/assets/blog/cover/2021-01-15-vue3-core-source-code-12.png"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2021-01-15-vue3-core-source-code-12.png"
+  url: "/assets/blog/cover/2021-01-15-vue3-core-source-code-12.png"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。
@@ -592,7 +592,7 @@ function advancePositionWithMutation(
 advanceBy 的实现很简单，主要就是更新解析上下文 context 中的 source 来前进代码，同时更新 offset、line、column 等和代码位置相关的属性。
 
 为了更直观地说明 advanceBy 的作用，前面的示例可以通过下图表示：
-![Ciqc1F88z3mACHOrAAFRdAq-Jxw187.png](http://assets.eggcake.cn/Ciqc1F88z3mACHOrAAFRdAq-Jxw187.png)
+![Ciqc1F88z3mACHOrAAFRdAq-Jxw187.png](/assets/blog/context/2021-01-15-vue3-core-source-code-12/Ciqc1F88z3mACHOrAAFRdAq-Jxw187.png)
 
 经过 advanceBy 前进代码到注释结束符后，表示注释部分代码处理完毕，可以继续解析后续代码了。
 

@@ -5,12 +5,12 @@ description: "React-grid-layout 一个可以支持拖拽、改变大小的栅格
 keyword: "ReactGridLayout,react,栅格,拖拽"
 tag: "react"
 date: "2020-09-27 12:00:00"
-coverImage: "http://assets.eggcake.cn/cover/2020-09-27-react-grid-layout.gif"
+coverImage: "/assets/blog/cover/2020-09-27-react-grid-layout.gif"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2020-09-27-react-grid-layout.gif"
+  url: "/assets/blog/cover/2020-09-27-react-grid-layout.gif"
 ---
 
 ## 演示版

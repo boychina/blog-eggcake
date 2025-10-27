@@ -5,12 +5,12 @@ description: "Transition 组件：过渡动画的实现原理是怎样的？（�
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2021-01-25 10:30:00"
-coverImage: "http://assets.eggcake.cn/cover/2021-01-25-vue3-core-source-code-25.png"
+coverImage: "/assets/blog/cover/2021-01-25-vue3-core-source-code-25.png"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2021-01-25-vue3-core-source-code-25.png"
+  url: "/assets/blog/cover/2021-01-25-vue3-core-source-code-25.png"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。

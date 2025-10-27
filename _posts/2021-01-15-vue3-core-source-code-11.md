@@ -5,12 +5,12 @@ description: "依赖注入：子孙组件如何共享数据？"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2021-01-15 18:00:00"
-coverImage: "http://assets.eggcake.cn/cover/2021-01-15-vue3-core-source-code-11.png"
+coverImage: "/assets/blog/cover/2021-01-15-vue3-core-source-code-11.png"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2021-01-15-vue3-core-source-code-11.png"
+  url: "/assets/blog/cover/2021-01-15-vue3-core-source-code-11.png"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。
@@ -105,7 +105,7 @@ const instance = {
 ```
 
 这里，我们可以通过一张图直观感受一下它们之间的关系：
-![CgqCHl86T3KAQuhfAACt-IfYuPc049.png](http://assets.eggcake.cn/CgqCHl86T3KAQuhfAACt-IfYuPc049.png)
+![CgqCHl86T3KAQuhfAACt-IfYuPc049.png](/assets/blog/context/2021-01-15-vue3-core-source-code-11/CgqCHl86T3KAQuhfAACt-IfYuPc049.png)
 所以在默认情况下，组件实例的 provides 继承它的父组件，但是当组件实例需要提供自己的值的时候，它使用父级提供的对象创建自己的 provides 的对象原型。通过这种方式，在 inject 阶段，我们可以非常容易通过原型链查找来自直接父级提供的数据。
 
 另外，如果组件实例提供和父级 provides 中有相同 key 的数据，是可以覆盖父级提供的数据。举个例子：
@@ -272,7 +272,7 @@ export function getShareData(context) {
 ```
 
 这是 Select 组件的基础示例，它最终会在页面上渲染成这样：
-![Ciqc1F86T9CAGMkuAACL3WKe6QA403.png](http://assets.eggcake.cn/Ciqc1F86T9CAGMkuAACL3WKe6QA403.png)
+![Ciqc1F86T9CAGMkuAACL3WKe6QA403.png](/assets/blog/context/2021-01-15-vue3-core-source-code-11/Ciqc1F86T9CAGMkuAACL3WKe6QA403.png)
 子组件 ElOption 负责渲染每一个选项，它的内部想要访问最外层的 ElSelect 组件时，就可以通过依赖注入的方式，在 ElSelect 组件中提供组件的实例：
 
 ```javascript
@@ -354,7 +354,7 @@ export default {
 ```
 
 这是 Select 组件的分组示例，最终会在页面上渲染成这样：
-![CgqCHl86T-OAVgk-AACFqLBanFk012.png](http://assets.eggcake.cn/CgqCHl86T-OAVgk-AACFqLBanFk012.png)
+![CgqCHl86T-OAVgk-AACFqLBanFk012.png](/assets/blog/context/2021-01-15-vue3-core-source-code-11/CgqCHl86T-OAVgk-AACFqLBanFk012.png)
 显然，这里 ElOption 中的 this.$parent 指向的就不是 ElSelect 组件实例，而是 ElOptionGroup 组件实例。但如果我们用依赖注入的方式，即使结构变了，还是可以在 ElOption 组件中正确访问到 ElSelect 的实例。
 
 所以，this.$parent 是一种强耦合的获取父组件实例方式，非常不利于代码的重构，因为一旦组件层级发生变化，就会产生非预期的后果，所以在平时的开发工作中你应该慎用这个属性。

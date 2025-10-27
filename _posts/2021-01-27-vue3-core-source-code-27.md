@@ -5,12 +5,12 @@ description: "Vue Router：如何实现一个前端路由？（下）"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2021-01-27 11:00:00"
-coverImage: "http://assets.eggcake.cn/cover/2021-01-26-vue3-core-source-code-26.png"
+coverImage: "/assets/blog/cover/2021-01-26-vue3-core-source-code-26.png"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2021-01-26-vue3-core-source-code-26.png"
+  url: "/assets/blog/cover/2021-01-26-vue3-core-source-code-26.png"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。

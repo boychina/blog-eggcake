@@ -5,12 +5,12 @@ description: "ES6 的 Proxy 和 Reflect"
 keyword: "JavaScript,ES6,Proxy,Reflect"
 tag: "JavaScript"
 date: "2018-08-04 12:00:00"
-coverImage: "http://assets.eggcake.cn/cover/2018-08-04-proxy-and-reflect-of-ES6.gif"
+coverImage: "/assets/blog/cover/2018-08-04-proxy-and-reflect-of-ES6.gif"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2018-08-04-proxy-and-reflect-of-ES6.gif"
+  url: "/assets/blog/cover/2018-08-04-proxy-and-reflect-of-ES6.gif"
 ---
 
 ### Proxy

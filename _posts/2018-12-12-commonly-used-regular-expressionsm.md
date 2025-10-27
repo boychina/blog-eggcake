@@ -5,12 +5,12 @@ description: "由数字、26 个英文字母或者下划线组成的字符串"
 keyword: "正则"
 tag: "JavaScript"
 date: "2018-12-12 12:00:00"
-coverImage: "http://assets.eggcake.cn/cover/2018-12-12-commonly-used-regular-expressionsm.jpg"
+coverImage: "/assets/blog/cover/2018-12-12-commonly-used-regular-expressionsm.jpg"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2018-12-12-commonly-used-regular-expressionsm.jpg"
+  url: "/assets/blog/cover/2018-12-12-commonly-used-regular-expressionsm.jpg"
 ---
 
 1、由数字、26 个英文字母或者下划线组成的字符串:

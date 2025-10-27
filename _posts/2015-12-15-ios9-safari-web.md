@@ -5,12 +5,12 @@ description: "iOS 9，为前端世界都带来了些什么"
 keyword: "前端开发,JavaScript,iOS,译文"
 tag: "前端,JavaScript"
 date: "2015-12-15 12:00:00"
-coverImage: "http://assets.eggcake.cn/cover/2015-12-15-ios9-safari-web.jpg"
+coverImage: "/assets/blog/cover/2015-12-15-ios9-safari-web.jpg"
 author:
   name: Hux
   picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2015-12-15-ios9-safari-web.jpg"
+  url: "/assets/blog/cover/2015-12-15-ios9-safari-web.jpg"
 ---
 
 2015 年 9 月，Apple 重磅发布了全新的 iPhone 6s/6s Plus、iPad Pro 与全新的操作系统 watchOS 2 与 tvOS 9（是的，这货居然是第 9 版），加上已经发布的 iOS 9，它们都为前端世界带来了哪些变化呢？作为一个 web 开发者，是时候站在我们的角度来说一说了！

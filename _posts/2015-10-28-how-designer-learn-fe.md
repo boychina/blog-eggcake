@@ -5,12 +5,12 @@ description: "设计师如何学习前端"
 keyword: "设计师,前端"
 tag: "前端"
 date: "2015-10-28 12:00:00"
-coverImage: "http://assets.eggcake.cn/cover/2015-10-28-how-designer-learn-fe.jpg"
+coverImage: "/assets/blog/cover/2015-10-28-how-designer-learn-fe.jpg"
 author:
   name: Hux
   picture: "/assets/blog/authors/hux.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2015-10-28-how-designer-learn-fe.jpg"
+  url: "/assets/blog/cover/2015-10-28-how-designer-learn-fe.jpg"
 ---
 
 > 这篇文章转载自[我在知乎上的回答](https://www.zhihu.com/question/21921588/answer/69680480)，也被刊登于[优秀网页设计](http://www.uisdc.com/head-first-front-end)等多个网站上 ;)
