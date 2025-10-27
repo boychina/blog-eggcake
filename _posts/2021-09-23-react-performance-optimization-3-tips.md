@@ -5,12 +5,12 @@ description: "React性能优化3大技巧"
 keyword: "react"
 tag: "react"
 date: "2021-09-23 11:56:00"
-coverImage: "http://assets.eggcake.cn/cover/2021-09-23-React性能优化3大技巧.png"
+coverImage: "/assets/blog/cover/2021-09-23-React性能优化3大技巧.png"
 author:
   name: 蛋烘糕
   picture: "/assets/blog/authors/zhaohuan.jpg"
 ogImage:
-  url: "http://assets.eggcake.cn/cover/2021-09-23-React性能优化3大技巧.png"
+  url: "/assets/blog/cover/2021-09-23-React性能优化3大技巧.png"
 ---
 
 在业务迭代过程中，React 性能优化是我们不得不考虑的问题，虽然项目在启动之初，我们一般不会考虑项目的复杂度，而且因为产品的用户体量和技术场景也不复杂，并不需要考虑性能优化，但是随着业务场景的复杂化，性能优化就变得格外重要了。
