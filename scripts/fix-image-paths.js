@@ -10,13 +10,14 @@ function fixInlineImagePaths() {
     const fullPath = path.join(POSTS_DIR, file);
     let content = fs.readFileSync(fullPath, 'utf8');
 
-    // Replace external asset links (non-cover) to local context path
-    // Examples handled:
-    // ![](http://assets.eggcake.cn/PWAR-007.jpg)
-    // <img src="http://assets.eggcake.cn/keep-calm-and-learn-javascript.png" />
-    // [label](http://assets.eggcake.cn/Ciqc1F8...) etc.
-    const domainPattern = /http:\/\/assets\.eggcake\.cn\/(?!cover\/)([\w\-+&.%@?=()]+\.(?:png|jpg|jpeg|gif))/gi;
-    content = content.replace(domainPattern, (match, filename) => {
+    // Replace external asset links to local paths
+    // 1) context path: preserve directory name
+    content = content.replace(/https?:\/\/assets\.eggcake\.cn\/context\/([^\s)"']+)/gi, (m, rest) => {
+      return `/assets/blog/context/${rest}`;
+    });
+
+    // 2) root domain image files (non-cover): map to slug directory
+    content = content.replace(/https?:\/\/assets\.eggcake\.cn\/(?!cover\/)([\w\-+&.%@?=()]+\.(?:png|jpg|jpeg|gif))/gi, (match, filename) => {
       return `/assets/blog/context/${slug}/${filename}`;
     });
 
