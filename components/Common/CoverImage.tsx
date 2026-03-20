@@ -1,0 +1,28 @@
+import Link from "next/link";
+
+interface CoverImageProps {
+  title: string;
+  src: string;
+  slug?: string;
+}
+
+export default function CoverImage({ title, src, slug }: CoverImageProps) {
+  const image = (
+    <img
+      src={src}
+      alt={`Cover Image for ${title}`}
+      className="h-64 rounded-xl mx-auto"
+    />
+  );
+  return (
+    <div className="sm:mx-0">
+      {slug ? (
+        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+          {image}
+        </Link>
+      ) : (
+        image
+      )}
+    </div>
+  );
+}

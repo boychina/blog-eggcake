@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev --webpack",
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
     "test": "echo \"No tests configured\"",
     "build": "next build --webpack",
     "start": "next start",
     "export": "NEXT_OUTPUT_MODE=export NEXT_BASE_PATH=/docs next build --webpack && rm -rf docs && mv out docs",
-    "site": "node scripts/site.js"
+    "site": "tsx scripts/site.ts",
+    "fix:image-paths": "tsx scripts/fix-image-paths.ts"
   },
   "dependencies": {
     "antd": "^6.3.3",
+    "@ant-design/icons": "^6.1.0",
     "classnames": "2.5.1",
     "d3-cloud": "^1.2.9",
     "dayjs": "^1.11.20",
@@ -27,8 +31,14 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.2",
+    "@types/lodash": "^4.17.20",
+    "@types/node": "25.5.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "^19.2.2",
     "postcss-preset-env": "11.2.0",
-    "tailwindcss": "^4.2.2"
+    "tailwindcss": "^4.2.2",
+    "tsx": "^4.20.6",
+    "typescript": "5.9.3"
   },
   "license": "MIT"
 }
