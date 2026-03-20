@@ -1,6 +1,8 @@
 import Calendars from '../Common/Calendars';
-import WordCloud from '../Common/WordCloud';
+import dynamic from 'next/dynamic';
 import WidgetItem from '../Common/WidgetItem';
+
+const WordCloud = dynamic(() => import('../Common/WordCloud'), { ssr: false });
 
 export default function Widget({ allPosts, tags }) {
   return (

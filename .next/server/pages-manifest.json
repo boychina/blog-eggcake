@@ -1,11 +1,6 @@
 {
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/date/[date]": "pages/date/[date].js",
-  "/": "pages/index.js",
-  "/paging/[current]": "pages/paging/[current].js",
-  "/posts/[slug]": "pages/posts/[slug].js",
-  "/tag/[tag]": "pages/tag/[tag].js",
   "/_error": "pages/_error.js",
-  "/404": "pages/404.html"
+  "/": "pages/index.js"
 }
