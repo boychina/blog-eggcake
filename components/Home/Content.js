@@ -60,8 +60,8 @@ export default function Content({
             </div>
           </div>
         </header>
-        <main className="mx-auto flex w-full max-w-[1400px] gap-8 px-6 py-8 lg:px-8">
-          <aside className="hidden w-[290px] shrink-0 space-y-6 xl:block">
+        <main className="mx-auto flex w-full max-w-[1400px] gap-12 px-6 py-8 lg:px-8">
+          <aside className="hidden w-[240px] shrink-0 space-y-6 xl:block">
             <section className="rounded-xl border border-[#e8ebf0] bg-white p-6">
               <h3 className="text-[32px] font-black leading-none tracking-tight">Discovery</h3>
               <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#94a3b8]">
@@ -119,7 +119,7 @@ export default function Content({
               </div>
             </section>
           </aside>
-          <section className="flex-1">
+          <section className="flex-1 max-w-[960px]">
             <Stories posts={postsByPageIndex} current={current} totalPage={totalPage} />
           </section>
         </main>
