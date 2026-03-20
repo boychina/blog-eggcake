@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import dayjs from "dayjs";
-import { BellFilled, SearchOutlined, UserOutlined } from "@ant-design/icons";
+import { BellFilled, InboxOutlined, NotificationOutlined, RiseOutlined, SearchOutlined, UserOutlined } from "@ant-design/icons";
 import Layout from "@/components/Layout";
 import Calendars from "@/components/Common/Calendars";
 import WordCloud from "@/components/Common/WordCloud";
@@ -36,7 +36,10 @@ export default function Content({
                 Evan Zhao
               </Link>
               <nav className="hidden items-center gap-8 text-[17px] font-semibold text-[#334155] md:flex">
-                <Link href="/" className="border-b-2 border-[#2563eb] pb-1 text-[#111827]">
+                <Link
+                  href="/"
+                  className="border-b-2 border-[#2563eb] pb-1 text-[#111827]"
+                >
                   文章
                 </Link>
                 <a className="hover:text-[#111827]">智能分析</a>
@@ -58,43 +61,58 @@ export default function Content({
         <main className="mx-auto flex w-full max-w-[1280px] gap-16 px-6 py-12 lg:px-8">
           <aside className="hidden w-[340px] shrink-0 space-y-10 xl:block">
             <section>
-              <h3 className="text-xl font-black leading-none tracking-tight text-[#0f172a]">Discovery</h3>
-              <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-[#94a3b8]">
+              <h3 className="text-[16px] font-black leading-none tracking-tight text-[#0f172a]">
+                Discovery
+              </h3>
+              <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#6f82a0]">
                 Curated Intelligence
               </p>
             </section>
-            <section className="text-[15px] font-semibold text-[#475569] space-y-1">
-              <a className="flex items-center justify-between rounded-lg px-4 py-2.5 text-[#0f172a] bg-white shadow-sm border border-[#e8ebf0]">
-                <span className="flex items-center gap-3"><span className="text-blue-600 text-lg">RSS</span> Feed</span>
+            <section className="space-y-3 text-[14px] font-semibold">
+              <a className="flex items-center rounded-xl bg-white px-4 py-3 text-[#2463ff] shadow-[0_10px_26px_rgba(15,23,42,0.05)]">
+                <span className="flex items-center gap-3">
+                  <NotificationOutlined className="text-[18px]" />
+                  <span className="text-[14px] leading-none">Feed</span>
+                </span>
               </a>
-              <a className="flex items-center justify-between rounded-lg px-4 py-2.5 hover:bg-[#f1f5f9] transition-colors">
-                <span className="flex items-center gap-3"><span className="text-[#94a3b8] text-lg">↗</span> Trending</span>
+              <a className="flex items-center rounded-xl px-2 py-2 text-[#6f82a0] transition-colors hover:bg-[#f1f5f9]">
+                <span className="flex items-center gap-3">
+                  <RiseOutlined className="text-[18px]" />
+                  <span className="text-[14px] leading-none">Trending</span>
+                </span>
               </a>
-              <a className="flex items-center justify-between rounded-lg px-4 py-2.5 hover:bg-[#f1f5f9] transition-colors">
-                <span className="flex items-center gap-3"><span className="text-[#94a3b8] text-lg">☐</span> Archives</span>
+              <a className="flex items-center rounded-xl px-2 py-2 text-[#6f82a0] transition-colors hover:bg-[#f1f5f9]">
+                <span className="flex items-center gap-3">
+                  <InboxOutlined className="text-[18px]" />
+                  <span className="text-[14px] leading-none">Archives</span>
+                </span>
               </a>
             </section>
             <section>
-              <div className="mb-5 flex items-center gap-2 text-[40px] leading-none text-[#1f2937]">
-                <span className="font-light">{">"}</span>
-                <span className="text-[44px] font-semibold">标签</span>
+              <div className="mb-5 flex font-black items-center gap-2 text-[16px] leading-none text-[#1f2937]">
+                标签
               </div>
               <WordCloud title="" tags={tags} />
             </section>
             <section>
-              <div className="mb-5 flex items-center gap-2 text-[40px] leading-none text-[#1f2937]">
-                <span className="font-light">{">"}</span>
-                <span className="text-[44px] font-semibold">博客日历</span>
+              <div className="mb-5 flex font-black items-center gap-2 text-[16px] leading-none text-[#1f2937]">
+                博客日历
               </div>
               <Calendars title="" allPosts={allPosts} />
             </section>
           </aside>
           <section className="flex-1 min-w-0">
-            <Stories posts={postsByPageIndex} current={current} totalPage={totalPage} />
+            <Stories
+              posts={postsByPageIndex}
+              current={current}
+              totalPage={totalPage}
+            />
           </section>
         </main>
         <footer className="mt-14 border-t border-[#e8ebf0] bg-white py-12 text-center">
-          <div className="text-4xl font-black tracking-tight text-[#0f172a]">Evan Zhao</div>
+          <div className="text-4xl font-black tracking-tight text-[#0f172a]">
+            Evan Zhao
+          </div>
           <div className="mt-5 flex flex-wrap justify-center gap-6 text-xs font-semibold uppercase tracking-[0.14em] text-[#94a3b8]">
             <a>Privacy Policy</a>
             <a>Terms of Service</a>
