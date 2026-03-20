@@ -1,11 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useMemo, useState } from "react";
-import { useRouter } from "next/router";
 import dayjs from "dayjs";
-import { BellFilled, LeftOutlined, RightOutlined, SearchOutlined, UserOutlined } from "@ant-design/icons";
-import { DATE_FORMAT } from "@/config";
+import { BellFilled, SearchOutlined, UserOutlined } from "@ant-design/icons";
 import Layout from "@/components/Layout";
+import Calendars from "@/components/Common/Calendars";
+import WordCloud from "@/components/Common/WordCloud";
 import Stories from "./Stories";
 import type { PostRecord, TagsMap } from "@/types/post";
 
@@ -24,37 +23,6 @@ export default function Content({
   totalPage,
   tags,
 }: ContentProps) {
-  const router = useRouter();
-  const [calendarMonth, setCalendarMonth] = useState(dayjs(String(allPosts?.[0]?.date ?? new Date())));
-  const postDateSet = useMemo(
-    () => new Set(allPosts.map((item) => dayjs(String(item.date ?? "")).format(DATE_FORMAT))),
-    [allPosts],
-  );
-  const tagCloudItems = useMemo(() => {
-    const entries = Object.entries(tags || {});
-    const sorted = entries.sort((a, b) => b[1].value - a[1].value).slice(0, 30);
-    if (!sorted.length) return [];
-    const max = sorted[0][1].value;
-    const min = sorted[sorted.length - 1][1].value;
-    const colors = ["#102a43", "#334e68", "#486581", "#5fa8c4", "#d97706", "#cf222e", "#78a55a", "#96a8c8"];
-    return sorted.map(([name, meta], index) => {
-      const ratio = max === min ? 0.5 : (meta.value - min) / (max - min);
-      const size = Math.round(22 + ratio * 30);
-      const rotations = [0, 90, -90, 0, 0];
-      return {
-        name,
-        size,
-        color: colors[index % colors.length],
-        rotate: rotations[index % rotations.length],
-      };
-    });
-  }, [tags]);
-  const calendarStart = calendarMonth.startOf("month");
-  const monthOffset = (calendarStart.day() + 6) % 7;
-  const calendarDays = Array.from({ length: 42 }).map((_, index) =>
-    calendarStart.subtract(monthOffset, "day").add(index, "day"),
-  );
-
   return (
     <Layout hideHeader hideFooter>
       <Head>
@@ -111,79 +79,14 @@ export default function Content({
                 <span className="font-light">{">"}</span>
                 <span className="text-[44px] font-semibold">标签</span>
               </div>
-              <div className="flex min-h-[360px] flex-wrap items-center gap-x-3 gap-y-2 px-2">
-                {tagCloudItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={`/tag/${encodeURIComponent(item.name)}`}
-                    className="inline-block font-semibold leading-none transition-opacity hover:opacity-80"
-                    style={{
-                      fontSize: `${item.size}px`,
-                      color: item.color,
-                      transform: `rotate(${item.rotate}deg)`,
-                    }}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
+              <WordCloud title="" tags={tags} />
             </section>
             <section>
               <div className="mb-5 flex items-center gap-2 text-[40px] leading-none text-[#1f2937]">
                 <span className="font-light">{">"}</span>
                 <span className="text-[44px] font-semibold">博客日历</span>
               </div>
-              <div className="rounded-md border border-[#eef2f7] bg-white">
-                <div className="flex items-center justify-between border-b border-[#eef2f7] px-5 py-4">
-                  <button
-                    type="button"
-                    onClick={() => setCalendarMonth((prev) => prev.subtract(1, "month"))}
-                    className="text-[#475569] transition hover:text-[#0f172a]"
-                  >
-                    <LeftOutlined />
-                  </button>
-                  <span className="text-[28px] font-semibold tracking-wide text-[#0f172a]">
-                    {calendarMonth.format("YYYY年MM月")}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => setCalendarMonth((prev) => prev.add(1, "month"))}
-                    className="text-[#475569] transition hover:text-[#0f172a]"
-                  >
-                    <RightOutlined />
-                  </button>
-                </div>
-                <div className="grid grid-cols-7 border-b border-[#eef2f7] px-3 py-3 text-center text-[15px] font-semibold text-[#1f2937]">
-                  {["一", "二", "三", "四", "五", "六", "日"].map((item, index) => (
-                    <span key={`${item}-${index}`}>{item}</span>
-                  ))}
-                </div>
-                <div className="grid grid-cols-7 gap-y-2 px-3 py-4 text-center text-[38px] leading-none">
-                  {calendarDays.map((day) => {
-                    const dayKey = day.format(DATE_FORMAT);
-                    const isCurrentMonth = day.isSame(calendarMonth, "month");
-                    const hasPost = postDateSet.has(dayKey);
-                    const isToday = day.isSame(dayjs(), "day");
-                    return (
-                      <button
-                        key={dayKey}
-                        type="button"
-                        disabled={!hasPost}
-                        onClick={() => router.push({ pathname: "/date/[date]" }, `/date/${dayKey}`)}
-                        className={`mx-auto flex h-11 w-11 items-center justify-center rounded-md font-medium transition ${
-                          isToday
-                            ? "bg-[#1d91ff] text-white"
-                            : hasPost
-                              ? "text-[#334155] hover:bg-[#f1f5f9]"
-                              : "text-[#cbd5e1]"
-                        } ${!isCurrentMonth ? "opacity-45" : ""}`}
-                      >
-                        {day.format("DD")}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
+              <Calendars title="" allPosts={allPosts} />
             </section>
           </aside>
           <section className="flex-1 min-w-0">

@@ -9,15 +9,15 @@ import type { PostRecord, PrevNextPost, TagsMap } from "@/types/post";
 const postsDirectory = join(process.cwd(), "_posts");
 
 export function getPostSlugs(): string[] {
-  return fs.readdirSync(postsDirectory);
+  return fs.readdirSync(postsDirectory).filter((name) => name.endsWith(".md"));
 }
 
 export function getPostBySlug(slug: string, fields: string[] = []): PostRecord {
-  if (slug.includes(".DS_Store")) {
-    return {};
-  }
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(postsDirectory, `${realSlug}.md`);
+  if (!fs.existsSync(fullPath)) {
+    return {};
+  }
   const fileContents = fs.readFileSync(fullPath);
   const { data, content } = matter(fileContents);
 
@@ -37,9 +37,10 @@ export function getPostBySlug(slug: string, fields: string[] = []): PostRecord {
 }
 
 export function getAllPosts(fields: string[] = []): PostRecord[] {
-  const slugs = getPostSlugs().filter((slug) => !slug.includes(".DS_Store"));
+  const slugs = getPostSlugs();
   return slugs
     .map((slug) => getPostBySlug(slug, fields))
+    .filter((post) => Object.keys(post).length > 0)
     .sort((post1, post2) => String(post1.date ?? "") > String(post2.date ?? "") ? -1 : 1);
 }
 
@@ -49,7 +50,7 @@ export function getPostsByPageIndex(current: number | string, fields: string[] =
 }
 
 export function getPageIndexes(pageSize = DEFAULT_PAGE_SIZE): number[] {
-  const slugs = getPostSlugs().filter((slug) => !slug.includes(".DS_Store"));
+  const slugs = getPostSlugs();
   return range(1, chunk(slugs, pageSize).length + 1);
 }
 

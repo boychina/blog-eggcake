@@ -7,7 +7,7 @@ import styles from "./Calendars.module.css";
 import type { PostRecord } from "@/types/post";
 
 interface CalendarsProps {
-  title: string;
+  title?: string;
   allPosts: PostRecord[];
 }
 
@@ -18,10 +18,12 @@ export default function Calendars({ title, allPosts }: CalendarsProps) {
 
   return (
     <div className={styles.calendars}>
-      <div className="flex items-center" style={{ padding: "12px 0" }}>
-        <SendOutlined />
-        <span className="ml-1">{title}</span>
-      </div>
+      {title ? (
+        <div className="flex items-center" style={{ padding: "12px 0" }}>
+          <SendOutlined />
+          <span className="ml-1">{title}</span>
+        </div>
+      ) : null}
       <div
         style={{ width: 320, border: "1px solid #f0f0f0", borderRadius: "2px" }}
         className="mx-auto md:m-0"
