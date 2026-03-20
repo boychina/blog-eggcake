@@ -1,7 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useMemo, useState } from "react";
+import { useRouter } from "next/router";
 import dayjs from "dayjs";
-import { BellFilled, SearchOutlined, UserOutlined } from "@ant-design/icons";
+import { BellFilled, LeftOutlined, RightOutlined, SearchOutlined, UserOutlined } from "@ant-design/icons";
+import { DATE_FORMAT } from "@/config";
 import Layout from "@/components/Layout";
 import Stories from "./Stories";
 
@@ -12,20 +15,35 @@ export default function Content({
   totalPage,
   tags,
 }) {
-  const monthBase = dayjs(allPosts?.[0]?.date || new Date());
-  const totalDays = monthBase.daysInMonth();
-  const firstWeekDay = monthBase.startOf("month").day();
-  const tagList = Object.keys(tags || {}).slice(0, 6);
-  const recentDays = new Set(
-    allPosts
-      .filter((item) => dayjs(item.date).isSame(monthBase, "month"))
-      .map((item) => dayjs(item.date).date())
+  const router = useRouter();
+  const [calendarMonth, setCalendarMonth] = useState(dayjs(allPosts?.[0]?.date || new Date()));
+  const postDateSet = useMemo(
+    () => new Set(allPosts.map((item) => dayjs(item.date).format(DATE_FORMAT))),
+    [allPosts]
   );
-  const calendarCells = Array.from({ length: firstWeekDay + totalDays }).map(
-    (_, index) => {
-      const day = index - firstWeekDay + 1;
-      return day > 0 ? day : null;
-    }
+  const tagCloudItems = useMemo(() => {
+    const entries = Object.entries(tags || {});
+    const sorted = entries.sort((a, b) => b[1].value - a[1].value).slice(0, 30);
+    if (!sorted.length) return [];
+    const max = sorted[0][1].value;
+    const min = sorted[sorted.length - 1][1].value;
+    const colors = ["#102a43", "#334e68", "#486581", "#5fa8c4", "#d97706", "#cf222e", "#78a55a", "#96a8c8"];
+    return sorted.map(([name, meta], index) => {
+      const ratio = max === min ? 0.5 : (meta.value - min) / (max - min);
+      const size = Math.round(22 + ratio * 30);
+      const rotations = [0, 90, -90, 0, 0];
+      return {
+        name,
+        size,
+        color: colors[index % colors.length],
+        rotate: rotations[index % rotations.length],
+      };
+    });
+  }, [tags]);
+  const calendarStart = calendarMonth.startOf("month");
+  const monthOffset = (calendarStart.day() + 6) % 7;
+  const calendarDays = Array.from({ length: 42 }).map((_, index) =>
+    calendarStart.subtract(monthOffset, "day").add(index, "day")
   );
 
   return (
@@ -33,12 +51,12 @@ export default function Content({
       <Head>
         <title>蛋烘糕的学习笔记</title>
       </Head>
-      <div className="min-h-screen bg-[#f7f8fa] text-[#111827]">
+      <div className="min-h-screen bg-white text-[#111827]">
         <header className="sticky top-0 z-20 border-b border-[#e8ebf0] bg-white/95 backdrop-blur">
-          <div className="mx-auto flex h-16 w-full max-w-[1400px] items-center justify-between px-6 lg:px-8">
+          <div className="mx-auto flex h-16 w-full max-w-[1280px] items-center justify-between px-6 lg:px-8">
             <div className="flex items-center gap-10">
               <Link href="/" className="text-2xl font-black tracking-tight">
-                AETHER_LIGHT
+                Evan Zhao
               </Link>
               <nav className="hidden items-center gap-8 text-[17px] font-semibold text-[#334155] md:flex">
                 <Link href="/" className="border-b-2 border-[#2563eb] pb-1 text-[#111827]">
@@ -60,71 +78,111 @@ export default function Content({
             </div>
           </div>
         </header>
-        <main className="mx-auto flex w-full max-w-[1400px] gap-12 px-6 py-8 lg:px-8">
-          <aside className="hidden w-[240px] shrink-0 space-y-6 xl:block">
-            <section className="rounded-xl border border-[#e8ebf0] bg-white p-6">
-              <h3 className="text-[32px] font-black leading-none tracking-tight">Discovery</h3>
-              <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#94a3b8]">
+        <main className="mx-auto flex w-full max-w-[1280px] gap-16 px-6 py-12 lg:px-8">
+          <aside className="hidden w-[340px] shrink-0 space-y-10 xl:block">
+            <section>
+              <h3 className="text-xl font-black leading-none tracking-tight text-[#0f172a]">Discovery</h3>
+              <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-[#94a3b8]">
                 Curated Intelligence
               </p>
             </section>
-            <section className="rounded-xl border border-[#e8ebf0] bg-white p-4 text-[15px] font-semibold text-[#334155]">
-              <a className="flex items-center justify-between rounded-lg px-3 py-2 text-[#0f172a] hover:bg-[#f4f7fb]">Feed</a>
-              <a className="mt-1 flex items-center justify-between rounded-lg px-3 py-2 hover:bg-[#f4f7fb]">Trending</a>
-              <a className="mt-1 flex items-center justify-between rounded-lg px-3 py-2 hover:bg-[#f4f7fb]">Archives</a>
+            <section className="text-[15px] font-semibold text-[#475569] space-y-1">
+              <a className="flex items-center justify-between rounded-lg px-4 py-2.5 text-[#0f172a] bg-white shadow-sm border border-[#e8ebf0]">
+                <span className="flex items-center gap-3"><span className="text-blue-600 text-lg">RSS</span> Feed</span>
+              </a>
+              <a className="flex items-center justify-between rounded-lg px-4 py-2.5 hover:bg-[#f1f5f9] transition-colors">
+                <span className="flex items-center gap-3"><span className="text-[#94a3b8] text-lg">↗</span> Trending</span>
+              </a>
+              <a className="flex items-center justify-between rounded-lg px-4 py-2.5 hover:bg-[#f1f5f9] transition-colors">
+                <span className="flex items-center gap-3"><span className="text-[#94a3b8] text-lg">☐</span> Archives</span>
+              </a>
             </section>
-            <section className="rounded-xl border border-[#e8ebf0] bg-white p-5">
-              <h4 className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#64748b]">
-                Knowledge Cloud
-              </h4>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {tagList.map((tag) => (
+            <section>
+              <div className="mb-5 flex items-center gap-2 text-[40px] leading-none text-[#1f2937]">
+                <span className="font-light">{">"}</span>
+                <span className="text-[44px] font-semibold">标签</span>
+              </div>
+              <div className="flex min-h-[360px] flex-wrap items-center gap-x-3 gap-y-2 px-2">
+                {tagCloudItems.map((item) => (
                   <Link
-                    key={tag}
-                    href={`/tag/${encodeURIComponent(tag)}`}
-                    className="rounded-full bg-[#f1f5f9] px-3 py-1 text-xs font-semibold text-[#334155]"
+                    key={item.name}
+                    href={`/tag/${encodeURIComponent(item.name)}`}
+                    className="inline-block font-semibold leading-none transition-opacity hover:opacity-80"
+                    style={{
+                      fontSize: `${item.size}px`,
+                      color: item.color,
+                      transform: `rotate(${item.rotate}deg)`,
+                    }}
                   >
-                    /{tag}
+                    {item.name}
                   </Link>
                 ))}
               </div>
             </section>
-            <section className="rounded-xl border border-[#e8ebf0] bg-white p-5">
-              <div className="mb-4 flex items-center justify-between">
-                <span className="text-sm font-extrabold uppercase tracking-[0.15em] text-[#0f172a]">
-                  {monthBase.format("MMM YYYY")}
-                </span>
-                <span className="text-xs text-[#94a3b8]">{monthBase.format("YYYY")}</span>
+            <section>
+              <div className="mb-5 flex items-center gap-2 text-[40px] leading-none text-[#1f2937]">
+                <span className="font-light">{">"}</span>
+                <span className="text-[44px] font-semibold">博客日历</span>
               </div>
-              <div className="grid grid-cols-7 gap-1 text-center text-xs text-[#94a3b8]">
-                {["S", "M", "T", "W", "T", "F", "S"].map((item) => (
-                  <span key={item}>{item}</span>
-                ))}
-              </div>
-              <div className="mt-2 grid grid-cols-7 gap-1 text-center text-xs">
-                {calendarCells.map((day, index) => (
-                  <span
-                    key={`${day}-${index}`}
-                    className={`h-7 rounded-full leading-7 ${
-                      day
-                        ? recentDays.has(day)
-                          ? "bg-[#0f4d6f] font-bold text-white"
-                          : "text-[#334155]"
-                        : ""
-                    }`}
+              <div className="rounded-md border border-[#eef2f7] bg-white">
+                <div className="flex items-center justify-between border-b border-[#eef2f7] px-5 py-4">
+                  <button
+                    type="button"
+                    onClick={() => setCalendarMonth((prev) => prev.subtract(1, "month"))}
+                    className="text-[#475569] transition hover:text-[#0f172a]"
                   >
-                    {day || ""}
+                    <LeftOutlined />
+                  </button>
+                  <span className="text-[28px] font-semibold tracking-wide text-[#0f172a]">
+                    {calendarMonth.format("YYYY年MM月")}
                   </span>
-                ))}
+                  <button
+                    type="button"
+                    onClick={() => setCalendarMonth((prev) => prev.add(1, "month"))}
+                    className="text-[#475569] transition hover:text-[#0f172a]"
+                  >
+                    <RightOutlined />
+                  </button>
+                </div>
+                <div className="grid grid-cols-7 border-b border-[#eef2f7] px-3 py-3 text-center text-[15px] font-semibold text-[#1f2937]">
+                  {["一", "二", "三", "四", "五", "六", "日"].map((item, index) => (
+                    <span key={`${item}-${index}`}>{item}</span>
+                  ))}
+                </div>
+                <div className="grid grid-cols-7 gap-y-2 px-3 py-4 text-center text-[38px] leading-none">
+                  {calendarDays.map((day) => {
+                    const dayKey = day.format(DATE_FORMAT);
+                    const isCurrentMonth = day.isSame(calendarMonth, "month");
+                    const hasPost = postDateSet.has(dayKey);
+                    const isToday = day.isSame(dayjs(), "day");
+                    return (
+                      <button
+                        key={dayKey}
+                        type="button"
+                        disabled={!hasPost}
+                        onClick={() => router.push({ pathname: "/date/[date]" }, `/date/${dayKey}`)}
+                        className={`mx-auto flex h-11 w-11 items-center justify-center rounded-md font-medium transition ${
+                          isToday
+                            ? "bg-[#1d91ff] text-white"
+                            : hasPost
+                              ? "text-[#334155] hover:bg-[#f1f5f9]"
+                              : "text-[#cbd5e1]"
+                        } ${!isCurrentMonth ? "opacity-45" : ""}`}
+                      >
+                        {day.format("DD")}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             </section>
           </aside>
-          <section className="flex-1 max-w-[960px]">
+          <section className="flex-1 min-w-0">
             <Stories posts={postsByPageIndex} current={current} totalPage={totalPage} />
           </section>
         </main>
         <footer className="mt-14 border-t border-[#e8ebf0] bg-white py-12 text-center">
-          <div className="text-4xl font-black tracking-tight text-[#0f172a]">AETHER_LIGHT</div>
+          <div className="text-4xl font-black tracking-tight text-[#0f172a]">Evan Zhao</div>
           <div className="mt-5 flex flex-wrap justify-center gap-6 text-xs font-semibold uppercase tracking-[0.14em] text-[#94a3b8]">
             <a>Privacy Policy</a>
             <a>Terms of Service</a>
@@ -132,7 +190,7 @@ export default function Content({
             <a>API</a>
           </div>
           <p className="mt-6 text-xs tracking-[0.2em] text-[#94a3b8]">
-            © {dayjs().format("YYYY")} AETHER_LIGHT. CURATED BY INTELLIGENCE.
+            © {dayjs().format("YYYY")} Evan Zhao. CURATED BY INTELLIGENCE.
           </p>
         </footer>
       </div>

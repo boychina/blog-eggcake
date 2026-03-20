@@ -3,8 +3,8 @@ import PageTurn from "./PageTurn";
 
 export default function Stories({ posts, current, totalPage }) {
   return (
-    <section className="space-y-8">
-      <div className="space-y-8">
+    <section>
+      <div className="flex flex-col">
         {posts.map((post, index) => (
           <PostItem
             key={post.slug}
