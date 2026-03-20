@@ -23,9 +23,7 @@ export default function HeroPost({
         <div className="pt-6 md:p-4 text-center md:text-left space-y-4 flex-auto">
           <blockquote className="mb-0">
             <h3 className="text-lg font-semibold">
-              <Link as={`/posts/${slug}`} href="/posts/[slug]">
-                {title}
-              </Link>
+              <span>{title}</span>
             </h3>
           </blockquote>
           <figcaption className="font-medium">

@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function CoverImage({ title, src, slug }) {
@@ -13,7 +12,7 @@ export default function CoverImage({ title, src, slug }) {
     <div className="sm:mx-0">
       {slug ? (
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a aria-label={title}>{image}</a>
+          {image}
         </Link>
       ) : (
         image

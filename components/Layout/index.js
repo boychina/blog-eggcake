@@ -1,4 +1,4 @@
-import { BackTop } from 'antd';
+import { FloatButton } from 'antd';
 import Alert from "./Alert";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -12,7 +12,7 @@ export default function Layout({ preview, children }) {
         {/* <Alert preview={preview} /> */}
         <Header />
         <main className="md:pt-20">{children}</main>
-        <BackTop />
+        <FloatButton.BackTop />
       </div>
       <Footer />
     </>

@@ -1,4 +1,3 @@
-import { List } from "antd";
 import Link from "next/link";
 import { SendOutlined } from "@ant-design/icons";
 import DateFormatter from "../Common/DateFormatter";
@@ -7,17 +6,13 @@ import styles from './WidgetItem.module.css';
 export default function WidgetItem({ title, data }) {
   return (
     <div className={`${styles.widgetItem} md:max-w-xs`}>
-      <List
-        size="small"
-        header={
-          <div className="flex items-center">
-            <SendOutlined />
-            <span className="ml-1">{title}</span>
-          </div>
-        }
-        dataSource={data}
-        renderItem={(item) => (
-          <List.Item className="flex-wrap" style={{ padding: "8px 4px" }}>
+      <div className="flex items-center" style={{ padding: "12px 0" }}>
+        <SendOutlined />
+        <span className="ml-1">{title}</span>
+      </div>
+      <div>
+        {data.map((item) => (
+          <div className="flex-wrap border-b border-gray-100" style={{ padding: "8px 4px" }} key={item.slug}>
             <div className="block truncate">
               <Link as={`/posts/${item.slug}`} href="/posts/[slug]">
                 {item.title}
@@ -27,9 +22,9 @@ export default function WidgetItem({ title, data }) {
               --
               <DateFormatter dateString={item.date} />
             </div>
-          </List.Item>
-        )}
-      />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

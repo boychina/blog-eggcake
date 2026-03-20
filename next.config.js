@@ -1,23 +1,10 @@
 const path = require('path');
 
 module.exports = {
-  webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
+  output: process.env.NEXT_OUTPUT_MODE === 'export' ? 'export' : undefined,
+  turbopack: {
+    resolveAlias: {
       '@': path.resolve(__dirname),
-    };
-    config.node = {
-      setImmediate: true,
-      module: 'empty',
-      dns: 'mock',
-      http2: 'empty',
-      process: 'mock',
-      dgram: 'empty',
-      fs: 'empty',
-      net: 'empty',
-      tls: 'empty',
-      child_process: 'empty'
-    }
-    return config;
+    },
   },
 };

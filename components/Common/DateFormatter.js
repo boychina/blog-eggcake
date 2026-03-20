@@ -1,4 +1,4 @@
-import * as dayjs from 'dayjs'
+import dayjs from 'dayjs'
 import { DATE_FORMAT } from '@/config';
 
 export default function DateFormatter({ dateString }) {

@@ -1,6 +1,6 @@
 import Router from "next/router";
 import { Calendar, Row, Col } from "antd";
-import * as dayjs from "dayjs";
+import dayjs from "dayjs";
 import { SendOutlined, LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { DATE_FORMAT } from "@/config";
 import styles from './Calendars.module.css';

@@ -1,6 +1,6 @@
 import "@/styles/index.css";
-import "antd/dist/antd.css";
-import zhCN from "antd/lib/locale/zh_CN";
+import "antd/dist/reset.css";
+import zhCN from "antd/locale/zh_CN";
 import { ConfigProvider } from "antd";
 // 代码高亮主题参考 https://highlightjs.org/static/demo/
 // import 'highlight.js/styles/atom-one-dark.css';
