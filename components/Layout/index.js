@@ -4,17 +4,23 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Meta from "./Meta";
 
-export default function Layout({ preview, children }) {
+export default function Layout({
+  preview,
+  children,
+  hideHeader = false,
+  hideFooter = false,
+  backTop = true,
+}) {
   return (
     <>
       <Meta />
       <div className="min-h-screen">
         {/* <Alert preview={preview} /> */}
-        <Header />
-        <main className="md:pt-20">{children}</main>
-        <FloatButton.BackTop />
+        {!hideHeader && <Header />}
+        <main className={hideHeader ? "" : "md:pt-20"}>{children}</main>
+        {backTop && <FloatButton.BackTop />}
       </div>
-      <Footer />
+      {!hideFooter && <Footer />}
     </>
   );
 }

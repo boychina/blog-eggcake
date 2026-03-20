@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function CoverImage({ title, src, slug }) {

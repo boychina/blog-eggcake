@@ -2,11 +2,11 @@
   "name": "blog-eggcake",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "test": "echo \"No tests configured\"",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
-    "export": "NEXT_OUTPUT_MODE=export next build && rm -rf docs && mv out docs",
+    "export": "NEXT_OUTPUT_MODE=export NEXT_BASE_PATH=/docs next build --webpack && rm -rf docs && mv out docs",
     "site": "node scripts/site.js"
   },
   "dependencies": {
