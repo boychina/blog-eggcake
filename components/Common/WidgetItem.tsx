@@ -21,7 +21,7 @@ export default function WidgetItem({ title, data, scrollable = false }: WidgetIt
         {data.map((item) => (
           <div className="flex-wrap border-b border-gray-100" style={{ padding: "8px 4px" }} key={String(item.slug)}>
             <div className="block truncate">
-              <Link as={`/posts/${item.slug as string}`} href="/posts/[slug]">
+              <Link href={`/posts/${item.slug as string}`}>
                 {String(item.title ?? "")}
               </Link>
             </div>

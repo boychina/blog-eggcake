@@ -21,7 +21,7 @@ export default function HeroPost({
   slug,
 }: HeroPostProps) {
   return (
-    <Link as={`/posts/${slug}`} href="/posts/[slug]">
+    <Link href={`/posts/${slug}`}>
       <section className="md:flex md:rounded-xl p-8 md:p-0 mb-4 cursor-pointer hover:shadow-md" style={{ background: "#fafafa" }}>
         <img
           className="w-64 h-auto rounded-xl md:rounded-l-xl md:rounded-r-none mx-auto"

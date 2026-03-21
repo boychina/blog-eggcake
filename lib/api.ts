@@ -1,5 +1,5 @@
 import fs from "node:fs";
-import { join } from "node:path";
+import { join, relative } from "node:path";
 import matter from "gray-matter";
 import { chunk, findIndex, range } from "lodash";
 import dayjs from "dayjs";
@@ -7,15 +7,54 @@ import { DATE_FORMAT, DEFAULT_PAGE_SIZE } from "@/config";
 import type { PostRecord, PrevNextPost, TagsMap } from "@/types/post";
 
 const postsDirectory = join(process.cwd(), "_posts");
+let postFilePathMapCache: Map<string, string> | null = null;
+
+function getMarkdownFilePaths(directory: string): string[] {
+  const entries = fs.readdirSync(directory, { withFileTypes: true });
+  const filePaths: string[] = [];
+  entries.forEach((entry) => {
+    const fullPath = join(directory, entry.name);
+    if (entry.isDirectory()) {
+      filePaths.push(...getMarkdownFilePaths(fullPath));
+      return;
+    }
+    if (entry.isFile() && entry.name.endsWith(".md")) {
+      filePaths.push(fullPath);
+    }
+  });
+  return filePaths;
+}
+
+function getPostSlugByPath(filePath: string): string {
+  const relativePath = relative(postsDirectory, filePath).replace(/\\/g, "/");
+  return relativePath.replace(/\.md$/, "");
+}
+
+function getPostFilePathMap(): Map<string, string> {
+  if (postFilePathMapCache) {
+    return postFilePathMapCache;
+  }
+  const map = new Map<string, string>();
+  const markdownFilePaths = getMarkdownFilePaths(postsDirectory);
+  markdownFilePaths.forEach((filePath) => {
+    const slug = getPostSlugByPath(filePath);
+    if (map.has(slug)) {
+      throw new Error(`Duplicate post slug found: ${slug}`);
+    }
+    map.set(slug, filePath);
+  });
+  postFilePathMapCache = map;
+  return postFilePathMapCache;
+}
 
 export function getPostSlugs(): string[] {
-  return fs.readdirSync(postsDirectory).filter((name) => name.endsWith(".md"));
+  return Array.from(getPostFilePathMap().keys());
 }
 
 export function getPostBySlug(slug: string, fields: string[] = []): PostRecord {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(postsDirectory, `${realSlug}.md`);
-  if (!fs.existsSync(fullPath)) {
+  if (!fullPath || !fs.existsSync(fullPath)) {
     return {};
   }
   const fileContents = fs.readFileSync(fullPath);
@@ -41,7 +80,14 @@ export function getAllPosts(fields: string[] = []): PostRecord[] {
   return slugs
     .map((slug) => getPostBySlug(slug, fields))
     .filter((post) => Object.keys(post).length > 0)
-    .sort((post1, post2) => String(post1.date ?? "") > String(post2.date ?? "") ? -1 : 1);
+    .sort((post1, post2) => {
+      const time1 = dayjs(String(post1.date ?? "")).valueOf() || 0;
+      const time2 = dayjs(String(post2.date ?? "")).valueOf() || 0;
+      if (time1 !== time2) {
+        return time2 - time1;
+      }
+      return String(post1.slug ?? "").localeCompare(String(post2.slug ?? ""));
+    });
 }
 
 export function getPostsByPageIndex(current: number | string, fields: string[] = [], pageSize = DEFAULT_PAGE_SIZE): PostRecord[] {

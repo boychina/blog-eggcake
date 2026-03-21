@@ -59,7 +59,10 @@ export default function Post({ post, allPosts, prevNextPost, preview, tags }: Po
 }
 
 export const getStaticProps: GetStaticProps<PostPageProps> = async ({ params }) => {
-  const slug = String(params?.slug ?? "");
+  const slugParam = params?.slug;
+  const slug = Array.isArray(slugParam)
+    ? slugParam.map((segment) => decodeURIComponent(segment)).join("/")
+    : decodeURIComponent(String(slugParam ?? ""));
   const allPosts = getAllPosts(["title", "date", "slug", "author"]);
   const prevNextPost = getPrevNextPost(slug, ["title", "slug"]);
   const post = getPostBySlug(slug, [
@@ -93,7 +96,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: posts.map((post) => ({
       params: {
-        slug: String(post.slug ?? ""),
+        slug: String(post.slug ?? "").split("/"),
       },
     })),
     fallback: false,

@@ -17,7 +17,7 @@ export default function CoverImage({ title, src, slug }: CoverImageProps) {
   return (
     <div className="sm:mx-0">
       {slug ? (
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+        <Link href={`/posts/${slug}`}>
           {image}
         </Link>
       ) : (

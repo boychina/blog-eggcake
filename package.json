@@ -10,7 +10,8 @@
     "start": "next start",
     "export": "NEXT_OUTPUT_MODE=export NEXT_BASE_PATH=/docs next build --webpack && rm -rf docs && mv out docs",
     "site": "tsx scripts/site.ts",
-    "fix:image-paths": "tsx scripts/fix-image-paths.ts"
+    "fix:image-paths": "tsx scripts/fix-image-paths.ts",
+    "organize:posts": "tsx scripts/organize-posts.ts"
   },
   "dependencies": {
     "antd": "^6.3.3",

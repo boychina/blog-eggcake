@@ -14,7 +14,7 @@ export default function PrevNextBtns({ prevNextPost }: PrevNextBtnsProps) {
     <Row className="flex justify-between my-8" gutter={12}>
       <Col span={12}>
         {prevPost && (
-          <Link as={`/posts/${String(prevPost.slug)}`} href="/posts/[slug]">
+          <Link href={`/posts/${String(prevPost.slug)}`}>
             <div className="whitespace-nowrap cursor-pointer flex items-center h-full text-sm bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-2 px-4 duration-200 transition-colors">
               <ArrowLeftOutlined />
               <span className="ml-2">{String(prevPost.title ?? "")}</span>
@@ -24,7 +24,7 @@ export default function PrevNextBtns({ prevNextPost }: PrevNextBtnsProps) {
       </Col>
       <Col span={12}>
         {nextPost && (
-          <Link as={`/posts/${String(nextPost.slug)}`} href="/posts/[slug]">
+          <Link href={`/posts/${String(nextPost.slug)}`}>
             <div className="whitespace-nowrap cursor-pointer flex items-center h-full text-sm bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-2 px-4 duration-200 transition-colors justify-between">
               <span className="mr-2">{String(nextPost.title ?? "")}</span>
               <ArrowRightOutlined />
