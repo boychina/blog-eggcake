@@ -1,5 +1,4 @@
-
-.widgetItem ul {
+.scrollableList {
   max-height: 360px;
   overflow: auto;
 }

@@ -22,6 +22,7 @@ interface WordCloudProps {
 
 const CANVAS_WIDTH = 330;
 const CANVAS_HEIGHT = 300;
+const DEFAULT_FONT_SIZE = 20;
 
 export default function WordCloud({ title, tags }: WordCloudProps) {
   if (!tags || !Object.keys(tags).length) return null;
@@ -43,7 +44,9 @@ export default function WordCloud({ title, tags }: WordCloudProps) {
       result.push({
         text: word,
         value: wordObj.value,
-        size: ((Math.log(wordObj.value) * 4) / (Math.log(maxSize) - Math.log(1))) * 4 + 20,
+        size: maxSize > 1
+          ? ((Math.log(wordObj.value) * 4) / (Math.log(maxSize) - Math.log(1))) * 4 + DEFAULT_FONT_SIZE
+          : DEFAULT_FONT_SIZE,
         color: COLORS[result.length % COLORS.length],
       });
     });
@@ -53,8 +56,13 @@ export default function WordCloud({ title, tags }: WordCloudProps) {
   useEffect(() => {
     const layout = cloud()
       .size([CANVAS_WIDTH, CANVAS_HEIGHT])
-      .canvas(() => document.createElement("canvas"))
-      .padding(2)
+      .canvas(() => {
+        const canvas = document.createElement("canvas");
+        canvas.width = CANVAS_WIDTH;
+        canvas.height = CANVAS_HEIGHT;
+        return canvas;
+      })
+      .padding(4)
       .rotate(() => ~~(Math.random() * 2) * 90)
       .fontSize((d: { size: number }) => d.size);
     layout.words(sourceWords as never);

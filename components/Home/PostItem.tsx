@@ -1,72 +1,53 @@
 import Link from "next/link";
-import dayjs from "dayjs";
+import DateFormatter from "../Common/DateFormatter";
+import styles from "./PostItem.module.css";
 import type { Author } from "@/types/post";
 
 interface HeroPostProps {
-  index: number;
   title: string;
   coverImage: string;
   date: string;
   excerpt: string;
   author: Author;
   slug: string;
-  tag?: string;
 }
 
 export default function HeroPost({
-  index,
   title,
   coverImage,
   date,
   excerpt,
   author,
   slug,
-  tag,
 }: HeroPostProps) {
-  const isReverse = index % 2 === 1;
-  const rowClass = isReverse
-    ? "grid gap-8 md:grid-cols-[minmax(0,1fr)_320px] md:items-center"
-    : "grid gap-8 md:grid-cols-[320px_minmax(0,1fr)] md:items-center";
-  const imageBlock = (
-    <div>
-      <div className="relative aspect-[16/10] overflow-hidden bg-[#e5e7eb] rounded-md">
+  return (
+    <Link as={`/posts/${slug}`} href="/posts/[slug]">
+      <section className="md:flex md:rounded-xl p-8 md:p-0 mb-4 cursor-pointer hover:shadow-md" style={{ background: "#fafafa" }}>
         <img
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+          className="w-64 h-auto rounded-xl md:rounded-l-xl md:rounded-r-none mx-auto"
           src={coverImage}
           alt={title}
-          width="960"
-          height="480"
+          width="384"
+          height="512"
         />
-      </div>
-    </div>
-  );
-  const textBlock = (
-    <div>
-      <div className="mb-3 flex items-center gap-5 text-[11px] font-bold uppercase tracking-[0.15em] text-[#0f4d6f]">
-        <span>/ {tag?.split(",")[0] || "ARCHITECTURE"}</span>
-        <span className="text-[#64748b]">{dayjs(date).format("MMM DD, YYYY").toUpperCase()}</span>
-      </div>
-      <h3 className="text-[20px] font-black leading-[1.3] tracking-tight text-[#0f172a] transition-colors duration-300 group-hover:text-[#2563eb]">
-        {title}
-      </h3>
-      <p className="mt-3 line-clamp-2 text-[14px] leading-[1.6] text-[#64748b]">{excerpt}</p>
-      <div className="mt-4 flex items-center gap-3">
-        <img
-          src={author.picture}
-          className="h-8 w-8 rounded-full object-cover"
-          alt={author.name}
-        />
-        <span className="text-[14px] font-bold text-[#0f172a]">{author.name}</span>
-      </div>
-    </div>
-  );
-
-  return (
-    <Link as={`/posts/${slug}`} href="/posts/[slug]" className="block group">
-      <section className="py-10 border-b border-[#f1f5f9] last:border-0">
-        <div className={rowClass}>
-          {isReverse ? textBlock : imageBlock}
-          {isReverse ? imageBlock : textBlock}
+        <div className="pt-6 md:p-4 text-center md:text-left space-y-4 flex-auto">
+          <blockquote className="mb-0">
+            <h3 className="text-lg font-semibold">{title}</h3>
+          </blockquote>
+          <figcaption className="font-medium">
+            <div className="flex items-center">
+              <img
+                src={author.picture}
+                className="w-8 h-8 rounded-full mr-2"
+                alt={author.name}
+              />
+              <div className="text-gray-800">{author.name}</div>
+              <span className="ml-1" style={{ color: "#bfbfbf" }}>
+                <DateFormatter dateString={date} />
+              </span>
+            </div>
+            <div className={styles.excerpt}>{excerpt}</div>
+          </figcaption>
         </div>
       </section>
     </Link>

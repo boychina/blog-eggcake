@@ -38,8 +38,7 @@ export default function Calendars({ title, allPosts }: CalendarsProps) {
                   <a
                     onClick={() => {
                       const newValue = value.clone();
-                      newValue.month(value.get("month") - 1);
-                      onChange(newValue);
+                      onChange(newValue.month(value.get("month") - 1));
                     }}
                     className="flex justify-center items-center px-2"
                   >
@@ -53,8 +52,7 @@ export default function Calendars({ title, allPosts }: CalendarsProps) {
                   <a
                     onClick={() => {
                       const newValue = value.clone();
-                      newValue.month(value.get("month") + 1);
-                      onChange(newValue);
+                      onChange(newValue.month(value.get("month") + 1));
                     }}
                     className="flex justify-center items-center px-2"
                   >
