@@ -9,17 +9,21 @@ import type { PostRecord, TagsMap } from "@/types/post";
 interface ContentProps {
   allPosts: PostRecord[];
   postsByPageIndex: PostRecord[];
+  feedPosts?: PostRecord[];
   current: number;
   totalPage: number;
   tags: TagsMap;
+  enableInfiniteScroll?: boolean;
 }
 
 export default function Content({
   allPosts,
   postsByPageIndex,
+  feedPosts,
   current,
   totalPage,
   tags,
+  enableInfiniteScroll = false,
 }: ContentProps) {
   return (
     <Layout>
@@ -30,8 +34,10 @@ export default function Content({
         <Wrapper>
           <Stories
             posts={postsByPageIndex}
+            feedPosts={feedPosts}
             current={current}
             totalPage={totalPage}
+            enableInfiniteScroll={enableInfiniteScroll}
           />
         </Wrapper>
         <Widget allPosts={allPosts} tags={tags} />
