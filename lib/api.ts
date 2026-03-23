@@ -118,6 +118,9 @@ function getMarkdownFilePaths(directory: string): string[] {
 
 function getPostSlugByPath(filePath: string): string {
   const relativePath = relative(postsDirectory, filePath).replace(/\\/g, "/");
+  if (relativePath.endsWith("/index.md")) {
+    return relativePath.slice(0, -"/index.md".length);
+  }
   return relativePath.replace(/\.md$/, "");
 }
 
@@ -144,7 +147,9 @@ export function getPostSlugs(): string[] {
 
 export function getPostBySlug(slug: string, fields: string[] = []): PostRecord {
   const realSlug = slug.replace(/\.md$/, "");
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
+  const indexPath = join(postsDirectory, realSlug, "index.md");
+  const flatPath = join(postsDirectory, `${realSlug}.md`);
+  const fullPath = fs.existsSync(indexPath) ? indexPath : flatPath;
   if (!fullPath || !fs.existsSync(fullPath)) {
     return {};
   }

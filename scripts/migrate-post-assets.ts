@@ -33,7 +33,11 @@ function walkMarkdownFiles(dirPath: string): string[] {
 }
 
 function postSlugFromFilePath(filePath: string): string {
-  return path.relative(POSTS_DIR, filePath).replace(/\\/g, "/").replace(/\.md$/, "");
+  const relativePath = path.relative(POSTS_DIR, filePath).replace(/\\/g, "/");
+  if (relativePath.endsWith("/index.md")) {
+    return relativePath.slice(0, -"/index.md".length);
+  }
+  return relativePath.replace(/\.md$/, "");
 }
 
 function decodePathForFs(value: string): string {
@@ -44,7 +48,29 @@ function decodePathForFs(value: string): string {
 }
 
 function toPostAssetDir(markdownFilePath: string): string {
+  if (path.basename(markdownFilePath) === "index.md") {
+    return path.join(path.dirname(markdownFilePath), "assets");
+  }
   return markdownFilePath.replace(/\.md$/, ".assets");
+}
+
+function walkFiles(dirPath: string): string[] {
+  if (!fs.existsSync(dirPath)) {
+    return [];
+  }
+  const entries = fs.readdirSync(dirPath, { withFileTypes: true });
+  const files: string[] = [];
+  entries.forEach((entry) => {
+    const fullPath = path.join(dirPath, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...walkFiles(fullPath));
+      return;
+    }
+    if (entry.isFile()) {
+      files.push(fullPath);
+    }
+  });
+  return files;
 }
 
 function ensureDir(dirPath: string) {
@@ -189,6 +215,21 @@ function replaceAll(content: string, from: string, to: string): string {
   return content.split(from).join(to);
 }
 
+function cleanupAssetFileNames(markdownFilePath: string) {
+  const assetDir = toPostAssetDir(markdownFilePath);
+  const files = walkFiles(assetDir);
+  files.forEach((filePath) => {
+    const directory = path.dirname(filePath);
+    const baseName = path.basename(filePath);
+    const normalizedBaseName = normalizeAssetFileName(baseName);
+    if (normalizedBaseName === baseName) {
+      return;
+    }
+    const targetPath = path.join(directory, normalizedBaseName);
+    moveFileIfExists(filePath, targetPath);
+  });
+}
+
 function migratePost(markdownFilePath: string): { updated: boolean; count: number } {
   const raw = fs.readFileSync(markdownFilePath, "utf8");
   const parsed = matter(raw);
@@ -219,10 +260,12 @@ function migratePost(markdownFilePath: string): { updated: boolean; count: numbe
   });
 
   if (nextRaw === raw) {
+    cleanupAssetFileNames(markdownFilePath);
     return { updated: false, count: 0 };
   }
 
   fs.writeFileSync(markdownFilePath, nextRaw, "utf8");
+  cleanupAssetFileNames(markdownFilePath);
   return { updated: true, count: updateCount };
 }
 

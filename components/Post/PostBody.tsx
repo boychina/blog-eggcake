@@ -78,7 +78,7 @@ export default function PostBody({ content }: PostBodyProps) {
   }, [content]);
 
   return (
-    <div className="markdown-body">
+    <div className={`markdown-body ${styles.markdownBody}`}>
       <div
         ref={contentRef}
         className={styles.markdown}

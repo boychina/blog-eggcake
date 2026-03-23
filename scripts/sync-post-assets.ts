@@ -40,25 +40,27 @@ function copyDir(sourceDir: string, targetDir: string) {
   });
 }
 
-function findPostAssetDirs(dirPath: string): string[] {
+function findPostAssetDirs(dirPath: string): Array<{ slug: string; assetDir: string }> {
   const entries = fs.readdirSync(dirPath, { withFileTypes: true });
-  const dirs: string[] = [];
+  const dirs: Array<{ slug: string; assetDir: string }> = [];
   entries.forEach((entry) => {
     const fullPath = path.join(dirPath, entry.name);
     if (entry.isDirectory()) {
+      const indexPath = path.join(fullPath, "index.md");
+      const assetsPath = path.join(fullPath, "assets");
+      if (fs.existsSync(indexPath) && fs.existsSync(assetsPath) && fs.statSync(assetsPath).isDirectory()) {
+        const slug = path.relative(POSTS_DIR, fullPath).replace(/\\/g, "/");
+        dirs.push({ slug, assetDir: assetsPath });
+      }
       if (entry.name.endsWith(".assets")) {
-        dirs.push(fullPath);
+        const slug = path.relative(POSTS_DIR, fullPath).replace(/\\/g, "/").replace(/\.assets$/, "");
+        dirs.push({ slug, assetDir: fullPath });
         return;
       }
       dirs.push(...findPostAssetDirs(fullPath));
     }
   });
   return dirs;
-}
-
-function postSlugFromAssetDir(assetDirPath: string): string {
-  const relativePath = path.relative(POSTS_DIR, assetDirPath).replace(/\\/g, "/");
-  return relativePath.replace(/\.assets$/, "");
 }
 
 function main() {
@@ -69,11 +71,10 @@ function main() {
   const postAssetDirs = findPostAssetDirs(POSTS_DIR);
   let copyCount = 0;
 
-  postAssetDirs.forEach((assetDirPath) => {
-    const postSlug = postSlugFromAssetDir(assetDirPath);
+  postAssetDirs.forEach(({ slug: postSlug, assetDir }) => {
     const assetKey = getPostAssetKey(postSlug);
     const targetDir = path.join(PUBLIC_POST_ASSETS_DIR, assetKey);
-    copyDir(assetDirPath, targetDir);
+    copyDir(assetDir, targetDir);
     copyCount += 1;
   });
 

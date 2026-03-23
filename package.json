@@ -16,6 +16,7 @@
     "site": "tsx scripts/site.ts",
     "fix:image-paths": "tsx scripts/fix-image-paths.ts",
     "organize:posts": "tsx scripts/organize-posts.ts",
+    "restructure:posts": "tsx scripts/restructure-post-layout.ts",
     "sync:post-assets": "tsx scripts/sync-post-assets.ts",
     "migrate:post-assets": "tsx scripts/migrate-post-assets.ts"
   },
