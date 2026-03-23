@@ -4,6 +4,7 @@ import markdownItAnchor from "markdown-it-anchor";
 
 const markdownItFootnote = require("markdown-it-footnote");
 const markdownItTaskLists = require("markdown-it-task-lists");
+const markdownItKatex = require("markdown-it-katex");
 
 function slugify(text: string): string {
   return text
@@ -40,6 +41,10 @@ md.use(markdownItTaskLists, {
   enabled: true,
   label: true,
   labelAfter: true,
+});
+md.use(markdownItKatex, {
+  throwOnError: false,
+  errorColor: "#cc0000",
 });
 md.use(markdownItAnchor, {
   level: [2, 3, 4],
