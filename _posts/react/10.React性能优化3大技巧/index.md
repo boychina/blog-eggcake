@@ -5,12 +5,12 @@ description: "React性能优化3大技巧"
 keyword: "react"
 tag: "react"
 date: "2021-09-23 11:56:00"
-coverImage: "/assets/posts/React性能优化3大技巧/cover/React%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%963%E5%A4%A7%E6%8A%80%E5%B7%A7.png"
+coverImage: "/assets/posts/React性能优化3大技巧/cover/React性能优化3大技巧.png"
 author:
   name: 蛋烘糕
   picture: "/assets/posts/React性能优化3大技巧/author/zhaohuan.jpg"
 ogImage:
-  url: "/assets/posts/React性能优化3大技巧/cover/React%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%963%E5%A4%A7%E6%8A%80%E5%B7%A7.png"
+  url: "/assets/posts/React性能优化3大技巧/cover/React性能优化3大技巧.png"
 ---
 
 在业务迭代过程中，React 性能优化是我们不得不考虑的问题，虽然项目在启动之初，我们一般不会考虑项目的复杂度，而且因为产品的用户体量和技术场景也不复杂，并不需要考虑性能优化，但是随着业务场景的复杂化，性能优化就变得格外重要了。

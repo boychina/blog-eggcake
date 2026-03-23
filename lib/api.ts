@@ -199,7 +199,8 @@ export function getPageIndexes(pageSize = DEFAULT_PAGE_SIZE): number[] {
 }
 
 export function getPrevNextPost(slug: string, fields: string[] = []): PrevNextPost {
-  const allPosts = getAllPosts(fields);
+  const sortFields = Array.from(new Set(["date", "slug", ...fields]));
+  const allPosts = getAllPosts(sortFields);
   const result: PrevNextPost = { prevPost: null, nextPost: null };
   const curIndex = findIndex(allPosts, ["slug", slug]);
   if (curIndex > 0) {
