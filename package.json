@@ -2,16 +2,22 @@
   "name": "blog-eggcake",
   "version": "1.0.0",
   "scripts": {
+    "predev": "pnpm sync:post-assets",
     "dev": "next dev --webpack",
     "lint": "tsc --noEmit",
     "typecheck": "tsc --noEmit",
     "test": "echo \"No tests configured\"",
+    "prebuild": "pnpm sync:post-assets",
     "build": "next build --webpack",
+    "prestart": "pnpm sync:post-assets",
     "start": "next start",
+    "preexport": "pnpm sync:post-assets",
     "export": "NEXT_OUTPUT_MODE=export NEXT_BASE_PATH=/docs next build --webpack && rm -rf docs && mv out docs",
     "site": "tsx scripts/site.ts",
     "fix:image-paths": "tsx scripts/fix-image-paths.ts",
-    "organize:posts": "tsx scripts/organize-posts.ts"
+    "organize:posts": "tsx scripts/organize-posts.ts",
+    "sync:post-assets": "tsx scripts/sync-post-assets.ts",
+    "migrate:post-assets": "tsx scripts/migrate-post-assets.ts"
   },
   "dependencies": {
     "@ant-design/icons": "^6.1.0",

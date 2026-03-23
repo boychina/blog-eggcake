@@ -41,6 +41,9 @@ package-lock.json
 # site
 site.txt
 
+# generated post assets
+/public/assets/posts/
+
 # ide
 .idea
 .vscode

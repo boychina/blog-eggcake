@@ -4,10 +4,101 @@ import matter from "gray-matter";
 import { chunk, findIndex, range } from "lodash";
 import dayjs from "dayjs";
 import { DATE_FORMAT, DEFAULT_PAGE_SIZE } from "@/config";
+import { normalizeAssetFileName, toPostAssetPublicPath } from "@/lib/postAssets";
 import type { PostRecord, PrevNextPost, TagsMap } from "@/types/post";
 
 const postsDirectory = join(process.cwd(), "_posts");
+const legacyAssetBasePattern = /(?:https?:\/\/assets\.eggcake\.cn\/context\/|\/assets\/blog\/(?:context|cover|authors)\/)[^\s)"']+/g;
+const postAssetBasePattern = /\/assets\/posts\/[^\s)"']+/g;
 let postFilePathMapCache: Map<string, string> | null = null;
+
+function normalizeLegacyAssetPath(url: string): string | null {
+  if (url.startsWith("/assets/blog/context/")) {
+    return `context/${url.slice("/assets/blog/context/".length)}`;
+  }
+  if (url.startsWith("https://assets.eggcake.cn/context/")) {
+    return `context/${url.slice("https://assets.eggcake.cn/context/".length)}`;
+  }
+  if (url.startsWith("http://assets.eggcake.cn/context/")) {
+    return `context/${url.slice("http://assets.eggcake.cn/context/".length)}`;
+  }
+  if (url.startsWith("/assets/blog/cover/")) {
+    return `cover/${url.slice("/assets/blog/cover/".length)}`;
+  }
+  if (url.startsWith("/assets/blog/authors/")) {
+    return `author/${url.slice("/assets/blog/authors/".length)}`;
+  }
+  return null;
+}
+
+function legacyAssetUrlToPostAssetUrl(url: string, slug: string): string {
+  const normalized = normalizeLegacyAssetPath(url);
+  if (!normalized) {
+    return url;
+  }
+  const normalizedPath = normalized
+    .split("/")
+    .filter(Boolean)
+    .map((segment, index) => {
+      if (index > 1 && normalized.startsWith("context/")) {
+        return segment;
+      }
+      return decodeURIComponent(segment);
+    });
+  const targetPath = normalized.startsWith("context/")
+    ? ["context", normalizeAssetFileName(normalizedPath[normalizedPath.length - 1])]
+    : [...normalizedPath.slice(0, -1), normalizeAssetFileName(normalizedPath[normalizedPath.length - 1])];
+  return toPostAssetPublicPath(slug, targetPath.join("/"));
+}
+
+function canonicalizePostAssetUrl(url: string, slug: string): string {
+  if (!url.startsWith("/assets/posts/")) {
+    return url;
+  }
+  const parts = url.slice("/assets/posts/".length).split("/").filter(Boolean);
+  const typeIndex = parts.findIndex((part) => part === "cover" || part === "author" || part === "context");
+  if (typeIndex < 0 || typeIndex + 1 >= parts.length) {
+    return url;
+  }
+  const relativePath = `${parts[typeIndex]}/${parts.slice(typeIndex + 1).join("/")}`;
+  const relativeParts = relativePath.split("/").filter(Boolean);
+  const normalizedRelativePath = [...relativeParts.slice(0, -1), normalizeAssetFileName(relativeParts[relativeParts.length - 1])].join("/");
+  return toPostAssetPublicPath(slug, normalizedRelativePath);
+}
+
+function normalizePostDataAssets(data: Record<string, unknown>, slug: string): Record<string, unknown> {
+  const nextData = { ...data };
+  const coverImage = nextData.coverImage;
+  if (typeof coverImage === "string") {
+    nextData.coverImage = canonicalizePostAssetUrl(legacyAssetUrlToPostAssetUrl(coverImage, slug), slug);
+  }
+  const author = nextData.author;
+  if (author && typeof author === "object" && "picture" in author) {
+    const picture = (author as { picture?: unknown }).picture;
+    if (typeof picture === "string") {
+      nextData.author = {
+        ...(author as Record<string, unknown>),
+        picture: canonicalizePostAssetUrl(legacyAssetUrlToPostAssetUrl(picture, slug), slug),
+      };
+    }
+  }
+  const ogImage = nextData.ogImage;
+  if (ogImage && typeof ogImage === "object" && "url" in ogImage) {
+    const url = (ogImage as { url?: unknown }).url;
+    if (typeof url === "string") {
+      nextData.ogImage = {
+        ...(ogImage as Record<string, unknown>),
+        url: canonicalizePostAssetUrl(legacyAssetUrlToPostAssetUrl(url, slug), slug),
+      };
+    }
+  }
+  return nextData;
+}
+
+function normalizePostContentAssets(content: string, slug: string): string {
+  const withLegacyNormalized = content.replace(legacyAssetBasePattern, (url) => legacyAssetUrlToPostAssetUrl(url, slug));
+  return withLegacyNormalized.replace(postAssetBasePattern, (url) => canonicalizePostAssetUrl(url, slug));
+}
 
 function getMarkdownFilePaths(directory: string): string[] {
   const entries = fs.readdirSync(directory, { withFileTypes: true });
@@ -59,6 +150,8 @@ export function getPostBySlug(slug: string, fields: string[] = []): PostRecord {
   }
   const fileContents = fs.readFileSync(fullPath);
   const { data, content } = matter(fileContents);
+  const normalizedData = normalizePostDataAssets(data as Record<string, unknown>, realSlug);
+  const normalizedContent = normalizePostContentAssets(content, realSlug);
 
   const items: PostRecord = {};
   fields.forEach((field) => {
@@ -66,10 +159,10 @@ export function getPostBySlug(slug: string, fields: string[] = []): PostRecord {
       items[field] = realSlug;
     }
     if (field === "content") {
-      items[field] = content;
+      items[field] = normalizedContent;
     }
-    if (data[field] !== undefined) {
-      items[field] = data[field];
+    if (normalizedData[field] !== undefined) {
+      items[field] = normalizedData[field];
     }
   });
   return items;
