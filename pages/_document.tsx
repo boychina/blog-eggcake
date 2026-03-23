@@ -11,6 +11,8 @@ export default class MyDocument extends Document {
           />
           <meta name="baidu-site-verification" content="code-SQ8pinCY3n" />
           <meta name="sogou_site_verification" content="IbqK7EsWs0" />
+        </Head>
+        <body>
           <a
             href="https://github.com/boychina"
             target="_blank"
@@ -46,8 +48,6 @@ export default class MyDocument extends Document {
               ></path>
             </svg>
           </a>
-        </Head>
-        <body>
           <Main />
           <NextScript />
           <script src="https://hm.baidu.com/hm.js?984a14f3e0e615ff993c5631e3c3e660" />
