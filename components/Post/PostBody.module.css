@@ -117,3 +117,11 @@
 .markdown :global(div.mermaid) {
   @apply my-6 overflow-x-auto;
 }
+
+.markdown :global(span.katex) {
+  font-size: 1em;
+}
+
+.markdown :global(.katex-display) {
+  @apply my-4 overflow-x-auto overflow-y-hidden;
+}
