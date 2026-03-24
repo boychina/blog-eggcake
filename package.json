@@ -12,7 +12,7 @@
     "prestart": "pnpm sync:post-assets",
     "start": "next start",
     "preexport": "pnpm sync:post-assets",
-    "export": "NEXT_OUTPUT_MODE=export NEXT_BASE_PATH=/docs next build --webpack && rm -rf docs && mv out docs",
+    "export": "NEXT_OUTPUT_MODE=export next build --webpack && rm -rf docs && mv out docs",
     "site": "tsx scripts/site.ts",
     "fix:image-paths": "tsx scripts/fix-image-paths.ts",
     "organize:posts": "tsx scripts/organize-posts.ts",
