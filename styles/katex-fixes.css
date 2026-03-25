@@ -1,42 +1,5 @@
 .markdown-body p > span.katex {
-  font: normal 1.21em KaTeX_Main, Times New Roman, serif;
-  line-height: 1.2;
-  position: relative;
-  text-indent: 0;
-  text-rendering: auto;
-}
-
-.markdown-body p > span.katex .base {
-  position: relative;
-  display: inline-block;
-  white-space: nowrap;
-  width: min-content;
-}
-
-.markdown-body p > span.katex .vlist-t {
-  display: inline-table;
-  table-layout: fixed;
-  border-collapse: collapse;
-}
-
-.markdown-body p > span.katex .vlist-r {
-  display: table-row;
-}
-
-.markdown-body p > span.katex .vlist {
-  display: table-cell;
-  vertical-align: bottom;
-  position: relative;
-}
-
-.markdown-body p > span.katex .vlist > span {
-  display: block;
-  height: 0;
-  position: relative;
-}
-
-.markdown-body p > span.katex .vlist > span > span {
-  display: inline-block;
+  vertical-align: baseline;
 }
 
 .markdown-body .katex-display {
@@ -44,9 +7,4 @@
   margin-bottom: 1rem;
   overflow-x: auto;
   overflow-y: hidden;
-}
-
-.markdown-body .katex-display .mop.op-limits {
-  position: relative;
-  top: -0.9em;
 }
