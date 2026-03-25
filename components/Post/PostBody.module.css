@@ -118,10 +118,24 @@
   @apply my-6 overflow-x-auto;
 }
 
-.markdown :global(span.katex) {
+.markdown :global(p > span.katex) {
   font-size: 1em;
+  line-height: 1;
+}
+
+.markdown :global(p > span.katex .vlist > span) {
+  top: -0.42em !important;
+}
+
+.markdown :global(p > span.katex .scriptstyle) {
+  font-size: 0.82em;
 }
 
 .markdown :global(.katex-display) {
   @apply my-4 overflow-x-auto overflow-y-hidden;
+}
+
+.markdown :global(.katex-display .mop.op-limits) {
+  position: relative;
+  top: -0.9em;
 }
