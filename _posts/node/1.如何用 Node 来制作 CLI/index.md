@@ -7,7 +7,7 @@ tag: "Node"
 date: "2018-08-02 12:00:00"
 coverImage: "/assets/posts/如何用-Node-来制作-CLI/cover/make-the-cli-with-node.jpg"
 author:
-  name: Hux
+  name: 蛋烘糕
   picture: "/assets/posts/如何用-Node-来制作-CLI/author/zhaohuan.jpg"
 ogImage:
   url: "/assets/posts/如何用-Node-来制作-CLI/cover/make-the-cli-with-node.jpg"
