@@ -5,12 +5,12 @@ description: "插槽：如何实现内容分发？"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2021-01-19 16:30:00"
-coverImage: "/assets/posts/Vue3.0-核心源码解读-插槽：如何实现内容分发？/cover/eggcake-baidu-484x300.png"
+coverImage: "/assets/posts/Vue3.0-核心源码解读-插槽：如何实现内容分发？/cover/cover.svg"
 author:
   name: 蛋烘糕
   picture: "/assets/posts/Vue3.0-核心源码解读-插槽：如何实现内容分发？/author/zhaohuan.jpg"
 ogImage:
-  url: "/assets/posts/Vue3.0-核心源码解读-插槽：如何实现内容分发？/cover/eggcake-baidu-484x300.png"
+  url: "/assets/posts/Vue3.0-核心源码解读-插槽：如何实现内容分发？/cover/cover.svg"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。

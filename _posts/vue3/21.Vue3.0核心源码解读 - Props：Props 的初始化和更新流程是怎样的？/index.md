@@ -5,12 +5,12 @@ description: "Props：Props 的初始化和更新流程是怎样的？"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2021-01-18 19:00:00"
-coverImage: "/assets/posts/Vue3.0核心源码解读-Props：Props-的初始化和更新流程是怎样的？/cover/eggcake-baidu-484x300.png"
+coverImage: "/assets/posts/Vue3.0核心源码解读-Props：Props-的初始化和更新流程是怎样的？/cover/cover.svg"
 author:
   name: 蛋烘糕
   picture: "/assets/posts/Vue3.0核心源码解读-Props：Props-的初始化和更新流程是怎样的？/author/zhaohuan.jpg"
 ogImage:
-  url: "/assets/posts/Vue3.0核心源码解读-Props：Props-的初始化和更新流程是怎样的？/cover/eggcake-baidu-484x300.png"
+  url: "/assets/posts/Vue3.0核心源码解读-Props：Props-的初始化和更新流程是怎样的？/cover/cover.svg"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。

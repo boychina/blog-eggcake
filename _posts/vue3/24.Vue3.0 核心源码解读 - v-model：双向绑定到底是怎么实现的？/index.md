@@ -5,12 +5,12 @@ description: "v-model：双向绑定到底是怎么实现的？"
 keyword: "vue,vue3.0,源码"
 tag: "vue"
 date: "2021-01-21 22:30:00"
-coverImage: "/assets/posts/Vue3.0-核心源码解读-v-model：双向绑定到底是怎么实现的？/cover/eggcake-baidu-484x300.png"
+coverImage: "/assets/posts/Vue3.0-核心源码解读-v-model：双向绑定到底是怎么实现的？/cover/cover.svg"
 author:
   name: 蛋烘糕
   picture: "/assets/posts/Vue3.0-核心源码解读-v-model：双向绑定到底是怎么实现的？/author/zhaohuan.jpg"
 ogImage:
-  url: "/assets/posts/Vue3.0-核心源码解读-v-model：双向绑定到底是怎么实现的？/cover/eggcake-baidu-484x300.png"
+  url: "/assets/posts/Vue3.0-核心源码解读-v-model：双向绑定到底是怎么实现的？/cover/cover.svg"
 ---
 
 > 纸上得来终觉浅，绝知此事要躬行。
