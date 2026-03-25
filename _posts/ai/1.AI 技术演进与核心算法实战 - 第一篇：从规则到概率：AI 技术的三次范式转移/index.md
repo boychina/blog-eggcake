@@ -3,7 +3,7 @@ title: "AI 技术演进与核心算法实战 | 第一篇：从规则到概率：
 excerpt: "AI 发展简史与底层逻辑变迁。从符号主义到连接主义，再到生成式革命，理解 AI 技术的三次范式转移。"
 description: "AI 技术演进与核心算法实战第一篇：从规则到概率：AI 技术的三次范式转移"
 keyword: "AI,大模型,Agent,Transformer,深度学习,机器学习"
-tag: "ai"
+tag: "AI"
 date: "2025-09-20 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战-第一篇：从规则到概率：AI-技术的三次范式转移/cover/ai-paradigm-shift.png"
 author:
