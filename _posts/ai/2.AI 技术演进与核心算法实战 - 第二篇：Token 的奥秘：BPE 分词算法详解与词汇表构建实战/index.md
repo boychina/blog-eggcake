@@ -73,29 +73,36 @@ BPE 最早诞生于 1994 年，原本是一种**数据压缩算法**。它的核
 此时词表包含基础字符：`l, o, w, e, r, n, i, d, s, t, </w>`
 
 **第二步：寻找最高频的相邻字符对**
-在上述语料中，我们可以统计出 `e` 和 `w` 总是连在一起出现（`new` 中 6 次，`lower` 中 2 次，共 8 次）。
+这里有一个非常关键的细节：BPE 统计的是**有顺序的相邻字符对**，所以 `(e, w)` 和 `(w, e)` 是两个完全不同的候选，不能混为一谈。同时，单词结束符 `</w>` 也会参与组合统计。
+
+经过严格统计，当前语料中出现频率最高的相邻字符对是 `(w, </w>)`，它在 `low`(5次)、`new`(6次) 中共出现了 11 次。
 
 **第三步：合并并更新词表**
-将 `e` 和 `w` 合并为新 Token `ew`，加入词表。
+我们将 `w` 和 `</w>` 合并为新 Token `w</w>`，加入词表。
 此时语料更新为：
-*   `"l o w </w>"` (5)
-*   `"l o w ew r </w>"` (2)
-*   `"n ew </w>"` (6)
+*   `"l o w</w>"` (5)
+*   `"l o w e r </w>"` (2)
+*   `"n e w</w>"` (6)
 *   `"w i d e s t </w>"` (3)
 
+*(注意：`lower` 中的 `w` 后面是 `e`，不是 `</w>`，所以没有被合并。)*
+
 **第四步：循环迭代**
-继续寻找最高频的组合。接下来发现 `new` (6次) 频率最高，合并 `n` 和 `ew` 为 `new`。再后来可能合并 `l` 和 `o` 为 `lo`，以此类推。
+继续重复“统计频次 -> 选择最高频 -> 合并”的过程：
+- **第 2 轮**：最高频是 `(l, o)`，出现 7 次。合并为 `lo`。
+- **第 3 轮**：最高频是 `(e, w</w>)`，出现 6 次。合并为 `ew</w>`。
+- **第 4 轮**：最高频是 `(n, ew</w>)`，出现 6 次。合并为 `new</w>`。
 
 **第五步：终止**
 当我们达到了预设的词表大小限制（Vocabulary Size），或者再也找不到能够合并的字符对时，训练结束。
 
 <div align="center">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 320" width="100%" height="100%" style="max-width: 620px; margin: 20px 0;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 320" width="100%" height="100%" style="max-width: 660px; margin: 20px 0;">
     <defs>
       <style>
         .box { fill: #f8fafc; stroke: #3b82f6; stroke-width: 2; rx: 8; ry: 8; }
-        .text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 16px; fill: #1e293b; text-anchor: middle; dominant-baseline: middle; }
-        .title { font-weight: bold; font-size: 16px; fill: #0f172a; }
+        .text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 15px; fill: #1e293b; text-anchor: middle; dominant-baseline: middle; }
+        .title { font-weight: bold; font-size: 15px; fill: #0f172a; }
         .arrow { stroke: #64748b; stroke-width: 2; marker-end: url(#arrowhead); fill: none; }
         .hl { fill: #ea580c; font-weight: bold; }
       </style>
@@ -104,34 +111,34 @@ BPE 最早诞生于 1994 年，原本是一种**数据压缩算法**。它的核
       </marker>
     </defs>
     <!-- Iteration 1 -->
-    <rect x="20" y="20" width="160" height="280" class="box" />
-    <text x="100" y="45" class="title">初始状态</text>
-    <text x="100" y="80" class="text">l o w</text>
-    <text x="100" y="110" class="text">l o w <tspan class="hl">e w</tspan> r</text>
-    <text x="100" y="140" class="text">n <tspan class="hl">e w</tspan></text>
-    <text x="100" y="170" class="text">w i d e s t</text>
-    <text x="100" y="220" class="text" fill="#ef4444" font-weight="bold">最高频: e, w</text>
-    <text x="100" y="250" class="text">合并为: ew</text>
+    <rect x="10" y="20" width="170" height="280" class="box" />
+    <text x="65" y="45" class="title">初始状态</text>
+    <text x="95" y="80" class="text">l o <tspan class="hl">w &lt;/w&gt;</tspan></text>
+    <text x="95" y="110" class="text">l o w e r &lt;/w&gt;</text>
+    <text x="95" y="140" class="text">n e <tspan class="hl">w &lt;/w&gt;</tspan></text>
+    <text x="95" y="170" class="text">w i d e s t &lt;/w&gt;</text>
+    <text x="95" y="220" class="text" fill="#ef4444" font-weight="bold">最高频: w, &lt;/w&gt;</text>
+    <text x="95" y="250" class="text">合并为: w&lt;/w&gt;</text>
     <path d="M 190 150 L 210 150" class="arrow" />
     <!-- Iteration 2 -->
-    <rect x="230" y="20" width="160" height="280" class="box" />
-    <text x="310" y="45" class="title">第 1 次合并后</text>
-    <text x="310" y="80" class="text">l o w</text>
-    <text x="310" y="110" class="text">l o w ew r</text>
-    <text x="310" y="140" class="text"><tspan class="hl">n ew</tspan></text>
-    <text x="310" y="170" class="text">w i d e s t</text>
-    <text x="310" y="220" class="text" fill="#ef4444" font-weight="bold">最高频: n, ew</text>
-    <text x="310" y="250" class="text">合并为: new</text>
+    <rect x="220" y="20" width="170" height="280" class="box" />
+    <text x="255" y="45" class="title">第 1 次合并后</text>
+    <text x="305" y="80" class="text"><tspan class="hl">l o</tspan> w&lt;/w&gt;</text>
+    <text x="305" y="110" class="text"><tspan class="hl">l o</tspan> w e r &lt;/w&gt;</text>
+    <text x="305" y="140" class="text">n e w&lt;/w&gt;</text>
+    <text x="305" y="170" class="text">w i d e s t &lt;/w&gt;</text>
+    <text x="305" y="220" class="text" fill="#ef4444" font-weight="bold">最高频: l, o</text>
+    <text x="305" y="250" class="text">合并为: lo</text>
     <path d="M 400 150 L 420 150" class="arrow" />
     <!-- Iteration 3 -->
-    <rect x="440" y="20" width="160" height="280" class="box" />
-    <text x="520" y="45" class="title">第 2 次合并后</text>
-    <text x="520" y="80" class="text"><tspan class="hl">l o</tspan> w</text>
-    <text x="520" y="110" class="text"><tspan class="hl">l o</tspan> w ew r</text>
-    <text x="520" y="140" class="text">new</text>
-    <text x="520" y="170" class="text">w i d e s t</text>
-    <text x="520" y="220" class="text" fill="#ef4444" font-weight="bold">最高频: l, o</text>
-    <text x="520" y="250" class="text">合并为: lo</text>
+    <rect x="430" y="20" width="170" height="280" class="box" />
+    <text x="465" y="45" class="title">第 2 次合并后</text>
+    <text x="515" y="80" class="text">lo w&lt;/w&gt;</text>
+    <text x="515" y="110" class="text">lo w e r &lt;/w&gt;</text>
+    <text x="515" y="140" class="text">n <tspan class="hl">e w&lt;/w&gt;</tspan></text>
+    <text x="515" y="170" class="text">w i d e s t &lt;/w&gt;</text>
+    <text x="515" y="220" class="text" fill="#ef4444" font-weight="bold">最高频: e, w&lt;/w&gt;</text>
+    <text x="515" y="250" class="text">合并为: ew&lt;/w&gt;</text>
   </svg>
 </div>
 
@@ -142,6 +149,12 @@ BPE 最早诞生于 1994 年，原本是一种**数据压缩算法**。它的核
 ## 3. 代码实战：手写一个极简 BPE Tokenizer
 
 纸上得来终觉浅。为了真正理解 BPE，我们来手写一个简化版的 BPE 分词器。它包含三个核心部分：**训练（Train）**、**编码（Encode）**、**解码（Decode）**。
+
+> 💡 **运行环境准备**：
+> 
+> 本节所有代码只需原生的 **Python 3.8+** 环境即可运行，不需要安装任何第三方依赖。
+> 
+> 如果你想直接获取完整可运行的源码，可以在本文配套文章目录的 `src/bpe_tokenizer.py` 中找到。你也可以创建一个同名文件，将下文中的代码片段组合进去。
 
 ### 3.1 训练（Train）与构建词表
 
@@ -214,10 +227,14 @@ class BasicBPETokenizer:
 编码阶段就是将一段人类输入的字符串，根据我们刚才训练好的合并规则（`merges`），转化为大模型能看懂的整数 ID 列表。
 
 ```python
-    def encode(self, text):
+    def encode(self, text, verbose=False):
         """文本 -> Token IDs"""
         tokens = list(text.encode("utf-8"))
         
+        if verbose:
+            print(f"  [Encode] 初始字节拆分: {tokens}")
+            print(f"  [Encode] 对应单字符为: {[chr(t) if 32 <= t <= 126 else '?' for t in tokens]}")
+            
         while len(tokens) >= 2:
             stats = self.get_stats(tokens)
             # 找到在我们的 merges 规则中最先被合并的 pair
@@ -230,6 +247,9 @@ class BasicBPETokenizer:
             idx = self.merges[pair]
             tokens = self.merge(tokens, pair, idx)
             
+            if verbose:
+                print(f"  [Encode] 应用合并规则 {pair} -> {idx}, 当前序列: {tokens}")
+                
         return tokens
 ```
 
@@ -247,21 +267,28 @@ class BasicBPETokenizer:
 
 ### 测试我们手写的分词器
 
+你可以把上面所有代码拼装在一起，或者直接执行 `src/bpe_tokenizer.py`。我们来测试一下它的效果：
+
 ```python
-# 测试用例
-text_data = "hello world, hello python, hello AI!"
+if __name__ == "__main__":
+    # 测试用例
+    text_data = "hello world, hello python, hello AI! It is a beautiful world."
+    print(f"训练语料:\n'{text_data}'\n")
 
-tokenizer = BasicBPETokenizer()
-# 训练：假设我们要将词表大小从基础的 256 扩充到 270（执行 14 次合并）
-tokenizer.train(text_data, vocab_size=270)
+    tokenizer = BasicBPETokenizer()
+    # 训练：将词表大小从基础的 256 扩充到 270（执行 14 次合并）
+    tokenizer.train(text_data, vocab_size=270)
 
-print("\n--- 测试 Encode 和 Decode ---")
-test_str = "hello AI!"
-ids = tokenizer.encode(test_str)
-print(f"原始文本: '{test_str}'")
-print(f"编码后的 IDs: {ids}")
-print(f"解码还原: '{tokenizer.decode(ids)}'")
+    print("\n--- 测试 Encode 和 Decode ---")
+    test_str = "hello AI!"
+    
+    ids = tokenizer.encode(test_str, verbose=True)
+    print(f"原始文本: '{test_str}'")
+    print(f"编码后的 IDs: {ids}")
+    print(f"解码还原: '{tokenizer.decode(ids)}'")
 ```
+
+在终端运行 `python bpe_tokenizer.py`，你将看到清晰的迭代合并过程，以及编码解码完全可逆的验证结果。
 
 *通过这几十行代码，你其实已经写出了 OpenAI 的 `tiktoken` 库最核心的底层逻辑。*
 
