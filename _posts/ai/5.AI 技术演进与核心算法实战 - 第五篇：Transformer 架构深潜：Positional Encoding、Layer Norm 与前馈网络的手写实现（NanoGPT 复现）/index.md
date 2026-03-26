@@ -340,7 +340,21 @@ class Block(nn.Module):
         return x
 ```
 
-至此，一个完整的 Transformer 积木块就诞生了！现代的 GPT 模型，比如 GPT-3 或 LLaMA，本质上就是把这个 `Block` 重复堆叠了几十层。
+### 4.3 代码运行结果
+
+我们在本地测试了上面拼装好的完整的 Transformer Block。在配置为 `Batch=2, SeqLen=8, EmbedDim=32, Heads=4` 的情况下，运行结果如下：
+
+```text
+正在初始化配置: Batch=2, SeqLen=8, EmbedDim=32, Heads=4
+
+[1] 原始输入特征 x 的形状: torch.Size([2, 8, 32])
+[2] 经过位置编码后的特征形状: torch.Size([2, 8, 32]) (未改变维度，数值被注入了时序特征)
+[3] 经过一个完整的 Transformer Block (Pre-LN) 后的输出形状: torch.Size([2, 8, 32])
+
+✅ 运行成功！模型的所有组件能够完美衔接工作。
+```
+
+从输出结果可以看出，无论内部的自注意力机制和前馈网络进行了多么复杂的空间映射和维度缩放，由于**残差连接**的巧妙设计，整个 Transformer Block 最终输出的张量形状与输入完全一致。这就是为什么我们可以像搭积木一样，将几十个甚至上百个这样的 Block 串联堆叠在一起，构建出拥有千亿参数的 GPT 大模型！
 
 ---
 
