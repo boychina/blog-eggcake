@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "predev": "pnpm sync:post-assets",
-    "dev": "next dev --webpack",
+    "dev": "tsx scripts/dev.ts",
     "lint": "tsc --noEmit",
     "typecheck": "tsc --noEmit",
     "test": "echo \"No tests configured\"",
