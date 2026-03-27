@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="50%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#ec4899"/>
+    </linearGradient>
+    <linearGradient id="curve-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22d3ee"/>
+      <stop offset="100%" style="stop-color:#a78bfa"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-strong">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg-grad)"/>
+  <!-- Grid pattern -->
+  <g opacity="0.05">
+    <line x1="0" y1="0" x2="1200" y2="630" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="400" y1="0" x2="1200" y2="530" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="0" y1="210" x2="800" y2="630" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="1200" y1="0" x2="0" y2="630" stroke="#8b5cf6" stroke-width="0.5"/>
+    <line x1="800" y1="0" x2="0" y2="530" stroke="#8b5cf6" stroke-width="0.5"/>
+    <line x1="1200" y1="210" x2="400" y2="630" stroke="#8b5cf6" stroke-width="0.5"/>
+  </g>
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="80" fill="none" stroke="#3b82f6" stroke-width="0.5" opacity="0.2"/>
+  <circle cx="100" cy="100" r="120" fill="none" stroke="#3b82f6" stroke-width="0.3" opacity="0.1"/>
+  <circle cx="1100" cy="530" r="100" fill="none" stroke="#8b5cf6" stroke-width="0.5" opacity="0.2"/>
+  <circle cx="1100" cy="530" r="150" fill="none" stroke="#8b5cf6" stroke-width="0.3" opacity="0.1"/>
+  <!-- Module badge -->
+  <rect x="80" y="50" width="220" height="36" rx="18" fill="none" stroke="url(#accent-grad)" stroke-width="1.5" opacity="0.8"/>
+  <text x="190" y="73" font-family="-apple-system, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">第二模块：交互篇 — 第七篇</text>
+  <!-- Title -->
+  <text x="80" y="160" font-family="-apple-system, sans-serif" font-size="38" font-weight="bold" fill="#f1f5f9">提示词的数学本质</text>
+  <text x="80" y="220" font-family="-apple-system, sans-serif" font-size="22" fill="#94a3b8">In-Context Learning 的贝叶斯解释</text>
+  <text x="80" y="255" font-family="-apple-system, sans-serif" font-size="22" fill="#94a3b8">与概率分布操控</text>
+  <!-- Accent line -->
+  <rect x="80" y="275" width="120" height="3" rx="1.5" fill="url(#accent-grad)"/>
+  <!-- Central illustration: Probability distribution curves -->
+  <g transform="translate(650, 160)" filter="url(#glow)">
+    <!-- Axis -->
+    <line x1="0" y1="250" x2="450" y2="250" stroke="#475569" stroke-width="1"/>
+    <line x1="0" y1="250" x2="0" y2="0" stroke="#475569" stroke-width="1"/>
+    <text x="225" y="290" font-family="-apple-system, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Token</text>
+    <text x="-20" y="125" font-family="-apple-system, sans-serif" font-size="11" fill="#64748b" text-anchor="middle" transform="rotate(-90, -20, 125)">P(token|prompt)</text>
+    <!-- Distribution 1: flat (before prompt) -->
+    <path d="M 0,250 Q 30,240 60,230 Q 100,200 140,170 Q 180,130 225,120 Q 270,130 310,170 Q 350,200 390,230 Q 420,240 450,250" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="6 3" opacity="0.5"/>
+    <text x="225" y="110" font-family="-apple-system, sans-serif" font-size="10" fill="#475569" text-anchor="middle">无提示词</text>
+    <!-- Distribution 2: good prompt -->
+    <path d="M 0,250 Q 40,248 80,245 Q 120,238 160,225 Q 190,195 210,120 Q 225,50 240,120 Q 260,195 290,225 Q 330,238 370,245 Q 410,248 450,250" fill="url(#curve-grad)" fill-opacity="0.15" stroke="url(#curve-grad)" stroke-width="2.5"/>
+    <text x="225" y="40" font-family="-apple-system, sans-serif" font-size="10" fill="#22d3ee" text-anchor="middle">优质提示词</text>
+    <!-- Distribution 3: bad prompt (shifted) -->
+    <path d="M 0,250 Q 40,245 80,235 Q 110,210 140,170 Q 155,140 165,110 Q 175,90 185,110 Q 200,150 220,190 Q 250,220 290,235 Q 350,248 450,250" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.6"/>
+    <text x="165" y="80" font-family="-apple-system, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle">劣质提示词</text>
+    <!-- Arrow showing shift -->
+    <path d="M 200,200 L 230,160" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#shift-arrow)" filter="url(#glow)"/>
+    <defs>
+      <marker id="shift-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#fbbf24"/>
+      </marker>
+    </defs>
+  </g>
+  <!-- Bottom section: Key concepts -->
+  <g transform="translate(80, 340)">
+    <!-- Concept 1 -->
+    <rect x="0" y="0" width="220" height="110" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="1" opacity="0.8"/>
+    <circle cx="30" cy="30" r="12" fill="#3b82f6" opacity="0.2"/>
+    <text x="30" y="35" font-family="-apple-system, sans-serif" font-size="16" fill="#3b82f6" text-anchor="middle">P</text>
+    <text x="55" y="35" font-family="-apple-system, sans-serif" font-size="14" font-weight="bold" fill="#e2e8f0">概率分布</text>
+    <text x="20" y="60" font-family="-apple-system, sans-serif" font-size="12" fill="#94a3b8">LLM 输出本质是</text>
+    <text x="20" y="80" font-family="-apple-system, sans-serif" font-size="12" fill="#94a3b8">条件概率 P(y|x,prompt)</text>
+    <!-- Concept 2 -->
+    <rect x="250" y="0" width="220" height="110" rx="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="1" opacity="0.8"/>
+    <circle cx="280" cy="30" r="12" fill="#8b5cf6" opacity="0.2"/>
+    <text x="280" y="35" font-family="-apple-system, sans-serif" font-size="14" fill="#8b5cf6" text-anchor="middle">B</text>
+    <text x="305" y="35" font-family="-apple-system, sans-serif" font-size="14" font-weight="bold" fill="#e2e8f0">贝叶斯推断</text>
+    <text x="270" y="60" font-family="-apple-system, sans-serif" font-size="12" fill="#94a3b8">ICL ≈ 隐式贝叶斯更新</text>
+    <text x="270" y="80" font-family="-apple-system, sans-serif" font-size="12" fill="#94a3b8">后验 ∝ 先验 × 似然</text>
+    <!-- Concept 3 -->
+    <rect x="500" y="0" width="220" height="110" rx="10" fill="#1e293b" stroke="#ec4899" stroke-width="1" opacity="0.8"/>
+    <circle cx="530" cy="30" r="12" fill="#ec4899" opacity="0.2"/>
+    <text x="530" y="35" font-family="-apple-system, sans-serif" font-size="14" fill="#ec4899" text-anchor="middle">μ</text>
+    <text x="555" y="35" font-family="-apple-system, sans-serif" font-size="14" font-weight="bold" fill="#e2e8f0">分布操控</text>
+    <text x="520" y="60" font-family="-apple-system, sans-serif" font-size="12" fill="#94a3b8">提示词改变概率分布</text>
+    <text x="520" y="80" font-family="-apple-system, sans-serif" font-size="12" fill="#94a3b8">的形状与峰值位置</text>
+  </g>
+  <!-- Bottom tag -->
+  <text x="600" y="540" font-family="-apple-system, sans-serif" font-size="13" fill="#475569" text-anchor="middle">AI 技术演进与核心算法实战 | 从原理到 Agent</text>
+  <!-- Decorative dots -->
+  <circle cx="560" cy="540" r="2" fill="#3b82f6" opacity="0.5"/>
+  <circle cx="640" cy="540" r="2" fill="#8b5cf6" opacity="0.5"/>
+</svg>
