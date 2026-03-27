@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="pretrainGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="finetuneGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="loraGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGrad)"/>
+  <text x="400" y="50" font-family="-apple-system, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">预训练与微调</text>
+  <text x="400" y="80" font-family="-apple-system, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Masked LM × 参数高效微调 LoRA/P-Tuning</text>
+  <rect x="50" y="120" width="200" height="80" rx="12" fill="url(#pretrainGrad)" filter="url(#shadow)"/>
+  <text x="150" y="150" font-family="-apple-system, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">预训练 (Pre-training)</text>
+  <text x="150" y="175" font-family="-apple-system, sans-serif" font-size="14" fill="white" text-anchor="middle">读遍天下书</text>
+  <text x="150" y="190" font-family="-apple-system, sans-serif" font-size="12" fill="#e0e7ff" text-anchor="middle">学习通用语言能力</text>
+  <rect x="300" y="120" width="200" height="80" rx="12" fill="url(#finetuneGrad)" filter="url(#shadow)"/>
+  <text x="400" y="150" font-family="-apple-system, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">微调 (Fine-tuning)</text>
+  <text x="400" y="175" font-family="-apple-system, sans-serif" font-size="14" fill="white" text-anchor="middle">专业技能训练</text>
+  <text x="400" y="190" font-family="-apple-system, sans-serif" font-size="12" fill="#e0e7ff" text-anchor="middle">适应特定任务</text>
+  <rect x="550" y="120" width="200" height="80" rx="12" fill="url(#loraGrad)" filter="url(#shadow)"/>
+  <text x="650" y="150" font-family="-apple-system, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">参数高效微调</text>
+  <text x="650" y="175" font-family="-apple-system, sans-serif" font-size="14" fill="white" text-anchor="middle">LoRA / P-Tuning</text>
+  <text x="650" y="190" font-family="-apple-system, sans-serif" font-size="12" fill="#e0e7ff" text-anchor="middle">低成本Fine-tuning</text>
+  <path d="M 250 160 L 290 160" stroke="white" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+  <path d="M 500 160 L 540 160" stroke="white" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+  <rect x="150" y="240" width="500" height="60" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="400" y="265" font-family="-apple-system, sans-serif" font-size="14" fill="#cbd5e1" text-anchor="middle">MLM 目标函数：随机遮盖 15% 词汇，预测被遮盖的词</text>
+  <rect x="150" y="310" width="500" height="60" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="400" y="335" font-family="-apple-system, sans-serif" font-size="14" fill="#cbd5e1" text-anchor="middle">LoRA：通过低秩矩阵分解实现"权重增量"，训练参数量减少 90%+</text>
+</svg>
