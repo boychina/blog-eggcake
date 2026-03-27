@@ -394,6 +394,12 @@ ToT 由 Yao 等人在 2023 年的论文 *Tree of Thoughts: Deliberate Problem So
         .eval-box { fill: #fef3c7; stroke: #f59e0b; stroke-width: 2; rx: 8; }
         .search-box { fill: #dcfce7; stroke: #22c55e; stroke-width: 2; rx: 8; }
       </style>
+      <marker id="arr-tot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b" />
+      </marker>
+      <marker id="arr-tot-loop" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b" />
+      </marker>
     </defs>
     <text x="360" y="25" class="text-bold" font-size="15">ToT 的三大核心操作</text>
     <!-- Step 1: Generate -->
@@ -406,7 +412,7 @@ ToT 由 Yao 等人在 2023 年的论文 *Tree of Thoughts: Deliberate Problem So
     <text x="130" y="175" class="text" font-size="10" fill="#64748b">类比：在岔路口</text>
     <text x="130" y="193" class="text" font-size="10" fill="#64748b">同时探索 k 条路</text>
     <!-- Arrow 1->2 -->
-    <path d="M 245 140 L 290 140" stroke="#64748b" stroke-width="2" marker-end="url(#arr-tot)"/>
+    <path d="M 245 140 L 290 140" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arr-tot)"/>
     <text x="267" y="130" class="text" font-size="10" fill="#8b5cf6" font-weight="bold">评估</text>
     <!-- Step 2: Evaluate -->
     <rect x="295" y="50" width="220" height="170" class="eval-box"/>
@@ -418,7 +424,7 @@ ToT 由 Yao 等人在 2023 年的论文 *Tree of Thoughts: Deliberate Problem So
     <text x="405" y="175" class="text" font-size="10" fill="#64748b">类比：判断哪条路</text>
     <text x="405" y="193" class="text" font-size="10" fill="#64748b">更"有希望"通向出口</text>
     <!-- Arrow 2->3 -->
-    <path d="M 520 140 L 565 140" stroke="#64748b" stroke-width="2" marker-end="url(#arr-tot)"/>
+    <path d="M 520 140 L 565 140" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arr-tot)"/>
     <text x="542" y="130" class="text" font-size="10" fill="#22c55e" font-weight="bold">搜索</text>
     <!-- Step 3: Search -->
     <rect x="570" y="50" width="140" height="170" class="search-box"/>
@@ -429,18 +435,13 @@ ToT 由 Yao 等人在 2023 年的论文 *Tree of Thoughts: Deliberate Problem So
     <text x="640" y="145" class="text" font-size="10">BFS / DFS</text>
     <text x="640" y="175" class="text" font-size="10" fill="#64748b">类比：沿着最</text>
     <text x="640" y="193" class="text" font-size="10" fill="#64748b">有希望的路继续走</text>
-    <!-- Loop back arrow -->
-    <path d="M 640 225 L 640 260 L 130 260 L 130 225" stroke="#64748b" stroke-width="2" stroke-dasharray="6 3" marker-end="url(#arr-tot)"/>
+    <!-- Loop back arrow - fixed to avoid fill -->
+    <path d="M 640 225 L 640 250 L 130 250 L 130 225" stroke="#64748b" stroke-width="2" fill="none" stroke-dasharray="6 3" marker-end="url(#arr-tot)"/>
     <text x="385" y="275" class="text-bold" fill="#64748b" font-size="12">循环直到找到满意答案或达到最大搜索深度</text>
     <!-- Bottom summary -->
     <rect x="20" y="295" width="690" height="36" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1" rx="6"/>
     <text x="365" y="312" class="text" font-size="11" fill="#0369a1">ToT = Generate + Evaluate + Search 的循环。每一次循环都会：生成新思路 → 评估好坏 → 选择最优 → 继续</text>
     <text x="365" y="325" class="text" font-size="11" fill="#0369a1">这与人类解决复杂问题时的思维过程高度一致：先"发散思维"想多种可能，再"收敛"选最好的</text>
-    <defs>
-      <marker id="arr-tot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-        <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b" />
-      </marker>
-    </defs>
   </svg>
 </div>
 
@@ -943,7 +944,7 @@ solution = solver.solve(max_depth=4, branch_factor=5)
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" width="100%" height="100%" style="max-width: 720px; margin: 20px 0;">
     <defs>
       <style>
-        .header { fill: #1e293b; }
+        .header { fill: #f0f9ff; }
         .row1 { fill: #f8fafc; stroke: #e2e8f0; }
         .row2 { fill: #f1f5f9; stroke: #e2e8f0; }
         .row3 { fill: #f8fafc; stroke: #e2e8f0; }
