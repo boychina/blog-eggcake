@@ -4,7 +4,7 @@ excerpt: "系统级编程的安全革命。从 C/C++ 的血泪教训到 Rust 的
 description: "Rust 技术演进与核心算法实战第一篇：破局者诞生：Rust 的历史使命与设计哲学"
 keyword: "Rust,系统编程，内存安全，所有权，零成本抽象，Tauri"
 tag: "Rust"
-date: "2026-03-28 10:00:00"
+date: "2026-03-26 10:00:00"
 coverImage: "/assets/posts/Rust-技术演进与核心算法实战 - 第一篇：破局者诞生：Rust 的历史使命与设计哲学/cover/rust-birth.svg"
 author:
   name: 蛋烘糕
