@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="rust-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dea584;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f49d37;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg-gradient)"/>
+  
+  <!-- Gear background (symbolizing systems programming) -->
+  <g transform="translate(400, 300)" opacity="0.1">
+    <circle cx="0" cy="0" r="250" fill="none" stroke="#f49d37" stroke-width="20">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="60s" repeatCount="indefinite"/>
+    </circle>
+    <g>
+      <rect x="-280" y="-40" width="560" height="80" fill="#f49d37"/>
+      <rect x="-40" y="-280" width="80" height="560" fill="#f49d37"/>
+    </g>
+  </g>
+  
+  <!-- Rust logo (stylized R) -->
+  <g transform="translate(400, 280)" filter="url(#glow)">
+    <path d="M -100,-80 L 100,-80 L 100,-40 L 20,-40 L 20,0 L 80,0 L 80,40 L 20,40 L 20,120 L -40,120 L -40,-80 Z" 
+          fill="url(#rust-gradient)"/>
+    <circle cx="60" cy="-60" r="15" fill="#f49d37"/>
+  </g>
+  
+  <!-- Title text -->
+  <text x="400" y="420" font-family="'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="32" font-weight="bold" 
+        fill="#ffffff" text-anchor="middle" letter-spacing="2">
+    Rust 技术演进与核心算法实战
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="400" y="470" font-family="'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="24" 
+        fill="#dea584" text-anchor="middle">
+    第一篇：破局者诞生
+  </text>
+  
+  <!-- Tagline -->
+  <text x="400" y="510" font-family="Arial, sans-serif" font-size="18" 
+        fill="#a0a0a0" text-anchor="middle" font-style="italic">
+    The Disruptor is Born: Rust's Historical Mission
+  </text>
+  
+  <!-- Decorative elements -->
+  <g transform="translate(400, 550)" opacity="0.6">
+    <rect x="-100" y="-5" width="200" height="10" fill="#f49d37" rx="5"/>
+  </g>
+</svg>
