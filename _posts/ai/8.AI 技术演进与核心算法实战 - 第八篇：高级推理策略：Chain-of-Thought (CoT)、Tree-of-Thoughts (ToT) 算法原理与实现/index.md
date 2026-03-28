@@ -483,7 +483,7 @@ $$V(s, t_i) \in [0, 1]$$
 ### 3.3 BFS vs DFS：两种搜索策略对比
 
 <div align="center">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" width="100%" height="100%" style="max-width: 720px; margin: 20px 0;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="100%" height="100%" style="max-width: 720px; margin: 20px 0;">
     <defs>
       <style>
         .box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; rx: 8; }
@@ -522,7 +522,7 @@ $$V(s, t_i) \in [0, 1]$$
     <text x="180" y="278" class="text" font-size="10" fill="#1d4ed8">第2步：展开 B 的子节点 → 评估 → 继续最优</text>
     <!-- DFS side -->
     <text x="540" y="55" class="text-bold" fill="#22c55e" font-size="13">DFS（深度优先搜索）</text>
-    <rect x="380" y="70" width="320" height="230" class="box"/>
+    <rect x="380" y="70" width="320" height="255" class="box"/>
     <text x="540" y="90" class="text" font-size="10" fill="#64748b">策略：选一条路走到底，不通就回溯</text>
     <!-- Level 0 -->
     <circle cx="540" cy="120" r="14" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
@@ -550,12 +550,12 @@ $$V(s, t_i) \in [0, 1]$$
     <circle cx="455" cy="258" r="10" fill="#bbf7d0" stroke="#22c55e" stroke-width="1.5"/>
     <text x="455" y="258" class="text" font-size="7">A1b</text>
     <!-- Annotation -->
-    <rect x="395" y="245" width="290" height="45" fill="#f0fdf4" stroke="#86efac" stroke-width="1" rx="4"/>
-    <text x="540" y="260" class="text" font-size="10" fill="#166534">第1步：选 A → 走到底 → A2 是死路 → 回溯</text>
-    <text x="540" y="278" class="text" font-size="10" fill="#166534">第2步：选 A1 → 继续 → A1a/A1b → 评估</text>
+    <rect x="395" y="275" width="290" height="45" fill="#f0fdf4" stroke="#86efac" stroke-width="1" rx="4"/>
+    <text x="540" y="290" class="text" font-size="10" fill="#166534">第1步：选 A → 走到底 → A2 是死路 → 回溯</text>
+    <text x="540" y="308" class="text" font-size="10" fill="#166534">第2步：选 A1 → 继续 → A1a/A1b → 评估</text>
     <!-- Bottom comparison -->
-    <rect x="20" y="310" width="680" height="24" fill="#fafafa" stroke="#e2e8f0" stroke-width="1" rx="4"/>
-    <text x="360" y="324" class="text" font-size="11" fill="#64748b">BFS 适合"每步都能评估"的场景（如创意写作、24点游戏）；DFS 适合"能快速判断对错"的场景（如解谜、数学证明）</text>
+    <rect x="20" y="330" width="680" height="24" fill="#fafafa" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+    <text x="360" y="344" class="text" font-size="11" fill="#64748b">BFS 适合"每步都能评估"的场景（如创意写作、24点游戏）；DFS 适合"能快速判断对错"的场景（如解谜、数学证明）</text>
   </svg>
 </div>
 
