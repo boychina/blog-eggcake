@@ -142,25 +142,26 @@ Mozilla 希望为下一代浏览器引擎 **Servo** 找到合适的编程语言�
         <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb" />
       </marker>
     </defs>
+    <!-- Dashed triangle connecting corners -->
     <line x1="250" y1="80" x2="90" y2="400" class="dashed-line" />
     <line x1="250" y1="80" x2="410" y2="400" class="dashed-line" />
     <line x1="90" y1="400" x2="410" y2="400" class="dashed-line" />
     <!-- Top corner: High Performance -->
     <rect x="180" y="20" width="140" height="60" class="corner" />
     <text x="250" y="45" class="text" font-weight="bold">⚡ 高性能</text>
-    <text x="250" y="65" class="label">Zero-cost Abstraction</text>
+    <text x="190" y="65" class="label">Zero-cost Abstraction</text>
     <!-- Bottom-left corner: Memory Safety -->
     <rect x="20" y="370" width="140" height="60" class="corner" />
     <text x="90" y="395" class="text" font-weight="bold">🔒 内存安全</text>
-    <text x="90" y="415" class="label">Ownership System</text>
+    <text x="40" y="415" class="label">Ownership System</text>
     <!-- Bottom-right corner: Fearless Concurrency -->
     <rect x="340" y="370" width="140" height="60" class="corner" />
     <text x="410" y="395" class="text" font-weight="bold">🧵 无畏并发</text>
-    <text x="410" y="415" class="label">Send + Sync Traits</text>
+    <text x="360" y="415" class="label">Send + Sync Traits</text>
     <!-- Center: Rust -->
     <circle cx="250" cy="250" r="55" class="center" />
     <text x="250" y="245" class="text" font-weight="bold" font-size="18">Rust</text>
-    <text x="250" y="268" class="label" font-size="12">三者兼得</text>
+    <text x="230" y="268" class="label" font-size="12">三者兼得</text>
     <!-- Arrows from corners to center -->
     <line x1="250" y1="80" x2="250" y2="195" class="arrow" />
     <line x1="125" y1="370" x2="210" y2="285" class="arrow" />
@@ -224,13 +225,13 @@ let s2 = s1;  // 移动（Move），s1 在编译期失效
     <text x="425" y="40" class="text" font-weight="bold">堆（Heap）</text>
     <rect x="70" y="70" width="160" height="40" fill="#ffffff" stroke="#2563eb" rx="4" />
     <text x="150" y="90" class="text">s1 (变量名)</text>
-    <text x="150" y="105" class="label" x-anchor="start">指针 → 0x1000</text>
+    <text x="110" y="105" class="label" x-anchor="start">指针 → 0x1000</text>
     <rect x="70" y="130" width="160" height="40" fill="#ffffff" stroke="#2563eb" rx="4" />
     <text x="150" y="150" class="text">s2 (变量名)</text>
-    <text x="150" y="165" class="label" x-anchor="start">指针 → 0x1000</text>
+    <text x="110" y="165" class="label" x-anchor="start">指针 → 0x1000</text>
     <rect x="320" y="100" width="210" height="80" fill="#ffffff" stroke="#d97706" rx="4" />
     <text x="425" y="135" class="text">String 数据 ("Hello")</text>
-    <text x="425" y="155" class="label" x-anchor="start">地址：0x1000</text>
+    <text x="360" y="155" class="label" x-anchor="start">地址：0x1000</text>
     <line x1="230" y1="90" x2="310" y2="130" class="pointer" />
     <line x1="230" y1="150" x2="310" y2="140" class="pointer" />
     <text x="150" y="240" class="text" font-size="12" fill="#dc2626">❌ s1 已失效，编译错误</text>
