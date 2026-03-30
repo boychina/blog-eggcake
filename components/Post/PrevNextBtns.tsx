@@ -15,7 +15,7 @@ export default function PrevNextBtns({ prevNextPost }: PrevNextBtnsProps) {
       <Col span={12}>
         {prevPost && (
           <Link href={`/posts/${String(prevPost.slug)}`}>
-            <div className="whitespace-nowrap cursor-pointer flex items-center h-full text-sm bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-2 px-4 duration-200 transition-colors">
+            <div className="cursor-pointer flex items-center h-full text-sm bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-2 px-4 duration-200 transition-colors">
               <ArrowLeftOutlined />
               <span className="ml-2">{String(prevPost.title ?? "")}</span>
             </div>
@@ -25,7 +25,7 @@ export default function PrevNextBtns({ prevNextPost }: PrevNextBtnsProps) {
       <Col span={12}>
         {nextPost && (
           <Link href={`/posts/${String(nextPost.slug)}`}>
-            <div className="whitespace-nowrap cursor-pointer flex items-center h-full text-sm bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-2 px-4 duration-200 transition-colors justify-between">
+            <div className="cursor-pointer flex items-center h-full text-sm bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-2 px-4 duration-200 transition-colors justify-between">
               <span className="mr-2">{String(nextPost.title ?? "")}</span>
               <ArrowRightOutlined />
             </div>
