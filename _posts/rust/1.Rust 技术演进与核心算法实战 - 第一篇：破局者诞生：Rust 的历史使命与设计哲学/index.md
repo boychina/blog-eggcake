@@ -175,7 +175,7 @@ Graydon Hoare 提出了 Rust 的三大设计支柱：
 2. **零成本抽象（Zero-cost Abstraction）**：高级语法不带来任何性能损失
 3. **无畏并发（Fearless Concurrency）**：编译器帮你避免数据竞争
 
-这听起来像是"既要、又要、还要"的不可能三角，但 Rust 通过**所有权系统（Ownership System）**奇迹般地实现了。
+这听起来像是"既要、又要、还要"的不可能三角，但 Rust 通过**所有权系统（Ownership System）** 奇迹般地实现了。
 
 ## 3. 三大设计支柱深度解读
 
