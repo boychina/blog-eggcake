@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f766e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1"/>
+    </linearGradient>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 48px; font-weight: bold; fill: #ffffff; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 28px; fill: #e0e7ff; }
+      .highlight { fill: #fbbf24; }
+      .doc-icon { fill: #f0fdf4; stroke: #10b981; stroke-width: 2; }
+      .chunk-box { fill: #fef3c7; stroke: #f59e0b; stroke-width: 2; rx: 4; }
+      .meta-tag { fill: #dbeafe; stroke: #3b82f6; stroke-width: 1.5; rx: 3; }
+      .pipeline { stroke: #64748b; stroke-width: 3; fill: none; stroke-dasharray: 8 4; }
+      .arrow { marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#bg-gradient)"/>
+  
+  <text x="600" y="80" text-anchor="middle" class="title">数据流水线工程</text>
+  <text x="600" y="130" text-anchor="middle" class="subtitle">非结构化文档的清洗、分块与元数据管理</text>
+  
+  <g transform="translate(100, 200)">
+    <text x="150" y="-30" text-anchor="middle" class="subtitle" style="font-size: 20px; fill:#6ee7b7;">原始文档</text>
+    <rect x="50" y="0" width="200" height="120" class="doc-icon" rx="8"/>
+    <text x="150" y="40" text-anchor="middle" style="font-size: 14px; fill:#047857; font-weight:bold;">PDF / DOCX</text>
+    <text x="150" y="65" text-anchor="middle" style="font-size: 14px; fill:#047857;">HTML / TXT</text>
+    <text x="150" y="90" text-anchor="middle" style="font-size: 14px; fill:#047857;">Markdown</text>
+    <text x="150" y="115" text-anchor="middle" style="font-size: 14px; fill:#dc2626;">杂乱无序</text>
+  </g>
+  
+  <path d="M 350 260 L 420 260" class="pipeline arrow"/>
+  
+  <g transform="translate(420, 200)">
+    <text x="150" y="-30" text-anchor="middle" class="subtitle" style="font-size: 20px; fill:#6ee7b7;">Step 1: 清洗</text>
+    <rect x="50" y="0" width="200" height="120" fill="#f0fdf4" stroke="#10b981" stroke-width="2" rx="8"/>
+    <text x="150" y="35" text-anchor="middle" style="font-size: 13px; fill:#047857;">• 移除 HTML 标签</text>
+    <text x="150" y="60" text-anchor="middle" style="font-size: 13px; fill:#047857;">• 纠正编码错误</text>
+    <text x="150" y="85" text-anchor="middle" style="font-size: 13px; fill:#047857;">• 删除无关内容</text>
+    <text x="150" y="110" text-anchor="middle" style="font-size: 13px; fill:#047857;">• 标准化格式</text>
+  </g>
+  
+  <path d="M 620 260 L 690 260" class="pipeline arrow"/>
+  
+  <g transform="translate(690, 200)">
+    <text x="150" y="-30" text-anchor="middle" class="subtitle" style="font-size: 20px; fill:#fcd34d;">Step 2: 分块</text>
+    <rect x="50" y="0" width="200" height="120" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="8"/>
+    <text x="150" y="35" text-anchor="middle" style="font-size: 13px; fill:#92400e;">• 固定长度切分</text>
+    <text x="150" y="60" text-anchor="middle" style="font-size: 13px; fill:#92400e;">• 语义边界检测</text>
+    <text x="150" y="85" text-anchor="middle" style="font-size: 13px; fill:#92400e;">• 重叠窗口策略</text>
+    <text x="150" y="110" text-anchor="middle" style="font-size: 13px; fill:#92400e;">• 层次化分块</text>
+  </g>
+  
+  <path d="M 890 260 L 960 260" class="pipeline arrow"/>
+  
+  <g transform="translate(960, 200)">
+    <text x="150" y="-30" text-anchor="middle" class="subtitle" style="font-size: 20px; fill:#93c5fd;">Step 3: 元数据</text>
+    <rect x="50" y="0" width="200" height="120" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="8"/>
+    <rect x="70" y="20" width="80" height="25" class="meta-tag"/>
+    <text x="110" y="37" text-anchor="middle" style="font-size: 11px; fill:#1e40af;">source</text>
+    <rect x="70" y="50" width="80" height="25" class="meta-tag"/>
+    <text x="110" y="67" text-anchor="middle" style="font-size: 11px; fill:#1e40af;">timestamp</text>
+    <rect x="70" y="80" width="80" height="25" class="meta-tag"/>
+    <text x="110" y="97" text-anchor="middle" style="font-size: 11px; fill:#1e40af;">chunk_id</text>
+  </g>
+  
+  <g transform="translate(300, 380)">
+    <text x="300" y="-20" text-anchor="middle" class="subtitle" style="font-size: 22px; fill:#fbbf24; font-weight:bold;">最终输出：高质量向量索引</text>
+    <rect x="0" y="0" width="600" height="120" fill="#ffffff" fill-opacity="0.15" stroke="#fbbf24" stroke-width="2" rx="12"/>
+    <g transform="translate(40, 30)">
+      <rect x="0" y="0" width="100" height="60" class="chunk-box"/>
+      <text x="50" y="35" text-anchor="middle" style="font-size: 11px; fill:#92400e;">Chunk 1</text>
+      <rect x="120" y="0" width="100" height="60" class="chunk-box"/>
+      <text x="170" y="35" text-anchor="middle" style="font-size: 11px; fill:#92400e;">Chunk 2</text>
+      <rect x="240" y="0" width="100" height="60" class="chunk-box"/>
+      <text x="290" y="35" text-anchor="middle" style="font-size: 11px; fill:#92400e;">Chunk 3</text>
+      <rect x="360" y="0" width="100" height="60" class="chunk-box"/>
+      <text x="420" y="35" text-anchor="middle" style="font-size: 11px; fill:#92400e;">Chunk 4</text>
+      <text x="540" y="35" text-anchor="middle" style="font-size: 16px; fill:#ffffff; font-weight:bold;">...</text>
+    </g>
+    <g transform="translate(40, 100)">
+      <text x="50" y="0" text-anchor="middle" style="font-size: 10px; fill:#e0e7ff;">[embedding →]</text>
+      <text x="170" y="0" text-anchor="middle" style="font-size: 10px; fill:#e0e7ff;">[embedding →]</text>
+      <text x="290" y="0" text-anchor="middle" style="font-size: 10px; fill:#e0e7ff;">[embedding →]</text>
+      <text x="420" y="0" text-anchor="middle" style="font-size: 10px; fill:#e0e7ff;">[embedding →]</text>
+    </g>
+  </g>
+  
+  <text x="600" y="580" text-anchor="middle" class="subtitle" style="font-size: 18px; fill: #fbbf24;">AI 技术演进与核心算法实战 | 第十二篇</text>
+</svg>
