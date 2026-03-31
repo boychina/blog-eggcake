@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 48px; font-weight: bold; fill: #ffffff; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 28px; fill: #e0e7ff; }
+      .highlight { fill: #fbbf24; }
+      .hnsw-node { fill: #3b82f6; }
+      .ivf-cluster { fill: #8b5cf6; }
+      .connection { stroke: #60a5fa; stroke-width: 2; }
+      .path-line { stroke: #fbbf24; stroke-width: 3; fill: none; stroke-dasharray: 8 4; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg-gradient)"/>
+  
+  <!-- Title -->
+  <text x="600" y="80" text-anchor="middle" class="title">向量数据库内核</text>
+  <text x="600" y="130" text-anchor="middle" class="subtitle">HNSW vs IVF-PQ 近似最近邻搜索</text>
+  
+  <!-- Left: HNSW visualization -->
+  <g transform="translate(150, 200)">
+    <text x="150" y="-30" text-anchor="middle" class="subtitle" style="font-size: 20px; fill: #93c5fd;">HNSW 分层图结构</text>
+    
+    <!-- Layer connections -->
+    <circle cx="150" cy="80" r="8" class="hnsw-node"/>
+    <circle cx="80" cy="150" r="6" class="hnsw-node"/>
+    <circle cx="220" cy="150" r="6" class="hnsw-node"/>
+    <circle cx="40" cy="220" r="5" class="hnsw-node"/>
+    <circle cx="120" cy="220" r="5" class="hnsw-node"/>
+    <circle cx="180" cy="220" r="5" class="hnsw-node"/>
+    <circle cx="260" cy="220" r="5" class="hnsw-node"/>
+    
+    <!-- Top layer connections -->
+    <line x1="150" y1="80" x2="80" y2="150" class="connection"/>
+    <line x1="150" y1="80" x2="220" y2="150" class="connection"/>
+    
+    <!-- Middle layer connections -->
+    <line x1="80" y1="150" x2="40" y2="220" class="connection"/>
+    <line x1="80" y1="150" x2="120" y2="220" class="connection"/>
+    <line x1="220" y1="150" x2="180" y2="220" class="connection"/>
+    <line x1="220" y1="150" x2="260" y2="220" class="connection"/>
+    
+    <!-- Bottom layer dense connections -->
+    <line x1="40" y1="220" x2="120" y2="220" class="connection" style="stroke-width: 1.5;"/>
+    <line x1="120" y1="220" x2="180" y2="220" class="connection" style="stroke-width: 1.5;"/>
+    <line x1="180" y1="220" x2="260" y2="220" class="connection" style="stroke-width: 1.5;"/>
+    
+    <!-- Search path highlight -->
+    <path d="M 150 80 L 80 150 L 40 220" class="path-line"/>
+  </g>
+  
+  <!-- Right: IVF-PQ visualization -->
+  <g transform="translate(750, 200)">
+    <text x="150" y="-30" text-anchor="middle" class="subtitle" style="font-size: 20px; fill: #c4b5fd;">IVF-PQ 聚类量化</text>
+    
+    <!-- IVF clusters -->
+    <ellipse cx="100" cy="100" rx="60" ry="50" fill="#7c3aed" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="2"/>
+    <ellipse cx="200" cy="100" rx="60" ry="50" fill="#7c3aed" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="2"/>
+    <ellipse cx="150" cy="200" rx="60" ry="50" fill="#7c3aed" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="2"/>
+    
+    <!-- Cluster centers -->
+    <circle cx="100" cy="100" r="6" fill="#fbbf24"/>
+    <circle cx="200" cy="100" r="6" fill="#fbbf24"/>
+    <circle cx="150" cy="200" r="6" fill="#fbbf24"/>
+    
+    <!-- Data points in clusters -->
+    <circle cx="80" cy="90" r="3" class="hnsw-node"/>
+    <circle cx="120" cy="110" r="3" class="hnsw-node"/>
+    <circle cx="90" cy="120" r="3" class="hnsw-node"/>
+    
+    <circle cx="180" cy="90" r="3" class="hnsw-node"/>
+    <circle cx="220" cy="110" r="3" class="hnsw-node"/>
+    <circle cx="190" cy="120" r="3" class="hnsw-node"/>
+    
+    <circle cx="130" cy="190" r="3" class="hnsw-node"/>
+    <circle cx="170" cy="210" r="3" class="hnsw-node"/>
+    <circle cx="150" cy="230" r="3" class="hnsw-node"/>
+    
+    <!-- PQ compression visualization -->
+    <rect x="50" y="280" width="200" height="30" fill="#fef3c7" stroke="#fbbf24" stroke-width="2" rx="4"/>
+    <text x="150" y="300" text-anchor="middle" style="font-family: monospace; font-size: 14px; fill: #92400e;">[157, 89, 203, 42]</text>
+    <text x="150" y="325" text-anchor="middle" class="subtitle" style="font-size: 14px;">PQ 压缩编码</text>
+  </g>
+  
+  <!-- Bottom comparison metrics -->
+  <g transform="translate(600, 480)">
+    <rect x="-300" y="-40" width="280" height="70" fill="#ffffff" fill-opacity="0.1" rx="8"/>
+    <text x="-160" y="-15" text-anchor="middle" class="subtitle" style="font-size: 18px; font-weight: bold;">HNSW</text>
+    <text x="-160" y="15" text-anchor="middle" class="subtitle" style="font-size: 16px;">O(log N) · 95-99%</text>
+    
+    <rect x="20" y="-40" width="280" height="70" fill="#ffffff" fill-opacity="0.1" rx="8"/>
+    <text x="160" y="-15" text-anchor="middle" class="subtitle" style="font-size: 18px; font-weight: bold;">IVF-PQ</text>
+    <text x="160" y="15" text-anchor="middle" class="subtitle" style="font-size: 16px;">O(√N) · 90-95%</text>
+  </g>
+  
+  <!-- Series info -->
+  <text x="600" y="580" text-anchor="middle" class="subtitle" style="font-size: 18px; fill: #fbbf24;">AI 技术演进与核心算法实战 | 第十一篇</text>
+</svg>
