@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1"/>
+    </linearGradient>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 48px; font-weight: bold; fill: #ffffff; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 28px; fill: #e0e7ff; }
+      .highlight { fill: #fbbf24; }
+      .retrieval-box { fill: #dbeafe; stroke: #3b82f6; stroke-width: 2; rx: 6; }
+      .rerank-box { fill: #fef3c7; stroke: #f59e0b; stroke-width: 2.5; rx: 8; }
+      .arrow { stroke: #64748b; stroke-width: 2.5; fill: none; marker-end: url(#arrowhead); }
+      .rank-text { font-family: monospace; font-size: 16px; fill: #1e40af; font-weight: bold; }
+    </style>
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#bg-gradient)"/>
+  
+  <text x="600" y="80" text-anchor="middle" class="title">重排序（Re-Rank）技术</text>
+  <text x="600" y="130" text-anchor="middle" class="subtitle">Cross-Encoder 模型原理与检索精度提升</text>
+  
+  <g transform="translate(100, 200)">
+    <text x="200" y="-30" text-anchor="middle" class="subtitle" style="font-size: 20px; fill:#93c5fd;">第一步：初步检索</text>
+    <rect x="50" y="0" width="300" height="180" class="retrieval-box"/>
+    <text x="200" y="35" text-anchor="middle" style="font-size: 15px; fill:#1e40af; font-weight:bold;">Bi-Encoder / BM25</text>
+    <text x="200" y="65" text-anchor="middle" style="font-size: 13px; fill:#1e40af;">快速检索 Top-50 候选</text>
+    <text x="200" y="95" text-anchor="middle" style="font-size: 13px; fill:#1e40af;">独立编码查询和文档</text>
+    <text x="200" y="125" text-anchor="middle" style="font-size: 13px; fill:#1e40af;">计算相似度分数</text>
+    <text x="200" y="160" text-anchor="middle" class="rank-text">Top-50 Docs →</text>
+  </g>
+  
+  <path d="M 450 290 L 500 290" class="arrow"/>
+  
+  <g transform="translate(500, 200)">
+    <text x="300" y="-30" text-anchor="middle" class="subtitle" style="font-size: 20px; fill:#fcd34d;">第二步：精细重排序</text>
+    <rect x="50" y="0" width="500" height="180" class="rerank-box"/>
+    <text x="300" y="35" text-anchor="middle" style="font-size: 15px; fill:#92400e; font-weight:bold;">Cross-Encoder 模型</text>
+    <text x="300" y="65" text-anchor="middle" style="font-size: 13px; fill:#92400e;">[CLS] Query [SEP] Doc [SEP]</text>
+    <text x="300" y="95" text-anchor="middle" style="font-size: 13px; fill:#92400e;">联合编码查询和文档对</text>
+    <text x="300" y="125" text-anchor="middle" style="font-size: 13px; fill:#92400e;">深度交互注意力机制</text>
+    <rect x="100" y="145" width="400" height="30" fill="#ffffff" stroke="#f59e0b" stroke-width="1.5" rx="4"/>
+    <text x="300" y="165" text-anchor="middle" class="rank-text" style="font-size: 14px;">重新打分 → 精排 Top-10</text>
+  </g>
+  
+  <g transform="translate(200, 430)">
+    <rect x="0" y="0" width="800" height="150" fill="#ffffff" fill-opacity="0.15" stroke="#fbbf24" stroke-width="2" rx="12"/>
+    <text x="400" y="30" text-anchor="middle" class="subtitle" style="font-size: 20px; fill:#fbbf24; font-weight:bold;">为什么需要重排序？</text>
+    <g transform="translate(40, 55)">
+      <rect x="0" y="0" width="340" height="80" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5" rx="6"/>
+      <text x="170" y="25" text-anchor="middle" style="font-size: 13px; fill:#991b1b; font-weight:bold;">❌ 初步检索的局限</text>
+      <text x="170" y="48" text-anchor="middle" style="font-size: 12px; fill:#991b1b;">独立编码，缺乏深度语义交互</text>
+      <text x="170" y="68" text-anchor="middle" style="font-size: 12px; fill:#991b1b;">难以捕捉细粒度语义匹配</text>
+      <rect x="380" y="0" width="340" height="80" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5" rx="6"/>
+      <text x="550" y="25" text-anchor="middle" style="font-size: 13px; fill:#166534; font-weight:bold;">✅ Cross-Encoder 的优势</text>
+      <text x="550" y="48" text-anchor="middle" style="font-size: 12px; fill:#166534;">联合编码，充分建模交互</text>
+      <text x="550" y="68" text-anchor="middle" style="font-size: 12px; fill:#166534;">NDCG@10 提升 15-25%</text>
+    </g>
+  </g>
+  
+  <text x="600" y="590" text-anchor="middle" class="subtitle" style="font-size: 18px; fill: #fbbf24;">AI 技术演进与核心算法实战 | 第十四篇</text>
+</svg>
