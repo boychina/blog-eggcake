@@ -1,16 +1,16 @@
 ---
-title: "AI 技术演进与核心算法实战 | 第十五篇：高级 RAG 模式：HyDE（假设性文档嵌入）、Parent-Child Indexing 与递归检索"
+title: "AI 技术演进与核心算法实战 | 第十五篇：高级 RAG 模式：HyDE、Parent-Child Indexing 与递归检索"
 excerpt: "检索精度遇到瓶颈？深入讲解三种高级 RAG 优化技术：HyDE 假设性文档嵌入、Parent-Child 索引层级设计、递归检索策略，包含完整实现代码和性能对比实验。"
 description: "AI 技术演进与核心算法实战第十五篇：高级 RAG 模式：HyDE（假设性文档嵌入）、Parent-Child Indexing 与递归检索"
 keyword: "AI，大模型，RAG，HyDE，假设性文档嵌入，Parent-Child Indexing，递归检索，向量检索，检索增强"
 tag: "AI"
 date: "2026-02-01 10:00:00"
-coverImage: "/assets/posts/AI-技术演进与核心算法实战 - 第十五篇：高级 RAG 模式：HyDE（假设性文档嵌入）、Parent-Child Indexing 与递归检索/assets/cover/advanced-rag-patterns-cover.svg"
+coverImage: "/assets/posts/AI-技术演进与核心算法实战 - 第十五篇：高级 RAG 模式：HyDE、Parent-Child Indexing 与递归检索/assets/cover/advanced-rag-patterns-cover.svg"
 author:
   name: 蛋烘糕
-  picture: "/assets/posts/AI-技术演进与核心算法实战 - 第十五篇：高级 RAG 模式：HyDE（假设性文档嵌入）、Parent-Child Indexing 与递归检索/assets/author/zhaohuan.jpg"
+  picture: "/assets/posts/AI-技术演进与核心算法实战 - 第十五篇：高级 RAG 模式：HyDE、Parent-Child Indexing 与递归检索/assets/author/zhaohuan.jpg"
 ogImage:
-  url: "/assets/posts/AI-技术演进与核心算法实战 - 第十五篇：高级 RAG 模式：HyDE（假设性文档嵌入）、Parent-Child Indexing 与递归检索/assets/cover/advanced-rag-patterns-cover.svg"
+  url: "/assets/posts/AI-技术演进与核心算法实战 - 第十五篇：高级 RAG 模式：HyDE、Parent-Child Indexing 与递归检索/assets/cover/advanced-rag-patterns-cover.svg"
 ---
 
 > **检索的本质不是匹配文字，而是匹配意图。当用户的问题模糊时，用假设来澄清；当文档太长时，用层级来组织；当单次检索不够时，用递归来深入。**

@@ -15,7 +15,7 @@ ogImage:
 
 > **如果说传统 RAG 是在图书馆里找书，那么 Graph RAG 就是请一位博学的老教授——他不仅知道每本书的内容，还理解书与书之间的联系，能够融会贯通地回答复杂问题。**
 
-在 [上一篇](/posts/ai/15.AI%20技术演进与核心算法实战%20-%20第十五篇：高级 RAG 模式：HyDE（假设性文档嵌入）、Parent-Child Indexing 与递归检索) 中，我们探讨了 HyDE、Parent-Child Indexing 和递归检索等高级 RAG 技术。但这些方法仍然存在一个**根本性局限**：
+在 [上一篇](/posts/ai/15.AI%20技术演进与核心算法实战%20-%20第十五篇：高级%20RAG%20模式：HyDE、Parent-Child%20Indexing%20与递归检索) 中，我们探讨了 HyDE、Parent-Child Indexing 和递归检索等高级 RAG 技术。但这些方法仍然存在一个**根本性局限**：
 
 **想象这些真实场景：**
 
