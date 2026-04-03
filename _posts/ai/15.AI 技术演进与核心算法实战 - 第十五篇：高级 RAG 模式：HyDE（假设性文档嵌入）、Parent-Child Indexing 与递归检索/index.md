@@ -170,7 +170,7 @@ HyDE（Hypothetical Document Embeddings，假设性文档嵌入）由 Gao et al.
       <rect x="205" y="135" width="30" height="10" class="doc-box"/>
       <text x="220" y="143" class="text" font-size="9" fill="#166534">Docs</text>
       <path d="M 95 80 Q 150 80 190 130" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 2" marker-end="url(#arrowhead)"/>
-      <text x="150" y="100" class="text" fill="#dc2626" font-size="10">距离远，匹配难</text>
+      <text x="150" y="95" class="text" fill="#dc2626" font-size="10">距离远，匹配难</text>
       <text x="150" y="200" class="text" fill="#64748b" font-size="10">Query 和 Doc 在向量空间中分布不同</text>
     </g>
     <g transform="translate(400, 60)">
@@ -178,10 +178,13 @@ HyDE（Hypothetical Document Embeddings，假设性文档嵌入）由 Gao et al.
       <rect x="0" y="0" width="300" height="220" class="vector-space"/>
       <circle cx="150" cy="100" r="70" fill="#fef3c7" opacity="0.5"/>
       <circle cx="180" cy="130" r="60" fill="#dcfce7" opacity="0.5"/>
+      <rect x="80" y="75" width="30" height="10" class="query-box"/>
+      <text x="95" y="83" class="text" font-size="9" fill="#991b1b">Query</text>
       <rect x="135" y="95" width="30" height="10" class="hypothetical-box"/>
       <text x="150" y="103" class="text" font-size="9" fill="#92400e">假设</text>
       <rect x="165" y="125" width="30" height="10" class="doc-box"/>
       <text x="180" y="133" class="text" font-size="9" fill="#166534">Docs</text>
+      <path d="M 110 80 L 135 95" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrowhead)"/>
       <path d="M 150 105 L 165 125" stroke="#22c55e" stroke-width="2" marker-end="url(#arrowhead)"/>
       <text x="180" y="115" class="text" fill="#16a34a" font-size="10">距离近！</text>
       <text x="150" y="200" class="text" fill="#64748b" font-size="10">假设答案和真实文档语义对齐</text>
