@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg-gradient)"/>
+  
+  <!-- Title -->
+  <text x="400" y="80" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">代码解释器的安全隔离</text>
+  <text x="400" y="115" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">Code Interpreter Sandbox</text>
+  
+  <!-- Central sandbox illustration -->
+  <g transform="translate(400, 300)">
+    <!-- Outer container (Docker) -->
+    <rect x="-180" y="-120" width="360" height="240" fill="#1e40af" stroke="#3b82f6" stroke-width="3" rx="15" opacity="0.3"/>
+    <text x="0" y="-95" font-family="Arial" font-size="14" fill="#60a5fa" text-anchor="middle">Docker Container Isolation</text>
+    
+    <!-- Middle layer (gVisor) -->
+    <rect x="-150" y="-90" width="300" height="200" fill="#7c2d12" stroke="#f97316" stroke-width="3" rx="12" opacity="0.4"/>
+    <text x="0" y="-65" font-family="Arial" font-size="14" fill="#fb923c" text-anchor="middle">gVisor Security Layer</text>
+    
+    <!-- Inner core (Code execution) -->
+    <circle cx="0" cy="0" r="60" fill="#065f46" stroke="#10b981" stroke-width="3" opacity="0.5"/>
+    <text x="0" y="-10" font-family="Arial" font-size="16" font-weight="bold" fill="#6ee7b7" text-anchor="middle">Python Code</text>
+    <text x="0" y="15" font-family="Arial" font-size="12" fill="#6ee7b7" text-anchor="middle">Execution</text>
+    
+    <!-- Resource limits indicators -->
+    <g transform="translate(-120, -40)">
+      <rect x="0" y="0" width="50" height="50" fill="#dc2626" opacity="0.3" stroke="#ef4444" stroke-width="2" rx="5"/>
+      <text x="25" y="30" font-family="Arial" font-size="10" fill="#fca5a5" text-anchor="middle">CPU</text>
+      <text x="25" y="42" font-family="Arial" font-size="9" fill="#fca5a5" text-anchor="middle">50%</text>
+    </g>
+    
+    <g transform="translate(70, -40)">
+      <rect x="0" y="0" width="50" height="50" fill="#2563eb" opacity="0.3" stroke="#3b82f6" stroke-width="2" rx="5"/>
+      <text x="25" y="30" font-family="Arial" font-size="10" fill="#bfdbfe" text-anchor="middle">MEM</text>
+      <text x="25" y="42" font-family="Arial" font-size="9" fill="#bfdbfe" text-anchor="middle">256MB</text>
+    </g>
+    
+    <g transform="translate(-120, 50)">
+      <rect x="0" y="0" width="50" height="50" fill="#7c3aed" opacity="0.3" stroke="#8b5cf6" stroke-width="2" rx="5"/>
+      <text x="25" y="30" font-family="Arial" font-size="10" fill="#ddd6fe" text-anchor="middle">PIDs</text>
+      <text x="25" y="42" font-family="Arial" font-size="9" fill="#ddd6fe" text-anchor="middle">50</text>
+    </g>
+    
+    <g transform="translate(70, 50)">
+      <rect x="0" y="0" width="50" height="50" fill="#db2777" opacity="0.3" stroke="#ec4899" stroke-width="2" rx="5"/>
+      <text x="25" y="30" font-family="Arial" font-size="10" fill="#fbcfe8" text-anchor="middle">NET</text>
+      <text x="25" y="42" font-family="Arial" font-size="9" fill="#fbcfe8" text-anchor="middle">OFF</text>
+    </g>
+    
+    <!-- Security shield icon -->
+    <path d="M -30,-30 L 30,-30 L 30,20 L 0,40 L -30,20 Z" fill="none" stroke="#fbbf24" stroke-width="2" opacity="0.6"/>
+    <text x="0" y="10" font-family="Arial" font-size="20" fill="#fbbf24" text-anchor="middle">🛡️</text>
+  </g>
+  
+  <!-- Bottom labels -->
+  <text x="200" y="520" font-family="Arial" font-size="12" fill="#94a3b8">• File System Isolation</text>
+  <text x="600" y="520" font-family="Arial" font-size="12" fill="#94a3b8">• Network Restrictions</text>
+  <text x="200" y="545" font-family="Arial" font-size="12" fill="#94a3b8">• Resource Limits</text>
+  <text x="600" y="545" font-family="Arial" font-size="12" fill="#94a3b8">• Behavior Auditing</text>
+  
+  <!-- Series info -->
+  <rect x="50" y="570" width="700" height="25" fill="#334155" opacity="0.5" rx="5"/>
+  <text x="400" y="588" font-family="Arial" font-size="11" fill="#cbd5e1" text-anchor="middle">AI 技术演进与核心算法实战 | 第十八篇</text>
+</svg>
