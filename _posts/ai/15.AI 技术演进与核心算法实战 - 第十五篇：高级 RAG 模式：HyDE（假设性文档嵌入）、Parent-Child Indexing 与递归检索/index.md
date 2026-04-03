@@ -160,7 +160,6 @@ HyDE（Hypothetical Document Embeddings，假设性文档嵌入）由 Gao et al.
       </marker>
     </defs>
     <text x="375" y="25" class="text-bold" font-size="15">HyDE 的语义空间对齐原理</text>
-    
     <g transform="translate(50, 60)">
       <text x="150" y="-15" class="text-bold" fill="#dc2626" font-size="13">❌ 传统方法：Query→Doc 直接匹配</text>
       <rect x="0" y="0" width="300" height="220" class="vector-space"/>
@@ -174,7 +173,6 @@ HyDE（Hypothetical Document Embeddings，假设性文档嵌入）由 Gao et al.
       <text x="150" y="100" class="text" fill="#dc2626" font-size="10">距离远，匹配难</text>
       <text x="150" y="200" class="text" fill="#64748b" font-size="10">Query 和 Doc 在向量空间中分布不同</text>
     </g>
-    
     <g transform="translate(400, 60)">
       <text x="150" y="-15" class="text-bold" fill="#16a34a" font-size="13">✅ HyDE：Query→假设答案→Doc</text>
       <rect x="0" y="0" width="300" height="220" class="vector-space"/>
