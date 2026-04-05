@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="nodeGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0.3" />
+    </linearGradient>
+    <linearGradient id="nodeGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#0891b2;stop-opacity:0.3" />
+    </linearGradient>
+    <linearGradient id="nodeGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:0.3" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b5cf6" />
+    </marker>
+    <marker id="arrowCyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#06b6d4" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bgGradient)" />
+  
+  <!-- Title Section -->
+  <text x="600" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="48" font-weight="bold" fill="#0f172a" text-anchor="middle">Workflow Orchestration</text>
+  <text x="600" y="115" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" fill="#64748b" text-anchor="middle">基于 DAG 的任务调度与状态机管理</text>
+  
+  <!-- Main DAG Diagram -->
+  <g filter="url(#shadow)">
+    <!-- Start Node -->
+    <circle cx="150" cy="315" r="50" fill="url(#nodeGrad1)" stroke="#8b5cf6" stroke-width="3"/>
+    <text x="150" y="310" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="bold" fill="#6d28d9" text-anchor="middle">Start</text>
+    <text x="150" y="335" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#8b5cf6" text-anchor="middle">开始节点</text>
+    
+    <!-- Task Node 1 -->
+    <rect x="320" y="180" width="140" height="90" rx="12" fill="url(#nodeGrad2)" stroke="#06b6d4" stroke-width="3"/>
+    <text x="390" y="215" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="bold" fill="#0e7490" text-anchor="middle">Task A</text>
+    <text x="390" y="240" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#06b6d4" text-anchor="middle">数据预处理</text>
+    
+    <!-- Task Node 2 -->
+    <rect x="320" y="360" width="140" height="90" rx="12" fill="url(#nodeGrad2)" stroke="#06b6d4" stroke-width="3"/>
+    <text x="390" y="395" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="bold" fill="#0e7490" text-anchor="middle">Task B</text>
+    <text x="390" y="420" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#06b6d4" text-anchor="middle">特征提取</text>
+    
+    <!-- Task Node 3 (Merge) -->
+    <rect x="560" y="270" width="140" height="90" rx="12" fill="url(#nodeGrad3)" stroke="#10b981" stroke-width="3"/>
+    <text x="630" y="305" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="bold" fill="#047857" text-anchor="middle">Task C</text>
+    <text x="630" y="330" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#10b981" text-anchor="middle">模型推理</text>
+    
+    <!-- Conditional Branch -->
+    <polygon points="820,270 870,315 820,360 770,315" fill="url(#nodeGrad1)" stroke="#8b5cf6" stroke-width="3"/>
+    <text x="820" y="310" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="bold" fill="#6d28d9" text-anchor="middle">Decision</text>
+    <text x="820" y="330" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#8b5cf6" text-anchor="middle">条件分支</text>
+    
+    <!-- End Node -->
+    <circle cx="1050" cy="315" r="50" fill="url(#nodeGrad3)" stroke="#10b981" stroke-width="3"/>
+    <text x="1050" y="310" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="bold" fill="#047857" text-anchor="middle">End</text>
+    <text x="1050" y="335" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#10b981" text-anchor="middle">结束节点</text>
+  </g>
+  
+  <!-- Edges (Arrows) -->
+  <!-- Start -> Task A -->
+  <path d="M 200 315 Q 260 315 280 250 Q 290 220 320 215" stroke="#8b5cf6" stroke-width="2.5" fill="none" marker-end="url(#arrowPurple)"/>
+  
+  <!-- Start -> Task B -->
+  <path d="M 200 315 Q 260 315 280 380 Q 290 400 320 405" stroke="#8b5cf6" stroke-width="2.5" fill="none" marker-end="url(#arrowPurple)"/>
+  
+  <!-- Task A -> Task C -->
+  <path d="M 460 225 Q 510 225 540 270" stroke="#06b6d4" stroke-width="2.5" fill="none" marker-end="url(#arrowCyan)"/>
+  
+  <!-- Task B -> Task C -->
+  <path d="M 460 405 Q 510 405 540 360" stroke="#06b6d4" stroke-width="2.5" fill="none" marker-end="url(#arrowCyan)"/>
+  
+  <!-- Task C -> Decision -->
+  <path d="M 700 315 L 770 315" stroke="#10b981" stroke-width="2.5" fill="none" marker-end="url(#arrowCyan)"/>
+  
+  <!-- Decision -> End (True path) -->
+  <path d="M 870 315 L 1000 315" stroke="#8b5cf6" stroke-width="2.5" fill="none" marker-end="url(#arrowPurple)"/>
+  <text x="935" y="300" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#8b5cf6" text-anchor="middle">True</text>
+  
+  <!-- Decision -> Task A (False path - loop back) -->
+  <path d="M 820 270 Q 820 150 600 150 Q 400 150 390 180" stroke="#ef4444" stroke-width="2" fill="none" stroke-dasharray="6,3" marker-end="url(#arrowPurple)"/>
+  <text x="600" y="140" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#ef4444" text-anchor="middle">False (Retry)</text>
+  
+  <!-- State Machine Annotation -->
+  <g transform="translate(80, 480)">
+    <rect width="1040" height="120" rx="12" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+    <text x="520" y="35" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="bold" fill="#0f172a" text-anchor="middle">🔄 状态机管理 (State Machine)</text>
+    <text x="520" y="65" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" fill="#475569" text-anchor="middle">每个节点维护独立状态 · 支持断点续传 · 自动错误恢复 · 完整执行轨迹追踪</text>
+    <text x="520" y="95" font-family="monospace" font-size="13" fill="#64748b" text-anchor="middle">states: {"task_a": "completed", "task_b": "running", "task_c": "pending", "decision": "waiting"}</text>
+  </g>
+
+</svg>
