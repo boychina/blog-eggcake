@@ -10,7 +10,7 @@ export default function Header() {
         </div>
       </Link>
       <h4 className="text-center md:text-left text-sm mt-2 md:mt-4 md:pl-8">
-        不写博客的工程师不是好的搬砖工🧱
+        不写博客的工程师不是好的产品经理
       </h4>
     </section>
   );
