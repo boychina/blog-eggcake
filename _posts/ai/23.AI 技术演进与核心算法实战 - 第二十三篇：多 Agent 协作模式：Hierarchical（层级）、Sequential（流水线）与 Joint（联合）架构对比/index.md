@@ -77,102 +77,74 @@ ogImage:
         <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b" />
       </marker>
     </defs>
-    
     <!-- Title -->
     <text x="400" y="30" class="title" font-size="20">多 Agent 协作架构对比</text>
-    
     <!-- Hierarchical Architecture -->
     <rect x="30" y="60" width="230" height="200" class="box" fill="none" stroke="#cbd5e1" stroke-width="2" rx="10" />
     <text x="145" y="85" class="title" fill="#2563eb">Hierarchical（层级式）</text>
-    
     <rect x="100" y="100" width="90" height="40" class="box-hierarchical" />
     <text x="145" y="120" class="text" font-weight="bold">Manager</text>
-    
     <rect x="50" y="170" width="60" height="35" class="box-hierarchical" />
     <text x="80" y="187" class="text" font-size="12">Agent A</text>
-    
     <rect x="120" y="170" width="60" height="35" class="box-hierarchical" />
     <text x="150" y="187" class="text" font-size="12">Agent B</text>
-    
     <rect x="190" y="170" width="60" height="35" class="box-hierarchical" />
     <text x="220" y="187" class="text" font-size="12">Agent C</text>
-    
     <path d="M 145 140 L 80 170" class="arrow" />
     <path d="M 145 140 L 150 170" class="arrow" />
     <path d="M 145 140 L 220 170" class="arrow" />
-    
     <text x="145" y="230" class="text" font-size="11" fill="#64748b">特点：中心化控制、明确分工</text>
     <text x="145" y="245" class="text" font-size="11" fill="#64748b">适用：复杂项目管理、多层决策</text>
-    
     <!-- Sequential Architecture -->
     <rect x="285" y="60" width="230" height="200" class="box" fill="none" stroke="#cbd5e1" stroke-width="2" rx="10" />
     <text x="400" y="85" class="title" fill="#ca8a04">Sequential（流水线式）</text>
-    
     <rect x="300" y="110" width="60" height="35" class="box-sequential" />
     <text x="330" y="127" class="text" font-size="12">Agent 1</text>
-    
     <rect x="380" y="110" width="60" height="35" class="box-sequential" />
     <text x="410" y="127" class="text" font-size="12">Agent 2</text>
-    
     <rect x="460" y="110" width="60" height="35" class="box-sequential" />
     <text x="490" y="127" class="text" font-size="12">Agent 3</text>
-    
     <path d="M 360 127 L 380 127" class="arrow" />
     <path d="M 440 127 L 460 127" class="arrow" />
-    
     <text x="400" y="170" class="text" font-size="11" fill="#64748b">↓ 输出传递给下一个 ↓</text>
-    
     <rect x="300" y="190" width="220" height="35" class="box-sequential" fill="#fef9c3" />
     <text x="410" y="207" class="text" font-size="12">最终聚合结果</text>
-    
     <text x="400" y="245" class="text" font-size="11" fill="#64748b">特点：线性流程、顺序依赖</text>
     <text x="400" y="260" class="text" font-size="11" fill="#64748b">适用：数据处理管道、内容创作</text>
-    
     <!-- Joint Architecture -->
     <rect x="540" y="60" width="230" height="200" class="box" fill="none" stroke="#cbd5e1" stroke-width="2" rx="10" />
     <text x="655" y="85" class="title" fill="#16a34a">Joint（联合式）</text>
-    
     <circle cx="600" cy="130" r="25" class="box-joint" />
     <text x="600" y="130" class="text" font-size="11">Agent A</text>
-    
     <circle cx="710" cy="130" r="25" class="box-joint" />
     <text x="710" y="130" class="text" font-size="11">Agent B</text>
-    
     <circle cx="600" cy="210" r="25" class="box-joint" />
     <text x="600" y="210" class="text" font-size="11">Agent C</text>
-    
     <circle cx="710" cy="210" r="25" class="box-joint" />
     <text x="710" y="210" class="text" font-size="11">Agent D</text>
-    
     <path d="M 620 140 L 690 140" class="dashed-arrow" />
     <path d="M 620 195 L 690 195" class="dashed-arrow" />
     <path d="M 600 155 L 600 185" class="dashed-arrow" />
     <path d="M 710 155 L 710 185" class="dashed-arrow" />
     <path d="M 615 145 L 695 195" class="dashed-arrow" />
     <path d="M 695 145 L 615 195" class="dashed-arrow" />
-    
     <text x="655" y="245" class="text" font-size="11" fill="#64748b">特点：去中心化、自由通信</text>
     <text x="655" y="260" class="text" font-size="11" fill="#64748b">适用：开放讨论、头脑风暴</text>
-    
     <!-- Bottom summary -->
     <rect x="30" y="280" width="740" height="200" class="box" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2" rx="10" />
     <text x="400" y="310" class="title" font-size="18">架构选择决策指南</text>
-    
     <text x="145" y="350" class="text" font-weight="bold" fill="#2563eb">Hierarchical</text>
     <text x="145" y="370" class="text" font-size="11">✓ 任务可明确分解</text>
     <text x="145" y="390" class="text" font-size="11">✓ 需要统一协调</text>
     <text x="145" y="410" class="text" font-size="11">✗  Manager 成为瓶颈</text>
-    
     <text x="400" y="350" class="text" font-weight="bold" fill="#ca8a04">Sequential</text>
     <text x="400" y="370" class="text" font-size="11">✓ 流程清晰固定</text>
     <text x="400" y="390" class="text" font-size="11">✓ 步骤强依赖</text>
     <text x="400" y="410" class="text" font-size="11">✗ 无法并行优化</text>
-    
     <text x="655" y="350" class="text" font-weight="bold" fill="#16a34a">Joint</text>
     <text x="655" y="370" class="text" font-size="11">✓ 需要创意碰撞</text>
     <text x="655" y="390" class="text" font-size="11">✓ 问题边界模糊</text>
     <text x="655" y="410" class="text" font-size="11">✗ 可能陷入死循环</text>
-    
     <text x="400" y="450" class="text" font-size="12" fill="#64748b">实际工程中常采用混合架构，根据任务阶段动态切换协作模式</text>
   </svg>
 </div>
@@ -205,53 +177,40 @@ ogImage:
         <path d="M 0 0 L 10 5 L 0 10 z" fill="#16a34a" />
       </marker>
     </defs>
-    
     <!-- User Input -->
     <rect x="250" y="20" width="200" height="40" class="worker" fill="#e0f2fe" />
     <text x="350" y="40" class="text" font-weight="bold">用户输入任务</text>
-    
     <!-- Manager -->
     <rect x="250" y="100" width="200" height="60" class="manager" />
     <text x="350" y="125" class="text" font-weight="bold" font-size="16">Manager Agent</text>
     <text x="350" y="145" class="label">任务分解 · 分配 · 整合</text>
-    
     <!-- Arrows from Manager to Workers -->
     <path d="M 300 160 L 150 230" class="arrow-down" />
     <text x="210" y="190" class="label" fill="#2563eb">分配子任务</text>
-    
     <path d="M 350 160 L 350 230" class="arrow-down" />
     <text x="370" y="190" class="label" fill="#2563eb">分配子任务</text>
-    
     <path d="M 400 160 L 550 230" class="arrow-down" />
     <text x="490" y="190" class="label" fill="#2563eb">分配子任务</text>
-    
     <!-- Workers -->
     <rect x="80" y="230" width="140" height="50" class="worker" />
     <text x="150" y="250" class="text" font-weight="bold">Worker 1</text>
     <text x="150" y="268" class="label">代码生成专家</text>
-    
     <rect x="280" y="230" width="140" height="50" class="worker" />
     <text x="350" y="250" class="text" font-weight="bold">Worker 2</text>
     <text x="350" y="268" class="label">文档编写专家</text>
-    
     <rect x="480" y="230" width="140" height="50" class="worker" />
     <text x="550" y="250" class="text" font-weight="bold">Worker 3</text>
     <text x="550" y="268" class="label">测试验证专家</text>
-    
     <!-- Arrows from Workers to Manager -->
     <path d="M 150 280 L 300 340" class="arrow-up" />
     <text x="210" y="315" class="label" fill="#16a34a">提交结果</text>
-    
     <path d="M 350 280 L 350 340" class="arrow-up" />
     <text x="370" y="315" class="label" fill="#16a34a">提交结果</text>
-    
     <path d="M 550 280 L 400 340" class="arrow-up" />
     <text x="490" y="315" class="label" fill="#16a34a">提交结果</text>
-    
     <!-- Final Output -->
     <rect x="250" y="340" width="200" height="40" class="manager" fill="#bbf7d0" />
     <text x="350" y="360" class="text" font-weight="bold">整合输出给用户</text>
-    
     <!-- Note -->
     <text x="350" y="395" class="label" font-style="italic">注意：Worker 之间没有直接连线，所有通信必须经过 Manager</text>
   </svg>
@@ -571,59 +530,47 @@ print(result['final_output'])
         <path d="M 0 0 L 10 5 L 0 10 z" fill="#ca8a04" />
       </marker>
     </defs>
-    
     <!-- Input -->
     <rect x="20" y="140" width="100" height="50" class="input-output" />
     <text x="70" y="160" class="text" font-weight="bold">原始输入</text>
     <text x="70" y="178" class="label">用户需求</text>
-    
     <!-- Arrow to Stage 1 -->
     <path d="M 120 165 L 160 165" class="arrow" />
-    
     <!-- Stage 1 -->
     <rect x="160" y="130" width="110" height="70" class="stage" />
     <text x="215" y="155" class="text" font-weight="bold">Agent 1</text>
     <text x="215" y="175" class="label">需求分析</text>
     <text x="215" y="192" class="label">提取关键信息</text>
-    
     <!-- Arrow to Stage 2 -->
     <path d="M 270 165 L 310 165" class="arrow" />
     <text x="290" y="150" class="label" fill="#ca8a04">结构化数据</text>
-    
     <!-- Stage 2 -->
     <rect x="310" y="130" width="110" height="70" class="stage" />
     <text x="365" y="155" class="text" font-weight="bold">Agent 2</text>
     <text x="365" y="175" class="label">方案设计</text>
     <text x="365" y="192" class="label">制定执行计划</text>
-    
     <!-- Arrow to Stage 3 -->
     <path d="M 420 165 L 460 165" class="arrow" />
     <text x="440" y="150" class="label" fill="#ca8a04">技术方案</text>
-    
     <!-- Stage 3 -->
     <rect x="460" y="130" width="110" height="70" class="stage" />
     <text x="515" y="155" class="text" font-weight="bold">Agent 3</text>
     <text x="515" y="175" class="label">代码实现</text>
     <text x="515" y="192" class="label">生成可执行代码</text>
-    
     <!-- Arrow to Stage 4 -->
     <path d="M 570 165 L 610 165" class="arrow" />
     <text x="590" y="150" class="label" fill="#ca8a04">代码 + 注释</text>
-    
     <!-- Stage 4 -->
     <rect x="610" y="130" width="110" height="70" class="stage" />
     <text x="665" y="155" class="text" font-weight="bold">Agent 4</text>
     <text x="665" y="175" class="label">质量审查</text>
     <text x="665" y="192" class="label">优化与修正</text>
-    
     <!-- Arrow to Output -->
     <path d="M 720 165 L 760 165" class="arrow" />
-    
     <!-- Output -->
     <rect x="760" y="140" width="100" height="50" class="input-output" fill="#bbf7d0" />
     <text x="810" y="160" class="text" font-weight="bold">最终输出</text>
     <text x="810" y="178" class="label">交付成果</text>
-    
     <!-- Timeline indicator -->
     <line x1="70" y1="250" x2="810" y2="250" stroke="#94a3b8" stroke-width="2" />
     <text x="70" y="270" class="label">T0</text>
@@ -632,9 +579,7 @@ print(result['final_output'])
     <text x="515" y="270" class="label">T3</text>
     <text x="665" y="270" class="label">T4</text>
     <text x="810" y="270" class="label">T5</text>
-    
     <text x="440" y="300" class="label" font-style="italic">时间轴：每个阶段必须等待前一阶段完成</text>
-    
     <!-- Feedback loop (optional) -->
     <path d="M 665 200 Q 665 230 515 230 Q 465 230 465 200" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5" fill="none" marker-end="url(#arrowseq)" />
     <text x="565" y="245" class="label" fill="#ef4444">可选：返工循环</text>
@@ -860,60 +805,48 @@ print(result['fact_checked_article'])
         <path d="M 0 0 L 10 5 L 0 10 z" fill="#16a34a" />
       </marker>
     </defs>
-    
     <!-- Central shared space -->
     <circle cx="350" cy="250" r="150" fill="#f0fdf4" stroke="#86efac" stroke-width="2" stroke-dasharray="8,6" />
     <text x="350" y="250" class="label" font-size="14" fill="#16a34a" font-weight="bold">共享黑板</text>
     <text x="350" y="270" class="label" font-size="11">(Shared Blackboard)</text>
-    
     <!-- Agent 1 (Top) -->
     <rect x="300" y="50" width="100" height="60" class="agent" />
     <text x="350" y="75" class="text" font-weight="bold">Agent A</text>
     <text x="350" y="95" class="label">产品经理</text>
-    
     <!-- Agent 2 (Right) -->
     <rect x="550" y="220" width="100" height="60" class="agent" />
     <text x="600" y="245" class="text" font-weight="bold">Agent B</text>
     <text x="600" y="265" class="label">技术架构师</text>
-    
     <!-- Agent 3 (Bottom) -->
     <rect x="300" y="390" width="100" height="60" class="agent" />
     <text x="350" y="415" class="text" font-weight="bold">Agent C</text>
     <text x="350" y="435" class="label">用户体验设计师</text>
-    
     <!-- Agent 4 (Left) -->
     <rect x="50" y="220" width="100" height="60" class="agent" />
     <text x="100" y="245" class="text" font-weight="bold">Agent D</text>
     <text x="100" y="265" class="label">安全专家</text>
-    
     <!-- Communication lines (all-to-all) -->
     <path d="M 350 110 L 570 230" class="comm-line" />
     <path d="M 570 250 L 350 390" class="comm-line" />
     <path d="M 350 390 L 130 270" class="comm-line" />
     <path d="M 130 230 L 350 110" class="comm-line" />
-    
     <!-- Cross communications -->
     <path d="M 380 80 L 570 220" class="comm-line" />
     <path d="M 600 280 L 380 390" class="comm-line" />
     <path d="M 320 390 L 130 270" class="comm-line" />
     <path d="M 100 220 L 320 80" class="comm-line" />
-    
     <!-- Active communication example -->
     <path d="M 350 110 Q 450 150 570 230" class="active-comm" />
     <text x="470" y="160" class="label" fill="#ef4444" font-weight="bold">正在讨论...</text>
-    
     <!-- Message bubbles -->
     <ellipse cx="480" cy="170" rx="60" ry="25" fill="#ffffff" stroke="#ef4444" stroke-width="2" />
     <text x="480" y="170" class="label" font-size="10">"这个方案可行吗？"</text>
-    
     <!-- Legend -->
     <rect x="20" y="470" width="200" height="25" fill="none" />
     <line x1="20" y1="482" x2="50" y2="482" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="6,4" />
     <text x="120" y="485" class="label" font-size="11">潜在通信路径</text>
-    
     <line x1="180" y1="482" x2="210" y2="482" stroke="#ef4444" stroke-width="2.5" />
     <text x="280" y="485" class="label" font-size="11">活跃对话</text>
-    
     <text x="350" y="495" class="label" font-style="italic">所有 Agent 可以自由选择与谁交流、何时交流</text>
   </svg>
 </div>
