@@ -139,64 +139,49 @@ ogImage:
       </marker>
     </defs>
     <text x="400" y="25" class="text-bold" font-size="16">无工作流 vs 有工作流：混乱与秩序的对比</text>
-    
     <!-- Left: Chaos -->
     <g transform="translate(30, 60)">
       <rect x="0" y="0" width="350" height="310" class="chaos-box"/>
       <text x="175" y="30" class="text-bold" font-size="15" fill="#dc2626">❌ 无工作流：意大利面代码</text>
-      
       <!-- Messy nodes -->
       <circle cx="80" cy="80" r="25" fill="#fecaca" stroke="#ef4444" stroke-width="2"/>
       <text x="80" y="80" class="text" font-size="11" fill="#991b1b">任务A</text>
-      
       <circle cx="200" cy="120" r="25" fill="#fecaca" stroke="#ef4444" stroke-width="2"/>
       <text x="200" y="120" class="text" font-size="11" fill="#991b1b">任务B</text>
-      
       <circle cx="120" cy="200" r="25" fill="#fecaca" stroke="#ef4444" stroke-width="2"/>
       <text x="120" y="200" class="text" font-size="11" fill="#991b1b">任务C</text>
-      
       <circle cx="260" cy="220" r="25" fill="#fecaca" stroke="#ef4444" stroke-width="2"/>
       <text x="260" y="220" class="text" font-size="11" fill="#991b1b">任务D</text>
-      
       <!-- Chaotic arrows -->
       <path d="M 100 90 Q 150 70 180 110" stroke="#ef4444" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
       <path d="M 190 135 Q 170 170 140 190" stroke="#ef4444" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
       <path d="M 210 110 Q 240 150 250 200" stroke="#ef4444" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
       <path d="M 130 210 Q 180 230 240 225" stroke="#ef4444" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
       <path d="M 90 100 Q 60 150 110 190" stroke="#ef4444" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
-      
       <text x="175" y="270" class="text-bold" fill="#dc2626" font-size="12">问题：</text>
       <text x="175" y="290" class="text" fill="#991b1b" font-size="10">• 依赖关系不清晰</text>
       <text x="175" y="305" class="text" fill="#991b1b" font-size="10">• 难以追踪执行状态</text>
     </g>
-    
     <!-- Right: Order -->
     <g transform="translate(420, 60)">
       <rect x="0" y="0" width="350" height="310" class="order-box"/>
       <text x="175" y="30" class="text-bold" font-size="15" fill="#16a34a">✅ 有工作流：DAG 结构</text>
-      
       <!-- Organized DAG -->
       <circle cx="80" cy="80" r="25" fill="#bbf7d0" stroke="#16a34a" stroke-width="2"/>
       <text x="80" y="80" class="text" font-size="11" fill="#166534">开始</text>
-      
       <rect x="170" y="65" width="70" height="30" rx="6" fill="#bbf7d0" stroke="#16a34a" stroke-width="2"/>
       <text x="205" y="85" class="text" font-size="11" fill="#166534">任务A</text>
-      
       <rect x="170" y="130" width="70" height="30" rx="6" fill="#bbf7d0" stroke="#16a34a" stroke-width="2"/>
       <text x="205" y="150" class="text" font-size="11" fill="#166534">任务B</text>
-      
       <rect x="280" y="95" width="70" height="30" rx="6" fill="#bbf7d0" stroke="#16a34a" stroke-width="2"/>
       <text x="315" y="115" class="text" font-size="11" fill="#166534">任务C</text>
-      
       <circle cx="315" cy="200" r="25" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
       <text x="315" y="200" class="text" font-size="11" fill="#166534">结束</text>
-      
       <!-- Clear arrows -->
       <path d="M 105 80 L 170 80" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowhead)"/>
       <path d="M 105 85 Q 130 110 170 140" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowhead)"/>
       <path d="M 240 80 Q 265 85 280 95" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowhead)"/>
       <path d="M 240 145 Q 270 160 300 190" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowhead)"/>
-      
       <text x="175" y="250" class="text-bold" fill="#16a34a" font-size="12">优势：</text>
       <text x="175" y="270" class="text" fill="#166534" font-size="10">• 依赖关系一目了然</text>
       <text x="175" y="285" class="text" fill="#166534" font-size="10">• 自动拓扑排序</text>
@@ -1313,5 +1298,3 @@ def monitored_task_execution(task_name: str, task_func: callable):
 - ↩️ **补偿事务（Compensating Transactions）**：如何实现「语义回滚」
 - 🛡️ **异常处理模式**：Try-Catch-Finally 在工作流中的变体
 - 📊 **容错率评估**：量化系统的可靠性和韧性
-
-敬请期待！
