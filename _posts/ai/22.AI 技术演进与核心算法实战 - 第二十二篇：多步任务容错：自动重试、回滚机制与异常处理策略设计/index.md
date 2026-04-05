@@ -173,80 +173,60 @@ wait_time = min(base_delay * (2 ^ attempt_number) + random_jitter, max_delay)
 ```
 
 <div align="center">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350" width="100%" height="100%" style="max-width: 700px; margin: 20px 0;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 370" width="100%" height="100%" style="max-width: 720px; margin: 20px 0;" shape-rendering="crispEdges" text-rendering="crispEdges">
     <defs>
       <style>
-        .axis { stroke: #64748b; stroke-width: 2; }
-        .grid { stroke: #e2e8f0; stroke-width: 1; stroke-dasharray: 4,4; }
-        .line-exponential { fill: none; stroke: #ef4444; stroke-width: 3; }
-        .line-linear { fill: none; stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 6,6; }
-        .point { fill: #ef4444; }
-        .text { font-family: -apple-system, sans-serif; font-size: 13px; fill: #475569; text-anchor: middle; }
-        .label { font-family: -apple-system, sans-serif; font-size: 14px; fill: #1e293b; font-weight: bold; }
-        .legend-box { fill: white; stroke: #cbd5e1; stroke-width: 1; rx: 4; }
+        .axis { stroke: #334155; stroke-width: 3; }
+        .line-exponential { fill: none; stroke: #dc2626; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+        .line-linear { fill: none; stroke: #6b7280; stroke-width: 4; stroke-dasharray: 10,6; stroke-linecap: round; }
+        .point { fill: #dc2626; stroke: #fff; stroke-width: 2.5; }
+        .text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 17px; fill: #000000; text-anchor: middle; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 22px; fill: #000000; font-weight: 700; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
       </style>
     </defs>
-    
     <!-- Background -->
-    <rect width="700" height="350" fill="#fafafa"/>
-    
+    <rect width="720" height="370" fill="#fafafa"/>
     <!-- Grid lines -->
     <line x1="80" y1="50" x2="80" y2="280" class="axis"/>
-    <line x1="80" y1="280" x2="650" y2="280" class="axis"/>
-    
-    <!-- Horizontal grid lines -->
-    <line x1="80" y1="280" x2="650" y2="280" class="grid"/>
-    <line x1="80" y1="222.5" x2="650" y2="222.5" class="grid"/>
-    <line x1="80" y1="165" x2="650" y2="165" class="grid"/>
-    <line x1="80" y1="107.5" x2="650" y2="107.5" class="grid"/>
-    <line x1="80" y1="50" x2="650" y2="50" class="grid"/>
-    
+    <line x1="80" y1="280" x2="670" y2="280" class="axis"/>
     <!-- Y-axis labels -->
-    <text x="60" y="285" class="text" text-anchor="end">0s</text>
-    <text x="60" y="227.5" class="text" text-anchor="end">15s</text>
-    <text x="60" y="170" class="text" text-anchor="end">30s</text>
-    <text x="60" y="112.5" class="text" text-anchor="end">45s</text>
-    <text x="60" y="55" class="text" text-anchor="end">60s</text>
-    
+    <text x="68" y="286" class="text" text-anchor="end" font-size="17" font-weight="600">0s</text>
+    <text x="68" y="228" class="text" text-anchor="end" font-size="17" font-weight="600">15s</text>
+    <text x="68" y="170" class="text" text-anchor="end" font-size="17" font-weight="600">30s</text>
+    <text x="68" y="112" class="text" text-anchor="end" font-size="17" font-weight="600">45s</text>
+    <text x="68" y="56" class="text" text-anchor="end" font-size="17" font-weight="600">60s</text>
     <!-- X-axis labels -->
-    <text x="80" y="305" class="text">Attempt 0</text>
-    <text x="194" y="305" class="text">Attempt 1</text>
-    <text x="308" y="305" class="text">Attempt 2</text>
-    <text x="422" y="305" class="text">Attempt 3</text>
-    <text x="536" y="305" class="text">Attempt 4</text>
-    <text x="650" y="305" class="text">Attempt 5</text>
-    
+    <text x="80" y="312" class="text" font-size="17" font-weight="600">Attempt 0</text>
+    <text x="198" y="312" class="text" font-size="17" font-weight="600">Attempt 1</text>
+    <text x="316" y="312" class="text" font-size="17" font-weight="600">Attempt 2</text>
+    <text x="434" y="312" class="text" font-size="17" font-weight="600">Attempt 3</text>
+    <text x="552" y="312" class="text" font-size="17" font-weight="600">Attempt 4</text>
+    <text x="670" y="312" class="text" font-size="17" font-weight="600">Attempt 5</text>
     <!-- Exponential backoff line -->
     <polyline 
-      points="80,280 194,260 308,222.5 422,165 536,107.5 650,50" 
+      points="80,280 198,260 316,222 434,164 552,106 670,50" 
       class="line-exponential"
     />
-    
     <!-- Data points -->
-    <circle cx="80" cy="280" r="5" class="point"/>
-    <circle cx="194" cy="260" r="5" class="point"/>
-    <circle cx="308" cy="222.5" r="5" class="point"/>
-    <circle cx="422" cy="165" r="5" class="point"/>
-    <circle cx="536" cy="107.5" r="5" class="point"/>
-    <circle cx="650" cy="50" r="5" class="point"/>
-    
+    <circle cx="80" cy="280" r="6.5" class="point"/>
+    <circle cx="198" cy="260" r="6.5" class="point"/>
+    <circle cx="316" cy="222" r="6.5" class="point"/>
+    <circle cx="434" cy="164" r="6.5" class="point"/>
+    <circle cx="552" cy="106" r="6.5" class="point"/>
+    <circle cx="670" cy="50" r="6.5" class="point"/>
     <!-- Linear retry line (for comparison) -->
-    <line x1="80" y1="280" x2="650" y2="250" class="line-linear"/>
-    
+    <line x1="80" y1="280" x2="670" y2="250" class="line-linear"/>
     <!-- Max delay line -->
-    <line x1="80" y1="50" x2="650" y2="50" stroke="#22c55e" stroke-width="2" stroke-dasharray="8,4"/>
-    <text x="660" y="55" class="text" text-anchor="start" fill="#22c55e">Max Delay (60s)</text>
-    
+    <line x1="80" y1="50" x2="670" y2="50" stroke="#15803d" stroke-width="4" stroke-dasharray="12,6"/>
+    <text x="678" y="59" class="text" text-anchor="start" fill="#166534" font-size="17" font-weight="800">Max Delay (60s)</text>
     <!-- Legend -->
-    <rect x="150" y="320" width="15" height="15" fill="#ef4444" rx="2"/>
-    <text x="170" y="332" class="text" text-anchor="start">指数退避</text>
-    
-    <line x1="260" y1="327.5" x2="275" y2="327.5" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6,6"/>
-    <text x="280" y="332" class="text" text-anchor="start">线性重试</text>
-    
+    <rect x="160" y="326" width="20" height="20" fill="#dc2626" rx="4"/>
+    <text x="186" y="343" class="text" text-anchor="start" font-size="17" font-weight="700">指数退避</text>
+    <line x1="282" y1="336" x2="302" y2="336" stroke="#6b7280" stroke-width="4" stroke-dasharray="10,6"/>
+    <text x="308" y="343" class="text" text-anchor="start" font-size="17" font-weight="700">线性重试</text>
     <!-- Title -->
-    <text x="365" y="30" class="label" text-anchor="middle">指数退避 vs 线性重试对比</text>
-    <text x="365" y="345" class="text" text-anchor="middle" font-size="12">横轴：重试次数 | 纵轴：等待时间</text>
+    <text x="370" y="34" class="label" text-anchor="middle">指数退避 vs 线性重试对比</text>
+    <text x="370" y="364" class="text" text-anchor="middle" font-size="16" font-weight="600" fill="#1e293b">横轴：重试次数 | 纵轴：等待时间</text>
   </svg>
 </div>
 
@@ -908,56 +888,48 @@ except Exception as e:
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" width="100%" height="100%" style="max-width: 700px; margin: 20px 0;">
     <defs>
       <style>
-        .box-primary { fill: #dbeafe; stroke: #2563eb; stroke-width: 2; rx: 8; ry: 8; }
-        .box-secondary { fill: #fef08a; stroke: #ca8a04; stroke-width: 2; rx: 8; ry: 8; }
-        .box-tertiary { fill: #fed7aa; stroke: #ea580c; stroke-width: 2; rx: 8; ry: 8; }
-        .box-fallback { fill: #fecaca; stroke: #dc2626; stroke-width: 2; rx: 8; ry: 8; }
-        .text { font-family: -apple-system, sans-serif; font-size: 14px; fill: #1e293b; text-anchor: middle; dominant-baseline: middle; }
-        .arrow { stroke: #64748b; stroke-width: 2; marker-end: url(#arrowhead); fill: none; }
-        .dashed-arrow { stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 6,4; marker-end: url(#arrowhead); fill: none; }
+        .box-primary { fill: #dbeafe; stroke: #2563eb; stroke-width: 3; rx: 10; ry: 10; }
+        .box-secondary { fill: #fef08a; stroke: #ca8a04; stroke-width: 3; rx: 10; ry: 10; }
+        .box-tertiary { fill: #fed7aa; stroke: #ea580c; stroke-width: 3; rx: 10; ry: 10; }
+        .box-fallback { fill: #fecaca; stroke: #dc2626; stroke-width: 3; rx: 10; ry: 10; }
+        .text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 16px; fill: #0f172a; text-anchor: middle; dominant-baseline: middle; text-rendering: optimizeLegibility; }
+        .arrow { stroke: #334155; stroke-width: 3; marker-end: url(#arrowhead); fill: none; }
+        .dashed-arrow { stroke: #475569; stroke-width: 3; stroke-dasharray: 8,5; marker-end: url(#arrowhead); fill: none; }
       </style>
-      <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-        <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b" />
+      <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155" />
       </marker>
     </defs>
-    
     <!-- Level 1: Primary -->
-    <rect x="150" y="30" width="400" height="60" class="box-primary"/>
-    <text x="350" y="50" class="text" font-weight="bold" font-size="16">Level 1: 主策略（Primary）</text>
-    <text x="350" y="70" class="text" font-size="13">GPT-4 完整分析 + 实时数据 + 精美图表</text>
-    
+    <rect x="150" y="30" width="400" height="65" class="box-primary"/>
+    <text x="350" y="52" class="text" font-weight="700" font-size="18">Level 1: 主策略（Primary）</text>
+    <text x="350" y="74" class="text" font-size="15" font-weight="500">GPT-4 完整分析 + 实时数据 + 精美图表</text>
     <!-- Arrow down -->
-    <line x1="350" y1="90" x2="350" y2="110" class="arrow"/>
-    <text x="370" y="105" class="text" font-size="11" fill="#64748b">失败时降级</text>
-    
+    <line x1="350" y1="95" x2="350" y2="115" class="arrow"/>
+    <text x="375" y="110" class="text" font-size="13" fill="#334155" font-weight="700">失败时降级</text>
     <!-- Level 2: Secondary -->
-    <rect x="150" y="120" width="400" height="60" class="box-secondary"/>
-    <text x="350" y="140" class="text" font-weight="bold" font-size="16">Level 2: 次选策略（Secondary）</text>
-    <text x="350" y="160" class="text" font-size="13">GPT-3.5 简化分析 + 缓存数据 + 文本报告</text>
-    
+    <rect x="150" y="125" width="400" height="65" class="box-secondary"/>
+    <text x="350" y="147" class="text" font-weight="700" font-size="18">Level 2: 次选策略（Secondary）</text>
+    <text x="350" y="169" class="text" font-size="15" font-weight="500">GPT-3.5 简化分析 + 缓存数据 + 文本报告</text>
     <!-- Arrow down -->
-    <line x1="350" y1="180" x2="350" y2="200" class="arrow"/>
-    <text x="370" y="195" class="text" font-size="11" fill="#64748b">仍失败时降级</text>
-    
+    <line x1="350" y1="190" x2="350" y2="210" class="arrow"/>
+    <text x="375" y="205" class="text" font-size="13" fill="#334155" font-weight="700">仍失败时降级</text>
     <!-- Level 3: Tertiary -->
-    <rect x="150" y="210" width="400" height="60" class="box-tertiary"/>
-    <text x="350" y="230" class="text" font-weight="bold" font-size="16">Level 3: 保底策略（Tertiary）</text>
-    <text x="350" y="250" class="text" font-size="13">规则引擎静态分析 + 返回原始数据</text>
-    
+    <rect x="150" y="220" width="400" height="65" class="box-tertiary"/>
+    <text x="350" y="242" class="text" font-weight="700" font-size="18">Level 3: 保底策略（Tertiary）</text>
+    <text x="350" y="264" class="text" font-size="15" font-weight="500">规则引擎静态分析 + 返回原始数据</text>
     <!-- Arrow down -->
-    <line x1="350" y1="270" x2="350" y2="290" class="arrow"/>
-    <text x="370" y="285" class="text" font-size="11" fill="#64748b">极端情况</text>
-    
+    <line x1="350" y1="285" x2="350" y2="305" class="arrow"/>
+    <text x="375" y="300" class="text" font-size="13" fill="#334155" font-weight="700">极端情况</text>
     <!-- Level 4: Human Fallback -->
-    <rect x="150" y="300" width="400" height="60" class="box-fallback"/>
-    <text x="350" y="320" class="text" font-weight="bold" font-size="16">Level 4: 人工介入（Human Fallback）</text>
-    <text x="350" y="340" class="text" font-size="13">通知管理员 + 保存中间结果 + 稍后重试</text>
-    
+    <rect x="150" y="315" width="400" height="65" class="box-fallback"/>
+    <text x="350" y="337" class="text" font-weight="700" font-size="18">Level 4: 人工介入（Human Fallback）</text>
+    <text x="350" y="359" class="text" font-size="15" font-weight="500">通知管理员 + 保存中间结果 + 稍后重试</text>
     <!-- Side annotations -->
-    <text x="50" y="60" class="text" font-size="12" fill="#2563eb" font-weight="bold">最佳体验</text>
-    <text x="50" y="150" class="text" font-size="12" fill="#ca8a04" font-weight="bold">可用</text>
-    <text x="50" y="240" class="text" font-size="12" fill="#ea580c" font-weight="bold">基本可用</text>
-    <text x="50" y="330" class="text" font-size="12" fill="#dc2626" font-weight="bold">需人工处理</text>
+    <text x="45" y="65" class="text" font-size="15" fill="#1d4ed8" font-weight="800" text-anchor="end">最佳体验</text>
+    <text x="45" y="160" class="text" font-size="15" fill="#a16207" font-weight="800" text-anchor="end">可用</text>
+    <text x="45" y="255" class="text" font-size="15" fill="#c2410c" font-weight="800" text-anchor="end">基本可用</text>
+    <text x="45" y="350" class="text" font-size="15" fill="#b91c1c" font-weight="800" text-anchor="end">需人工处理</text>
   </svg>
 </div>
 
