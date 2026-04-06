@@ -4,7 +4,7 @@ excerpt: "Transformer 的核心在于 Self-Attention。本篇通过直观的矩�
 description: "AI 技术演进与核心算法实战第四篇：注意力机制解密：Self-Attention 的矩阵运算图解与 Q,K,V 的物理意义"
 keyword: "AI,大模型,Agent,Self-Attention,Transformer,注意力机制,QKV"
 tag: "AI"
-date: "2025-10-15 10:00:00"
+date: "2025-07-15 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战-第四篇：注意力机制解密：Self-Attention-的矩阵运算图解与-Q,K,V-的物理意义/cover/attention-cover.png"
 author:
   name: 蛋烘糕

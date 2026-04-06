@@ -4,7 +4,7 @@ excerpt: "从零开始理解 LLM 的第一步：Token 是什么？为什么不�
 description: "AI 技术演进与核心算法实战第二篇：Token 的奥秘：BPE 分词算法详解与词汇表构建实战"
 keyword: "AI,大模型,Agent,Token,BPE,分词器,Tokenizer,NLP"
 tag: "AI"
-date: "2025-09-25 10:00:00"
+date: "2025-06-25 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战-第二篇：Token-的奥秘：BPE-分词算法详解与词汇表构建实战/cover/token-bpe.png"
 author:
   name: 蛋烘糕

@@ -4,7 +4,7 @@ excerpt: "提示词不是玄学，而是数学。从 LLM 的概率分布本质�
 description: "AI 技术演进与核心算法实战第七篇：提示词的数学本质：In-Context Learning 的贝叶斯解释与概率分布操控"
 keyword: "AI,大模型,提示工程,In-Context Learning,贝叶斯推断,概率分布,Prompt,ICL"
 tag: "AI"
-date: "2025-11-20 10:00:00"
+date: "2025-08-20 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战-第七篇：提示词的数学本质：In-Context-Learning-的贝叶斯解释与概率分布操控/assets/cover/prompt-bayesian-cover.svg"
 author:
   name: 蛋烘糕

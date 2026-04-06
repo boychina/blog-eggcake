@@ -4,7 +4,7 @@ excerpt: "从'单步反应'到'全局规划'的质变。深入解析 Plan-and-So
 description: "AI 技术演进与核心算法实战第二十篇：自主规划算法：Plan-and-Solve、Reflexion（自我反思）与 LLM 决策树搜索"
 keyword: "AI,大模型,Agent,自主规划,Plan-and-Solve,Reflexion,自我反思,MCTS,决策树搜索,多步任务"
 tag: "AI"
-date: "2026-03-10 10:00:00"
+date: "2025-12-10 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战 - 第二十篇：自主规划算法：Plan-and-Solve、Reflexion（自我反思）与 LLM 决策树搜索/assets/cover/autonomous-planning-cover.svg"
 author:
   name: 蛋烘糕

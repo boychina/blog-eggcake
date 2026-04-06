@@ -4,7 +4,7 @@ excerpt: "多 Agent 系统如何高效协作？深入解析消息传递协议、
 description: "AI 技术演进与核心算法实战第二十四篇：通信与共识机制：Agent 间的消息协议、共享黑板（Blackboard）与冲突仲裁算法"
 keyword: "AI,大模型,Agent,多Agent协作,消息协议,共享黑板,Blackboard,冲突仲裁,共识机制,分布式系统"
 tag: "AI"
-date: "2026-03-25 10:00:00"
+date: "2025-12-25 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战-第二十四篇：通信与共识机制：Agent-间的消息协议、共享黑板（Blackboard）与冲突仲裁算法/cover/agent-communication.svg"
 author:
   name: 蛋烘糕

@@ -4,7 +4,7 @@ excerpt: "大模型生成文本时，如何在'确定性'和'多样性'之间取
 description: "AI 技术演进与核心算法实战第十篇：解码策略详解：Temperature, Top-P, Top-K 对生成多样性的影响与可视化实验"
 keyword: "AI,大模型，解码策略，Temperature,Top-P,Top-K，文本生成，多样性控制，采样算法"
 tag: "AI"
-date: "2025-12-23 10:00:00"
+date: "2025-09-23 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战 - 第十篇：解码策略详解：Temperature, Top-P, Top-K 对生成多样性的影响与可视化实验/assets/cover/decoding-strategies-cover.svg"
 author:
   name: 蛋烘糕

@@ -4,7 +4,7 @@ excerpt: "赋予 AI '手'和'脑'的终极范式。深入解析 ReAct (Reasoning
 description: "AI 技术演进与核心算法实战第十九篇：ReAct 框架详解：Reasoning + Acting 循环的逻辑实现与死循环检测机制"
 keyword: "AI,大模型,Agent,ReAct,Reasoning,Acting,死循环检测,LangChain"
 tag: "AI"
-date: "2026-03-02 10:00:00"
+date: "2025-12-02 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战 - 第十九篇：ReAct-框架详解：Reasoning-+-Acting-循环的逻辑实现与死循环检测机制/assets/cover/react-framework-cover.svg"
 author:
   name: 蛋烘糕

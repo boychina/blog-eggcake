@@ -4,7 +4,7 @@ excerpt: "彻底搞懂 Transformer 的各个组件：位置编码如何注入时
 description: "AI 技术演进与核心算法实战第五篇：Transformer 架构深潜：Positional Encoding、Layer Norm 与前馈网络的手写实现"
 keyword: "AI,大模型,Transformer,Positional Encoding,Layer Norm,FFN,NanoGPT"
 tag: "AI"
-date: "2025-10-22 10:00:00"
+date: "2025-07-22 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战-第五篇：Transformer-架构深潜：Positional-Encoding、Layer-Norm-与前馈网络的手写实现（NanoGPT-复现）/cover/transformer-architecture.svg"
 author:
   name: 蛋烘糕

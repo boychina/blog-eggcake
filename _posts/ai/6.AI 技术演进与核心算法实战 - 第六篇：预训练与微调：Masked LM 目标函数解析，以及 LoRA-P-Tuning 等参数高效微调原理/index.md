@@ -4,7 +4,7 @@ excerpt: "大模型是如何“读遍天下书”的？Masked LM 目标函数详
 description: "AI 技术演进与核心算法实战第六篇：预训练与微调：Masked LM 目标函数解析，以及 LoRA-P-Tuning 等参数高效微调原理"
 keyword: "AI,大模型,预训练,微调,Masked LM,MLM,LoRA,P-Tuning,参数高效微调"
 tag: "AI"
-date: "2025-11-13 10:00:00"
+date: "2025-08-13 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战-第六篇：预训练与微调：Masked-LM-目标函数解析，以及-LoRA-P-Tuning-等参数高效微调原理/assets/cover/pretraining-cover.svg"
 author:
   name: 蛋烘糕

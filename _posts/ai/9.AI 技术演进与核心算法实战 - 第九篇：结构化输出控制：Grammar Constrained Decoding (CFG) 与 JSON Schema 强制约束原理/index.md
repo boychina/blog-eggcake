@@ -4,7 +4,7 @@ excerpt: "如何让大模型 100% 按格式输出？深入剖析 Grammar Constra
 description: "AI 技术演进与核心算法实战第九篇：结构化输出控制：Grammar Constrained Decoding (CFG) 与 JSON Schema 强制约束原理"
 keyword: "AI，大模型，结构化输出，Grammar Constrained Decoding,CFG,JSON Schema，约束解码，形式语言"
 tag: "AI"
-date: "2025-12-07 10:00:00"
+date: "2025-09-07 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战 - 第九篇：结构化输出控制：Grammar-Constrained-Decoding-CFG-与-JSON-Schema-强制约束原理/assets/cover/cfg-json-schema-cover.svg"
 author:
   name: 蛋烘糕

@@ -4,7 +4,7 @@ excerpt: "从线性执行到复杂工作流的跨越。深入解析 DAG（有向
 description: "AI 技术演进与核心算法实战第二十一篇：工作流编排引擎：基于 DAG（有向无环图）的任务调度与状态机管理（LangGraph 原理）"
 keyword: "AI,大模型,工作流,DAG,有向无环图,任务调度,状态机,LangGraph,Agent,编排引擎"
 tag: "AI"
-date: "2026-03-15 10:00:00"
+date: "2025-12-15 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战 - 第二十一篇：工作流编排引擎：基于 DAG（有向无环图）的任务调度与状态机管理（LangGraph 原理）/assets/cover/dag-workflow-cover.svg"
 author:
   name: 蛋烘糕

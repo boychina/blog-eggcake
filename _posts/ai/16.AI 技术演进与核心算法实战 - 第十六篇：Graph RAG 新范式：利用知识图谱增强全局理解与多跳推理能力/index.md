@@ -4,7 +4,7 @@ excerpt: "传统 RAG 只能检索碎片信息？深入讲解 Graph RAG 新范式
 description: "AI 技术演进与核心算法实战第十六篇：Graph RAG 新范式：利用知识图谱增强全局理解与多跳推理能力"
 keyword: "AI，大模型，Graph RAG，知识图谱，多跳推理，图神经网络，RAG，检索增强，全局理解"
 tag: "AI"
-date: "2026-02-08 10:00:00"
+date: "2025-11-08 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战 - 第十六篇：Graph RAG 新范式：利用知识图谱增强全局理解与多跳推理能力/assets/cover/graph-rag-paradigm-cover.svg"
 author:
   name: 蛋烘糕

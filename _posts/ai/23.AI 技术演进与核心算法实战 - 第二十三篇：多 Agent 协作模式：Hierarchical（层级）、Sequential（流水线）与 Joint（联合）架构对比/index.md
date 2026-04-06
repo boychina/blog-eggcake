@@ -4,7 +4,7 @@ excerpt: "单 Agent 的能力边界在哪里？如何通过多 Agent 协作突�
 description: "AI 技术演进与核心算法实战第二十三篇：多 Agent 协作模式：Hierarchical（层级）、Sequential（流水线）与 Joint（联合）架构对比"
 keyword: "AI,大模型,Agent,多Agent协作,Hierarchical,Sequential,Joint,架构设计,群体智能,LangGraph,CrewAI"
 tag: "AI"
-date: "2026-03-23 10:00:00"
+date: "2025-12-23 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战-第二十三篇：多-Agent-协作模式：Hierarchical（层级）、Sequential（流水线）与-Joint（联合）架构对比/cover/multi-agent-architectures.svg"
 author:
   name: 蛋烘糕

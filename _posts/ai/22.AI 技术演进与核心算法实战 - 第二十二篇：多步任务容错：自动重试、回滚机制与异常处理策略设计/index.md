@@ -4,7 +4,7 @@ excerpt: "构建生产级 AI Agent 的最后一块拼图。深入探讨多步任
 description: "AI 技术演进与核心算法实战第二十二篇：多步任务容错：自动重试、回滚机制与异常处理策略设计"
 keyword: "AI,大模型,Agent,容错,重试机制,回滚,异常处理,降级策略,补偿事务,生产环境,可靠性工程"
 tag: "AI"
-date: "2026-03-20 10:00:00"
+date: "2025-12-20 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战 - 第二十二篇：多步任务容错：自动重试、回滚机制与异常处理策略设计/assets/cover/fault-tolerance-cover.svg"
 author:
   name: 蛋烘糕

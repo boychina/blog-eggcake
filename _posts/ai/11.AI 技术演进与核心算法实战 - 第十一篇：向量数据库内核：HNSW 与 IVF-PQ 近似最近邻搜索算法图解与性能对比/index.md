@@ -4,7 +4,7 @@ excerpt: "为什么向量数据库能在亿级数据中毫秒级检索？深入 
 description: "AI 技术演进与核心算法实战第十一篇：向量数据库内核：HNSW 与 IVF-PQ 近似最近邻搜索算法图解与性能对比"
 keyword: "AI,大模型，向量数据库，HNSW,IVF-PQ,ANN，近似最近邻，RAG，检索增强"
 tag: "AI"
-date: "2026-01-03 10:00:00"
+date: "2025-10-03 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战 - 第十一篇：向量数据库内核：HNSW-与-IVF-PQ-近似最近邻搜索算法图解与性能对比/assets/cover/hnsw-ivfpq-cover.svg"
 author:
   name: 蛋烘糕

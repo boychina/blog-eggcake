@@ -4,7 +4,7 @@ excerpt: "简单提示词只能让模型\"直接回答\"，但复杂推理需要
 description: "AI 技术演进与核心算法实战第八篇：高级推理策略：Chain-of-Thought (CoT)、Tree-of-Thoughts (ToT) 算法原理与实现"
 keyword: "AI,大模型,Chain-of-Thought,CoT,Tree-of-Thoughts,ToT,推理策略,思维链,提示工程"
 tag: "AI"
-date: "2025-11-30 10:00:00"
+date: "2025-08-30 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战-第八篇：高级推理策略：Chain-of-Thought-(CoT)、Tree-of-Thoughts-(ToT)-算法原理与实现/assets/cover/cot-tot-cover.svg"
 author:
   name: 蛋烘糕

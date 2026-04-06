@@ -4,7 +4,7 @@ excerpt: "检索精度遇到瓶颈？深入讲解三种高级 RAG 优化技术�
 description: "AI 技术演进与核心算法实战第十五篇：高级 RAG 模式：HyDE（假设性文档嵌入）、Parent-Child Indexing 与递归检索"
 keyword: "AI，大模型，RAG，HyDE，假设性文档嵌入，Parent-Child Indexing，递归检索，向量检索，检索增强"
 tag: "AI"
-date: "2026-02-01 10:00:00"
+date: "2025-11-01 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战 - 第十五篇：高级 RAG 模式：HyDE、Parent-Child Indexing 与递归检索/assets/cover/advanced-rag-patterns-cover.svg"
 author:
   name: 蛋烘糕

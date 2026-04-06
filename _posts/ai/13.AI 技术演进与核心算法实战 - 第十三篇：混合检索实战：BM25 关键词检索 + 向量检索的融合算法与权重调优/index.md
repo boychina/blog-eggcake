@@ -4,7 +4,7 @@ excerpt: "为什么单纯的向量检索不够用？深入讲解 BM25 与向量�
 description: "AI 技术演进与核心算法实战第十三篇：混合检索实战：BM25 关键词检索 + 向量检索的融合算法与权重调优"
 keyword: "AI，大模型，混合检索，BM25，向量检索，RAG，Reciprocal Rank Fusion，权重调优，检索增强"
 tag: "AI"
-date: "2026-01-18 10:00:00"
+date: "2025-10-18 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战 - 第十三篇：混合检索实战：BM25 关键词检索 + 向量检索的融合算法与权重调优/assets/cover/hybrid-search-cover.svg"
 author:
   name: 蛋烘糕

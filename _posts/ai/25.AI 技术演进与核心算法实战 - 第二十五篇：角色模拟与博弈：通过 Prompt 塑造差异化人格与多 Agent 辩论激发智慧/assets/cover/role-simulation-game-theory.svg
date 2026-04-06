@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%" style="max-width: 800px; margin: 20px 0;" shape-rendering="crispEdges" text-rendering="geometricPrecision">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .agent-circle { stroke-width: 3; rx: 60; ry: 60; }
+      .agent-a { fill: #dbeafe; stroke: #2563eb; }
+      .agent-b { fill: #fef08a; stroke: #ca8a04; }
+      .agent-c { fill: #bbf7d0; stroke: #16a34a; }
+      .agent-d { fill: #fecdd3; stroke: #be123c; }
+      .text-main { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 24px; fill: #0f172a; text-anchor: middle; dominant-baseline: middle; font-weight: 700; }
+      .text-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 16px; fill: #475569; text-anchor: middle; dominant-baseline: middle; font-weight: 500; }
+      .text-role { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 14px; fill: #1e293b; text-anchor: middle; dominant-baseline: middle; font-weight: 600; }
+      .arrow { stroke: #64748b; stroke-width: 2.5; marker-end: url(#arrowhead); fill: none; }
+      .debate-line { stroke: #ef4444; stroke-width: 3; stroke-dasharray: 8,5; marker-end: url(#arrowhead-red); fill: none; }
+    </style>
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b" />
+    </marker>
+    <marker id="arrowhead-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" class="bg"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" class="text-main" font-size="26">角色模拟与博弈：多 Agent 辩论激发智慧</text>
+  <text x="400" y="65" class="text-sub">Role Simulation &amp; Game Theory in Multi-Agent Systems</text>
+  
+  <!-- Central debate area -->
+  <circle cx="400" cy="240" r="130" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="10,6"/>
+  <text x="400" y="240" class="text-sub" font-size="18" font-weight="700" fill="#334155">辩论空间</text>
+  <text x="400" y="262" class="text-sub" font-size="13">(Debate Arena)</text>
+  
+  <!-- Agent A - Top Left -->
+  <rect x="120" y="110" width="120" height="80" class="agent-circle agent-a"/>
+  <text x="180" y="140" class="text-role">Agent A</text>
+  <text x="180" y="160" class="text-sub" font-size="12">激进派</text>
+  <text x="180" y="176" class="text-sub" font-size="11" fill="#64748b">风险偏好高</text>
+  
+  <!-- Agent B - Top Right -->
+  <rect x="560" y="110" width="120" height="80" class="agent-circle agent-b"/>
+  <text x="620" y="140" class="text-role">Agent B</text>
+  <text x="620" y="160" class="text-sub" font-size="12">保守派</text>
+  <text x="620" y="176" class="text-sub" font-size="11" fill="#64748b">风险厌恶</text>
+  
+  <!-- Agent C - Bottom Left -->
+  <rect x="120" y="290" width="120" height="80" class="agent-circle agent-c"/>
+  <text x="180" y="320" class="text-role">Agent C</text>
+  <text x="180" y="340" class="text-sub" font-size="12">创新派</text>
+  <text x="180" y="356" class="text-sub" font-size="11" fill="#64748b">突破常规</text>
+  
+  <!-- Agent D - Bottom Right -->
+  <rect x="560" y="290" width="120" height="80" class="agent-circle agent-d"/>
+  <text x="620" y="320" class="text-role">Agent D</text>
+  <text x="620" y="340" class="text-sub" font-size="12">务实派</text>
+  <text x="620" y="356" class="text-sub" font-size="11" fill="#64748b">注重可行</text>
+  
+  <!-- Debate arrows (bidirectional) -->
+  <!-- A to B -->
+  <path d="M 240 140 Q 400 100 560 140" class="debate-line"/>
+  <path d="M 560 155 Q 400 115 240 155" class="debate-line"/>
+  
+  <!-- C to D -->
+  <path d="M 240 320 Q 400 360 560 320" class="debate-line"/>
+  <path d="M 560 335 Q 400 375 240 335" class="debate-line"/>
+  
+  <!-- A to C -->
+  <path d="M 170 190 L 170 290" class="arrow"/>
+  <path d="M 190 290 L 190 190" class="arrow"/>
+  
+  <!-- B to D -->
+  <path d="M 610 190 L 610 290" class="arrow"/>
+  <path d="M 630 290 L 630 190" class="arrow"/>
+  
+  <!-- Cross debates -->
+  <path d="M 230 165 Q 320 200 370 230" class="debate-line" opacity="0.6"/>
+  <path d="M 570 165 Q 480 200 430 230" class="debate-line" opacity="0.6"/>
+  
+  <!-- Prompt injection indicators -->
+  <rect x="80" y="400" width="180" height="35" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" rx="6"/>
+  <text x="170" y="422" class="text-sub" font-size="13" font-weight="600">Prompt 塑造人格</text>
+  
+  <rect x="540" y="400" width="180" height="35" fill="#fef3c7" stroke="#d97706" stroke-width="2" rx="6"/>
+  <text x="630" y="422" class="text-sub" font-size="13" font-weight="600">博弈达成共识</text>
+  
+  <!-- Key concepts -->
+  <text x="400" y="422" class="text-sub" font-size="12" fill="#64748b">差异化角色 · 多轮辩论 · 群体智能涌现</text>
+</svg>

@@ -4,7 +4,7 @@ excerpt: "混合检索之后，如何进一步提升结果质量？深入讲解 
 description: "AI 技术演进与核心算法实战第十四篇：重排序（Re-Rank）技术：Cross-Encoder 模型原理及其在提升检索精度中的关键作用"
 keyword: "AI，大模型，重排序，Re-Rank，Cross-Encoder，Bi-Encoder，RAG，检索增强，注意力机制"
 tag: "AI"
-date: "2026-01-25 10:00:00"
+date: "2025-10-25 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战 - 第十四篇：重排序（Re-Rank）技术：Cross-Encoder 模型原理及其在提升检索精度中的关键作用/assets/cover/rerank-crossencoder-cover.svg"
 author:
   name: 蛋烘糕

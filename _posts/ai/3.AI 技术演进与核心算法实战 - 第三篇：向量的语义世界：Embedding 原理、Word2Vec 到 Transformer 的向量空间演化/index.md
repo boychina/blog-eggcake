@@ -4,7 +4,7 @@ excerpt: "在理解了 Token 之后，AI 是如何理解词汇含义的？从 Wo
 description: "AI 技术演进与核心算法实战第三篇：向量的语义世界：Embedding 原理、Word2Vec 到 Transformer 的向量空间演化"
 keyword: "AI,大模型,Agent,Embedding,Word2Vec,Transformer,向量空间,NLP"
 tag: "AI"
-date: "2025-10-01 10:00:00"
+date: "2025-07-01 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战-第三篇：向量的语义世界：Embedding-原理、Word2Vec-到-Transformer-的向量空间演化/cover/embedding-word2vec.png"
 author:
   name: 蛋烘糕

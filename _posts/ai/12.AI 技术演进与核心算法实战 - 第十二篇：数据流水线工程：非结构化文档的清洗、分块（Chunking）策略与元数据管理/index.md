@@ -4,7 +4,7 @@ excerpt: "Garbage In, Garbage Out!RAG 系统的质量 90% 取决于数据预处�
 description: "AI 技术演进与核心算法实战第十二篇：数据流水线工程：非结构化文档的清洗、分块（Chunking）策略与元数据管理"
 keyword: "AI，大模型，数据流水线，文档清洗，分块策略，Chunking，元数据管理，RAG，向量检索"
 tag: "AI"
-date: "2026-01-09 10:00:00"
+date: "2025-10-09 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战 - 第十二篇：数据流水线工程：非结构化文档的清洗、分块（Chunking）策略与元数据管理/assets/cover/data-pipeline-cover.svg"
 author:
   name: 蛋烘糕

@@ -4,7 +4,7 @@ excerpt: "如何让大模型从'只会聊天'进化到'会调用工具'？深入
 description: "AI 技术演进与核心算法实战第十七篇：Function Calling 原理：从 Prompt 伪装到原生支持的技术演进与参数绑定机制"
 keyword: "AI，大模型，Function Calling，工具调用，参数绑定，Prompt 工程，JSON Schema，原生支持，Agent"
 tag: "AI"
-date: "2026-02-14 10:00:00"
+date: "2025-11-14 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战 - 第十七篇：Function Calling 原理：从 Prompt 伪装到原生支持的技术演进与参数绑定机制/assets/cover/function-calling-evolution-cover.svg"
 author:
   name: 蛋烘糕

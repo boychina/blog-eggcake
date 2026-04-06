@@ -4,7 +4,7 @@ excerpt: "如何让 AI 安全地执行代码？深入剖析代码解释器的沙
 description: "AI 技术演进与核心算法实战第十八篇：工具执行沙箱：代码解释器（Code Interpreter）的安全隔离与执行环境构建"
 keyword: "AI，大模型，代码解释器，沙箱，Docker，安全隔离，执行环境，Code Interpreter，Agent，工具调用"
 tag: "AI"
-date: "2026-02-20 10:00:00"
+date: "2025-11-20 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战 - 第十八篇：工具执行沙箱：代码解释器（Code Interpreter）的安全隔离与执行环境构建/assets/cover/code-interpreter-sandbox-cover.svg"
 author:
   name: 蛋烘糕
