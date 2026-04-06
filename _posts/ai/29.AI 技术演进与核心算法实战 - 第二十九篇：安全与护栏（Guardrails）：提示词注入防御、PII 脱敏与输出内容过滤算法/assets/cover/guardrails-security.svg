@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fef3c7"/>
+      <stop offset="100%" style="stop-color:#fde68a"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Title Card -->
+  <rect x="100" y="80" width="1000" height="120" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" rx="16"/>
+  <text x="600" y="130" font-family="-apple-system, sans-serif" font-size="48" fill="#0f172a" text-anchor="middle" font-weight="800">安全与护栏系统</text>
+  <text x="600" y="170" font-family="-apple-system, sans-serif" font-size="24" fill="#475569" text-anchor="middle" font-weight="600">提示词注入防御 · PII 脱敏 · 内容过滤</text>
+  
+  <!-- Three Feature Cards -->
+  <!-- Card 1: Prompt Injection Defense -->
+  <rect x="100" y="240" width="300" height="300" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" rx="12"/>
+  <circle cx="250" cy="300" r="40" fill="#fecdd3" stroke="#be123c" stroke-width="2"/>
+  <text x="250" y="310" font-size="32" text-anchor="middle">🛡️</text>
+  <text x="250" y="370" font-family="-apple-system, sans-serif" font-size="20" fill="#1e293b" text-anchor="middle" font-weight="700">提示词注入防御</text>
+  <text x="250" y="400" font-family="-apple-system, sans-serif" font-size="14" fill="#64748b" text-anchor="middle">Prompt Injection</text>
+  <rect x="140" y="440" width="220" height="30" fill="#f8fafc" stroke="#cbd5e1" rx="6"/>
+  <text x="250" y="460" font-family="-apple-system, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">分隔符隔离策略</text>
+  <rect x="140" y="480" width="220" height="30" fill="#f8fafc" stroke="#cbd5e1" rx="6"/>
+  <text x="250" y="500" font-family="-apple-system, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">意图识别检测</text>
+  
+  <!-- Card 2: PII Redaction -->
+  <rect x="450" y="240" width="300" height="300" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" rx="12"/>
+  <circle cx="600" cy="300" r="40" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="600" y="310" font-size="32" text-anchor="middle">🔒</text>
+  <text x="600" y="370" font-family="-apple-system, sans-serif" font-size="20" fill="#1e293b" text-anchor="middle" font-weight="700">PII 数据脱敏</text>
+  <text x="600" y="400" font-family="-apple-system, sans-serif" font-size="14" fill="#64748b" text-anchor="middle">Personal Info Protection</text>
+  <rect x="490" y="440" width="220" height="30" fill="#f8fafc" stroke="#cbd5e1" rx="6"/>
+  <text x="600" y="460" font-family="-apple-system, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">正则表达式匹配</text>
+  <rect x="490" y="480" width="220" height="30" fill="#f8fafc" stroke="#cbd5e1" rx="6"/>
+  <text x="600" y="500" font-family="-apple-system, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">NER 实体识别</text>
+  
+  <!-- Card 3: Content Filtering -->
+  <rect x="800" y="240" width="300" height="300" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" rx="12"/>
+  <circle cx="950" cy="300" r="40" fill="#bbf7d0" stroke="#16a34a" stroke-width="2"/>
+  <text x="950" y="310" font-size="32" text-anchor="middle">✅</text>
+  <text x="950" y="370" font-family="-apple-system, sans-serif" font-size="20" fill="#1e293b" text-anchor="middle" font-weight="700">输出内容过滤</text>
+  <text x="950" y="400" font-family="-apple-system, sans-serif" font-size="14" fill="#64748b" text-anchor="middle">Content Moderation</text>
+  <rect x="840" y="440" width="220" height="30" fill="#f8fafc" stroke="#cbd5e1" rx="6"/>
+  <text x="950" y="460" font-family="-apple-system, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">毒性分类模型</text>
+  <rect x="840" y="480" width="220" height="30" fill="#f8fafc" stroke="#cbd5e1" rx="6"/>
+  <text x="950" y="500" font-family="-apple-system, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">多层级审核机制</text>
+  
+  <!-- Bottom decorative elements -->
+  <circle cx="150" cy="580" r="8" fill="#fbbf24" opacity="0.6"/>
+  <circle cx="200" cy="590" r="6" fill="#f59e0b" opacity="0.5"/>
+  <circle cx="1000" cy="575" r="10" fill="#fbbf24" opacity="0.6"/>
+  <circle cx="1060" cy="585" r="7" fill="#f59e0b" opacity="0.5"/>
+</svg>
