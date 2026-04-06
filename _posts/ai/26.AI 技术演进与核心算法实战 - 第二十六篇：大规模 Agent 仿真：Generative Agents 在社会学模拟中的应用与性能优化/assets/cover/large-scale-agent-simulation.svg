@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" shape-rendering="crispEdges" text-rendering="geometricPrecision">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .grid-line { stroke: #e2e8f0; stroke-width: 1; }
+      .agent-node { fill: #3b82f6; stroke: #1e40af; stroke-width: 2; }
+      .agent-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 11px; fill: white; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+      .connection { stroke: #94a3b8; stroke-width: 1.5; opacity: 0.4; }
+      .active-connection { stroke: #ef4444; stroke-width: 2.5; opacity: 0.8; }
+      .title-bg { fill: rgba(255, 255, 255, 0.95); stroke: #cbd5e1; stroke-width: 2; rx: 12; ry: 12; }
+      .main-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 32px; fill: #0f172a; text-anchor: middle; dominant-baseline: central; font-weight: 700; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 18px; fill: #475569; text-anchor: middle; dominant-baseline: central; }
+      .badge { fill: #dbeafe; stroke: #2563eb; stroke-width: 2; rx: 20; ry: 20; }
+      .badge-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 14px; fill: #1e40af; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" class="bg"/>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.3">
+    <line x1="0" y1="100" x2="1200" y2="100" class="grid-line"/>
+    <line x1="0" y1="200" x2="1200" y2="200" class="grid-line"/>
+    <line x1="0" y1="300" x2="1200" y2="300" class="grid-line"/>
+    <line x1="0" y1="400" x2="1200" y2="400" class="grid-line"/>
+    <line x1="0" y1="500" x2="1200" y2="500" class="grid-line"/>
+    <line x1="100" y1="0" x2="100" y2="630" class="grid-line"/>
+    <line x1="200" y1="0" x2="200" y2="630" class="grid-line"/>
+    <line x1="300" y1="0" x2="300" y2="630" class="grid-line"/>
+    <line x1="400" y1="0" x2="400" y2="630" class="grid-line"/>
+    <line x1="500" y1="0" x2="500" y2="630" class="grid-line"/>
+    <line x1="600" y1="0" x2="600" y2="630" class="grid-line"/>
+    <line x1="700" y1="0" x2="700" y2="630" class="grid-line"/>
+    <line x1="800" y1="0" x2="800" y2="630" class="grid-line"/>
+    <line x1="900" y1="0" x2="900" y2="630" class="grid-line"/>
+    <line x1="1000" y1="0" x2="1000" y2="630" class="grid-line"/>
+    <line x1="1100" y1="0" x2="1100" y2="630" class="grid-line"/>
+  </g>
+  
+  <!-- Agent Network Visualization -->
+  <g transform="translate(100, 80)">
+    <!-- Connections -->
+    <line x1="100" y1="100" x2="250" y2="80" class="connection"/>
+    <line x1="100" y1="100" x2="80" y2="220" class="connection"/>
+    <line x1="250" y1="80" x2="400" y2="120" class="connection"/>
+    <line x1="80" y1="220" x2="200" y2="300" class="connection"/>
+    <line x1="300" y1="180" x2="450" y2="250" class="active-connection"/>
+    <line x1="450" y1="250" x2="600" y2="280" class="active-connection"/>
+    <line x1="500" y1="200" x2="650" y2="220" class="active-connection"/>
+    <line x1="400" y1="120" x2="550" y2="100" class="connection"/>
+    <line x1="200" y1="300" x2="350" y2="320" class="connection"/>
+    <line x1="550" y1="100" x2="700" y2="150" class="connection"/>
+    <line x1="350" y1="320" x2="500" y2="380" class="connection"/>
+    <line x1="600" y1="280" x2="750" y2="300" class="connection"/>
+    <line x1="650" y1="220" x2="800" y2="200" class="connection"/>
+    
+    <!-- Agent nodes -->
+    <circle cx="100" cy="100" r="25" class="agent-node"/>
+    <text x="100" y="100" class="agent-text">A1</text>
+    
+    <circle cx="250" cy="80" r="25" class="agent-node"/>
+    <text x="250" y="80" class="agent-text">A2</text>
+    
+    <circle cx="80" cy="220" r="25" class="agent-node"/>
+    <text x="80" y="220" class="agent-text">A3</text>
+    
+    <circle cx="300" cy="180" r="28" class="agent-node" fill="#ef4444" stroke="#b91c1c"/>
+    <text x="300" y="180" class="agent-text">A4</text>
+    
+    <circle cx="400" cy="120" r="25" class="agent-node"/>
+    <text x="400" y="120" class="agent-text">A5</text>
+    
+    <circle cx="200" cy="300" r="25" class="agent-node"/>
+    <text x="200" y="300" class="agent-text">A6</text>
+    
+    <circle cx="450" cy="250" r="28" class="agent-node" fill="#ef4444" stroke="#b91c1c"/>
+    <text x="450" y="250" class="agent-text">A8</text>
+    
+    <circle cx="350" cy="320" r="25" class="agent-node"/>
+    <text x="350" y="320" class="agent-text">A9</text>
+    
+    <circle cx="550" cy="100" r="25" class="agent-node"/>
+    <text x="550" y="100" class="agent-text">A10</text>
+    
+    <circle cx="500" cy="200" r="25" class="agent-node"/>
+    <text x="500" y="200" class="agent-text">A11</text>
+    
+    <circle cx="600" cy="280" r="28" class="agent-node" fill="#ef4444" stroke="#b91c1c"/>
+    <text x="600" y="280" class="agent-text">A13</text>
+    
+    <circle cx="650" cy="220" r="25" class="agent-node"/>
+    <text x="650" y="220" class="agent-text">A14</text>
+    
+    <circle cx="700" cy="150" r="25" class="agent-node"/>
+    <text x="700" y="150" class="agent-text">A15</text>
+    
+    <circle cx="750" cy="300" r="25" class="agent-node"/>
+    <text x="750" y="300" class="agent-text">A20</text>
+    
+    <circle cx="800" cy="200" r="25" class="agent-node"/>
+    <text x="800" y="200" class="agent-text">A21</text>
+    
+    <circle cx="500" cy="380" r="22" class="agent-node" opacity="0.6"/>
+    <text x="500" y="380" class="agent-text" font-size="9">A17</text>
+  </g>
+  
+  <!-- Title Box -->
+  <rect x="150" y="540" width="900" height="70" class="title-bg"/>
+  <text x="600" y="565" class="main-title">大规模 Agent 仿真</text>
+  <text x="600" y="595" class="subtitle">Generative Agents 在社会学模拟中的应用与性能优化</text>
+  
+  <!-- Badge -->
+  <rect x="50" y="30" width="180" height="40" class="badge"/>
+  <text x="140" y="50" class="badge-text">第二十六篇 · 协作篇</text>
+</svg>
