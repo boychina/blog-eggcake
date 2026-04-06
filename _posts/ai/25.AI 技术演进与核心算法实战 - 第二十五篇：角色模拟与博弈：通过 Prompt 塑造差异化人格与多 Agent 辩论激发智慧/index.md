@@ -4,7 +4,7 @@ excerpt: "如何通过 Prompt 工程赋予 Agent 差异化的人格特质？多 
 description: "AI 技术演进与核心算法实战第二十五篇：角色模拟与博弈：通过 Prompt 塑造差异化人格与多 Agent 辩论激发智慧"
 keyword: "AI,大模型,Agent,角色模拟,Prompt工程,博弈论,多Agent辩论,群体智能,人格塑造,辩论机制"
 tag: "AI"
-date: "2025-01-03 10:00:00"
+date: "2026-01-03 10:00:00"
 coverImage: "/assets/posts/AI-技术演进与核心算法实战-第二十五篇：角色模拟与博弈：通过-Prompt-塑造差异化人格与多-Agent-辩论激发智慧/assets/cover/role-simulation-game-theory.svg"
 author:
   name: 蛋烘糕
@@ -102,13 +102,10 @@ Agent 3: "线 A 更长" （同上）
         <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b" />
       </marker>
     </defs>
-    
     <!-- Background -->
     <rect width="750" height="420" class="bg"/>
-    
     <!-- Title -->
     <text x="375" y="35" class="text-title">大五人格模型在 Agent 设计中的应用</text>
-    
     <!-- Trait 1: Openness -->
     <rect x="30" y="60" width="690" height="65" class="trait-box"/>
     <text x="80" y="85" class="text-trait" text-anchor="start">开放性 (Openness)</text>
@@ -117,7 +114,6 @@ Agent 3: "线 A 更长" （同上）
     <circle cx="680" cy="95" r="8" fill="#ef4444"/>
     <text x="220" y="118" class="text-desc">保守传统 · 遵循常规</text>
     <text x="680" y="118" class="text-desc">创新求变 · 拥抱新奇</text>
-    
     <!-- Trait 2: Conscientiousness -->
     <rect x="30" y="135" width="690" height="65" class="trait-box"/>
     <text x="80" y="160" class="text-trait" text-anchor="start">尽责性 (Conscientiousness)</text>
@@ -126,7 +122,6 @@ Agent 3: "线 A 更长" （同上）
     <circle cx="680" cy="170" r="8" fill="#ef4444"/>
     <text x="220" y="193" class="text-desc">随性灵活 · 不拘小节</text>
     <text x="680" y="193" class="text-desc">严谨细致 · 追求完美</text>
-    
     <!-- Trait 3: Extraversion -->
     <rect x="30" y="210" width="690" height="65" class="trait-box"/>
     <text x="80" y="235" class="text-trait" text-anchor="start">外向性 (Extraversion)</text>
@@ -135,7 +130,6 @@ Agent 3: "线 A 更长" （同上）
     <circle cx="680" cy="245" r="8" fill="#ef4444"/>
     <text x="220" y="268" class="text-desc">内敛沉思 · 独立工作</text>
     <text x="680" y="268" class="text-desc">活跃社交 · 主导讨论</text>
-    
     <!-- Trait 4: Agreeableness -->
     <rect x="30" y="285" width="690" height="65" class="trait-box"/>
     <text x="80" y="310" class="text-trait" text-anchor="start">宜人性 (Agreeableness)</text>
@@ -144,7 +138,6 @@ Agent 3: "线 A 更长" （同上）
     <circle cx="680" cy="320" r="8" fill="#ef4444"/>
     <text x="220" y="343" class="text-desc">质疑批判 · 挑战权威</text>
     <text x="680" y="343" class="text-desc">合作妥协 · 寻求和谐</text>
-    
     <!-- Trait 5: Neuroticism -->
     <rect x="30" y="360" width="690" height="65" class="trait-box"/>
     <text x="80" y="385" class="text-trait" text-anchor="start">神经质 (Neuroticism)</text>
@@ -379,34 +372,28 @@ print(f"人格一致性得分: {consistency['consistency_score']}")
         .icon { font-size: 28px; text-anchor: middle; dominant-baseline: middle; }
       </style>
     </defs>
-    
     <!-- Background -->
     <rect width="750" height="480" class="bg"/>
-    
     <!-- Title -->
     <text x="375" y="35" class="text-title">常见博弈类型与 Agent 系统应用</text>
-    
     <!-- Game 1: Zero-Sum -->
     <rect x="30" y="60" width="690" height="90" class="game-box"/>
     <text x="50" y="85" class="icon">⚖️</text>
     <text x="90" y="85" class="text-game">零和博弈（Zero-Sum Game）</text>
     <text x="90" y="110" class="text-desc">一方收益等于另一方损失，总和为零。</text>
     <text x="90" y="132" class="text-desc" fill="#059669">应用：资源分配、竞价系统、对抗性训练</text>
-    
     <!-- Game 2: Coordination -->
     <rect x="30" y="160" width="690" height="90" class="game-box"/>
     <text x="50" y="185" class="icon">🤝</text>
     <text x="90" y="185" class="text-game">协调博弈（Coordination Game）</text>
     <text x="90" y="210" class="text-desc">参与者利益一致，关键在于选择相同的策略。</text>
     <text x="90" y="232" class="text-desc" fill="#059669">应用：协议标准化、接口对齐、时间同步</text>
-    
     <!-- Game 3: Stag Hunt -->
     <rect x="30" y="260" width="690" height="90" class="game-box"/>
     <text x="50" y="285" class="icon">🦌</text>
     <text x="90" y="285" class="text-game">猎鹿博弈（Stag Hunt）</text>
     <text x="90" y="310" class="text-desc">合作捕鹿（高收益）vs 单独抓兔（低收益但安全）。</text>
     <text x="90" y="332" class="text-desc" fill="#059669">应用：团队项目、联合研发、生态系统建设</text>
-    
     <!-- Game 4: Chicken -->
     <rect x="30" y="360" width="690" height="90" class="game-box"/>
     <text x="50" y="385" class="icon">🐔</text>
@@ -530,50 +517,40 @@ Agent A: "确实，但我们可以用服务网格和事件溯源来解决..."
         <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b" />
       </marker>
     </defs>
-    
     <!-- Background -->
     <rect width="800" height="320" class="bg"/>
-    
     <!-- Stage 1 -->
     <rect x="30" y="80" width="140" height="100" class="stage-box" fill="#dbeafe"/>
     <text x="100" y="110" class="text-stage">阶段 1</text>
     <text x="100" y="135" class="text-stage" font-size="14">立场陈述</text>
     <text x="100" y="160" class="text-detail">各方阐述观点</text>
     <text x="100" y="175" class="text-detail">提供初步论据</text>
-    
     <path d="M 170 130 L 210 130" class="arrow"/>
-    
     <!-- Stage 2 -->
     <rect x="210" y="80" width="140" height="100" class="stage-box" fill="#fef08a"/>
     <text x="280" y="110" class="text-stage">阶段 2</text>
     <text x="280" y="135" class="text-stage" font-size="14">交叉质询</text>
     <text x="280" y="160" class="text-detail">互相提问质疑</text>
     <text x="280" y="175" class="text-detail">暴露逻辑漏洞</text>
-    
     <path d="M 350 130 L 390 130" class="arrow"/>
-    
     <!-- Stage 3 -->
     <rect x="390" y="80" width="140" height="100" class="stage-box" fill="#fed7aa"/>
     <text x="460" y="110" class="text-stage">阶段 3</text>
     <text x="460" y="135" class="text-stage" font-size="14">反驳修正</text>
     <text x="460" y="160" class="text-detail">回应质疑</text>
     <text x="460" y="175" class="text-detail">修正原有观点</text>
-    
     <path d="M 530 130 L 570 130" class="arrow"/>
-    
     <!-- Stage 4 -->
     <rect x="570" y="80" width="140" height="100" class="stage-box" fill="#bbf7d0"/>
     <text x="640" y="110" class="text-stage">阶段 4</text>
     <text x="640" y="135" class="text-stage" font-size="14">综合裁决</text>
     <text x="640" y="160" class="text-detail">裁判总结共识</text>
     <text x="640" y="175" class="text-detail">指出遗留分歧</text>
-    
     <!-- Bottom annotations -->
     <text x="100" y="220" class="text-detail" font-size="11" fill="#2563eb">Round 1</text>
     <text x="280" y="220" class="text-detail" font-size="11" fill="#ca8a04">Round 2</text>
     <text x="460" y="220" class="text-detail" font-size="11" fill="#ea580c">Round 3</text>
     <text x="640" y="220" class="text-detail" font-size="11" fill="#16a34a">Final</text>
-    
     <text x="400" y="260" class="text-detail" font-size="13" font-weight="600">迭代优化：每轮辩论都使观点更加精炼和完善</text>
   </svg>
 </div>
