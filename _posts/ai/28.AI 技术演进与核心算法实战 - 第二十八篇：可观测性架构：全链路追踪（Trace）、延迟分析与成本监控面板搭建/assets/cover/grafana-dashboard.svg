@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .panel { fill: #ffffff; stroke: #e2e8f0; stroke-width: 2; rx: 8; ry: 8; }
+      .chart-bar { fill: #3b82f6; opacity: 0.8; rx: 2; ry: 2; }
+      .chart-line { fill: none; stroke: #10b981; stroke-width: 2.5; }
+      .chart-area { fill: #10b981; opacity: 0.1; }
+      .text-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 14px; fill: #0f172a; text-anchor: start; dominant-baseline: middle; font-weight: 700; }
+      .text-value { font-family: "Courier New", monospace; font-size: 28px; fill: #1e293b; text-anchor: middle; dominant-baseline: middle; font-weight: 700; }
+      .text-label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 11px; fill: #64748b; text-anchor: middle; dominant-baseline: middle; }
+      .text-axis { font-family: "Courier New", monospace; font-size: 9px; fill: #94a3b8; text-anchor: middle; dominant-baseline: middle; }
+      .grid-line { stroke: #f1f5f9; stroke-width: 1; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="600" class="bg"/>
+  
+  <!-- Title -->
+  <text x="30" y="30" font-family="-apple-system, sans-serif" font-size="20" fill="#0f172a" font-weight="800">LLM 可观测性监控面板</text>
+  <text x="30" y="50" font-family="-apple-system, sans-serif" font-size="12" fill="#64748b">实时更新 | 最后刷新: 2026-01-20 14:35:22</text>
+  
+  <!-- Panel 1: Total Cost Today -->
+  <rect x="30" y="70" width="200" height="120" class="panel"/>
+  <text x="45" y="95" class="text-title">今日总成本</text>
+  <text x="130" y="140" class="text-value" fill="#ef4444">$47.82</text>
+  <text x="130" y="170" class="text-label">较昨日 +12.3%</text>
+  
+  <!-- Panel 2: Total Requests -->
+  <rect x="250" y="70" width="200" height="120" class="panel"/>
+  <text x="265" y="95" class="text-title">今日请求数</text>
+  <text x="350" y="140" class="text-value" fill="#3b82f6">1,247</text>
+  <text x="350" y="170" class="text-label">QPS: 2.3</text>
+  
+  <!-- Panel 3: Avg Latency -->
+  <rect x="470" y="70" width="200" height="120" class="panel"/>
+  <text x="485" y="95" class="text-title">平均延迟</text>
+  <text x="570" y="140" class="text-value" fill="#f59e0b">1.8s</text>
+  <text x="570" y="170" class="text-label">P95: 3.2s</text>
+  
+  <!-- Panel 4: Token Usage -->
+  <rect x="690" y="70" width="180" height="120" class="panel"/>
+  <text x="705" y="95" class="text-title">Token 消耗</text>
+  <text x="780" y="135" class="text-value" font-size="22">2.4M</text>
+  <text x="780" y="155" class="text-label">Prompt: 1.8M | Completion: 0.6M</text>
+  
+  <!-- Chart 1: Cost Trend (Last 24 Hours) -->
+  <rect x="30" y="210" width="410" height="180" class="panel"/>
+  <text x="45" y="235" class="text-title">成本趋势（过去 24 小时）</text>
+  
+  <!-- Grid lines -->
+  <line x1="60" y1="260" x2="420" y2="260" class="grid-line"/>
+  <line x1="60" y1="290" x2="420" y2="290" class="grid-line"/>
+  <line x1="60" y1="320" x2="420" y2="320" class="grid-line"/>
+  <line x1="60" y1="350" x2="420" y2="350" class="grid-line"/>
+  
+  <!-- Y-axis labels -->
+  <text x="50" y="350" class="text-axis">$0</text>
+  <text x="50" y="320" class="text-axis">$1</text>
+  <text x="50" y="290" class="text-axis">$2</text>
+  <text x="50" y="260" class="text-axis">$3</text>
+  
+  <!-- Area chart -->
+  <path d="M 60 350 L 90 340 L 120 335 L 150 320 L 180 310 L 210 295 L 240 280 L 270 290 L 300 285 L 330 270 L 360 265 L 390 275 L 420 270 L 420 350 Z" class="chart-area"/>
+  <path d="M 60 350 L 90 340 L 120 335 L 150 320 L 180 310 L 210 295 L 240 280 L 270 290 L 300 285 L 330 270 L 360 265 L 390 275 L 420 270" class="chart-line"/>
+  
+  <!-- X-axis labels -->
+  <text x="60" y="370" class="text-axis">00:00</text>
+  <text x="180" y="370" class="text-axis">06:00</text>
+  <text x="300" y="370" class="text-axis">12:00</text>
+  <text x="410" y="370" class="text-axis">18:00</text>
+  
+  <!-- Chart 2: Latency Distribution -->
+  <rect x="460" y="210" width="410" height="180" class="panel"/>
+  <text x="475" y="235" class="text-title">延迟分布（P50/P95/P99）</text>
+  
+  <!-- Bar chart for latency percentiles -->
+  <rect x="500" y="310" width="60" height="40" class="chart-bar" fill="#10b981"/>
+  <text x="530" y="360" class="text-axis">P50</text>
+  <text x="530" y="305" class="text-axis" font-weight="bold">0.9s</text>
+  
+  <rect x="590" y="280" width="60" height="70" class="chart-bar" fill="#f59e0b"/>
+  <text x="620" y="360" class="text-axis">P95</text>
+  <text x="620" y="275" class="text-axis" font-weight="bold">1.8s</text>
+  
+  <rect x="680" y="260" width="60" height="90" class="chart-bar" fill="#ef4444"/>
+  <text x="710" y="360" class="text-axis">P99</text>
+  <text x="710" y="255" class="text-axis" font-weight="bold">3.2s</text>
+  
+  <!-- Chart 3: Model Usage Breakdown -->
+  <rect x="30" y="410" width="410" height="170" class="panel"/>
+  <text x="45" y="435" class="text-title">模型使用占比（按成本）</text>
+  
+  <!-- Pie chart representation (simplified as bars) -->
+  <rect x="60" y="460" width="250" height="25" fill="#3b82f6" rx="3" ry="3"/>
+  <text x="70" y="475" class="text-label" fill="#ffffff" text-anchor="start" font-weight="600">GPT-4 Turbo</text>
+  <text x="320" y="475" class="text-label" text-anchor="end">75.3%</text>
+  
+  <rect x="60" y="495" width="70" height="25" fill="#10b981" rx="3" ry="3"/>
+  <text x="70" y="510" class="text-label" fill="#ffffff" text-anchor="start" font-weight="600">GPT-3.5</text>
+  <text x="320" y="510" class="text-label" text-anchor="end">20.2%</text>
+  
+  <rect x="60" y="530" width="20" height="25" fill="#f59e0b" rx="3" ry="3"/>
+  <text x="70" y="545" class="text-label" fill="#ffffff" text-anchor="start" font-weight="600">GPT-4o</text>
+  <text x="320" y="545" class="text-label" text-anchor="end">4.5%</text>
+  
+  <!-- Chart 4: Top Expensive Sessions -->
+  <rect x="460" y="410" width="410" height="170" class="panel"/>
+  <text x="475" y="435" class="text-title">最高成本会话 TOP 5</text>
+  
+  <text x="480" y="465" class="text-label" text-anchor="start" font-size="10">1. sess_abc123 - $8.42 (1,240 tokens)</text>
+  <text x="480" y="490" class="text-label" text-anchor="start" font-size="10">2. sess_def456 - $6.15 (890 tokens)</text>
+  <text x="480" y="515" class="text-label" text-anchor="start" font-size="10">3. sess_ghi789 - $4.87 (720 tokens)</text>
+  <text x="480" y="540" class="text-label" text-anchor="start" font-size="10">4. sess_jkl012 - $3.92 (580 tokens)</text>
+  <text x="480" y="565" class="text-label" text-anchor="start" font-size="10">5. sess_mno345 - $2.76 (410 tokens)</text>
+  
+</svg>

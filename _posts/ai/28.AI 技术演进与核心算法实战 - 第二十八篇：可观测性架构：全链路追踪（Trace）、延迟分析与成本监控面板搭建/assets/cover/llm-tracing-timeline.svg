@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #fafafa; }
+      .span-box { fill: #f8fafc; stroke: #3b82f6; stroke-width: 2; rx: 6; ry: 6; }
+      .llm-span { fill: #dbeafe; stroke: #2563eb; stroke-width: 2; rx: 6; ry: 6; }
+      .retrieval-span { fill: #fef08a; stroke: #ca8a04; stroke-width: 2; rx: 6; ry: 6; }
+      .tool-span { fill: #bbf7d0; stroke: #16a34a; stroke-width: 2; rx: 6; ry: 6; }
+      .text-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 18px; fill: #0f172a; text-anchor: start; dominant-baseline: middle; font-weight: 700; }
+      .text-label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 13px; fill: #1e293b; text-anchor: start; dominant-baseline: middle; }
+      .text-time { font-family: "Courier New", monospace; font-size: 12px; fill: #64748b; text-anchor: end; dominant-baseline: middle; }
+      .timeline { stroke: #cbd5e1; stroke-width: 1; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" class="bg"/>
+  
+  <!-- Title -->
+  <text x="30" y="35" class="text-title">LLM 推理追踪时间线</text>
+  
+  <!-- Timeline markers -->
+  <line x1="150" y1="60" x2="150" y2="470" class="timeline" stroke-dasharray="4,4"/>
+  <line x1="300" y1="60" x2="300" y2="470" class="timeline" stroke-dasharray="4,4"/>
+  <line x1="450" y1="60" x2="450" y2="470" class="timeline" stroke-dasharray="4,4"/>
+  <line x1="600" y1="60" x2="600" y2="470" class="timeline" stroke-dasharray="4,4"/>
+  
+  <text x="150" y="55" class="text-time">0ms</text>
+  <text x="300" y="55" class="text-time">500ms</text>
+  <text x="450" y="55" class="text-time">1000ms</text>
+  <text x="600" y="55" class="text-time">1500ms</text>
+  <text x="750" y="55" class="text-time">2000ms</text>
+  
+  <!-- Root Span: User Request -->
+  <rect x="150" y="80" width="550" height="40" class="span-box" fill="#e2e8f0"/>
+  <text x="160" y="100" class="text-label" font-weight="600">TRACE: user_query_abc123</text>
+  <text x="690" y="100" class="text-time">2100ms</text>
+  
+  <!-- Span 1: Query Preprocessing -->
+  <rect x="150" y="130" width="80" height="35" class="span-box"/>
+  <text x="160" y="148" class="text-label">Query Prep</text>
+  <text x="220" y="148" class="text-time">80ms</text>
+  
+  <!-- Span 2: Vector Retrieval -->
+  <rect x="240" y="130" width="120" height="35" class="retrieval-span"/>
+  <text x="250" y="148" class="text-label">Vector Search</text>
+  <text x="350" y="148" class="text-time">250ms</text>
+  
+  <!-- Span 3: Re-ranking -->
+  <rect x="370" y="130" width="60" height="35" class="retrieval-span"/>
+  <text x="380" y="148" class="text-label">Re-rank</text>
+  <text x="420" y="148" class="text-time">120ms</text>
+  
+  <!-- Span 4: Prompt Assembly -->
+  <rect x="440" y="130" width="50" height="35" class="span-box"/>
+  <text x="450" y="148" class="text-label">Prompt</text>
+  <text x="480" y="148" class="text-time">50ms</text>
+  
+  <!-- Span 5: LLM Generation (with sub-spans) -->
+  <rect x="500" y="130" width="200" height="35" class="llm-span"/>
+  <text x="510" y="148" class="text-label">LLM: gpt-4-turbo</text>
+  <text x="690" y="148" class="text-time">1600ms</text>
+  
+  <!-- Sub-span 5.1: Time to First Token -->
+  <rect x="500" y="175" width="40" height="25" class="llm-span" opacity="0.7"/>
+  <text x="510" y="190" class="text-label" font-size="11">TTFT</text>
+  <text x="530" y="190" class="text-time" font-size="10">350ms</text>
+  
+  <!-- Sub-span 5.2: Token Generation -->
+  <rect x="540" y="175" width="160" height="25" class="llm-span" opacity="0.7"/>
+  <text x="550" y="190" class="text-label" font-size="11">Generation</text>
+  <text x="690" y="190" class="text-time" font-size="10">1250ms</text>
+  
+  <!-- Span 6: Post-processing -->
+  <rect x="710" y="130" width="40" height="35" class="span-box"/>
+  <text x="720" y="148" class="text-label">Post</text>
+  <text x="740" y="148" class="text-time">50ms</text>
+  
+  <!-- Parallel Tool Call Example -->
+  <text x="30" y="240" class="text-title" font-size="16">Agent 工具调用并行追踪</text>
+  
+  <rect x="150" y="260" width="500" height="35" class="span-box" fill="#e2e8f0"/>
+  <text x="160" y="278" class="text-label" font-weight="600">SPAN: agent_reasoning</text>
+  <text x="640" y="278" class="text-time">1800ms</text>
+  
+  <!-- Tool Call 1: Web Search -->
+  <rect x="200" y="310" width="180" height="30" class="tool-span"/>
+  <text x="210" y="327" class="text-label" font-size="12">Tool: web_search</text>
+  <text x="370" y="327" class="text-time" font-size="11">800ms</text>
+  
+  <!-- Tool Call 2: Calculator -->
+  <rect x="200" y="350" width="100" height="30" class="tool-span"/>
+  <text x="210" y="367" class="text-label" font-size="12">Tool: calc</text>
+  <text x="290" y="367" class="text-time" font-size="11">150ms</text>
+  
+  <!-- Tool Call 3: Database Query -->
+  <rect x="310" y="350" width="120" height="30" class="tool-span"/>
+  <text x="320" y="367" class="text-label" font-size="12">Tool: db_query</text>
+  <text x="420" y="367" class="text-time" font-size="11">450ms</text>
+  
+  <!-- Final LLM Call -->
+  <rect x="400" y="310" width="220" height="30" class="llm-span"/>
+  <text x="410" y="327" class="text-label" font-size="12">LLM: synthesize</text>
+  <text x="610" y="327" class="text-time" font-size="11">850ms</text>
+  
+  <!-- Legend -->
+  <rect x="30" y="420" width="20" height="15" class="span-box"/>
+  <text x="60" y="430" class="text-label" font-size="12">普通操作</text>
+  
+  <rect x="150" y="420" width="20" height="15" class="llm-span"/>
+  <text x="180" y="430" class="text-label" font-size="12">LLM 调用</text>
+  
+  <rect x="270" y="420" width="20" height="15" class="retrieval-span"/>
+  <text x="300" y="430" class="text-label" font-size="12">检索操作</text>
+  
+  <rect x="390" y="420" width="20" height="15" class="tool-span"/>
+  <text x="420" y="430" class="text-label" font-size="12">工具调用</text>
+  
+  <text x="30" y="470" class="text-label" font-size="11" fill="#64748b">提示：通过追踪可以清晰看到每个环节的耗时，快速定位性能瓶颈</text>
+</svg>
