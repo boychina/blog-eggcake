@@ -5,12 +5,12 @@ description: "AI 技术演进与核心算法实战第二十三篇：多 Agent �
 keyword: "AI,大模型,Agent,多Agent协作,Hierarchical,Sequential,Joint,架构设计,群体智能,LangGraph,CrewAI"
 tag: "AI"
 date: "2026-03-23 10:00:00"
-coverImage: "/assets/posts/AI-技术演进与核心算法实战-第二十三篇：多-Agent-协作模式：Hierarchical（层级）、Sequential（流水线）与-Joint（联合）架构对比/cover/multi-agent-architectures.png"
+coverImage: "/assets/posts/AI-技术演进与核心算法实战-第二十三篇：多-Agent-协作模式：Hierarchical（层级）、Sequential（流水线）与-Joint（联合）架构对比/cover/multi-agent-architectures.svg"
 author:
   name: 蛋烘糕
   picture: "/assets/posts/AI-技术演进与核心算法实战-第二十三篇：多-Agent-协作模式：Hierarchical（层级）、Sequential（流水线）与-Joint（联合）架构对比/author/zhaohuan.jpg"
 ogImage:
-  url: "/assets/posts/AI-技术演进与核心算法实战-第二十三篇：多-Agent-协作模式：Hierarchical（层级）、Sequential（流水线）与-Joint（联合）架构对比/cover/multi-agent-architectures.png"
+  url: "/assets/posts/AI-技术演进与核心算法实战-第二十三篇：多-Agent-协作模式：Hierarchical（层级）、Sequential（流水线）与-Joint（联合）架构对比/cover/multi-agent-architectures.svg"
 ---
 
 > **三个臭皮匠，顶个诸葛亮。但当皮匠们开始互相争吵时，可能连一个臭皮匠都不如。**
