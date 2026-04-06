@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" shape-rendering="crispEdges" text-rendering="geometricPrecision">
+  <defs>
+    <style>
+      .bg { fill: url(#gradient); }
+      .card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 2; rx: 16; ry: 16; filter: url(#shadow); }
+      .metric-card { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; rx: 8; ry: 8; }
+      .text-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 48px; fill: #0f172a; text-anchor: middle; dominant-baseline: middle; font-weight: 800; }
+      .text-subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 28px; fill: #475569; text-anchor: middle; dominant-baseline: middle; font-weight: 600; }
+      .text-metric { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 18px; fill: #1e293b; text-anchor: middle; dominant-baseline: middle; font-weight: 600; }
+      .text-value { font-family: "Courier New", monospace; font-size: 24px; fill: #3b82f6; text-anchor: middle; dominant-baseline: middle; font-weight: 700; }
+      .text-label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 14px; fill: #64748b; text-anchor: middle; dominant-baseline: middle; }
+      .icon-bg { fill: #dbeafe; }
+      .icon { fill: #3b82f6; }
+      .judge-icon { fill: #fef08a; stroke: #ca8a04; stroke-width: 2; }
+      .dataset-icon { fill: #bbf7d0; stroke: #16a34a; stroke-width: 2; }
+      .arrow { stroke: #94a3b8; stroke-width: 2.5; marker-end: url(#arrowhead); fill: none; }
+    </style>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f9ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#e0f2fe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dbeafe;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.1"/>
+    </filter>
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" class="bg"/>
+  
+  <!-- Main Title Card -->
+  <rect x="100" y="60" width="1000" height="140" class="card"/>
+  <text x="600" y="115" class="text-title">LLM 评估体系</text>
+  <text x="600" y="165" class="text-subtitle">构建黄金数据集 · LLM-as-a-Judge · Ragas 指标详解</text>
+  
+  <!-- Golden Dataset Section (Left) -->
+  <rect x="100" y="240" width="300" height="320" class="card"/>
+  <circle cx="250" cy="290" r="35" class="dataset-icon"/>
+  <text x="250" y="290" font-size="28" fill="#16a34a" text-anchor="middle" dominant-baseline="middle" font-weight="bold">📊</text>
+  <text x="250" y="350" class="text-metric">黄金数据集</text>
+  <text x="250" y="375" class="text-label">Golden Dataset</text>
+  
+  <!-- Dataset Components -->
+  <rect x="130" y="400" width="240" height="40" class="metric-card"/>
+  <text x="250" y="425" class="text-label" text-anchor="start" dx="-90">✓ 手工标注</text>
+  
+  <rect x="130" y="450" width="240" height="40" class="metric-card"/>
+  <text x="250" y="475" class="text-label" text-anchor="start" dx="-90">✓ LLM 生成 + 校验</text>
+  
+  <rect x="130" y="500" width="240" height="40" class="metric-card"/>
+  <text x="250" y="525" class="text-label" text-anchor="start" dx="-90">✓ 用户反馈数据</text>
+  
+  <!-- Arrow to center -->
+  <path d="M 400 400 L 470 400" class="arrow"/>
+  
+  <!-- LLM-as-a-Judge Section (Center) -->
+  <rect x="450" y="240" width="300" height="320" class="card"/>
+  <circle cx="600" cy="290" r="35" class="judge-icon"/>
+  <text x="600" y="290" font-size="28" fill="#ca8a04" text-anchor="middle" dominant-baseline="middle" font-weight="bold">⚖️</text>
+  <text x="600" y="350" class="text-metric">LLM-as-a-Judge</text>
+  <text x="600" y="375" class="text-label">自动化评估</text>
+  
+  <!-- Judge Modes -->
+  <rect x="480" y="400" width="240" height="40" class="metric-card"/>
+  <text x="600" y="425" class="text-label" text-anchor="start" dx="-90">• 单点评分</text>
+  
+  <rect x="480" y="450" width="240" height="40" class="metric-card"/>
+  <text x="600" y="475" class="text-label" text-anchor="start" dx="-90">• 成对比较</text>
+  
+  <rect x="480" y="500" width="240" height="40" class="metric-card"/>
+  <text x="600" y="525" class="text-label" text-anchor="start" dx="-90">• 参考答案对比</text>
+  
+  <!-- Arrow to right -->
+  <path d="M 750 400 L 820 400" class="arrow"/>
+  
+  <!-- Ragas Metrics Section (Right) -->
+  <rect x="800" y="240" width="300" height="320" class="card"/>
+  <circle cx="950" cy="290" r="35" class="icon-bg"/>
+  <text x="950" y="290" font-size="28" fill="#3b82f6" text-anchor="middle" dominant-baseline="middle" font-weight="bold">📈</text>
+  <text x="950" y="350" class="text-metric">Ragas 指标</text>
+  <text x="950" y="375" class="text-label">多维度评估</text>
+  
+  <!-- Ragas Metrics List -->
+  <rect x="830" y="400" width="240" height="35" class="metric-card"/>
+  <text x="950" y="422" class="text-label" text-anchor="start" dx="-95">Faithfulness</text>
+  <text x="1040" y="422" class="text-value" text-anchor="end" dx="-10">0.89</text>
+  
+  <rect x="830" y="445" width="240" height="35" class="metric-card"/>
+  <text x="950" y="467" class="text-label" text-anchor="start" dx="-95">Answer Relevancy</text>
+  <text x="1040" y="467" class="text-value" text-anchor="end" dx="-10">0.92</text>
+  
+  <rect x="830" y="490" width="240" height="35" class="metric-card"/>
+  <text x="950" y="512" class="text-label" text-anchor="start" dx="-95">Context Precision</text>
+  <text x="1040" y="512" class="text-value" text-anchor="end" dx="-10">0.85</text>
+  
+  <!-- Bottom decorative elements -->
+  <rect x="100" y="580" width="1000" height="2" fill="#cbd5e1" opacity="0.5"/>
+  <text x="600" y="610" class="text-label" font-size="16">AI 技术演进与核心算法实战 | 第二十七篇</text>
+</svg>
