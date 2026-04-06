@@ -93,75 +93,60 @@ Generative Agents 的核心创新在于其**类人的三层认知架构**：感�
     <rect width="800" height="520" class="bg"/>
     <!-- Title -->
     <text x="400" y="35" class="text-title">Generative Agents 三层认知架构</text>
-    
     <!-- Layer 1: Perception -->
     <rect x="50" y="60" width="700" height="110" class="layer-box" fill="#dbeafe"/>
     <text x="400" y="90" class="text-layer">第一层：感知（Perception）</text>
     <rect x="80" y="105" width="180" height="50" class="sub-box"/>
     <text x="170" y="125" class="text-sub">环境感知</text>
     <text x="170" y="143" class="text-desc" dx="-60">空间位置、物体状态</text>
-    
     <rect x="310" y="105" width="180" height="50" class="sub-box"/>
     <text x="400" y="125" class="text-sub">社交感知</text>
     <text x="400" y="143" class="text-desc" dx="-60">他人行为、对话内容</text>
-    
     <rect x="540" y="105" width="180" height="50" class="sub-box"/>
     <text x="630" y="125" class="text-sub">内部状态</text>
     <text x="630" y="143" class="text-desc" dx="-60">情绪、生理需求</text>
-    
     <!-- Arrow down -->
     <path d="M 400 170 L 400 200" class="arrow"/>
     <text x="420" y="188" class="text-desc" font-size="11">原始数据流</text>
-    
     <!-- Layer 2: Memory -->
     <rect x="50" y="200" width="700" height="160" class="layer-box" fill="#fef08a"/>
     <text x="400" y="230" class="text-layer" fill="#a16207">第二层：记忆（Memory）</text>
-    
     <!-- Memory Stream -->
     <rect x="80" y="250" width="200" height="90" class="sub-box"/>
     <text x="180" y="275" class="text-sub" font-weight="600">记忆流</text>
     <text x="180" y="295" class="text-desc" dx="-70">• 短期记忆（最近事件）</text>
     <text x="180" y="315" class="text-desc" dx="-70">• 时间戳标记</text>
     <text x="180" y="333" class="text-desc" dx="-70">• 重要性评分</text>
-    
     <!-- Reflection -->
     <rect x="310" y="250" width="200" height="90" class="sub-box"/>
     <text x="410" y="275" class="text-sub" font-weight="600">反思机制</text>
     <text x="410" y="295" class="text-desc" dx="-70">• 从记忆中提取模式</text>
     <text x="410" y="315" class="text-desc" dx="-70">• 生成高层洞察</text>
     <text x="410" y="333" class="text-desc" dx="-70">• 更新自我认知</text>
-    
     <!-- Retrieval -->
     <rect x="540" y="250" width="200" height="90" class="sub-box"/>
     <text x="640" y="275" class="text-sub" font-weight="600">记忆检索</text>
     <text x="640" y="295" class="text-desc" dx="-70">• 相关性排序</text>
     <text x="640" y="315" class="text-desc" dx="-70">• 近期性加权</text>
     <text x="640" y="333" class="text-desc" dx="-70">• 重要性过滤</text>
-    
     <!-- Internal arrows in Memory layer -->
     <path d="M 280 295 L 310 295" class="dashed-arrow"/>
     <path d="M 510 295 L 540 295" class="dashed-arrow"/>
-    
     <!-- Arrow down -->
     <path d="M 400 360 L 400 390" class="arrow"/>
     <text x="420" y="378" class="text-desc" font-size="11">相关记忆</text>
-    
     <!-- Layer 3: Planning -->
     <rect x="50" y="390" width="700" height="110" class="layer-box" fill="#bbf7d0"/>
     <text x="400" y="420" class="text-layer" fill="#15803d">第三层：规划（Planning）</text>
-    
     <rect x="80" y="435" width="200" height="50" class="sub-box"/>
     <text x="180" y="455" class="text-sub">长期计划</text>
     <text x="180" y="473" class="text-desc" dx="-70">日程安排、目标设定</text>
-    
     <rect x="310" y="435" width="200" height="50" class="sub-box"/>
     <text x="410" y="455" class="text-sub">即时反应</text>
     <text x="410" y="473" class="text-desc" dx="-70">对当前情境的响应</text>
-    
     <rect x="540" y="435" width="200" height="50" class="sub-box"/>
     <text x="640" y="455" class="text-sub">行动执行</text>
     <text x="640" y="473" class="text-desc" dx="-70">移动、对话、物品交互</text>
-    
     <!-- Feedback loop -->
     <path d="M 680 460 Q 750 460 750 280 Q 750 100 680 100" class="dashed-arrow" stroke="#ef4444" stroke-width="2.5"/>
     <text x="760" y="280" class="text-desc" font-size="11" fill="#ef4444" transform="rotate(90, 760, 280)">行动反馈到感知</text>
