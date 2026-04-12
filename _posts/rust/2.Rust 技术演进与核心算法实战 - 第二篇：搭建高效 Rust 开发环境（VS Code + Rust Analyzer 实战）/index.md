@@ -145,14 +145,14 @@ cargo 1.85.0 (d73d2caf9 2024-12-31)
       </marker>
     </defs>
     <rect x="50" y="20" width="150" height="60" class="box" />
-    <text x="125" y="45" class="text" font-weight="bold">rustup</text>
-    <text x="125" y="65" class="label">工具链管理器</text>
+    <text x="100" y="45" class="text" font-weight="bold">rustup</text>
+    <text x="100" y="65" class="label">工具链管理器</text>
     <rect x="250" y="20" width="150" height="60" class="box" />
-    <text x="325" y="45" class="text" font-weight="bold">rustc</text>
-    <text x="325" y="65" class="label">编译器</text>
+    <text x="300" y="45" class="text" font-weight="bold">rustc</text>
+    <text x="300" y="65" class="label">编译器</text>
     <rect x="450" y="20" width="150" height="60" class="box" />
-    <text x="525" y="45" class="text" font-weight="bold">cargo</text>
-    <text x="525" y="65" class="label">包管理器</text>
+    <text x="500" y="45" class="text" font-weight="bold">cargo</text>
+    <text x="500" y="65" class="label">包管理器</text>
     <rect x="200" y="120" width="200" height="50" class="success" />
     <text x="300" y="145" class="text" font-weight="bold">✅ 环境就绪</text>
     <line x1="125" y1="80" x2="125" y2="100" class="arrow" />
@@ -249,7 +249,7 @@ index = "sparse+https://mirrors.tuna.tsinghua.edu.cn/crates.io-index/"
     <text x="50" y="265" class="code-text">    <tspan class="hint">&lt;!-- result: i32 --&gt;</tspan></text>
     <text x="30" y="290" class="code-text">}</text>
     <text x="30" y="315" class="code-text"></text>
-    <rect x="280" y="230" width="200" height="50" class="tooltip" />
+    <rect x="376" y="230" width="200" height="50" class="tooltip" />
     <text x="380" y="250" class="code-text" font-size="11">💡 i32: 32-bit integer</text>
     <text x="380" y="270" class="code-text" font-size="11">Press Ctrl+. for actions</text>
   </svg>
