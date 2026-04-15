@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <style>
+      .bg { fill: url(#gradient); }
+      .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 48px; fill: #ffffff; font-weight: bold; text-anchor: middle; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 28px; fill: #e0e7ff; text-anchor: middle; }
+      .code-bg { fill: rgba(15, 23, 42, 0.85); rx: 12; ry: 12; }
+      .code-text { font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace; font-size: 18px; fill: #e2e8f0; }
+      .keyword { fill: #c084fc; }
+      .string { fill: #86efac; }
+      .comment { fill: #94a3b8; font-style: italic; }
+      .stack-box { fill: #dbeafe; stroke: #3b82f6; stroke-width: 3; rx: 8; ry: 8; }
+      .heap-box { fill: #fef3c7; stroke: #f59e0b; stroke-width: 3; rx: 8; ry: 8; }
+      .pointer { stroke: #ef4444; stroke-width: 3; marker-end: url(#arrow); fill: none; }
+      .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 16px; fill: #1e293b; font-weight: 600; text-anchor: middle; }
+    </style>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#312e81;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4338ca;stop-opacity:1" />
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444" />
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" class="bg" />
+  
+  <!-- Title Section -->
+  <text x="600" y="80" class="title" filter="url(#shadow)">第一个 Rust 程序深度拆解</text>
+  <text x="600" y="130" class="subtitle">从 main 到内存布局</text>
+  
+  <!-- Code Example Box -->
+  <rect x="80" y="180" width="500" height="280" class="code-bg" filter="url(#shadow)" />
+  <text x="110" y="220" class="code-text"><tspan class="keyword">fn</tspan> <tspan fill="#60a5fa">main</tspan>() {</text>
+  <text x="130" y="255" class="code-text"><tspan class="comment">// 字符串字面量 (&amp;str)</tspan></text>
+  <text x="130" y="290" class="code-text"><tspan class="keyword">let</tspan> greeting = <tspan class="string">"Hello"</tspan>;</text>
+  <text x="130" y="325" class="code-text"></text>
+  <text x="130" y="360" class="code-text"><tspan class="comment">// 动态字符串 (String)</tspan></text>
+  <text x="130" y="395" class="code-text"><tspan class="keyword">let</tspan> name = String::<tspan class="keyword">from</tspan>(<tspan class="string">"Rust"</tspan>);</text>
+  <text x="130" y="430" class="code-text"></text>
+  <text x="130" y="465" class="code-text"><tspan class="keyword">println!</tspan>(<tspan class="string">"{} {}!"</tspan>, greeting, name);</text>
+  <text x="110" y="500" class="code-text">}</text>
+  
+  <!-- Memory Layout Diagram -->
+  <text x="850" y="210" class="label" fill="#ffffff" font-size="20">内存布局示意</text>
+  
+  <!-- Stack -->
+  <rect x="680" y="240" width="200" height="180" class="stack-box" filter="url(#shadow)" />
+  <text x="780" y="270" class="label" font-size="18">栈 (Stack)</text>
+  
+  <rect x="700" y="290" width="160" height="50" fill="#ffffff" stroke="#3b82f6" stroke-width="2" rx="4" />
+  <text x="780" y="310" class="label" font-size="13">greeting: &amp;str</text>
+  <text x="710" y="330" class="label" font-size="11" fill="#64748b">ptr + len</text>
+  
+  <rect x="700" y="355" width="160" height="50" fill="#ffffff" stroke="#3b82f6" stroke-width="2" rx="4" />
+  <text x="780" y="375" class="label" font-size="13">name: String</text>
+  <text x="710" y="395" class="label" font-size="11" fill="#64748b">ptr + len + cap</text>
+  
+  <!-- Heap -->
+  <rect x="920" y="240" width="200" height="180" class="heap-box" filter="url(#shadow)" />
+  <text x="1020" y="270" class="label" font-size="18">堆 (Heap)</text>
+  
+  <rect x="940" y="310" width="160" height="90" fill="#ffffff" stroke="#f59e0b" stroke-width="2" rx="4" />
+  <text x="1020" y="345" class="label" font-size="14">"Rust"</text>
+  <text x="960" y="375" class="label" font-size="11" fill="#64748b">动态分配</text>
+  
+  <!-- Pointers -->
+  <line x1="860" y1="380" x2="930" y2="355" class="pointer" />
+  
+  <!-- Key Points -->
+  <rect x="80" y="490" width="1040" height="110" fill="rgba(255, 255, 255, 0.1)" rx="10" filter="url(#shadow)" />
+  <text x="120" y="530" class="label" fill="#ffffff" font-size="18" text-anchor="start">📌 &amp;str：零拷贝视图，指向静态数据或堆</text>
+  <text x="120" y="565" class="label" fill="#ffffff" font-size="18" text-anchor="start">📌 String：拥有堆数据，可动态修改</text>
+  <text x="650" y="530" class="label" fill="#ffffff" font-size="18" text-anchor="start">📌 println!：编译期展开的宏</text>
+  <text x="650" y="565" class="label" fill="#ffffff" font-size="18" text-anchor="start">📌 所有权：编译期内存安全保障</text>
+</svg>
